@@ -1,0 +1,313 @@
+152,-,BADGERSTICK,BADGERSTICK,,https://learn.sparkfun.com/tutorials/badgerhack,BADGERSTICK,Sparkfun,BADGERSTICK,Sparkfun,BADGERSTICK,1,No
+151,-,ESP8266 THING,ESP8266 THING,,https://www.sparkfun.com/products/13231,THINGBOARD,Sparkfun,13231,Sparkfun,13231,1,No
+145,-,RASPBERRY PI B+ ,RASPIB+,,,,,,,,2,No
+146,-,WIFI USB DONGLE,,,,,,,,,1,No
+147,-,FULL SIZE SD CARD,,,,,,,,,1,No
+157,-,BNC MALE TO SMA MALE 1FOOT,BNC,,http://www.amphenolconnex.com/downloads/dl/file/id/5270/245101_01_xx_xx_customer_drawing.pdf,,Amphenol, 245101-04-12.00 ,Digikey, ACX1721-ND ,4,No
+162,-, CAP NAVIGATION ROUND BLACK ,CAP,,http://media.digikey.com/pdf/Data%20Sheets/C&K/TPA%20Series.pdf,,C&K, BOUTON TPA ,Digikey, 401-1997-ND ,4,No
+178,-,Minnow Board Development Kit,,,,,,,,,,No
+184,-,USB LiIon/LiPoly charger – v1.2,,,,,Adafruit,259,Adafruit,259,3,No
+192,-,MCP4725 Breakout Board 12Bit DAC with I2C,,,https://www.adafruit.com/products/935,,Adafruit,935,Adafruit,935,1,No
+235,-,CABLE END FEMALE CRIMP HOUSING 6POS ,,,https://cdn.harwin.com/pdfs/M20-106.pdf,,Harwin, M20-1060600 ,Digikey, 952-2231-ND ,9,No
+240,-,Shield stacking headers for Arduino,,,https://www.adafruit.com/product/85,,Adafruit,85,Adafruit,85,Lots,No
+19,AN, ANTENNA CALVUS 824-960MHZ SMD ,A10340,,http://media.digikey.com/PDF/Data%20Sheets/Antenova/A10340.pdf,A10340,Antenova,A10340,Digikey, 627-1022-1-ND ,1,No
+266,B, CR2032 BATTERY STRAP SMT PC PINS,CR2032,,http://www.memoryprotectiondevices.com/datasheets/BC-2003-datasheet.pdf,CR2032-BC-2400,MPD, BC-2400 ,Digikey, BC-2400-ND ,100,No
+180,B,Lithium Ion Polymer Battery - 3.7v 150mAh,LiPo 3.7V 150mAh,,https://cdn-shop.adafruit.com/product-files/1317/C1515_-_Li-Polymer_402025_150mAh_3.7V_with_PCM.pdf,JST2,PKCELL,LP402025,Adafruit,1317,2,No
+181,B,Lithium Ion Polymer Battery - 3.7v 500mAh,LiPo 3.7V 500mAh,,https://cdn-shop.adafruit.com/product-files/1578/C1854+PKCell+Datasheet+Li-Polymer+503035+500mAh+3.7V+with+PCM.pdf,JST2,PKCELL,LP503035,Adafruit,1578,2,No
+84,C, CAP CER 0.1UF 16V X7R 0402 ,100nF 16V,,http://www.samsungsem.com/kr/support/product-search/mlcc/CL05B104KO5NNNC.jsp,0402,Samsung, CL05B104KO5NNNC ,Digikey, 1276-1001-1-ND ,250,No
+85,C, CAP CER 0.1UF 10V X7R 0402 ,100nF 10V,,http://www.samsungsem.com/kr/support/product-search/mlcc/CL05B104KO5NNNC.jsp,0402,Samsung,C0402C104K8PACTU,Digikey, 399-3027-1-ND ,90,No
+86,C, CAP CER 16PF 50V NP0 0402 ,16pF 50V,,http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM1555C1H160JA01-01.pdf,0402,Murata,GRM1555C1H160JA01D,Digikey,490-5926-1-ND,80,No
+87,C, CAP CER 10000PF 100V X7S 0402 ,10nF 100V,,https://product.tdk.com/info/en/catalog/datasheets/mlcc_commercial_midvoltage_en.pdf,0402,TDK,C1005X7S2A103M050BB,Digikey, 445-5200-1-ND ,80,No
+88,C, CAP CER 10000PF 50V X7R 0402 ,10nF 50V,,http://www.digikey.com/en/ptm/k/kemet/capacitor-basics---typical-uses-for-capacitors?WT.pn_sku=399-3027-1-ND&WT.z_part_id=447601&WT.z_video_source=Part_Detail,0402,Yageo,CC0402KRX7R9BB103,Digikey, 311-1349-1-ND ,90,No
+89,C, CAP CER 4.7UF 6.3V X5R 0402 ,4.7uF 6.3V,,https://product.tdk.com/info/en/catalog/spec/mlccspec_commercial_general_midvoltage_en.pdf,0402,TDK,C1005X5R0J475M050BC,Digikey, 445-7395-1-ND ,25,No
+90,C, CAP CER 1UF 6.3V X5R 0402 ,1uF 6.3V,,http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM155R60J105KE19-01.pdf,0402,Murata,GRM155R60J105KE19D,Digikey, 490-1320-1-ND ,100,No
+91,C, CAP CER 10PF 50V NP0 0603 ,10pF 50V,,http://media.digikey.com/pdf/Data%20Sheets/Samsung%20PDFs/CL10C100JB8NCNC_spec.pdf,0603,Samsung,CL10C100JB8NCNC,Digikey, 1276-2154-1-ND ,90,No
+92,C, CAP CER 18PF 16V NP0 0603 ,18pF 16V,,http://www.kemet.com/docfinder?Partnumber=C0603C180J4GACTU,0603,Kemet,C0603C180J4GACTU,Digikey, 399-11141-1-ND ,8,No
+93,C, CAP CER 33PF 16V X7R 0603 ,33pF 16V,,http://catalogs.avx.com/SurfaceMount.pdf,0603,AVX, 0603YC330JAT2A ,Digikey, 478-6211-1-ND ,25,No
+94,C, CAP CER 120PF 50V NP0 0603 ,120pF 50V,,http://www.kemet.com/docfinder?Partnumber=C0603C121J5GACTU,0603,Kemet,C0603C121J5GACTU,Digikey, 399-1062-1-ND ,7,No
+95,C, CAP CER 1000PF 50V X7R 0603 ,10nF 50V,,http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R71H102KA01-01.pdf,0603,Murata,GRM188R71H102KA01D,Digikey, 490-1494-1-ND ,4,No
+96,C, CAP CER 6800PF 50V X7R 0603 ,68nF 50V,,http://www.kemet.com/docfinder?Partnumber=C0603C121J5GACTU,0603,Kemet,C0603C682K5RACTU,Digikey, 399-1089-1-ND ,7,No
+97,C, CAP CER 10000PF 50V X7R 0603 ,10nF 50V,,http://www.samsungsem.com/kr/support/product-search/mlcc/CL10B103KB8NNNC.jsp,0603,Samsung,CL10B103KB8NNNC ,Digikey, 1276-1009-1-ND ,185,No
+98,C, CAP CER 0.022UF 50V X7R 0603 ,22nF 50V,,http://www.samsungsem.com/kr/support/product-search/mlcc/CL10B223KB8SFNC.jsp,0603,Samsung,CL10B223KB8SFNC ,Digikey, 1276-2004-1-ND ,4,No
+99,C, CAP CER 0.1UF 100V X7R 0603 ,100nF 100V,,http://search.murata.co.jp/Ceramy/image/img/A01X/partnumbering_e_01.pdf,0603,Murata,GRM188R72A104KA35D,Digikey, 490-3285-1-ND ,30,No
+100,C, CAP CER 1UF 25V X7R 0603 ,1uF 25V,,http://ds.yuden.co.jp/TYCOMPAS/ut/detail.do?productNo=TMK107B7105KA-T&fileName=TMK107B7105KA-T_SS&mode=specSheetDownload,0603,Taiyo Yuden, TMK107B7105KA-T ,Digikey, 587-2984-1-ND ,5,No
+101,C, CAP CER 1UF 10V X7R 0603 ,1uF 10V,,http://www.samsungsem.com/kr/support/product-search/mlcc/CL10B105KP8NNNC.jsp,0603,Samsung,CL10B105KP8NNNC ,Digikey, 1276-1946-1-ND ,100,No
+102,C, CAP CER 2.2UF 10V X7R 0603 ,2.2uF 10V,,http://media.digikey.com/pdf/Data%20Sheets/Taiyo%20Yuden%20PDFs%20URL%20links/LMK107B7225KA-T.pdf,0603,Taiyo Yuden, LMK107B7225KA-T ,Digikey, 587-2983-1-ND ,35,No
+103,C, CAP CER 4.7UF 6.3V X7R 0603 ,4.7uF 6.3V,,http://media.digikey.com/pdf/Data%20Sheets/Samsung%20PDFs/CL10B475KQ8NQNC_Spec.pdf,0603,Samsung,CL10B475KQ8NQNC ,Digikey, 1276-2087-1-ND ,2,No
+272,C, CAP CER 10UF 16V X7R 0805 ,10uF 16V,,http://www.samsungsem.com/kr/front/downloadcms.do?path=/kr/support/product-search/mlcc/__icsFiles/afieldfile/2014/11/05&fileName=C_CL21B104KACNNNC.pdf,0805,Samsung,CL21B106KOQNNNE ,Digikey, 1276-2872-1-ND ,0,No
+273,C, CAP CER 0.1UF 25V X7R 0805 ,100nF 25V,,http://www.samsungsem.com/kr/front/downloadcms.do?path=/kr/support/product-search/mlcc/__icsFiles/afieldfile/2014/11/05&fileName=C_CL21B104KACNNNC.pdf,0805,Samsung, CL21B104KACNNNC ,Digikey, 1276-1099-1-ND ,0,No
+274,C, CAP CER 1UF 25V X7R 0805 ,1uF 25V,,http://www.samsungsem.com/kr/front/downloadcms.do?path=/kr/support/product-search/mlcc/__icsFiles/afieldfile/2014/11/05&fileName=C_CL21B104KACNNNC.pdf,0805,Samsung,CL21B105KAFNNNE,Digikey, 1276-1066-1-ND ,0,No
+104,C, CAP CER 10UF 25V X7R 1210 ,10uF 25V,,http://www.yuden.co.jp/productdata/catalog/en/mlcc_all_e.pdf,1210,Taiyo Yuden, TMK325B7106KN-TR,Digikey, 587-2599-1-ND ,50,No
+106,C, CAP CER 150PF 50V NP0 RADIAL ,150pF 50V,,http://www.vishay.com/docs/45171/kseries.pdf,CAP-2.5MM-RAD,Vishay BC, K151J15C0GF5TL2 ,Digikey, BC1015CT-ND ,6,No
+109,C, CAP CER 10000PF 50V C0G RADIAL ,10nF 50V,,https://product.tdk.com/info/en/documents/catalog/leadmlcc_conventional_fk_en.pdf,CAP-2.5MM-RAD,TDK,FK18C0G1H103J ,Digikey, 445-8384-ND ,6,No
+114,C, CAP CER 10UF 16V X5R RADIAL ,10uF 16V,,https://product.tdk.com/info/en/documents/catalog/leadmlcc_conventional_fk_en.pdf,CAP-2.5MM-RAD,TDK,FK14X5R1C106K,Digikey, 445-8290-ND ,8,No
+115,C, CAP CER 10UF 25V X7R RADIAL ,10uF 25V,,https://product.tdk.com/info/en/documents/catalog/leadmlcc_conventional_fk_en.pdf,CAP-2.5MM-RAD,TDK,FK16X7R1E106K,Digikey, 445-8351-ND ,3,No
+105,C, CAP CER 8.2PF 50V NP0 RADIAL ,8.2pF 50V,,http://www.kemet.com/Lists/ProductCatalog/Attachments/52/F3101_GoldMax.pdf,CAP-5MM-RAD,Kemet,C317C829D5G5TA ,Digikey, 399-8923-ND ,7,No
+107,C, CAP CER 2200PF 50V X7R RADIAL ,2.2nF 50V,,https://product.tdk.com/info/en/documents/spec/leadmlccspec_conventional_en.pdf,CAP-5MM-RAD,TDK,FK28X7R1H222K,Digikey, 445-5248-ND ,6,No
+108,C, CAP CER 4700PF 50V C0G RADIAL ,4.7pF 50V,,https://product.tdk.com/info/en/documents/catalog/leadmlcc_conventional_fk_en.pdf,CAP-5MM-RAD,TDK,FK28C0G1H472J,Digikey, 445-8585-ND ,6,No
+110,C, CAP CER 0.033UF 50V C0G RADIAL ,33nF 50V,,https://product.tdk.com/info/en/documents/catalog/leadmlcc_conventional_fk_en.pdf,CAP-5MM-RAD,TDK, FK24C0G1H333J ,Digikey, 445-8490-ND ,8,No
+111,C, CAP CER 0.33UF 50V X7R RADIAL ,330nF 50V,,https://product.tdk.com/info/en/documents/catalog/leadmlcc_conventional_fk_en.pdf,CAP-5MM-RAD,TDK,FK24X7R1H334K,Digikey, 445-5263-ND ,9,No
+112,C, CAP CER 0.1UF 50V C0G RADIAL ,100nF 50V,,https://product.tdk.com/info/en/documents/catalog/leadmlcc_conventional_fk_en.pdf,CAP-5MM-RAD,TDK,FK26C0G1H104J ,Digikey, 445-8532-ND ,20,No
+113,C, CAP CER 1UF 16V X7R RADIAL ,1uF 16V,,https://product.tdk.com/info/en/documents/catalog/leadmlcc_conventional_fk_en.pdf,CAP-5MM-RAD,TDK,FK28X7R1C105K ,Digikey, 445-8614-ND ,4,No
+116,C, CAP CER 100UF 6.3V X5R RADIAL ,100uF 6.3V,,https://product.tdk.com/info/en/documents/catalog/leadmlcc_conventional_fk_en.pdf,CAP-5MM-RAD,TDK,FK20X5R0J107M,Digikey, 445-8441-ND ,5,No
+40,D, DIODE SCHOTTKY 20V 1A DO214AC ,SS12-E3,,http://www.vishay.com/docs/88746/ss12.pdf,DO214AC,Vishay, SS12-E3/61T ,Digikey, SS12-E3/61TGICT-ND ,30,No
+39,D, DIODE GEN PURP 50V 1A DO41 ,1N4001,,http://www.mccsemi.com/up_pdf/1N4001-1N4007(DO-41).pdf,DO41,Micro Comm, 1N4001-TP ,Digikey, 1N4001-TPMSCT-ND ,50,No
+259,D, DIODE ZENER 3.6V 1W DO41 ,3.6V,,http://www.fairchildsemi.com/datasheets/BZ/BZX85C10.pdf,DO41,Fairchild,BZX85C3V6 ,Digikey, BZX85C3V6-ND ,20,No
+41,D, DIODE SCHOTTKY 20V 1A SMA , B120-13-F ,,http://www.diodes.com/_files/datasheets/ds13002.pdf,SMA,Diodes Inc, B120-13-F ,Digikey, B120-FDICT-ND ,4,No
+38,D, DIODE SCHOTTKY 40V 250MA SOD323 ,NSR0240,,http://www.onsemi.com/pub_link/Collateral/NSR0240H-D.PDF,SOD323,ON Semi, NSR0240HT1G ,Digikey, NSR0240HT1GOSCT-ND ,4,No
+260,D, TVS DIODE SOT5 ,5.5V/11V,,http://www.ti.com/lit/ds/symlink/tpd3e001.pdf,SOT5,TI, TPD3E001DRLR ,Digikey, 296-21885-1-ND ,10,No
+27,J, CONN HEADER PH SIDE 2POS 2MM SMD ,S2B-PH,,http://www.jst-mfg.com/product/pdf/eng/ePH.pdf,2PH,JST, S2B-PH-SM4-TB(LF)(SN) ,Digikey, 455-1749-1-ND ,10,No
+148,J, CONN MICRO SD CARD HINGED TYPE ,SD CARD,,http://www.molex.com/pdm_docs/sd/5009010801_sd.pdf,SD-5009010801,Molex,5009010801,Digikey, WM19081CT-ND ,5,No
+160,J, CONN BNC JACK R/A 50 OHM PCB ,BNC,,http://www.molex.com/pdm_docs/sd/731000105_sd.pdf,BNC-RA,Molex,731000105,Digikey, WM5524-ND ,3,No
+17,J, CONN SIM/SAM CARD HINGED TYPE ,C707SIM,,http://www.amphenol.info/downloads/C707_10M006_500_2.pdf,C707SIM,Amphenol, C707 10M006 5002 ,Digikey, 361-1020-1-ND ,2,No
+213,J,HEADER MALE 1POS ,CONN-1x01,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x01-2.54MM-TH,Harwin, M20-9992046 ,Digikey, 952-1902-ND ,Many,No
+193,J,HEADER FEMALE 2POS TH 1x02 0.1”,CONN-1x02,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x02-2.54MM-TH,Harwin, M20-7820246 ,Digikey, 952-1776-ND ,Many,No
+214,J,HEADER MALE 2POS TH 1x02 0.1”,CONN-1x02,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x02-2.54MM-TH,Harwin, M20-9990246,Digikey, 952-2262-ND,Many,No
+194,J,HEADER FEMALE 3POS TH 1x03 0.1”,CONN-1x03,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x03-2.54MM-TH,Harwin, M20-7820246 ,Digikey, 952-1784-ND ,Many,No
+215,J,HEADER MALE 3POS TH 1x03 0.1”,CONN-1x03,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x03-2.54MM-TH,Harwin, M20-9992046 ,Digikey, 952-1902-ND ,Many,No
+195,J,HEADER FEMALE 4POS TH 1x04 0.1” ,CONN-1x04,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x04-2.54MM-TH,Harwin, M20-7820446 ,Digikey, 952-1792-ND ,Many,No
+216,J,HEADER MALE 4POS TH 1x04 0.1” ,CONN-1x04,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x04-2.54MM-TH,Harwin, M20-9992046 ,Digikey, 952-1902-ND ,Many,No
+196,J,HEADER FEMALE 5POS TH 1x05 0.1” ,CONN-1x05,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x05-2.54MM-TH,Harwin, M20-7820542 ,Digikey, 952-1801-ND ,Many,No
+217,J,HEADER MALE 5POS TH 1x05 0.1” ,CONN-1x05,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x05-2.54MM-TH,Harwin, M20-9992046 ,Digikey, 952-1902-ND ,Many,No
+197,J,HEADER FEMALE 6POS TH 1x06 0.1” ,CONN-1x06,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x06-2.54MM-TH,Harwin, M20-7820642 ,Digikey, 952-1808-ND ,Many,No
+218,J,HEADER MALE 6POS TH 1x06 0.1” ,CONN-1x06,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x06-2.54MM-TH,Harwin, M20-9992046 ,Digikey, 952-1902-ND ,Many,No
+198,J,HEADER FEMALE 7POS TH 1x07 0.1” ,CONN-1x07,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x07-2.54MM-TH,Harwin, M20-7822046 ,Digikey, 952-1905-ND ,Many,No
+219,J,HEADER MALE 7POS TH 1x07 0.1” ,CONN-1x07,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x07-2.54MM-TH,Harwin, M20-9992046 ,Digikey, 952-1902-ND ,Many,No
+199,J,HEADER FEMALE 8POS TH 1x08 0.1” ,CONN-1x08,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x08-2.54MM-TH,Harwin, M20-7820842 ,Digikey, 952-1823-ND ,Many,No
+220,J,HEADER MALE 8POS TH 1x08 0.1” ,CONN-1x08,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x08-2.54MM-TH,Harwin, M20-9992046 ,Digikey, 952-1902-ND ,Many,No
+200,J,HEADER FEMALE 9POS TH 1x09 0.1” ,CONN-1x09,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x09-2.54MM-TH,Harwin, M20-7822046 ,Digikey, 952-1905-ND ,Many,No
+221,J,HEADER MALE 9POS TH 1x09 0.1” ,CONN-1x09,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x09-2.54MM-TH,Harwin, M20-9992046 ,Digikey, 952-1902-ND ,Many,No
+201,J,HEADER FEMALE 10POS TH 1x10 0.1” ,CONN-1x10,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x10-2.54MM-TH,Harwin, M20-7821042 ,Digikey, 952-1846-ND ,Many,No
+222,J,HEADER MALE 10POS TH 1x10 0.1” ,CONN-1x10,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x10-2.54MM-TH,Harwin, M20-9992046 ,Digikey, 952-1902-ND ,Many,No
+202,J,HEADER FEMALE 11POS TH 1x11 0.1” ,CONN-1x11,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x11-2.54MM-TH,Harwin, M20-7822046 ,Digikey, 952-1905-ND ,Many,No
+223,J,HEADER MALE 11POS TH 1x11 0.1” ,CONN-1x11,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x11-2.54MM-TH,Harwin, M20-9992046 ,Digikey, 952-1902-ND ,Many,No
+203,J,HEADER FEMALE 12POS TH 1x12 0.1” ,CONN-1x12,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x12-2.54MM-TH,Harwin, M20-7822046 ,Digikey, 952-1905-ND ,Many,No
+224,J,HEADER MALE 12POS TH 1x12 0.1” ,CONN-1x12,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x12-2.54MM-TH,Harwin, M20-9992046 ,Digikey, 952-1902-ND ,Many,No
+204,J,HEADER FEMALE 13POS TH 1x13 0.1” ,CONN-1x13,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x13-2.54MM-TH,Harwin, M20-7822046 ,Digikey, 952-1905-ND ,Many,No
+225,J,HEADER MALE 13POS TH 1x13 0.1” ,CONN-1x13,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x13-2.54MM-TH,Harwin, M20-9992046 ,Digikey, 952-1902-ND ,Many,No
+205,J,HEADER FEMALE 14POS TH 1x14 0.1” ,CONN-1x14,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x14-2.54MM-TH,Harwin, M20-7822046 ,Digikey, 952-1905-ND ,Many,No
+226,J,HEADER MALE 14POS TH 1x14 0.1” ,CONN-1x14,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x14-2.54MM-TH,Harwin, M20-9992046 ,Digikey, 952-1902-ND ,Many,No
+206,J,HEADER FEMALE 15POS TH 1x15 0.1” ,CONN-1x15,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x15-2.54MM-TH,Harwin, M20-7822046 ,Digikey, 952-1905-ND ,Many,No
+227,J,HEADER MALE 15POS TH 1x15 0.1” ,CONN-1x15,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x15-2.54MM-TH,Harwin, M20-9992046 ,Digikey, 952-1902-ND ,Many,No
+207,J,HEADER FEMALE 16POS TH 1x16 0.1” ,CONN-1x16,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x16-2.54MM-TH,Harwin, M20-7822046 ,Digikey, 952-1905-ND ,Many,No
+228,J,HEADER MALE 16POS TH 1x16 0.1” ,CONN-1x16,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x16-2.54MM-TH,Harwin, M20-9992046 ,Digikey, 952-1902-ND ,Many,No
+208,J,HEADER FEMALE 17POS TH 1x17 0.1” ,CONN-1x17,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x17-2.54MM-TH,Harwin, M20-7822046 ,Digikey, 952-1905-ND ,Many,No
+229,J,HEADER MALE 17POS TH 1x17 0.1” ,CONN-1x17,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x17-2.54MM-TH,Harwin, M20-9992046 ,Digikey, 952-1902-ND ,Many,No
+209,J,HEADER FEMALE 18POS TH 1x18 0.1” ,CONN-1x18,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x18-2.54MM-TH,Harwin, M20-7822046 ,Digikey, 952-1905-ND ,Many,No
+230,J,HEADER MALE 18POS TH 1x18 0.1” ,CONN-1x18,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x18-2.54MM-TH,Harwin, M20-9992046 ,Digikey, 952-1902-ND ,Many,No
+210,J,HEADER FEMALE 19POS TH 1x19 0.1” ,CONN-1x19,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x19-2.54MM-TH,Harwin, M20-7822046 ,Digikey, 952-1905-ND ,Many,No
+231,J,HEADER MALE 19POS TH 1x19 0.1” ,CONN-1x19,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x19-2.54MM-TH,Harwin, M20-9992046 ,Digikey, 952-1902-ND ,Many,No
+211,J,HEADER FEMALE 20POS TH 1x20 0.1” ,CONN-1x20,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x20-2.54MM-TH,Harwin, M20-7822046 ,Digikey, 952-1905-ND ,Many,No
+232,J,HEADER MALE 20POS TH 1x20 0.1” ,CONN-1x20,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x20-2.54MM-TH,Harwin, M20-9992046 ,Digikey, 952-1902-ND ,Many,No
+186,J,HEADER MALE 20POS 1x20 2MM ,CONN-1x20,,https://cdn.harwin.com/pdfs/M22-251.pdf,CONN-1x20-2MM,Harwin, M22-2512005 ,Digikey, 952-1892-ND ,10,No
+212,J,HEADER FEMALE 25POS TH 1x25 0.1” ,CONN-1x25,,"http://www.sullinscorp.com/drawings/78_P(N)PxCxxxLFBN-RC,_10492-H.pdf",CONN-1x25-2.54MM-TH,Harwin, PPTC251LFBN-RC ,Digikey, S7023-ND ,Many,No
+233,J,HEADER MALE 25POS TH 1x25 0.1” ,CONN-1x25,,https://cdn.harwin.com/pdfs/60page140.pdf,CONN-1x25-2.54MM-TH,Harwin, M20-9992046 ,Digikey, 952-1902-ND ,Many,No
+189,J,HEADER FEMALE 4POS 2x2 0.1”,CONN-2x02,,http://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=215079&DocType=Customer+Drawing&DocLang=English,CONN-215079-4 ,TE Conn, 7-215079-4 ,Digikey, A99472CT-ND ,20,No
+188,J,HEADER FEMALE 6POS 2x3 0.1” ,CONN-2x03,,http://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=215079&DocType=Customer+Drawing&DocLang=English,CONN-215079-6,TE Conn, 7-215079-6 ,Digikey, A30729CT-ND ,10,No
+187,J,HEADER FEMALE 10POS 2x5 2MM,CONN-2x05,,http://www.sullinscorp.com/images/NPPNxx2FFKx-RC-10485.pdf,CONN-2x05-2MM,Sullins, NPPN052FFKS-RC ,Digikey, S6010-05-ND ,5,No
+236,J,HEADER MALE SHROUDED 10POS 2x5 0.1” KEY JTAG,CONN-2x5-JTAG,,http://multimedia.3m.com/mws/mediawebserver?6666660Zjcf6lVs6EVs666UdhCOrrrrQ-,CONN-2x05-3M-JTAG,3M, 30310-6002HB ,Digikey, 30310-6002HB-ND ,4,No
+185,J,HEADER FEMALE 18POS 2x9 2MM,CONN-2x09,,"http://media.digikey.com/pdf/Data%20Sheets/Sullins%20PDFs/NPPNxx2GFNx-RC,%2010484(1).pdf",CONN-2x09-2MM,Sullins, NPPN092GFNP-RC ,Digikey, S6013-09-ND ,5,No
+238,J,HEADER FEMALE 20POS TH 2x20 0.1”,CONN-2x20,,"http://www.sullinscorp.com/drawings/78_P(N)PxCxxxLFBN-RC,_10492-H.pdf",CONN-2x20-2.54MM-TH,Sullins, PPPC102LFBN-RC ,Digikey, S6106-ND ,11,No
+237,J, HEADER FEMALE 50POS STRAIGHT 0.1”  KEYED,CONN-2x25,,http://www.components.omron.com/components/web/pdflib.nsf/0/1D642D622E2FDCF685257201007DD590/$file/XG4_0914.pdf,CONN-2x25-XG4-KEY,Omron, XG4H-5031 ,Digikey, OR1106-ND ,8,No
+234,J,"HEADER MALE 12POS TH .100"" R/A ",CONN-3x04,,http://suddendocs.samtec.com/catalog_english/tsw_th.pdf,CONN-3x04-2.54MM-TH-RA,Samtec, TSW-104-09-F-T-RA ,Digikey, TSW-104-09-F-T-RA-ND ,4,No
+182,J, CR2032 BATTERY STRAP SMT  FLATPIN,CR2032,,http://www.memoryprotectiondevices.com/datasheets/BC-2003-datasheet.pdf,CR2032-BC-2003,MPD, BC-2003-TR ,Digikey, BC-2003-TR-CT-ND ,2,No
+183,J,2PIN 4” JST Cables,JST2,,https://www.adafruit.com/products/261,JST2,Adafruit,261,Adafruit,261,4,No
+248,J,3x4 Phone-style Matrix Keypad,8PIN-KEYPAD,,https://www.adafruit.com/products/1824?gclid=CP3SyvWd4ssCFVBffgodT5YP6Q,KEYPAD-8PIN-2.54MM-TH,Adafruit,1824,Adafruit,1824,1,No
+271,J, CONN PWR JACK 2.0X6.5MM HIGH CUR ,BARRELJACK,,http://www.cui.com/product/resource/digikeypdf/pj-202ah.pdf,PJ-202AH,Panasonic, PJ-202AH ,Digikey, CP-202AH-ND ,0,No
+28,J, CONN PWR JACK 2.5X5.5MM HIGH CUR ,PJ-202BH,,http://www.cui.com/product/resource/digikeypdf/pj-202bh.pdf,PJ-202BH,CUI, PJ-202BH ,Digikey, PJ-202BH ,1,No
+31,J, CONN SD CARD PUSH-PULL R/A SMD ,SD,,http://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=2041021&DocType=Customer+Drawing&DocLang=English,SD-2041021-4 ,TE Conn, 2041021-4 ,Digikey, A101492CT-ND ,2,No
+190,J,HEADER FEMALE 30POS 2x15 0.05” TH KEYED,CONN-2x15,,http://suddendocs.samtec.com/catalog_english/sfm.pdf,SFML-115-01-S-D,Samtek, SFML-115-01-S-D ,Digikey, SAM8711-ND ,4,No
+191,J,HEADER FEMALE 30POS 2x15 0.05” SMT KEYED,CONN-1x01,,http://suddendocs.samtec.com/catalog_english/sfm.pdf,SFML-115-T2-S-D,Samtek, SFML-115-T2-S-D ,Digikey, SAM8244-ND ,4,No
+29,J, CONN JACK STEREO R/A 3PIN 3.5MM , SJ1-3523N ,,http://www.cui.com/product/resource/digikeypdf/sj1-352xn_series.pdf,SJ1-3523N,CUI, SJ1-3523N ,Digikey, CP1-3523N-ND ,4,No
+159,J, CONN SMA JACK STR 50 OHM SMD/TH ,SMA,,http://www.amphenolrf.com/downloads/dl/file/id/7177/product/2977/132134_15_customer_drawing.pdf,SMA,Amphenol, 132134-15 ,Digikey, ACX1962-ND ,1,No
+158,J, CONN SMA JACK R/A 50 OHM PCB ,SMA,,http://drawings.amphenolrf.com/Customer_Outline/C901-143-6RFX.pdf,SMA-RA,Amphenol, 901-143-6RFX ,Digikey, ARFX1232-ND ,8,No
+267,J,USB MICRO-B RECEPTACLE 5PIN SMT R/A STUDS,USB-MICRO,,http://portal.fciconnect.com/Comergent//fci/drawing/10118193.pdf,USB-10118193,Amphenol, 10118193-0001LF ,Digikey, 609-4616-1-ND ,50,No
+30,J," USB - A USB 2.0 Plug Connector 4 Position Surface Mount, Right Angle, Horizontal ",USB-A,,http://www.keyelco.com/product-pdf.cfm?p=2859,USB-A-RA-931,Keystone,931,Digikey, 36-931-ND ,7,No
+239,JP," SHUNT JUMPER .1"" BLACK GOLD ",2PIN-SHUNT,,http://multimedia.3m.com/mws/mediawebserver?66666UuZjcFSLXTtNxTElXf6EVuQEcuZgVs6EVs6E666666--,CONN-1x02-2.54MM-TH,3M, 969102-0000-DA ,Digikey, 3M9580-ND ,35,No
+81,L, FERRITE BEAD 220 OHM 0402 1LN ,FERRITE,,http://cdn.lairdtech.com/home/brandworld/files/Catalog_EMI%20Filtering%20&%20RF%20Inductors.pdf,0402,Laird-Signal, LI0402C221R-10 ,Digikey, 240-2554-1-ND ,4,No
+79,L, FIXED IND 3.3NH 500MA 150 MOHM ,3.3nH,,http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/L0075S0083LQG18H.pdf,0603,Murata,LQG18HN3N3S00D,Digikey, 490-1104-1-ND ,9,No
+80,L, FIXED IND 6.8NH 430MA 250 MOHM ,6.8nH,,http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/L0075S0083LQG18H.pdf,0603,Murata, LQG18HN6N8J00D ,Digikey, 490-1108-1-ND ,9,No
+83,L, FIXED IND 4.7UH 600MA 344.5 MOHM ,4.7uH,,http://ds.yuden.co.jp/TYCOMPAS/ut/detail.do?productNo=BRC2012T4R7MD&fileName=BRC2012T4R7MD_SS&mode=specSheetDownload,0805,Taiyo Yuden,BRC2012T4R7MD,Digikey, 587-2907-1-ND ,23,No
+82,L, FIXED IND 10UH 225MA 1.2 OHM SMD ,10uH,,http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/L0075S0103LQH2MC_02.pdf,0806,Murata, LQH2MCN100K02L ,Digikey, 490-4046-1-ND ,4,No
+78,L, FIXED IND 3.3UH 575MA 300 MOHM ,3.3uH,,http://www.bourns.com/docs/Product-Datasheets/78f_series.pdf,78F-AXIAL,Bourns, 78F3R3J-RC ,Digikey, 78F3R3J-RC-ND ,8,No
+243,LCD,LCD MODULE 16X2 CHARACTER 1602,LCD-1602,,,LCD-1602,,,,,0,No
+244,LCD,LCD MODULE 16X2 CHARACTER 1602A,LCD-1602A,,https://www.adafruit.com/datasheets/TC1602A-01T.pdf,LCD-1602A,Tinsharp ,TC1602A-09T,Adafruit,181,4,No
+245,LCD,LCD MODULE 16X2 CHARACTER 1602B,LCD-1602B,,,LCD-1602B,,,,,0,No
+51,LED, LED AMBER DIFFUSED 0603 SMD ,AMBER,,"http://media.digikey.com/pdf/Data%20Sheets/Osram%20PDFs/LS,LA,LO,LY_296.pdf",0603,OSRAM Opto, LA L296-Q2R2-1-Z ,Digikey, 475-2712-1-ND ,24,No
+52,LED, LED RED CLEAR 0603 SMD ,RED,,http://katalog.we-online.de/led/datasheet/150060RS75000.pdf,0603,Wurth,150060RS75000,Digikey, 732-4978-1-ND ,50,No
+53,LED, LED RED DIFFUSED 0603 SMD ,RED,,http://www.osram-os.com/Graphics/XPic5/00077119_0.pdf,0603,OSRAM Opto, LS L296-P2Q2-1-Z ,Digikey, 475-2761-1-ND ,25,No
+55,LED, LED GREEN DIFFUSED 0603 SMD ,GREEN,,http://media.digikey.com/pdf/Data%20Sheets/Stanley%20Electric%20PDFs/BR1111C_Series.pdf,0603,Stanley Electric, BG1111C-TR ,Digikey, 404-1005-1-ND ,12,No
+56,LED, LED RED DIFFUSED 0603 SMD ,RED,,http://media.digikey.com/pdf/Data%20Sheets/Avago%20PDFs/HSMz-Czzz.pdf,0603,Broadcom, HSMS-C191 ,Digikey, 516-3074-1-ND ,9,No
+54,LED, LED GREEN/RED CLEAR 0606 SMD ,RED-GREEN,,http://optoelectronics.liteon.com/upload/download/DS22-2000-282/P_100_LTST-C195KGJRKT.pdf,0606,Lite-On, LTST-C195KGJRKT ,Digikey, 160-1452-1-ND ,4,No
+252,LED, LED GRN/YLW DIFF 3MM ROUND T/H ,GREEN-YELLOW,,http://www.kingbrightusa.com/images/catalog/SPEC/WP115WGYW.pdf,LED-3MM-3PIN,Kingbright,WP115WGYW,Digikey, 754-1864-ND ,10,No
+255,LED, LED GRN/YLW DIFF 3MM ROUND T/H ,GREEN-YELLOW,,http://www.sunledusa.com/products/spec/XLUGY34M.pdf,LED-3MM-3PIN,SunLED, XLUGY34M ,Digikey, 1497-1028-ND ,10,No
+250,LED, LED GREEN/RED CLEAR 4PLCC SMD ,GREEN-RED,,http://katalog.we-online.de/led/datasheet/150141RV73100.pdf,LED-4PLCC,Wurth, 150141RV73100 ,Digikey, 732-5001-1-ND ,6,No
+253,LED, LED GRN/RED/YLW CLEAR 4PLCC SMD ,GRN-RED-YLW,,http://www.bivar.com/portals/0/products/SMP4-SRGY.pdf,LED-4PLCC,Bivar Inc, SMP4-SRGY ,Digikey, 492-1227-1-ND ,3,No
+47,LED, LED RED DIFF 5MM ROUND T/H ,RED,,http://www.marktechopto.com/products/datasheet/MT4118-HR-A,LED-5MMD-2PIN-2.54MMP,Marktech Opto, MT4118-HR-A ,Digikey, 1125-1188-ND ,50,No
+48,LED, LED GRN DIFF 5MM ROUND T/H ,GREEN,,http://www.marktechopto.com/products/datasheet/MT2118-G-A,LED-5MMD-2PIN-2.54MMP,Marktech Opto, MT2118-G-A ,Digikey, 1125-1184-ND ,20,No
+49,LED, LED BLUE CLEAR 5MM ROUND T/H ,BLUE,,http://www.cree.com/~/media/Files/Cree/LED%20Components%20and%20Modules/HB/Data%20Sheets/C503B%20BAS%20BAN%20BCS%20BCN%20GAS%20GAN%20GCS%20GCN%201094.pdf,LED-5MMD-2PIN-2.54MMP,Cree Inc, C503B-BCS-CV0Z0461 ,Digikey, C503B-BCS-CV0Z0461-ND ,9,No
+249,LED, LED GREEN/RED CLEAR ROUND T/H ,GREEN-RED,,http://www.kingbrightusa.com/images/catalog/SPEC/WP59EGC.pdf,LED-5MMD-3PIN-2.54MMP,Kingbright,WP59EGC,Digikey, 754-1471-ND ,10,No
+251,LED, LED GRN/RED DIFF 5MM ROUND T/H ,GREEN-RED,,http://www.sunledusa.com/products/spec/XLUGR59M.pdf,LED-5MMD-3PIN-2.54MMP,SunLED,XLUGR59M ,Digikey, 1497-1027-ND ,10,No
+256,LED, LED GREEN/YLW CLEAR 0606 SMD ,GREEN-YELLOW,,http://www.kingbrightusa.com/images/catalog/SPEC/APTB1615SYKCGKC-F01.pdf,LED-APTB-CHIP,Kingbright, APTB1615SYKCGKC-F01 ,Digikey, 754-1150-1-ND ,10,No
+254,LED, LED GREEN/YLW CLEAR 1210 SMD ,GREEN-YELLOW,,http://optoelectronics.liteon.com/upload/download/DS-22-98-0007/S_110_LTST-C155GYKT.pdf,LED-LTST-CHIP,Lite-On, LTST-C155GYKT ,Digikey, 160-1171-1-ND ,10,No
+3,LED,5050 RGB LED with Integrated Chip Driver,5050RGBLED,,https://www.adafruit.com/images/product-files/1138/SK6812%20LED%20datasheet%20.pdf,RGBLED5050,Adafruit,5050 RGB LED,Adafruit,1655,20,No
+50,LED, LED RGB WS2812B W/DVR 4SMD ,WS2812B,,http://www.adafruit.com/datasheets/WS2812B.pdf,RGBLED5050,Adafruit,1655,Digikey, 1528-1104-ND ,15,No
+22,MIC, MIC COND ANALOG OMNI -44DB ,CMA4544,,http://www.cui.com/product/resource/digikeypdf/cma-4544pf-w.pdf,MIC-CMA4544,CUI, CMA-4544PF-W ,Digikey, 102-1721-ND ,4,No
+20,MIC, RECEIVER 100HZ-9.5KHZ ,SR6438,,http://www.knowles.com/download/file?p=SR6438NWS-000.pdf,SR6438,Knowles, SR6438NWS-000 ,Digikey, 423-1142-ND ,2,No
+18,NE, LAMP NEON 6.2MM WIRE TERMINAL ,A9A,,http://vcclite.com/_pdf/Neon%20Indicator%20Lamps_7_&_8.pdf,TH-LAMPA9A,Visual Comm,A9A,Digikey,A9A-ND,9,No
+42,Q, MOSFET P-CH 20V 2.6A SOT23 ,IRLML2246,,http://www.irf.com/product-info/datasheets/data/irlml2246pbf.pdf,SOT23-3,Infineon, IRLML2246TRPBF ,Digikey, IRLML2246TRPBFCT-ND ,30,No
+43,Q, MOSFET N-CH 20V 0.9A SOT-23 , FDV305N ,,http://www.fairchildsemi.com/datasheets/FD/FDV305N.pdf,SOT23-3,Fairchild, FDV305N ,Digikey, FDV305NCT-ND ,12,No
+44,Q, MOSFET N-CH 20V 3.2A SOT-23 ,NTR4501N,,http://www.onsemi.com/pub_link/Collateral/NTR4501N-D.PDF,SOT23-3,ON Semi, NTR4501NT1G ,Digikey, NTR4501NT1GOSCT-ND ,5,No
+45,Q, TRANS PNP 60V 0.6A SOT23-3 ,MMBT2907A,,http://www.diodes.com/_files/datasheets/ds30040.pdf,SOT23-3,Diodes Inc, MMBT2907A-7-F ,Digikey, MMBT2907A-FDICT-ND ,9,No
+46,Q, TRANS NPN 45V 0.1A TO-92 ,BC547BTA,,http://www.fairchildsemi.com/datasheets/BC/BC546.pdf,TO-92,Fairchild, BC547BTA ,Digikey, BC547BTACT-ND ,6,No
+118,R, RES SMD 33 OHM 1% 1/10W 0402 ,33,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF33R0X+7+WW,0402,Panasonic, ERJ-2RKF33R0X ,Digikey, P33.0LCT-ND ,85,No
+119,R, RES SMD 1K OHM 1% 1/10W 0402 ,1K,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF33R0X+7+WW,0402,Panasonic, ERJ-2RKF1001X ,Digikey, P1.00KLCT-ND ,85,No
+120,R, RES SMD 4.7K OHM 1% 1/10W 0402 ,4.7K,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF33R0X+7+WW,0402,Panasonic, ERJ-2RKF4701X ,Digikey, P4.70KLCT-ND ,90,No
+121,R, RES SMD 10K OHM 1% 1/10W 0402 ,10K,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF33R0X+7+WW,0402,Panasonic, ERJ-2RKF1002X ,Digikey, P10.0KLCT-ND ,85,No
+122,R, RES SMD 27K OHM 1% 1/10W 0402 ,27K,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF33R0X+7+WW,0402,Panasonic, ERJ-2RKF2702X ,Digikey, P27.0KLCT-ND ,70,No
+263,R, RES SMD 220 OHM 5% 1/10W 0402 ,220,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0001+ERJ2GEJ221X+7+WW,0402,Panasonic, ERJ-2GEJ221X ,Digikey, P220JCT-ND ,500,No
+126,R, RES SMD 205K OHM 1% 1/10W 0603 ,205K,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ3EKF2053V+7+WW,0603,Panasonic, ERJ-3EKF2053V ,Digikey, P205KHCT-ND ,47,No
+127,R, RES SMD 0.0 OHM JUMPER 1/8W 0603 ,0,,http://www.vishay.com/docs/28705/mcx0x0xpro.pdf,0603,Vishay,MCT06030Z0000ZP500 ,Digikey, MCT0603-0.0-ZZCT-ND ,50,No
+128,R, RES SMD 1 OHM 5% 1/10W 0603 ,1,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0001+ERJ3GEYJ1R0V+7+WW,0603,Panasonic, ERJ-3GEYJ1R0V ,Digikey, P1.0GCT-ND ,25,No
+129,R, RES SMD 200K OHM 5% 1/10W 0603 ,200K,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0001+ERJ3GEYJ204V+7+WW,0603,Panasonic, ERJ-3GEYJ204V ,Digikey, P200KGCT-ND ,47,No
+130,R, RES SMD 31.6K OHM 1% 1/10W 0603 ,31.6K,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ3EKF3162V+7+WW,0603,Panasonic, ERJ-3EKF3162V ,Digikey, P31.6KHCT-ND ,45,No
+131,R, RES SMD 10 OHM 1% 1/10W 0603 ,10,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ3EKF10R0V+7+WW,0603,Panasonic, ERJ-3EKF10R0V ,Digikey, P10.0HCT-ND ,35,No
+132,R, RES SMD 470 OHM 5% 1/4W 0603 ,470,,http://rohmfs.rohm.com/en/products/databook/datasheet/passive/resistor/chip_resistor/esr.pdf,0603,Rohm Semi, ESR03EZPJ471 ,Digikey, RHM470DCT-ND ,20,No
+133,R, RES SMD 1K OHM 1% 1/10W 0603 ,1K,,http://media.digikey.com/pdf/Data%20Sheets/Samsung%20PDFs/RC_Series_ds.pdf,0603,Samsung,RC1608F102CS,Digikey, 1276-3484-1-ND ,240,No
+134,R, RES SMD 16.2K OHM 1% 1/10W 0603 ,16.2K,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ3EKF1622V+7+WW,0603,Panasonic, ERJ-3EKF1622V ,Digikey, P16.2KHCT-ND ,45,No
+135,R, RES SMD 10K OHM 1% 1/8W 0603 ,10K,,http://www.seielect.com/catalog/SEI-RNCP.pdf,0603,Stackpole, RNCP0603FTD10K0,Digikey, RNCP0603FTD10K0CT-ND ,70,No
+136,R, RES SMD 2K OHM 1% 1/8W 0603 ,2K,,http://www.seielect.com/catalog/SEI-RNCP.pdf,0603,Stackpole,RNCP0603FTD2K00,Digikey, RNCP0603FTD2K00CT-ND ,100,No
+144,R, RES SMD 10K OHM 5% 1/8W 0805 ,10K,,http://www.yageo.com/NewPortal/yageodocoutput?fileName=/pdf/R-Chip/PYu-RC_Group_51_RoHS_L_3.pdf,0805,Yageo, RC0805JR-0710KL ,Digikey, 311-10KARCT-ND ,90,No
+268,R, RES SMD 0.0 OHM JUMPER 1/8W 0805 ,0 ohm,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0001+ERJ6GEY0R00V+7+WW,0805,Panasonic, ERJ-6GEY0R00V ,Digikey, P0.0ACT-ND ,0,No
+269,R, RES SMD 220K OHM 5% 1/8W 0805 ,220K,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0001+ERJ6GEYJ224V+7+WW,0805,Panasonic, ERJ-6GEYJ224V ,Digikey, P220KACT-ND ,0,No
+270,R, RES SMD 1.5K OHM 5% 1/8W 0805 ,1.5K,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0001+ERJ6GEYJ152V+7+WW,0805,Panasonic, ERJ-6GEYJ152V ,Digikey, P1.5KACT-ND ,0,No
+117,R, POT 10K OHM 1/5W PLASTIC LINEAR ,TRIMPOT-10K,,http://www.bitechnologies.com/pdfs/p160.pdf,P160-TRIMPOT,TT Electronics, P160KN-0QC15B10K ,Digikey, 987-1301-ND ,7,No
+137,R, RES 33 OHM 1/4W 5% CARBON FILM ,33,,http://www.seielect.com/catalog/SEI-CF_CFM.pdf,CF14,Stackpole,CF14JT33R0 ,Digikey, CF14JT33R0CT-ND ,45,No
+264,R, RES 220 OHM 1/4W 5% CARBON FILM ,220,,http://www.seielect.com/catalog/SEI-CF_CFM.pdf,CF14,Stackpole, CF14JT220R,Digikey, CF14JT220RCT-ND ,100,No
+138,R, RES 10K OHM 1/4W 5% CF MINI ,10K,,http://www.seielect.com/catalog/SEI-CF_CFM.pdf,CFM14,Stackpole,CFM14JT10K0,Digikey, S10KQCT-ND ,90,No
+139,R, RES 82K OHM 1/4W 5% CF MINI ,82K,,http://www.seielect.com/catalog/SEI-CF_CFM.pdf,CFM14,Stackpole,CFM14JT82K0,Digikey, S82KQCT-ND ,90,No
+140,R, RES 150 OHM 1/4W 5% CF MINI ,150,,http://www.seielect.com/catalog/SEI-CF_CFM.pdf,CFM14,Stackpole,CFM14JT150R ,Digikey, S150QCT-ND ,90,No
+141,R, RES 18K OHM 1/4W 5% CF MINI ,18K,,http://www.seielect.com/catalog/SEI-CF_CFM.pdf,CFM14,Stackpole,CFM14JT18K0 ,Digikey, S18KQCT-ND ,90,No
+142,R, RES 1K OHM 1/4W 5% CF MINI ,1K,,http://www.seielect.com/catalog/SEI-CF_CFM.pdf,CFM14,Stackpole,CFM14JT1K00,Digikey, S1KQCT-ND ,75,No
+143,R, RES 220 OHM 1/4W 5% CF MINI ,220,,http://www.seielect.com/catalog/SEI-CF_CFM.pdf,CFM14,Stackpole, S220QCT-ND ,Digikey, CFM14JT220R ,90,No
+168,R, TRIMMER 10K OHM 0.1W SMD ,TRIMPOT-10K,,http://www.bourns.com/docs/Product-Datasheets/TC33.pdf,TC33X,Bourns, TC33X-2-103E ,Digikey, TC33X-103ECT-ND ,9,No
+Wbox_SKU,Reference,Description,Value,KiCad Footprint,Datasheet,Package,MF_Name,MF_PN,S1_Name,S1_PN,Qty,Verified_FP
+165,S, SWITCH TOGGLE SPDT 5A 120V ,100SP3,,https://www.e-switch.com/system/asset/product_line/data_sheet/129/100.pdf,100SP3,E-Switch,100SP3T1B1M2QEH ,Digikey, EG2377-ND ,3,No
+171,S,THRU-HOLE 5-WAY NAVIGATION SWITCH,5WAY-SWITCH,,https://www.adafruit.com/products/504,5WAY-NAV-SWITCH,Adafruit,SKQUCAA010,Adafruit,504,5,No
+169,S, SWITCH TACTILE SPST-NO 0.05A 24V , B3F-1000 ,,http://www.omron.com/ecb/products/pdf/en-b3f.pdf,B3F-1000,Omron,B3F-1000,Digikey, SW400-ND ,24,No
+163,S, SWITCH TACTILE SPST-NO 0.05A 12V ,B3U-1000P,,http://www.omron.com/ecb/products/pdf/en-b3u.pdf,B3U-1000P,Omron, B3U-1000P ,Digikey, SW1020CT-ND ,9,No
+261,S, SWITCH SLIDE SPDT 200MA 30V ,SLIDE,,https://www.e-switch.com/system/asset/product_line/data_sheet/119/EG.pdf,EG1218,E-Switch,EG1218 ,Digikey, EG1903-ND ,10,No
+164,S, SWITCH TACTILE SPST-NO 0.05A 24V , FSMSM,,http://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1437566-3&DocType=Customer+Drawing&DocLang=English,FSMSM,TE Conn, FSMSMTR ,Digikey, 450-1758-1-ND ,23,No
+166,S, SWITCH SLIDE SPDT 100MA 12V ,OS102011MA1QN1 ,,http://www.ck-components.com/14388/os_19jan15.pdf/,OS102011MA1QN1 ,C&K,OS102011MA1QN1,Digikey, CKN9559-ND ,9,No
+170,S, SWITCH ROCKER SPST 10A 125V ,RA1 ROCKER,,https://www.e-switch.com/system/asset/product_line/data_sheet/81/RA1.pdf,RA1-ROCKER,E-Switch,RA11131100,Digikey, RA11131100-ND ,8,No
+167,S, SWITCH TACTILE SPST-NO 0.05A 12V , RS-032G05A3-SM RT ,,http://media.digikey.com/pdf/Data%20Sheets/C&K/RS-032G05_-SM_RT.pdf,RS-32G05A3-SM,C&K, RS-032G05A3-SM RT ,Digikey, CKN10388CT-ND ,20,No
+161,S, SWITCH TACT NAV 4DIR W/SELECT ,TPA511GS,,http://media.digikey.com/pdf/Data%20Sheets/C&K/TPA%20Series.pdf,TPA511GS,C&K, TPA511GLFS ,Digikey, 401-1130-1-ND ,4,No
+179,SPK, SPEAKER 8 OHM .25W 23MM ROUND ,8ohm 0.25W 23mm,,http://www.mallory-sonalert.com/specifications/PSR-23F08S-JQ.PDF,PSR-2WIRE,Mallory Sonalert, PSR-23F08S-JQ ,Digikey, 458-1124-ND ,4,No
+242,U,Adafruit FT232H USB to GPIO+SPI+I2C,,,https://www.adafruit.com/products/2264,ADAFT232HBKOUT,Adafruit,2264,Adafruit,2264,2,No
+125,U, ADAFRUIT ULTIMATE GPS BREAKOUT V3,GPS MTK3329,,https://www.adafruit.com/products/746,ADAGPSBREAKOUT,Adafruit,ULTIMATE-GPS-BREAKOUT,Adafruit,746,,No
+176,U,MAX31855 Breakout Board v2,MAX31855,,https://www.adafruit.com/products/269,ADAMAX31855BKOUT,Adafruit,269,Adafruit,269,1,No
+153,U,ADAFRUIT PRO TRINKET 5V HACKADAY VERSION,ADAFRUIT PRO MINI 5V,,https://www.adafruit.com/products/2000,ADAPROMINI,Adafruit,2000,Adafruit,2000,3,No
+172,U,Adafruit Wave Shield for Arduino v1.1,ARDUINOSHIELD,,https://www.adafruit.com/product/94,ARDU-UNOSHIELD,Adafruit,94,Adafruit,94,1,No
+173,U,Adafruit Motor/Stepper/Servo Shield v2.3,ARDUINOSHIELD,,https://www.adafruit.com/products/1438,ARDU-UNOSHIELD,Adafruit,1438,Adafruit,1438,1,No
+174,U,Standalone AVR ISP Programmer Shield Kit,ARDUINOSHIELD,,https://www.adafruit.com/products/462,ARDU-UNOSHIELD,Adafruit,462,Adafruit,462,1,No
+175,U,"Adafruit 1.8"" Color TFT Shield w/microSD and Joystick",ARDUINOSHIELD,,https://www.adafruit.com/product/802,ARDU-UNOSHIELD,Adafruit,802,Adafruit,802,1,No
+241,U,Adafruit Proto Shield Stackable for Uno R3,ARDUINOSHIELD,,https://www.adafruit.com/products/2077?,ARDU-UNOSHIELD,Adafruit,2077,Adafruit,2077,1,No
+246,U,SD CARD SHIELD V4.2,ARDUINOSHIELD,,http://www.seeedstudio.com/wiki/SD_Card_shield_V4.0,ARDU-UNOSHIELD,Seeed Studio,103030005,Seeed Studio,103030005,1,No
+154,U,ARDUINO UNO R3,ARDUINO UNO R3,,https://www.adafruit.com/products/50,ARDU-UNOSHIELD,Arduino,UNO R3,Adafruit,50,2,No
+124,U, ARDUINO PRO MINI 328 – 5V/16MHz,ARDU PRO MINI 5V,,https://www.sparkfun.com/products/11113,ARDUPROMINI,Sparkfun,ARDUINO-PRO-MINI-5V,Sparkfun,DEV-11113,,No
+177,U, RES 33 OHM 1/2W 5% AXIAL ,33 1/2W ,,http://www.yageo.com/documents/recent/Yageo%20LR_CFR_2013.pdf,RES-CFR-0.5W,Yageo, CFR-50JB-52-33R ,Digikey, 33H-ND ,2,No
+1,U,ACCELEROMETER 3X3 DGTL 10-DFN ,MMA7660,,http://cache.freescale.com/files/sensors/doc/data_sheet/MMA7660FC.pdf,DFN10,Freescale NXP,MMA7660FCT,Digikey,MMA7660FCT-ND ,0,No
+149,U, IC 8-BIT SHIFT REGISTER 16-DIP ,74HC595,,http://www.ti.com/lit/ds/symlink/sn74hc595.pdf,DIP16,TI,SN74HC595N ,Digikey, 296-1600-5-ND ,8,No
+4,U,IC VREF GND REF ADJ DIP8 ,TLE2426,,http://www.ti.com/lit/ds/symlink/tle2426.pdf,DIP8,TI,TLE2426CP,Digikey, 296-6548-5-ND ,10,No
+21,U, IC AUDIO PWR AMP LOW VOLT 8-DIP ,NJM386,,http://semicon.njr.co.jp/eng/PDF/NJM386_E.pdf,DIP8,NJR, NJM386D ,Digikey, NJM386D-ND ,9,No
+24,U, IC OPAMP GP 1MHZ DIP8 ,LM358,,http://www.onsemi.com/pub_link/Collateral/LM358-D.PDF,DIP8,ON Semi,LM358NG,Digikey, LM358NGOS-ND ,9,No
+25,U, IC OPAMP AUDIO 70MHZ DIP8 ,LT1115,,http://www.linear.com/docs/1612,DIP8,Linear, LT1115CN8#PBF ,Digikey, LT1115CN8#PBF-ND ,4,No
+26,U, IC OPAMP JFET 3MHZ DIP8 ,TL081CP,,http://www.ti.com/lit/ds/symlink/tl081a.pdf,DIP8,TI, TL081CP ,Digikey, 296-7203-5-ND ,10,No
+150,U,WATTUINO NANITE841,NANITE841,,https://github.com/watterott/wattuino,DIP8,Waterott,NANITE85,Waterott,WATTUINO-NANITE85,1,No
+257,U, IC MCU 8BIT 8KB FLASH 8PDIP ,ATTINY85,,http://www.atmel.com/Images/Atmel-2586-AVR-8-bit-Microcontroller-ATtiny25-ATtiny45-ATtiny85_Datasheet.pdf,DIP8,Atmel, ATTINY85-20PU ,Digikey, ATTINY85-20PU-ND ,10,No
+14,U, IC REG LDO 3.3V 1A DPAK ,NCP1117,,http://www.onsemi.com/pub_link/Collateral/NCP1117-D.PDF,DPAK,ON Semi, NCP1117DT33G ,Digikey,NCP1117DT33GOS-ND,4,No
+247,U,FTDI Friend FT232R Breakout,FTDIFRIEND,,https://www.sparkfun.com/products/9716,FTDIFRIEND,Sparkfun,09716,Sparkfun,09716,1,No
+75,U, GYRO/ACCELEROMETER 9-AXIS 24LGA MPU9150,,,http://store.invensense.com/datasheets/invensense/MPU-9150_DataSheet_V4%203.pdf,LGA24,Invensense,MPU-9150,Digikey, 1428-1009-1-ND ,5,No
+57,U, IC MCU 32BIT 1MB FLASH 100LQFP ,STM32F407-100LQFP,,http://www.st.com/web/en/resource/technical/document/datasheet/DM00037051.pdf,LQFP100,STM, STM32F407VGT6 ,Digikey, 497-11605-ND ,1,No
+62,U, IC MCU 32BIT 32KB FLASH 32LQFP ,STM32F042-32LQFP,,http://www.st.com/web/en/resource/technical/document/datasheet/DM00105814.pdf,LQFP32,STM,STM32F042K6T6,Digikey, 497-14647-ND ,5,No
+65,U, IC WAVEFORM GENERTR PROG 10-MSOP ,AD9833,,http://www.analog.com/media/en/technical-documentation/data-sheets/AD9833.pdf,MSOP10,Analog,AD9833BRMZ,Digikey, AD9833BRMZ-ND ,1,No
+69,U, IC LI-ION/LI-POLY CTRLR 10MSOP ,MCP73833,,http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en027983,MSOP10,Microchip, MCP73833-AMI/UN ,Digikey, MCP73833-AMI/UN-ND ,7,No
+71,U, IC MOTOR DRIVER PAR 30MULTIPWRSO , VNH5019,,http://www.st.com/web/en/resource/technical/document/datasheet/CD00234623.pdf,MULTIPWRSO30,STM, VNH5019ATR-E ,Digikey, 497-13073-1-ND ,2,No
+8,U, IC REG LDO 3.3V 3A P2PAK-4 ,LD29300,,http://www.st.com/web/en/resource/technical/document/datasheet/CD00003208.pdf,P2PAK-4,STM, LD29300P2M33R ,Digikey, 497-3475-1-ND ,3,No
+68,U, IC TXRX USB ULPI 13MHZ 24QFN ,USB-PHY-3318,,http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en562029,QFN24,Microchip, USB3318C-CP-TR ,Digikey, USB3318C-CP-CT-ND ,4,No
+76,U, GYRO/ACCELEROMETER 6AXIS 24QFN ,MPU6000,,http://store.invensense.com/datasheets/invensense/MPU-6050_DataSheet_V3%204.pdf,QFN24,Invensense,MPU-6000,Digikey,1428-1005-1-ND,1,No
+70,U, IC GPS RECEIVER 28TQFN ,MAX2769,,http://datasheets.maximintegrated.com/en/ds/MAX2769.pdf,QFN28,Maxim, MAX2769ETI+ ,Digikey, MAX2769ETI+-ND ,4,No
+74,U, IC SHIFTER HEX HIGH-LOW 16SOIC ,74HC4050,,http://www.nxp.com/documents/data_sheet/74HC4050.pdf,SOIC16,NXP," 74HC4050D,652 ",Digikey, 568-1453-5-ND ,24,No
+73,U, IC I/O EXPANDER I2C 8B 18SOIC ,MCP23008,,http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en021920,SOIC18,Microchip, MCP23008T-E/SO ,Digikey, MCP23008T-E/SOTR-ND ,5,No
+2,U,IC MCU 8BIT 8KB FLASH 20SOIC ,ATTINY861V,,http://www.atmel.com/images/atmel-2588-8-bit-avr-microcontrollers-tinyavr-attiny261-attiny461-attiny861_datasheet.pdf,SOIC20,Atmel,ATTINY861V-10SU ,Digikey,ATTINY861V-10SU-ND ,0,No
+123,U, IC MCU 8BIT 8KB FLASH 20SOIC ,ATTINY861V,,http://www.atmel.com/Images/Atmel-2588-8-bit-AVR-Microcontrollers-tinyAVR-ATtiny261-ATtiny461-ATtiny861_Datasheet.pdf,SOIC20,Atmel, ATTINY861V-10SU ,Digikey, ATTINY861V-10SU-ND ,0,No
+258,U, IC MCU 8BIT 8KB FLASH 8SOIC ,ATTINY85,,http://www.atmel.com/Images/Atmel-2586-AVR-8-bit-Microcontroller-ATtiny25-ATtiny45-ATtiny85_Datasheet.pdf,SOIC8,Atmel, ATTINY85-20SU ,Digikey, ATTINY85-20SU-ND ,10,No
+6,U, IC REG BST 5V 295MA SYNC SOT-25 ,XC9140,,http://www.torex.co.jp/english/products/dcdc_converters/data/XC9140.pdf,SOT23-5,Torex, XC9140A501MR-G ,Digikey, 893-1181-1-ND ,9,No
+7,U, IC REG LDO 3.3V 0.15A SOT23-5 ,AAT3221,,http://www.skyworksinc.com/uploads/documents/AAT3221_AAT3222_202251B.pdf,SOT23-5,Skyworks, AAT3221IGV-3.3-T1 ,Digikey, 863-1491-1-ND ,18,No
+10,U, IC REG LDO 3.3V 0.15A SOT23-5 ,TC2185,,http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en011649,SOT23-5,Microchip, TC2185-3.3VCTTR ,Digikey, TC2185-3.3VCCT-ND ,4,No
+11,U,IC REG BOOST ADJ 0.5A SOT25 ,AP3012,,http://www.diodes.com/_files/datasheets/AP3012.pdf,SOT23-5,Diodes Inc, AP3012KTR-G1 ,Digikey, AP3012KTR-G1DICT-ND ,4,No
+23,U, IC OPAMP VFB 200MHZ RRO SOT23-5 , OPA356AIDBVR ,,http://www.ti.com/lit/ds/symlink/opa356.pdf,SOT23-5,TI, OPA356AIDBVR ,Digikey, 296-32191-1-ND ,4,No
+66,U, IC CONTROLLR LI-ION 4.2V SOT23-5 , MCP73831T-2ACI/OT ,,http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en025112,SOT23-5,Microchip, MCP73831T-2ACI/OT ,Digikey, MCP73831T-2ACI/OTCT-ND ,9,No
+5,U,IC REG LDO 3.3V 0.25A SOT23A-3 ,MCP1703,,http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en530937,SOT23A-3,Microchip, MCP1703T-3302E/CB ,Digikey, MCP1703T-3302E/CBCT-ND ,8,No
+262,U, IC REG LDO 3.3V 0.5A 5SSOP ,BU33SD5WG,,http://rohmfs.rohm.com/en/products/databook/datasheet/ic/power/linear_regulator/buxxsd5wg-e.pdf,SSOP5,Rohm Semi, BU33SD5WG-TR ,Digikey, BU33SD5WG-TRCT-ND ,10,No
+156,U,TEENSY 2.0 8BIT  16MHZ,TEENSY2.0,,https://www.pjrc.com/teensy/,TEENSY2.0,PJRC,TEENSY2.0,PJRC,TEENSY2.0,1,No
+155,U,TEENSY 3.1 32BIT 72MHZ,TEENSY3.1,,https://www.pjrc.com/teensy/,TEENSY3.1,PJRC,TEENSY3.1,PJRC,TEENSY3.1,3,No
+265,U,TEENSY 3.2 32BIT 72MHZ,TEENSY3.2,,https://www.pjrc.com/teensy/,TEENSY3.2,PJRC,TEENSY3.2,PJRC,TEENSY3.2,1,No
+15,U, IC REG LDO 3.3V 0.8A SOT223 ,LM1117,,http://www.ti.com/lit/ds/symlink/lm1117.pdf,TO-261-4,ON Semi, LM1117IMP-3.3/NOPB ,Digikey, LM1117IMP-3.3/NOPBCT-ND ,4,No
+9,U, IC REG LDO 5V 3A TO263-3 ,SPX29300,,http://www.exar.com/Common/Content/Document.ashx?id=1328,TO-263,Exar, SPX29300T-L-5-0 ,Digikey, 1016-1548-5-ND ,3,No
+63,U, SENSOR TEMP RATIOMETRIC TO92-3 ,TMP36,,http://www.analog.com/media/en/technical-documentation/data-sheets/TMP35_36_37.pdf,TO-92,Analog, TMP36GT9Z ,Digikey, TMP36GT9Z-ND ,1,No
+64,U, SENSOR HALL EFFECT BIPOLAR TO92 ,HALL,,http://sensing.honeywell.com/index.php/ci_id/45288/la_id/1/document/1/re_id/0,TO-92,Honeywell, SS411P ,Digikey, 480-5195-ND ,10,No
+12,U, IC REG LDO 5V 1A TO220AB ,NCP7805,,http://www.onsemi.com/pub_link/Collateral/NCP7800-D.PDF,TO220AB,ON Semi, NCP7805TG ,Digikey, NCP7805TGOS-ND ,4,No
+13,U, IC REG LDO 9V 1A TO220AB ,MC7809,,http://www.onsemi.com/pub_link/Collateral/MC7800-D.PDF,TO220AB,ON Semi, MC7809CTG ,Digikey, MC7809CTGOS-ND ,9,No
+58,U, IC MCU 8BIT 32KB FLASH 32TQFP ,ATMEGA328P,,http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf,TQFP32,Atmel, ATMEGA328P-AU ,Digikey, ATMEGA328P-AU-ND ,2,No
+59,U, IC MCU 8BIT 32KB FLASH 32TQFP , ATMEGA328,,http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf,TQFP32,Atmel,ATMEGA328-AU,Digikey, ATMEGA328-AU-ND ,10,No
+60,U, IC MCU 8BIT 128KB FLASH 44TQFP ,ATMEGA1284,,http://www.atmel.com/Images/Atmel-8272-8-bit-AVR-microcontroller-ATmega164A_PA-324A_PA-644A_PA-1284_P_datasheet.pdf,TQFP44,Atmel, ATMEGA1284-AU ,Digikey, ATMEGA1284-AU-ND ,1,No
+61,U, IC MCU 8BIT 128KB FLASH 44TQFP ,ATMEGA1284P,,http://www.atmel.com/Images/Atmel-8272-8-bit-AVR-microcontroller-ATmega164A_PA-324A_PA-644A_PA-1284_P_datasheet.pdf,TQFP44,Atmel, ATMEGA1284P-AU ,Digikey, ATMEGA1284P-AU-ND ,1,No
+77,U, IC VOLT-LEVEL TRANSLATOR 14TSSOP ,TXB0104,,http://www.ti.com/lit/ds/symlink/txb0104.pdf,TSSOP14,TI, TXB0104PWR ,Digikey, 296-21929-1-ND ,9,No
+67,U, IC QUAD1:2 FET MUX/DEMUX 16TSSOP ,SN74CB3Q3257,,http://www.ti.com/lit/ds/symlink/sn74cb3q3257.pdf,TSSOP16,TI,SN74CB3Q3257PWR,Digikey, 296-19138-1-ND ,16,No
+16,U,QUECTEL UC15 3G CELL MODULE,UC15,,http://www.orcam.eu/res/Datablad/quectel_uc15_umtshsdpa_specification_v14.pdf,UC15PKG,Quectel,UC15,,,1,No
+72,U, IC USB-TO-UART BRIDGE 28VQFN ,CP2102,,http://www.silabs.com/Support%20Documents/TechnicalDocs/CP2102-9.pdf,VQFN28,Silicon Labs, CP2102-GMR ,Digikey, 336-1160-1-ND ,9,No
+37,X,25MHz ±30ppm Crystal 8pF 100 Ohm 4SMD NOLEAD,8Y-25MHz,,http://www.txccrystal.com/images/pdf/8y.pdf,8Y-4SMD,TXC, 8Y-25.000MAAV-T ,Digikey, 887-2000-1-ND ,8,No
+36,X,8MHz ±20ppm Crystal 18pF 140 Ohm 2SMD NOLEAD,ABM3-8MHz,,http://www.abracon.com/Resonators/abm3.pdf,ABM-2SMD,Abracon, ABM3-8.000MHZ-D2Y-T ,Digikey, 535-10630-1-ND ,3,No
+32,X,16MHz ±30ppm Crystal 18pF 40 Ohm 4SMD NOLEAD,CTS406-16MHz,,http://www.ctscorp.com/wp-content/uploads/2015/11/008-0260-0.pdf,CTS-4SMD,CTS, 406I35D16M00000 ,Digikey, CTX1206CT-ND ,4,No
+33,X,20MHz ±30ppm Crystal 18pF 40 Ohm 4SMD NOLEAD,CTS406-20MHz,,http://www.ctscorp.com/wp-content/uploads/2015/11/008-0260-0.pdf,CTS-4SMD,CTS, 406I35D20M00000 ,Digikey, CTX1207CT-ND ,5,No
+34,X,25MHz ±30ppm Crystal 18pF 40 Ohm 4SMD NOLEAD,CTS406-25MHz,,http://www.ctscorp.com/wp-content/uploads/2015/11/008-0260-0.pdf,CTS-4SMD,CTS,406C35D25M00000 ,Digikey, CTX859CT-ND ,10,No
+35,X,25MHz OSC XO HCMOS TTL 4SMD ,CB3-3C-25MHz,,http://www.ctscorp.com/wp-content/uploads/2015/11/008-0256-0.pdf,CTS-4SMD,CTS, CB3-3C-25M0000 ,Digikey, CTX276CT-ND ,9,No
+275,U, STN1110 OBD-II TO UART IC ,STN1110,,https://www.scantool.net/development-tools/obd-chips/stn1110/,QFN28,ScanTool,STN1110-QFN28,ScanTool,365121,0,No
+276,-,OBD DEVELOPMENT KIT,-,,https://www.scantool.net/obd-development-kit/,-,ScanTool,OBD-DEV-KIT,ScanTool,443000-148202,1,No
+277,- ,OBD-II TO DB9 CABLE,- ,,-,-,ScanTool,-,ScanTool,-,1,No
+279,J,ARDUINO 101,ARDUINO 101,,https://www.adafruit.com/products/2891,ARDU-UNOSHIELD,Arduino,Arduino 101,Adafruit,2891,1,No
+280,J,ADAFRUIT FONA 808 + GPS,FONA 808 ,,https://www.adafruit.com/products/2542,FONA808-GPS,Adafruit,FONA808+GPS,Adafruit,2542,1,No
+281,-,CONN UMC UFL JACK STR 50 OHM SMD ,UFL ANT,,http://media.digikey.com/pdf/Data%20Sheets/Hirose%20PDFs/UFL%20Series.pdf,UFL,Hirose, U.FL-R-SMT-1(01) ,Digikey, H122041-ND ,0,No
+282,-,VIBE MOTOR MINI DISC,VIBE MOTOR,,https://www.adafruit.com/products/1201,2PIN-VIBE,Adafruit,1201,Adafruit,1201,2,No
+283,J,CAN-BUS SHIELD ,ARDUINOSHIELD,,,ARDUINOSHIELD,Sparkfun,DEV-13262,Sparkfun,DEV-13262,1,No
+284,-,CONDUCTIVE THREAD STAINLESS STEEL 0.12MM,-,,-,-,Sparkfun,DEV-13814,Sparkfun,DEV-13814,1,No
+278,J,EM-506 GPS RECEIVER ,EM-506 GPS,,http://cdn.sparkfun.com/datasheets/GPS/EM506_um.pdf,EM-506-GPS,Sparkfun,EM-506,Sparkfun,GPS-12751,1,No
+285,J,CONN FEMALE DB9 SERIAL TH 9PIN,DB9-FEMALE,,http://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1734354&DocType=Customer+Drawing&DocLang=English,DB9-FEMALE,TE Conn,1734354-1 ,Digikey, A35107-ND ,0,No
+286,,CONN MALE DB9 SERIAL TH 9PIN,DB9-MALE,,http://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1634580&DocType=Customer+Drawing&DocLang=English,DB9-MALE,TE Conn,1-1634580-2 ,Digikey, A109020-ND ,0,No
+287,-,OBD-II TO DB9 CABLE,-,,https://www.sparkfun.com/products/10087,-,Sparkfun,CAB-10087,Sparkfun,CAB-10087,0,No
+288,-,TEST CLIP 8PIN SOIC,-,,http://www.pomonaelectronics.com/pdf/d5250-54_5437_1_01.pdf,-,Pomona,5250 ,Digikey, 501-1311-ND ,0,No
+289,C, CAP CER 560PF 50V X7R 0402 ,560pF 50V,,http://www.samsungsem.com/kr/support/product-search/mlcc/CL05B561KB5NNNC.jsp,0402,Samsung,CL05B561KB5NNNC,Digikey, 1276-1577-1-ND ,,No
+290,C, CAP CER 0.1UF 35V X7R 0402 ,100nF 35V,,https://product.tdk.com/info/en/documents/chara_sheet/C1005X7R1V104K050BB.pdf,0402,Samsung,C1005X7R1V104K050BB,Digikey, 445-7344-1-ND ,,No
+291,C, CAP CER 470PF 50V X7R 0402 ,470pF 50V,,http://www.samsungsem.com/kr/support/product-search/mlcc/CL05B471KB5NNNC.jsp,0402,Samsung,CL05B471KB5NNNC ,Digikey, 1276-1566-1-ND ,,No
+292,C, CAP CER 1UF 35V X5R 0402 ,1uF 35V,,https://product.tdk.com/info/en/documents/chara_sheet/C1005X5R1V105K050BC.pdf,0402,TDK,C1005X5R1V105K050BC,Digikey, 445-9073-1-ND ,,No
+293,D, DIODE GEN PURP 75V 250MA SOD323 ,75V 250mA,,http://www.vishay.com/docs/85752/bas16ws.pdf,SOD323,Vishay, BAS16WS-E3-08 ,Digikey, BAS16WS-E3-08CT-ND ,,No
+294,D, DIODE SCHOTTKY 40V 1A SMA ,40V 1A,,http://www.vishay.com/docs/94301/vs-mbra140trpbf.pdf,SMA,Vishay,VS-MBRA140TRPBF ,Digikey, VS-MBRA140TRPBFCT-ND ,,No
+295,U, IC QUAD DIFF COMPARATOR 14-TSSOP ,LM339PWR,,http://www.ti.com/lit/ds/symlink/lm139a.pdf,TSSOP14,TI,LM339PWR,Digikey, 296-6607-1-ND ,,No
+296,U, IC TRANSCEIVER CAN HI-SPD 8-SOIC , MCP2551,,http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en011797,SOIC8,Microchip, MCP2551-I/SN ,Digikey, MCP2551-I/SN-ND ,,No
+297,Q, TRANS NPN 40V 0.6A SOT23 ,MMBT2222,,http://www.onsemi.com/pub_link/Collateral/MMBT2222LT1-D.PDF,SOT23-3,ON Semi,MMBT2222ALT1G,Digikey, MMBT2222ALT1GOSCT-ND ,,No
+298,Q, MOSFET P-CH 60V 0.9A SOT23-3 ,ZXMP6A13F,,http://www.diodes.com/_files/datasheets/ZXMP6A13F.pdf,SOT23-3,Diodes Inc,ZXMP6A13FTA,Digikey, ZXMP6A13FCT-ND ,,No
+299,Q, MOSFET N-CH 50V 220MA SOT-23 ,BSS138,,http://www.fairchildsemi.com/datasheets/BS/BSS138.pdf,SOT23-3,Fairchild,BSS138,Digikey, BSS138CT-ND ,,No
+300,R, RES SMD 510 OHM 5% 1/2W 2010 ,510,,http://rohmfs.rohm.com/en/products/databook/datasheet/passive/resistor/chip_resistor/mcr.pdf,2010,Rohm Semi,MCR50JZHJ511,Digikey, RHM510BGCT-ND ,,No
+301,R, RES SMD 10K OHM 1% 1/10W 0402 ,10K,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF1002X+7+WW,0402,Panasonic, ERJ-2RKF1002X ,Digikey, P10.0KLCT-ND ,,No
+302,R, RES SMD 1K OHM 1% 1/10W 0402 ,1K,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF1001X+7+WW,0402,Panasonic, ERJ-2RKF1001X ,Digikey, P1.00KLCT-ND ,,No
+303,R, RES SMD 100 OHM 1% 1/10W 0402 ,100nF 35V,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF1000X+7+WW,0402,Panasonic, ERJ-2RKF1000X ,Digikey, P100LCT-ND ,,No
+304,R, RES SMD 4.7K OHM 1% 1/10W 0402 ,4.7K,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF4701X+7+WW,0402,Panasonic, ERJ-2RKF4701X ,Digikey, P4.70KLCT-ND ,,No
+305,R, RES SMD 1.5K OHM 1% 1/10W 0402 ,1.5K,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF1501X+7+WW,0402,Panasonic, ERJ-2RKF1501X ,Digikey, P1.50KLCT-ND ,,No
+306,R, RES SMD 240 OHM 1% 1/10W 0402 ,240,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF2400X+7+WW,0402,Panasonic, ERJ-2RKF2400X ,Digikey, P240LCT-ND ,,No
+307,R, RES SMD 866 OHM 1% 1/10W 0402 ,866,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF8660X+7+WW,0402,Panasonic, ERJ-2RKF8660X ,Digikey, P866LCT-ND ,,No
+308,R, RES SMD 374 OHM 1% 1/10W 0402 ,374,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF3740X+7+WW,0402,Panasonic, ERJ-2RKF3740X ,Digikey, P374LCT-ND ,,No
+309,R, RES SMD 1.2K OHM 1% 1/10W 0402 ,1.2K,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF1201X+7+WW,0402,Panasonic, ERJ-2RKF1201X ,Digikey, P1.20KLCT-ND ,,No
+310,R, RES SMD 330 OHM 1% 1/10W 0402 ,330 ,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF3300X+7+WW,0402,Panasonic, ERJ-2RKF3300X ,Digikey, P330LCT-ND ,,No
+311,R, RES SMD 62K OHM 1% 1/10W 0402 ,62K,,http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF6202X+7+WW,0402,Panasonic, ERJ-2RKF6202X ,Digikey, P62.0KLCT-ND ,,No
+312,U, IC REG LDO ADJ 0.5A DPAK ,LM317,,http://www.st.com/web/en/resource/technical/document/datasheet/CD00000549.pdf,DPAK,STM, LM317MDT-TR ,Digikey, 497-1574-1-ND ,,No
