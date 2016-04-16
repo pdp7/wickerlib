@@ -35,12 +35,12 @@ PartsList = []
 
 if __name__ == "__main__":
 
-## create the parts list
+  ## create the parts list
 
   print filename
   for line in open(filename, 'r'):
     aPart = LibraryPart()
-    line = line.replace('Reference','-').split(',')
+    line = line.replace('Reference','-').replace('\'','').split(',')
     if line[1] != '-':#or if line[1] != 'Reference':
       aPart.WBoxSKU = line[0]
       aPart.Reference = line[1]
@@ -59,9 +59,29 @@ if __name__ == "__main__":
       print line[0], 'is not a valid package part for KiCad.'
 
   PartsList.sort()
-  for part in PartsList: 
-#    print part.Reference  
-    print part.WBoxSKU, part.Reference, part.Description, part.Value, part.KiCadFootprint, part.Datasheet, part.Package, part.MF_Name, part.MF_PN, part.S1_Name, part.S1_PN, part.Verified
+
+#  for part in PartsList: 
+#    print part.WBoxSKU, part.Reference, part.Description, part.Value, part.KiCadFootprint, part.Datasheet, part.Package, part.MF_Name, part.MF_PN, part.S1_Name, part.S1_PN, part.Verified
+
+  ## create a list of just the Value field without duplicates
+  ## so we know which symbols we need to create
+
+  ValueList = []
+  for part in PartsList:
+    ValueList.append(part.Value)
+
+  for value in ValueList:
+    print value
+
+  SortedSetValueList = sorted(set(ValueList))
+  for value in SortedSetValueList:
+    print value
+
+
+
+
+
+
 
 
 # capture command line arguments
