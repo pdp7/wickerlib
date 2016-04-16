@@ -41,7 +41,7 @@ if __name__ == "__main__":
   for line in open(filename, 'r'):
     aPart = LibraryPart()
     line = line.replace('Reference','-').replace('\'','').split(',')
-    if line[1] != '-':#or if line[1] != 'Reference':
+    if line[1] != '-': #or if line[1] != 'Reference':
       aPart.WBoxSKU = line[0]
       aPart.Reference = line[1]
       aPart.Description = line[2]
@@ -60,9 +60,6 @@ if __name__ == "__main__":
 
   PartsList.sort()
 
-#  for part in PartsList: 
-#    print part.WBoxSKU, part.Reference, part.Description, part.Value, part.KiCadFootprint, part.Datasheet, part.Package, part.MF_Name, part.MF_PN, part.S1_Name, part.S1_PN, part.Verified
-
   ## create a list of just the Value field without duplicates
   ## so we know which symbols we need to create
 
@@ -70,35 +67,55 @@ if __name__ == "__main__":
   for part in PartsList:
     ValueList.append(part.Value)
 
-  for value in ValueList:
-    print value
+  ## create the DCM file
 
+  dcmfile = open('wickerlib.dcm','w')
+  dcmfile.write('EESchema-DOCLIB  Version 2.0\n')
   SortedSetValueList = sorted(set(ValueList))
   for value in SortedSetValueList:
+    for part in PartsList:
+      if part.Value == value:
+        dcmfile.write('#\n')
+        dcmfile.write('$CMP '+part.Value+'\n')
+        dcmfile.write('D '+part.Description+'\n')
+        dcmfile.write('F '+part.Datasheet+'\n')
+        dcmfile.write('$ENDCMP\n')
+        break
+  dcmfile.write('#End Doc Library\n')
+  dcmfile.close()
+
+  ## create the LIB file
+  libfile = open('wickerlib.lib','w')
+  libfile.write('EESchema-LIBRARY Version 2.3\n')
+  libfile.write('#encoding utf-8\n')
+  for value in SortedSetValueList:
     print value
-
-
-
-
-
-
-
-
-# capture command line arguments
-#script, filename, wickerlibname = sys.argv
-#
-## main
-#if __name__ == "__main__":
-#
-#  print wickerlibname, filename
-#  for line in open(wickerlibname, 'r'):
-#    if 'Wbox_SKU' in line:
-#      print line.split(',')
-    
-
-#  for line in open(filename, 'r'):
-#    print line.split(',')
-    
+    for part in PartsList:
+      if part.Value == value:
+        libfile.write('#\n')
+        libfile.write('# '+part.Value+'\n')
+        libfile.write('#\n')
+        libfile.write('DEF '+part.Value+' '+part.Reference+' 0 40 Y Y 1 F N\n')
+        libfile.write('F0 \"'+part.Reference+'\" 0 450 50 H V L CNN\n')
+        libfile.write('F1 \"'+part.Value+'\" 0 350 50 H V L CNN\n')
+        libfile.write('F2 \"'+part.Package+'\" 0 -350 50 H I C CIN\n')
+        libfile.write('F3 \"'+part.Datasheet+'\" 0 0 5 H I C CNN\n')
+        libfile.write('F4 \"'+part.Package+'\" 0 -350 50 H I C CIN\n')
+        libfile.write('F5 \"'+part.MF_Name+'\" 0 -350 50 H I C CIN\n')
+        libfile.write('F6 \"'+part.MF_PN+'\" 0 -350 50 H I C CIN\n')
+        libfile.write('F7 \"'+part.S1_Name+'\" 0 -350 50 H I C CIN\n')
+        libfile.write('F8 \"'+part.S1_PN+'\" 0 -350 50 H I C CIN\n')
+        libfile.write('F6 \"'+part.Description+'\" 0 -350 50 H I C CIN\n')
+        libfile.write('F6 \"Not Verified\" 0 -350 50 H I C CIN\n')
+        print part.S1_Name
+        libfile.write('DRAW\n')
+        libfile.write('S -10 10 10 -10 0 1 10 f\n')
+        libfile.write('ENDDRAW\n')
+        libfile.write('ENDDEF\n')
+        break
+  libfile.write('#\n')
+  libfile.write('#End Library\n')
+  libfile.close()
 
 # I have an inventory of actual parts
 # I have an existing wickerlib library 
