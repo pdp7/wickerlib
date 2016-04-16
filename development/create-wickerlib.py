@@ -40,22 +40,28 @@ if __name__ == "__main__":
   print filename
   for line in open(filename, 'r'):
     aPart = LibraryPart()
-    line = line.split(',')[0:11]
-    aPart.WBoxSKU = line[0]
-    aPart.Reference = line[1]
-    aPart.Description = line[2]
-    aPart.Value = line[3]
-    aPart.KiCadFootprint = line[4]
-    aPart.Datasheet = line[5]
-    aPart.Package = line[6]
-    aPart.MF_Name = line[7]
-    aPart.MF_PN = line[8]
-    aPart.S1_Name = line[9]
-    aPart.S1_PN = line[10]
-    PartsList.append(aPart)
+    line = line.replace('Reference','-').split(',')
+    if line[1] != '-':#or if line[1] != 'Reference':
+      aPart.WBoxSKU = line[0]
+      aPart.Reference = line[1]
+      aPart.Description = line[2]
+      aPart.Value = line[3]
+      aPart.KiCadFootprint = line[4]
+      aPart.Datasheet = line[5]
+      aPart.Package = line[6]
+      aPart.MF_Name = line[7]
+      aPart.MF_PN = line[8]
+      aPart.S1_Name = line[9]
+      aPart.S1_PN = line[10]
+      aPart.Verified = line[11]
+      PartsList.append(aPart)
+    else: 
+      print line[0], 'is not a valid package part for KiCad.'
 
+  PartsList.sort()
   for part in PartsList: 
-    print part.WBoxSKU, part.Reference, part.Description, part.Value, part.KiCadFootprint, part.Datasheet, part.Package, part.MF_Name, part.MF_PN, part.S1_Name, part.S1_PN
+#    print part.Reference  
+    print part.WBoxSKU, part.Reference, part.Description, part.Value, part.KiCadFootprint, part.Datasheet, part.Package, part.MF_Name, part.MF_PN, part.S1_Name, part.S1_PN, part.Verified
 
 
 # capture command line arguments
