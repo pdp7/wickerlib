@@ -1,7 +1,7 @@
 # wickerlib
 Collection of open source parts, circuits, and templates for KiCad.
 
-Wickerlib is a part of my quest to turn around projects as quickly and with as little uncertainty as possible. I haven't seen a lot of people in the hobbyist and independent consultant Maker world talking about KiCad and circuit design infrastructure, so I figured the information might be valuable. 
+Wickerlib is a part of my quest to turn around projects as quickly and with as little uncertainty as possible. I haven't seen a lot of people in the hobbyist and independent consultant maker world talking about KiCad and circuit design infrastructure, so I figured the information might be valuable. 
 
 ### Libraries
 
