@@ -20,6 +20,17 @@ I created an inventory CSV file with the following categories:
 
 I created a script that will only read in inventory.csv rows where the Reference is a letter, so it ignores the title line and lines where Reference is a dash or empty.
 
+##### Ways to Use the Libs
+
+1. I create a wickerlib component library of just the symbols with empty fields. The fields are there so they come into the schematic but they're empty. I lay out the schematic, I create new symbols where required, and then when I'm ready, I can start filling in the part information. I could reference my own inventory at that point if I wanted to, but I'd still have to add in the information for every part individually, which can be tedious and error-prone. Still, it would work. I would associate footprints at that point, and then I would create a beautiful BOM.
+
+1. I create a wickerlib component library of actual components based on WBox SKU parts with all the information. There are very quickly several hundred components based on only about 150 symbols pictures. Placing a component involves choosing the final footprint, or at least choosing a placeholder and knowing I need to come back to it later. This could also be error-prone. 
+
+  1. The error might be limited by adding a field called FINAL and leaving it blank until the final footprint is chosen. Updates in the schematic don't affect the original libraries.
+
+  1. One use case that worries me is if I add a bunch of parts and then need to change some info on them. If I've got them as full components associated with SKUs in the first place, I can just delete the existing and replace directly with another existing library component. If I only have the symbol, I'll have to manually edit the fields to make the change.  
+
+
 ##### Get the list of symbols
 
 The name of the symbol comes from the Value field. 
