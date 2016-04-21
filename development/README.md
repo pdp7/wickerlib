@@ -18,7 +18,7 @@ I created an inventory CSV file with the following categories:
 - S1_PN
 - Verified
 
-The file only reads in lines where the Reference is a letter, so it ignores the title line and lines where Reference is a dash or empty.
+I created a script that will only read in inventory.csv rows where the Reference is a letter, so it ignores the title line and lines where Reference is a dash or empty.
 
 ##### Get the list of symbols
 
@@ -158,7 +158,10 @@ For wickerlib, the Value field needs to use dashes instead of spaces. Here's a f
 - VNH5019
 - XC9140
 
-
 ##### What does wickerlib.lib look like?
 
-##### What symbols de we need for
+
+
+##### What symbols de we need for most of the items?
+
+

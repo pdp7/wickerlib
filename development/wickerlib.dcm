@@ -506,8 +506,8 @@ F http://www.ctscorp.com/wp-content/uploads/2015/11/008-0260-0.pdf
 $ENDCMP
 #
 $CMP RESISTOR
-D RES SMD 374 OHM 1% 1/10W 0402
-F http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF3740X+7+WW
+D RES SMD 33 OHM 1% 1/10W 0402
+F http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF33R0X+7+WW
 $ENDCMP
 #
 $CMP SN74CB3Q3257
@@ -596,8 +596,8 @@ F http://www.analog.com/media/en/technical-documentation/data-sheets/TMP35_36_37
 $ENDCMP
 #
 $CMP TRANS-BJT-NPN
-D TRANS NPN 45V 0.1A TO-92
-F http://www.fairchildsemi.com/datasheets/BC/BC546.pdf
+D TRANS NPN 40V 0.6A SOT23
+F http://www.onsemi.com/pub_link/Collateral/MMBT2222LT1-D.PDF
 $ENDCMP
 #
 $CMP TRANS-BJT-PNP
@@ -606,13 +606,13 @@ F http://www.diodes.com/_files/datasheets/ds30040.pdf
 $ENDCMP
 #
 $CMP TRANS-FET-N
-D MOSFET N-CH 20V 0.9A SOT-23
-F http://www.fairchildsemi.com/datasheets/FD/FDV305N.pdf
+D MOSFET N-CH 50V 220MA SOT-23
+F http://www.fairchildsemi.com/datasheets/BS/BSS138.pdf
 $ENDCMP
 #
 $CMP TRANS-FET-P
-D MOSFET P-CH 20V 2.6A SOT23
-F http://www.irf.com/product-info/datasheets/data/irlml2246pbf.pdf
+D MOSFET P-CH 60V 0.9A SOT23-3
+F http://www.diodes.com/_files/datasheets/ZXMP6A13F.pdf
 $ENDCMP
 #
 $CMP TRIMPOT-3PIN
