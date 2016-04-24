@@ -1,4 +1,4 @@
-update=Wed 20 Apr 2016 05:40:33 PM PDT
+update=Sun 24 Apr 2016 01:33:21 AM PDT
 version=1
 last_client=kicad
 [pcbnew]
@@ -25,16 +25,6 @@ version=1
 NetIExt=net
 [general]
 version=1
-[schematic_editor]
-version=1
-PageLayoutDescrFile=
-PlotDirectoryName=
-SubpartIdSeparator=0
-SubpartFirstId=65
-NetFmtName=
-SpiceForceRefPrefix=0
-SpiceUseNetNumbers=0
-LabSize=60
 [eeschema]
 version=1
 LibDir=/home/wicker/proj/kicad/
@@ -117,3 +107,13 @@ LibName75=library-repos/symbols/regul
 LibName76=library-repos/symbols/atmel
 LibName77=library-repos/symbols/74xx
 LibName78=library-repos/symbols/transistors
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60

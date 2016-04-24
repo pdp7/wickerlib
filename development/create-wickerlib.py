@@ -113,6 +113,7 @@ if __name__ == "__main__":
         libfile.write('F10 \"Not Verified\" 0 -350 50 H I C CIN "Verified"\n')
         print part.S1_Name
         libfile.write('DRAW\n')
+        symbol_dict = ''
         libfile.write('S -100 100 100 -100 0 1 5 f\n')
         libfile.write('ENDDRAW\n')
         libfile.write('ENDDEF\n')
@@ -121,11 +122,14 @@ if __name__ == "__main__":
   libfile.write('#End Library\n')
   libfile.close()
 
-  ## create a header module for the symbol picture library
+  ## create the skeleton of the header module for the symbol picture library
+  ## uncomment and use only once, if none exists. 
 
-  headerfile = open('headersymbols.py','w')
-  headerfile.write('#!/usr/bin/python\n')
-  headerfile.write('# Create Wickerlib\n')
-  for value in SortedSetHeaderSymbolList:
-    print value
-    headerfile.write('# '+value+'\n\n')
+  ## headerfile = open('headersymbols.py','w')
+  ## headerfile.write('#!/usr/bin/python\n')
+  ## headerfile.write('# Create Wickerlib\n')
+  ## for value in SortedSetHeaderSymbolList:
+  ##   print value
+  ##   headerfile.write('# '+value+'\n\n')
+  ## headerfile.close()
+
