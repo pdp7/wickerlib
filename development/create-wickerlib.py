@@ -35,7 +35,7 @@ PartsList = []
 
 if __name__ == "__main__":
 
-  ## create the parts list
+  ## create the lists of parts, values, and header symbols
 
   print filename
   for line in open(filename, 'r'):
@@ -44,34 +44,39 @@ if __name__ == "__main__":
     if line[1] != '-': #or if line[1] != 'Reference':
       aPart.WBoxSKU = line[0]
       aPart.Reference = line[1]
-      aPart.Description = line[2]
-      aPart.Value = line[3]
-      aPart.KiCadFootprint = line[4]
-      aPart.Datasheet = line[5]
-      aPart.Package = line[6]
-      aPart.MF_Name = line[7]
-      aPart.MF_PN = line[8]
-      aPart.S1_Name = line[9]
-      aPart.S1_PN = line[10]
-      aPart.Verified = line[11]
+      aPart.Value = line[2]
+      aPart.Description = line[3]
+      aPart.HeaderSymbol = line[4]
+      aPart.KiCadFootprint = line[5]
+      aPart.Datasheet = line[6]
+      aPart.Package = line[7]
+      aPart.MF_Name = line[8]
+      aPart.MF_PN = line[9]
+      aPart.S1_Name = line[10]
+      aPart.S1_PN = line[11]
+      aPart.Verified = line[13]
       PartsList.append(aPart)
     else: 
       print line[0], 'is not a valid package part for KiCad.'
 
   PartsList.sort()
 
-  ## create a list of just the Value field without duplicates
-  ## so we know which symbols we need to create
-
   ValueList = []
   for part in PartsList:
     ValueList.append(part.Value)
+
+  SortedSetValueList = sorted(set(ValueList))
+
+  HeaderSymbolList = []
+  for part in PartsList: 
+    HeaderSymbolList.append(part.HeaderSymbol)
+
+  SortedSetHeaderSymbolList = sorted(set(HeaderSymbolList))
 
   ## create the DCM file
 
   dcmfile = open('wickerlib.dcm','w')
   dcmfile.write('EESchema-DOCLIB  Version 2.0\n')
-  SortedSetValueList = sorted(set(ValueList))
   for value in SortedSetValueList:
     for part in PartsList:
       if part.Value == value:
@@ -89,7 +94,6 @@ if __name__ == "__main__":
   libfile.write('EESchema-LIBRARY Version 2.3\n')
   libfile.write('#encoding utf-8\n')
   for value in SortedSetValueList:
-    print value
     for part in PartsList:
       if part.Value == value:
         libfile.write('#\n')
@@ -117,27 +121,11 @@ if __name__ == "__main__":
   libfile.write('#End Library\n')
   libfile.close()
 
-# I have an inventory of actual parts
-# I have an existing wickerlib library 
-# that contains symbols for each of those parts
-# but might contain multiple symbols for each of those parts
+  ## create a header module for the symbol picture library
 
-# The information appears to get stored in alphabetical order, 
-# so we'll have to use the right-hand split section for the 
-# category name to identify.
-
-# NAME 
-# F0   Reference
-# F1   Value
-# F2   Footprint
-# F3   Datasheet
-# F4   Description
-# F5   Wbox_SKU
-# F6   Source1_PN
-# F7   MF_Name
-# F8   Source1
-# F9   Package
-# F10  MF_PN
-
-# Read in the list of SKUs that currently exist in wickerlib
-
+  headerfile = open('headersymbols.py','w')
+  headerfile.write('#!/usr/bin/python\n')
+  headerfile.write('# Create Wickerlib\n')
+  for value in SortedSetHeaderSymbolList:
+    print value
+    headerfile.write('# '+value+'\n\n')
