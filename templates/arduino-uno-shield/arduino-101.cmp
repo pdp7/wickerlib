@@ -1,0 +1,67 @@
+Cmp-Mod V01 Created by PcbNew   date = Tue 02 Feb 2016 05:26:30 PM PST
+
+BeginCmp
+TimeStamp = 551AF9EA
+Path = /56B17B51
+Reference = P1;
+ValeurCmp = POWER;
+IdModule  = Socket_Arduino_Uno:Socket_Strip_Arduino_1x08;
+EndCmp
+
+BeginCmp
+TimeStamp = 551AF9FF
+Path = /56B180EE
+Reference = P2;
+ValeurCmp = ANALOG;
+IdModule  = Socket_Arduino_Uno:Socket_Strip_Arduino_1x06;
+EndCmp
+
+BeginCmp
+TimeStamp = 551AFA18
+Path = /56B17C0C
+Reference = P3;
+ValeurCmp = DIGITAL;
+IdModule  = Socket_Arduino_Uno:Socket_Strip_Arduino_1x10;
+EndCmp
+
+BeginCmp
+TimeStamp = 551AFA2F
+Path = /56B18233
+Reference = P4;
+ValeurCmp = DIGITAL;
+IdModule  = Socket_Arduino_Uno:Socket_Strip_Arduino_1x08;
+EndCmp
+
+BeginCmp
+TimeStamp = 5524FC3F
+Path = /551BBC06
+Reference = P5;
+ValeurCmp = CONN_1;
+IdModule  = Socket_Arduino_Uno:Arduino_1pin;
+EndCmp
+
+BeginCmp
+TimeStamp = 5524FC44
+Path = /551BBD10
+Reference = P6;
+ValeurCmp = CONN_1;
+IdModule  = Socket_Arduino_Uno:Arduino_1pin;
+EndCmp
+
+BeginCmp
+TimeStamp = 5524FC49
+Path = /551BBD30
+Reference = P7;
+ValeurCmp = CONN_1;
+IdModule  = Socket_Arduino_Uno:Arduino_1pin;
+EndCmp
+
+BeginCmp
+TimeStamp = 5524FC4E
+Path = /551BBD52
+Reference = P8;
+ValeurCmp = CONN_1;
+IdModule  = Socket_Arduino_Uno:Arduino_1pin;
+EndCmp
+
+EndListe
