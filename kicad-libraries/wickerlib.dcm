@@ -1,6 +1,6 @@
 EESchema-DOCLIB  Version 2.0
 #
-$CMP 5050-RGB-LED
+$CMP 5050-RGB-LED-with-Integrated-Chip-Driver
 D 5050 RGB LED with Integrated Chip Driver
 F https://www.adafruit.com/images/product-files/1138/SK6812%20LED%20datasheet%20.pdf
 $ENDCMP
@@ -26,7 +26,7 @@ F https://www.adafruit.com/products/50
 $ENDCMP
 #
 $CMP ARDUINO-UNO-SHIELD
-D Adafruit Wave Shield for Arduino v1.1
+D ARDUINO UNO SHIELD
 F https://www.adafruit.com/product/94
 $ENDCMP
 #
@@ -295,6 +295,10 @@ D CAP CER 8.2PF 50V NP0 RADIAL
 F http://www.kemet.com/Lists/ProductCatalog/Attachments/52/F3101_GoldMax.pdf
 $ENDCMP
 #
+$CMP CAPSENSE_CIRCLE
+D CAPSENSE PAD CIRCLE
+$ENDCMP
+#
 $CMP CONN-BNC-JACK-R/A-50-OHM-TH
 D CONN BNC JACK R/A 50 OHM PCB
 F http://www.molex.com/pdm_docs/sd/731000105_sd.pdf
@@ -353,11 +357,6 @@ $ENDCMP
 $CMP CONN-USB-MICRO-B-10118193
 D USB MICRO-B RECEPTACLE 5PIN SMT R/A STUDS
 F http://portal.fciconnect.com/Comergent//fci/drawing/10118193.pdf
-$ENDCMP
-#
-$CMP CR2032-BATTERY-STRAP-SMT-FLATPIN
-D CR2032 BATTERY STRAP SMT  FLATPIN
-F http://www.memoryprotectiondevices.com/datasheets/BC-2003-datasheet.pdf
 $ENDCMP
 #
 $CMP CRYSTAL-16MHZ-18PF-40OHM-CTS-4SMD
@@ -630,7 +629,7 @@ D HEADER MALE 12POS TH 1x12 0.1”
 F https://cdn.harwin.com/pdfs/60page140.pdf
 $ENDCMP
 #
-$CMP HEADER-MALE-12POS-TH-1x12-P0.1IN-R/A
+$CMP HEADER-MALE-12POS-TH-3x04-P0.1IN-R/A
 D HEADER MALE 12POS TH .100 R/A
 F http://suddendocs.samtec.com/catalog_english/tsw_th.pdf
 $ENDCMP
@@ -997,7 +996,6 @@ $ENDCMP
 #
 $CMP LCD-MODULE-16X2-CHARACTER-1602
 D LCD MODULE 16X2 CHARACTER 1602
-F 
 $ENDCMP
 #
 $CMP LCD-MODULE-16X2-CHARACTER-1602A
@@ -1007,7 +1005,6 @@ $ENDCMP
 #
 $CMP LCD-MODULE-16X2-CHARACTER-1602B
 D LCD MODULE 16X2 CHARACTER 1602B
-F 
 $ENDCMP
 #
 $CMP LED-AMBER-0603-SMT-L296-Q2R2
@@ -1098,6 +1095,11 @@ $ENDCMP
 $CMP LED-RGB-WS2812B-4SMD
 D LED RGB WS2812B W/DVR 4SMD
 F http://www.adafruit.com/datasheets/WS2812B.pdf
+$ENDCMP
+#
+$CMP LV-EZ1-RANGEFINDER
+D HEADER FEMALE 7POS TH 1x07 0.1”
+F https://cdn.harwin.com/pdfs/60page140.pdf
 $ENDCMP
 #
 $CMP MIC-CMA4544
@@ -1337,7 +1339,6 @@ $ENDCMP
 #
 $CMP SPARKFUN-CAN-BUS-SHIELD
 D CAN-BUS SHIELD
-F 
 $ENDCMP
 #
 $CMP SPEAKER-8OHM-23MM-ROUND-2PIN
@@ -1409,4 +1410,5 @@ $CMP TRIMPOT-10K-3PIN-TH-0.20W-P160KN
 D POT 10K OHM 1/5W PLASTIC LINEAR
 F http://www.bitechnologies.com/pdfs/p160.pdf
 $ENDCMP
+#
 #End Doc Library

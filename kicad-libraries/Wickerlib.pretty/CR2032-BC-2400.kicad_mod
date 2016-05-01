@@ -1,0 +1,8 @@
+(module CR2032-BC-2400 (layer F.Cu) (tedit 57244D75)
+  (fp_text reference REF** (at 0 0.5) (layer F.SilkS)
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_text value CR2032-BC-2400 (at 0 -0.5) (layer F.Fab)
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+)
