@@ -1087,11 +1087,6 @@ D LED GRN/RED DIFF 5MM ROUND T/H
 F http://www.sunledusa.com/products/spec/XLUGR59M.pdf
 $ENDCMP
 #
-$CMP LED-RED-GREEN-4PLCC-SMT-15014RV73100
-D LED GREEN/RED CLEAR 4PLCC SMD
-F http://katalog.we-online.de/led/datasheet/150141RV73100.pdf
-$ENDCMP
-#
 $CMP LED-RGB-WS2812B-4SMD
 D LED RGB WS2812B W/DVR 4SMD
 F http://www.adafruit.com/datasheets/WS2812B.pdf
