@@ -1,4 +1,4 @@
-update=Tue 02 Feb 2016 05:25:58 PM PST
+update=Mon 02 May 2016 09:11:38 PM PDT
 version=1
 last_client=kicad
 [pcbnew]
@@ -22,39 +22,6 @@ BoardOutlineThickness=0.100000000000
 ModuleOutlineThickness=0.150000000000
 [general]
 version=1
-[eeschema]
-version=1
-LibDir=/home/wicker/proj/kicad/
-[eeschema/libraries]
-LibName1=library-repos/symbols/power
-LibName2=library-repos/symbols/device
-LibName3=library-repos/symbols/transistors
-LibName4=library-repos/symbols/conn
-LibName5=library-repos/symbols/linear
-LibName6=library-repos/symbols/regul
-LibName7=library-repos/symbols/74xx
-LibName8=library-repos/symbols/cmos4000
-LibName9=library-repos/symbols/adc-dac
-LibName10=library-repos/symbols/memory
-LibName11=library-repos/symbols/xilinx
-LibName12=library-repos/symbols/microcontrollers
-LibName13=library-repos/symbols/dsp
-LibName14=library-repos/symbols/microchip
-LibName15=library-repos/symbols/analog_switches
-LibName16=library-repos/symbols/motorola
-LibName17=library-repos/symbols/texas
-LibName18=library-repos/symbols/intel
-LibName19=library-repos/symbols/audio
-LibName20=library-repos/symbols/interface
-LibName21=library-repos/symbols/digital-audio
-LibName22=library-repos/symbols/philips
-LibName23=library-repos/symbols/display
-LibName24=library-repos/symbols/cypress
-LibName25=library-repos/symbols/siliconi
-LibName26=library-repos/symbols/opto
-LibName27=library-repos/symbols/atmel
-LibName28=library-repos/symbols/contrib
-LibName29=library-repos/symbols/valves
 [schematic_editor]
 version=1
 PageLayoutDescrFile=
@@ -68,3 +35,8 @@ LabSize=60
 [cvpcb]
 version=1
 NetIExt=net
+[eeschema]
+version=1
+LibDir=/home/wicker/proj/kicad/
+[eeschema/libraries]
+LibName1=/home/wicker/proj/wbox/wickerlib/kicad-libraries/wickerlib

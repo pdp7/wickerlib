@@ -1,314 +1,364 @@
 EESchema Schematic File Version 2
+LIBS:wickerlib
+LIBS:arduino-101-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title ""
-Date ""
-Rev ""
+Title "Arduino 101 Shield KiCad Template"
+Date "2016-05-02"
+Rev "1.0"
 Comp "Released under the CERN Open Hardware License v1.2"
 Comment1 "Contact: jeh.wicker@gmail.com"
 Comment2 "Author: Jenner Hanni"
-Comment3 "Company: Wickerbox Electronics"
+Comment3 "This version created by Wickerbox Electronics"
 Comment4 "Based on original template by Jonathan (poulc13)"
 $EndDescr
 $Comp
-L GND #PWR01
-U 1 1 56B16ED4
-P 2800 4025
-F 0 "#PWR01" H 2800 4025 30  0001 C CNN
-F 1 "GND" H 2800 3955 30  0001 C CNN
-F 2 "" H 2800 4025 60  0000 C CNN
-F 3 "" H 2800 4025 60  0000 C CNN
-	1    2800 4025
+L ARDUINO-101-SHIELD U1
+U 5 1 57282130
+P 1325 1600
+F 0 "U1" H 1175 1100 50  0001 L CNN
+F 1 "HOLE" V 1125 1150 50  0001 L CNN
+F 2 "Wickerlib:ARDUINO-MOUNTING-HOLE" H 1325 1250 50  0001 C CIN
+F 3 "https://www.adafruit.com/products/50" H 1325 1600 10  0001 C CNN
+F 4 "ARDU-101SHIELD" H 1325 1250 50  0001 C CIN "Package"
+F 5 "Arduino" H 1325 1250 50  0001 C CIN "MF_Name"
+F 6 "101" H 1325 1250 50  0001 C CIN "MF_PN"
+F 7 "Adafruit" H 1325 1250 50  0001 C CIN "S1_Name"
+F 8 "50" H 1325 1250 50  0001 C CIN "S1_PN"
+F 9 "ARDUINO 101" H 1325 1250 50  0001 C CIN "Description"
+F 10 "Not Verified" H 1325 1250 50  0001 C CIN "Verified"
+	5    1325 1600
+	1    0    0    -1  
+$EndComp
+Text Notes 1225 1350 0    60   ~ 0
+Arduino 101 Shield\nMounting Holes
+$Comp
+L ARDUINO-101-SHIELD U2
+U 5 1 57290D61
+P 1425 1600
+F 0 "U2" H 1275 1100 50  0001 L CNN
+F 1 "HOLE" V 1225 1150 50  0001 L CNN
+F 2 "Wickerlib:ARDUINO-MOUNTING-HOLE" H 1425 1250 50  0001 C CIN
+F 3 "https://www.adafruit.com/products/50" H 1425 1600 5   0001 C CNN
+F 4 "ARDU-101SHIELD" H 1425 1250 50  0001 C CIN "Package"
+F 5 "Arduino" H 1425 1250 50  0001 C CIN "MF_Name"
+F 6 "101" H 1425 1250 50  0001 C CIN "MF_PN"
+F 7 "Adafruit" H 1425 1250 50  0001 C CIN "S1_Name"
+F 8 "50" H 1425 1250 50  0001 C CIN "S1_PN"
+F 9 "ARDUINO 101" H 1425 1250 50  0001 C CIN "Description"
+F 10 "Not Verified" H 1425 1250 50  0001 C CIN "Verified"
+	5    1425 1600
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR02
-U 1 1 56B16EDA
-P 1625 4025
-F 0 "#PWR02" H 1625 4025 30  0001 C CNN
-F 1 "GND" H 1625 3955 30  0001 C CNN
-F 2 "" H 1625 4025 60  0000 C CNN
-F 3 "" H 1625 4025 60  0000 C CNN
-	1    1625 4025
+L ARDUINO-101-SHIELD U3
+U 5 1 57290D9E
+P 1525 1600
+F 0 "U3" H 1375 1100 50  0001 L CNN
+F 1 "HOLE" V 1325 1150 50  0001 L CNN
+F 2 "Wickerlib:ARDUINO-MOUNTING-HOLE" H 1525 1250 50  0001 C CIN
+F 3 "https://www.adafruit.com/products/50" H 1525 1600 5   0001 C CNN
+F 4 "ARDU-101SHIELD" H 1525 1250 50  0001 C CIN "Package"
+F 5 "Arduino" H 1525 1250 50  0001 C CIN "MF_Name"
+F 6 "101" H 1525 1250 50  0001 C CIN "MF_PN"
+F 7 "Adafruit" H 1525 1250 50  0001 C CIN "S1_Name"
+F 8 "50" H 1525 1250 50  0001 C CIN "S1_PN"
+F 9 "ARDUINO 101" H 1525 1250 50  0001 C CIN "Description"
+F 10 "Not Verified" H 1525 1250 50  0001 C CIN "Verified"
+	5    1525 1600
 	1    0    0    -1  
 $EndComp
-NoConn ~ 1700 2450
-Text Notes 3200 1850 0    60   ~ 0
-Holes
-NoConn ~ 3200 1725
-NoConn ~ 3275 1725
-NoConn ~ 3350 1725
-NoConn ~ 3425 1725
+$Comp
+L ARDUINO-101-SHIELD U4
+U 5 1 57290DDB
+P 1625 1600
+F 0 "U4" H 1475 1100 50  0001 L CNN
+F 1 "HOLE" V 1425 1150 50  0001 L CNN
+F 2 "Wickerlib:ARDUINO-MOUNTING-HOLE" H 1625 1250 50  0001 C CIN
+F 3 "https://www.adafruit.com/products/50" H 1625 1600 5   0001 C CNN
+F 4 "ARDU-101SHIELD" H 1625 1250 50  0001 C CIN "Package"
+F 5 "Arduino" H 1625 1250 50  0001 C CIN "MF_Name"
+F 6 "101" H 1625 1250 50  0001 C CIN "MF_PN"
+F 7 "Adafruit" H 1625 1250 50  0001 C CIN "S1_Name"
+F 8 "50" H 1625 1250 50  0001 C CIN "S1_PN"
+F 9 "ARDUINO 101" H 1625 1250 50  0001 C CIN "Description"
+F 10 "Not Verified" H 1625 1250 50  0001 C CIN "Verified"
+	5    1625 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L IOREF #PWR01
+U 1 1 57282273
+P 1675 2325
+F 0 "#PWR01" H 1675 2175 50  0001 C CNN
+F 1 "IOREF" H 1675 2465 50  0000 C CNN
+F 2 "" H 1675 2325 50  0000 C CNN
+F 3 "" H 1675 2325 50  0000 C CNN
+	1    1675 2325
+	1    0    0    -1  
+$EndComp
+$Comp
+L +3.3V #PWR02
+U 1 1 5728229F
+P 2025 2325
+F 0 "#PWR02" H 2025 2175 50  0001 C CNN
+F 1 "+3.3V" H 2025 2465 50  0000 C CNN
+F 2 "" H 2025 2325 50  0000 C CNN
+F 3 "" H 2025 2325 50  0000 C CNN
+	1    2025 2325
+	1    0    0    -1  
+$EndComp
+$Comp
+L +5V #PWR03
+U 1 1 572822CB
+P 2275 2325
+F 0 "#PWR03" H 2275 2175 50  0001 C CNN
+F 1 "+5V" H 2275 2465 50  0000 C CNN
+F 2 "" H 2275 2325 50  0000 C CNN
+F 3 "" H 2275 2325 50  0000 C CNN
+	1    2275 2325
+	1    0    0    -1  
+$EndComp
+$Comp
+L VIN #PWR04
+U 1 1 572822F7
+P 2500 2325
+F 0 "#PWR04" H 2500 2175 50  0001 C CNN
+F 1 "VIN" H 2500 2465 50  0000 C CNN
+F 2 "" H 2500 2325 50  0000 C CNN
+F 3 "" H 2500 2325 50  0000 C CNN
+	1    2500 2325
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
-	925  3425 1700 3425
+	1525 2500 1675 2500
 Wire Wire Line
-	925  3525 1700 3525
+	1675 2500 1675 2325
 Wire Wire Line
-	925  3625 1700 3625
+	1525 2600 1600 2600
 Wire Wire Line
-	925  3725 1700 3725
+	1525 2700 2025 2700
 Wire Wire Line
-	925  3825 1700 3825
+	2025 2700 2025 2325
 Wire Wire Line
-	925  3925 1700 3925
+	1525 2800 2275 2800
 Wire Wire Line
-	2725 2950 3450 2950
+	2275 2800 2275 2325
 Wire Wire Line
-	2725 2850 3450 2850
+	1525 3100 2500 3100
 Wire Wire Line
-	2725 2750 3450 2750
+	2500 3100 2500 2325
 Wire Wire Line
-	2725 2650 3450 2650
+	1525 3000 1675 3000
 Wire Wire Line
-	2725 2550 3450 2550
+	1675 2900 1675 3175
 Wire Wire Line
-	2725 2450 3450 2450
+	1525 2900 1675 2900
+Connection ~ 1675 3000
+$Comp
+L GND #PWR05
+U 1 1 57282540
+P 1675 3175
+F 0 "#PWR05" H 1675 2925 50  0001 C CNN
+F 1 "GND" H 1675 3025 50  0000 C CNN
+F 2 "" H 1675 3175 50  0000 C CNN
+F 3 "" H 1675 3175 50  0000 C CNN
+	1    1675 3175
+	1    0    0    -1  
+$EndComp
+Text GLabel 1600 2600 2    60   Input ~ 0
+RESET
 Wire Wire Line
-	2725 2250 3450 2250
+	1525 3550 1850 3550
 Wire Wire Line
-	2725 2150 3450 2150
+	1525 3650 1850 3650
 Wire Wire Line
-	2725 2050 3450 2050
+	1525 3750 1850 3750
 Wire Wire Line
-	1500 2750 1700 2750
+	1525 3850 1850 3850
 Wire Wire Line
-	1375 2850 1700 2850
+	1525 3950 1850 3950
 Wire Wire Line
-	1625 2950 1625 4025
-Wire Wire Line
-	925  2650 1700 2650
-Wire Wire Line
-	2800 2350 2725 2350
-Wire Wire Line
-	2725 3425 3450 3425
-Wire Wire Line
-	2725 3325 3450 3325
-Wire Wire Line
-	2725 3225 3450 3225
-Wire Wire Line
-	2725 3725 3450 3725
-Wire Wire Line
-	2725 3625 3450 3625
-Wire Wire Line
-	2725 3525 3450 3525
-Wire Wire Line
-	2725 3825 3450 3825
-Wire Wire Line
-	1500 2050 1500 2750
-Wire Wire Line
-	1625 2550 1700 2550
-Wire Wire Line
-	1375 2275 1375 2850
-Wire Wire Line
-	1250 2275 1250 3150
-Wire Wire Line
-	1250 3150 1700 3150
-Wire Wire Line
-	1625 2950 1700 2950
-Wire Wire Line
-	1625 3050 1700 3050
-Connection ~ 1625 3050
-Text Notes 875  1675 0    60   ~ 0
-Shield for Arduino that uses\nthe same pin disposition\nlike Arduino 101.
-Text Label 950  2650 0    60   ~ 0
-Reset
-Text Label 1250 2275 1    60   ~ 0
-Vin
-Text Label 1625 2275 1    60   ~ 0
-IOREF
-Text Label 950  3425 0    60   ~ 0
+	1525 4050 1850 4050
+Text Label 1600 3550 0    60   ~ 0
 A0
-Text Label 950  3525 0    60   ~ 0
+Text Label 1600 3650 0    60   ~ 0
 A1
-Text Label 950  3625 0    60   ~ 0
+Text Label 1600 3750 0    60   ~ 0
 A2
-Text Label 950  3725 0    60   ~ 0
+Text Label 1600 3850 0    60   ~ 0
 A3
-Text Label 950  3825 0    60   ~ 0
-A4(SDA)
-Text Label 950  3925 0    60   ~ 0
-A5(SCL)
-Text Label 2875 3925 0    60   ~ 0
-0(Rx)
-Text Label 2875 3725 0    60   ~ 0
-2
-Text Label 2875 3825 0    60   ~ 0
-1(Tx)
-Text Label 2875 3625 0    60   ~ 0
-3(**)
-Text Label 2875 3425 0    60   ~ 0
-5(**)
-Text Label 2875 3325 0    60   ~ 0
-6(**)
-Text Label 2875 2950 0    60   ~ 0
-8
-Text Label 2875 2850 0    60   ~ 0
-9(**)
-Text Label 2875 2650 0    60   ~ 0
-11(**/MOSI)
-Text Label 2875 2550 0    60   ~ 0
-12(MISO)
-Text Label 2875 2450 0    60   ~ 0
-13(SCK)
-Text Label 2950 2250 0    60   ~ 0
-AREF
-$Comp
-L GND #PWR03
-U 1 1 56B16F72
-P 2800 4025
-F 0 "#PWR03" H 2800 4025 30  0001 C CNN
-F 1 "GND" H 2800 3955 30  0001 C CNN
-F 2 "" H 2800 4025 60  0000 C CNN
-F 3 "" H 2800 4025 60  0000 C CNN
-	1    2800 4025
-	1    0    0    -1  
-$EndComp
-$Comp
-L GND #PWR04
-U 1 1 56B16F78
-P 1625 4025
-F 0 "#PWR04" H 1625 4025 30  0001 C CNN
-F 1 "GND" H 1625 3955 30  0001 C CNN
-F 2 "" H 1625 4025 60  0000 C CNN
-F 3 "" H 1625 4025 60  0000 C CNN
-	1    1625 4025
-	1    0    0    -1  
-$EndComp
-Text Label 2875 2150 0    60   ~ 0
-A4(SDA)
-Text Label 2875 2050 0    60   ~ 0
-A5(SCL)
-Text Notes 3200 1850 0    60   ~ 0
-Holes
-NoConn ~ 3200 1725
-NoConn ~ 3275 1725
-NoConn ~ 3350 1725
-NoConn ~ 3425 1725
-Text Notes 875  1675 0    60   ~ 0
-Shield for Arduino that uses\nthe same pin disposition\nlike Arduino 101.
-$Comp
-L CONN_01X08 P1
-U 1 1 56B17B51
-P 1900 2800
-F 0 "P1" H 1900 3250 50  0000 C CNN
-F 1 "POWER" V 2000 2800 50  0000 C CNN
-F 2 "Socket_Arduino_Uno:Socket_Strip_Arduino_1x08" H 1900 2800 50  0001 C CNN
-F 3 "" H 1900 2800 50  0000 C CNN
-	1    1900 2800
-	1    0    0    -1  
-$EndComp
-$Comp
-L CONN_01X06 P2
-U 1 1 56B180EE
-P 1900 3675
-F 0 "P2" H 1900 4025 50  0000 C CNN
-F 1 "ANALOG" V 2000 3675 50  0000 C CNN
-F 2 "Socket_Arduino_Uno:Socket_Strip_Arduino_1x06" H 1900 3675 50  0001 C CNN
-F 3 "" H 1900 3675 50  0000 C CNN
-	1    1900 3675
-	1    0    0    -1  
-$EndComp
-$Comp
-L CONN_01X08 P4
-U 1 1 56B18233
-P 2525 3575
-F 0 "P4" H 2525 4025 50  0000 C CNN
-F 1 "DIGITAL" V 2625 3575 50  0000 C CNN
-F 2 "Socket_Arduino_Uno:Socket_Strip_Arduino_1x08" H 2525 3575 50  0001 C CNN
-F 3 "" H 2525 3575 50  0000 C CNN
-	1    2525 3575
-	-1   0    0    -1  
-$EndComp
+Text Label 1600 3950 0    60   ~ 0
+A4
+Text Label 1600 4050 0    60   ~ 0
+A5
 Wire Wire Line
-	2725 3925 3450 3925
+	1525 4450 1850 4450
 Wire Wire Line
-	2800 4025 2800 2350
+	1525 4550 1850 4550
 Wire Wire Line
-	1625 2275 1625 2550
-$Comp
-L CONN_01X10 P3
-U 1 1 56B17C0C
-P 2525 2500
-F 0 "P3" H 2525 3050 50  0000 C CNN
-F 1 "DIGITAL" V 2625 2500 50  0000 C CNN
-F 2 "Socket_Arduino_Uno:Socket_Strip_Arduino_1x10" H 2525 2500 50  0001 C CNN
-F 3 "" H 2525 2500 50  0000 C CNN
-	1    2525 2500
-	-1   0    0    -1  
-$EndComp
-Text Label 2875 2750 0    60   ~ 0
-10(**/SS)
-Text Label 2875 3225 0    60   ~ 0
-7
-Text Label 2875 3525 0    60   ~ 0
-4
-$Comp
-L TEST_1P W2
-U 1 1 56B18839
-P 3275 1725
-F 0 "W2" V 3275 1995 50  0000 C CNN
-F 1 "TEST_1P" H 3275 1925 50  0001 C CNN
-F 2 "Socket_Arduino_Uno:Arduino_1pin" H 3475 1725 50  0001 C CNN
-F 3 "" H 3475 1725 50  0000 C CNN
-	1    3275 1725
-	1    0    0    -1  
-$EndComp
-$Comp
-L TEST_1P W3
-U 1 1 56B1885A
-P 3350 1725
-F 0 "W3" V 3350 1995 50  0000 C CNN
-F 1 "TEST_1P" H 3350 1925 50  0001 C CNN
-F 2 "Socket_Arduino_Uno:Arduino_1pin" H 3550 1725 50  0001 C CNN
-F 3 "" H 3550 1725 50  0000 C CNN
-	1    3350 1725
-	1    0    0    -1  
-$EndComp
-$Comp
-L TEST_1P W4
-U 1 1 56B18883
-P 3425 1725
-F 0 "W4" V 3425 1995 50  0000 C CNN
-F 1 "TEST_1P" H 3425 1925 50  0001 C CNN
-F 2 "Socket_Arduino_Uno:Arduino_1pin" H 3625 1725 50  0001 C CNN
-F 3 "" H 3625 1725 50  0000 C CNN
-	1    3425 1725
-	1    0    0    -1  
-$EndComp
-$Comp
-L +5V #PWR05
-U 1 1 56B18B8A
-P 1375 2275
-F 0 "#PWR05" H 1375 2125 50  0001 C CNN
-F 1 "+5V" H 1375 2415 50  0000 C CNN
-F 2 "" H 1375 2275 50  0000 C CNN
-F 3 "" H 1375 2275 50  0000 C CNN
-	1    1375 2275
-	1    0    0    -1  
-$EndComp
+	1525 4650 1850 4650
+Wire Wire Line
+	1525 4750 1850 4750
+Wire Wire Line
+	1525 4850 1850 4850
+Wire Wire Line
+	1525 4950 1850 4950
+Wire Wire Line
+	1525 5050 1850 5050
+Wire Wire Line
+	1525 5150 1850 5150
+Wire Wire Line
+	1525 5525 2000 5525
+Wire Wire Line
+	1525 5625 2000 5625
+Wire Wire Line
+	1525 5725 2000 5725
+Wire Wire Line
+	1525 5825 2000 5825
+Wire Wire Line
+	1525 5925 2000 5925
+Wire Wire Line
+	1525 6025 2000 6025
+Wire Wire Line
+	1525 6125 1675 6125
+Wire Wire Line
+	1525 6225 1625 6225
+Wire Wire Line
+	1525 6325 2000 6325
+Wire Wire Line
+	1525 6425 2000 6425
 $Comp
 L +3.3V #PWR06
-U 1 1 56B18BAE
-P 1500 2050
-F 0 "#PWR06" H 1500 1900 50  0001 C CNN
-F 1 "+3.3V" H 1500 2190 50  0000 C CNN
-F 2 "" H 1500 2050 50  0000 C CNN
-F 3 "" H 1500 2050 50  0000 C CNN
-	1    1500 2050
+U 1 1 57283590
+P 1625 5475
+F 0 "#PWR06" H 1625 5325 50  0001 C CNN
+F 1 "+3.3V" H 1625 5615 50  0000 C CNN
+F 2 "" H 1625 5475 50  0000 C CNN
+F 3 "" H 1625 5475 50  0000 C CNN
+	1    1625 5475
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1625 6225 1625 5475
+Wire Wire Line
+	1675 6125 1675 6475
+$Comp
+L GND #PWR07
+U 1 1 57283670
+P 1675 6475
+F 0 "#PWR07" H 1675 6225 50  0001 C CNN
+F 1 "GND" H 1675 6325 50  0000 C CNN
+F 2 "" H 1675 6475 50  0000 C CNN
+F 3 "" H 1675 6475 50  0000 C CNN
+	1    1675 6475
+	1    0    0    -1  
+$EndComp
+Text Label 1600 4450 0    60   ~ 0
+D0
+Text Label 1600 4550 0    60   ~ 0
+D1
+Text Label 1600 4650 0    60   ~ 0
+D2
+Text Label 1600 4750 0    60   ~ 0
+D3
+Text Label 1600 4850 0    60   ~ 0
+D4
+Text Label 1600 4950 0    60   ~ 0
+D5
+Text Label 1600 5050 0    60   ~ 0
+D6
+Text Label 1600 5150 0    60   ~ 0
+D7
+Text Label 1750 5525 0    60   ~ 0
+D8
+Text Label 1750 5625 0    60   ~ 0
+D9
+Text Label 1750 5725 0    60   ~ 0
+D10
+Text Label 1750 5825 0    60   ~ 0
+D11
+Text Label 1750 5925 0    60   ~ 0
+D12
+Text Label 1750 6025 0    60   ~ 0
+D13
+Text Label 1750 6325 0    60   ~ 0
+A4
+Text Label 1750 6425 0    60   ~ 0
+A5
+$Comp
+L ARDUINO-101-SHIELD U5
+U 1 1 572986CB
+P 1375 2750
+F 0 "U5" H 1225 2250 50  0000 L CNN
+F 1 "ARDUINO-101-SHIELD" V 1175 2300 50  0001 L CNN
+F 2 "Wickerlib:ARDUINO-101-SHIELD" H 1375 2400 50  0001 C CIN
+F 3 "https://www.adafruit.com/products/3033" H 1375 2750 5   0001 C CNN
+F 4 "ARDU-101SHIELD" H 1375 2400 50  0001 C CIN "Package"
+F 5 "Arduino" H 1375 2400 50  0001 C CIN "MF_Name"
+F 6 "UNO R3" H 1375 2400 50  0001 C CIN "MF_PN"
+F 7 "Adafruit" H 1375 2400 50  0001 C CIN "S1_Name"
+F 8 "50" H 1375 2400 50  0001 C CIN "S1_PN"
+F 9 "ARDUINO 101 SHIELD" H 1375 2400 50  0001 C CIN "Description"
+F 10 "Not Verified" H 1375 2400 50  0001 C CIN "Verified"
+	1    1375 2750
 	1    0    0    -1  
 $EndComp
 $Comp
-L TEST_1P W1
-U 1 1 56B187F6
-P 3200 1725
-F 0 "W1" V 3200 1995 50  0000 C CNN
-F 1 "TEST_1P" H 3200 1925 50  0001 C CNN
-F 2 "Socket_Arduino_Uno:Arduino_1pin" H 3400 1725 50  0001 C CNN
-F 3 "" H 3400 1725 50  0000 C CNN
-	1    3200 1725
+L ARDUINO-101-SHIELD U5
+U 2 1 572988F2
+P 1375 3650
+F 0 "U5" H 1225 3150 50  0000 L CNN
+F 1 "ARDUINO-101-SHIELD" V 1175 3200 50  0001 L CNN
+F 2 "Wickerlib:ARDUINO-101-SHIELD" H 1375 3300 50  0001 C CIN
+F 3 "https://www.adafruit.com/products/3033" H 1375 3650 5   0001 C CNN
+F 4 "ARDU-101SHIELD" H 1375 3300 50  0001 C CIN "Package"
+F 5 "Arduino" H 1375 3300 50  0001 C CIN "MF_Name"
+F 6 "UNO R3" H 1375 3300 50  0001 C CIN "MF_PN"
+F 7 "Adafruit" H 1375 3300 50  0001 C CIN "S1_Name"
+F 8 "50" H 1375 3300 50  0001 C CIN "S1_PN"
+F 9 "ARDUINO 101 SHIELD" H 1375 3300 50  0001 C CIN "Description"
+F 10 "Not Verified" H 1375 3300 50  0001 C CIN "Verified"
+	2    1375 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L ARDUINO-101-SHIELD U5
+U 3 1 57298950
+P 1375 4750
+F 0 "U5" H 1225 4250 50  0000 L CNN
+F 1 "ARDUINO-101-SHIELD" V 1175 4300 50  0001 L CNN
+F 2 "Wickerlib:ARDUINO-101-SHIELD" H 1375 4400 50  0001 C CIN
+F 3 "https://www.adafruit.com/products/3033" H 1375 4750 5   0001 C CNN
+F 4 "ARDU-101SHIELD" H 1375 4400 50  0001 C CIN "Package"
+F 5 "Arduino" H 1375 4400 50  0001 C CIN "MF_Name"
+F 6 "UNO R3" H 1375 4400 50  0001 C CIN "MF_PN"
+F 7 "Adafruit" H 1375 4400 50  0001 C CIN "S1_Name"
+F 8 "50" H 1375 4400 50  0001 C CIN "S1_PN"
+F 9 "ARDUINO 101 SHIELD" H 1375 4400 50  0001 C CIN "Description"
+F 10 "Not Verified" H 1375 4400 50  0001 C CIN "Verified"
+	3    1375 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L ARDUINO-101-SHIELD U5
+U 4 1 572989D0
+P 1375 6025
+F 0 "U5" H 1225 5525 50  0000 L CNN
+F 1 "ARDUINO-101-SHIELD" V 1175 5575 50  0001 L CNN
+F 2 "Wickerlib:ARDUINO-101-SHIELD" H 1375 5675 50  0001 C CIN
+F 3 "https://www.adafruit.com/products/3033" H 1375 6025 5   0001 C CNN
+F 4 "ARDU-101SHIELD" H 1375 5675 50  0001 C CIN "Package"
+F 5 "Arduino" H 1375 5675 50  0001 C CIN "MF_Name"
+F 6 "UNO R3" H 1375 5675 50  0001 C CIN "MF_PN"
+F 7 "Adafruit" H 1375 5675 50  0001 C CIN "S1_Name"
+F 8 "50" H 1375 5675 50  0001 C CIN "S1_PN"
+F 9 "ARDUINO 101 SHIELD" H 1375 5675 50  0001 C CIN "Description"
+F 10 "Not Verified" H 1375 5675 50  0001 C CIN "Verified"
+	4    1375 6025
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC

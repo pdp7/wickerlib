@@ -20,9 +20,9 @@ D ARDUINO 101
 F https://www.adafruit.com/products/2891
 $ENDCMP
 #
-$CMP ARDUINO-UNO-R3
-D ARDUINO UNO R3
-F https://www.adafruit.com/products/50
+$CMP ARDUINO-101-SHIELD
+D ARDUINO 101 SHIELD
+F https://www.adafruit.com/product/3033
 $ENDCMP
 #
 $CMP ARDUINO-UNO-SHIELD
@@ -984,6 +984,10 @@ D IC REG BST 5V 295MA SYNC SOT-25
 F http://www.torex.co.jp/english/products/dcdc_converters/data/XC9140.pdf
 $ENDCMP
 #
+$CMP IOREF
+K POWER, PWR
+$ENDCMP
+#
 $CMP KEYBOARD-MATRIX-3X4-8PIN-ADAFRUIT
 D 3X4 PHONE-STYLE MATRIX KEYBOARD
 F https://www.adafruit.com/products/1824?gclid=CP3SyvWd4ssCFVBffgodT5YP6Q
@@ -1396,6 +1400,11 @@ D TEENSY 3.2 32BIT 72MHZ
 F https://www.pjrc.com/teensy/
 $ENDCMP
 #
+$CMP TEST_1P
+D point
+K point tp
+$ENDCMP
+#
 $CMP TRIMPOT-10K-3PIN-SMT-0.1W-TC33X
 D TRIMMER 10K OHM 0.1W SMD
 F http://www.bourns.com/docs/Product-Datasheets/TC33.pdf
@@ -1404,6 +1413,10 @@ $ENDCMP
 $CMP TRIMPOT-10K-3PIN-TH-0.20W-P160KN
 D POT 10K OHM 1/5W PLASTIC LINEAR
 F http://www.bitechnologies.com/pdfs/p160.pdf
+$ENDCMP
+#
+$CMP VIN
+K POWER, PWR
 $ENDCMP
 #
 #End Doc Library
