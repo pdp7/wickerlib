@@ -5,6 +5,11 @@ D 5050 RGB LED with Integrated Chip Driver
 F https://www.adafruit.com/images/product-files/1138/SK6812%20LED%20datasheet%20.pdf
 $ENDCMP
 #
+$CMP ADAFRUIT-CC3000-WIFI-BREAKOUT
+D ADAFRUIT CC3000 WIFI BREAKOUT  V1.1
+F https://www.adafruit.com/product/1469
+$ENDCMP
+#
 $CMP ADAFRUIT-FONA-808-GPS
 D ADAFRUIT FONA 808 + GPS
 F https://www.adafruit.com/products/2542
@@ -394,8 +399,8 @@ D DIODE GEN PURP 50V 1A DO41
 F http://www.mccsemi.com/up_pdf/1N4001-1N4007(DO-41).pdf
 $ENDCMP
 #
-$CMP DIODE-GEN-PURP-75V-250MA-SOD323
-D DIODE GEN PURP 75V 250MA SOD323
+$CMP DIODE-GEN-PURP-75V-250MA-BAS16-SOD323
+D DIODE GEN PURP 75V 250MA BAS16 SOD323
 F http://www.vishay.com/docs/85752/bas16ws.pdf
 $ENDCMP
 #
@@ -462,6 +467,11 @@ $ENDCMP
 $CMP FIXED-IND-6.8NH-430MA-250-MOHM
 D FIXED IND 6.8NH 430MA 250 MOHM
 F http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/L0075S0083LQG18H.pdf
+$ENDCMP
+#
+$CMP FUSE-RESET-500MA-15V-MF-MSMF
+D RESETTABLE FUSE 500mA 15V USB
+F http://www.bourns.com/docs/Product-Datasheets/mfmsmf.pdf
 $ENDCMP
 #
 $CMP HEADER-FEMALE-10POS-SMT-2x5-P2MM
@@ -824,6 +834,21 @@ D IC MCU 8BIT 128KB FLASH 44TQFP
 F http://www.atmel.com/Images/Atmel-8272-8-bit-AVR-microcontroller-ATmega164A_PA-324A_PA-644A_PA-1284_P_datasheet.pdf
 $ENDCMP
 #
+$CMP IC-MCU-ATMEGA16U2-MU-VQFN32
+D VQFN32, 16k Flash, 512B SRAM, 512B EEPROM
+K AVR 8bit Microcontroller MegaAVR
+$ENDCMP
+#
+$CMP IC-MCU-ATMEGA2560
+D TQFP100, 256k Flash, 8k SRAM, 4k EEPROM, JTAG
+F http://www.atmel.com/Images/Atmel-2549-8-bit-AVR-Microcontroller-ATmega640-1280-1281-2560-2561_datasheet.pdf
+$ENDCMP
+#
+$CMP IC-MCU-ATMEGA2560-CUSTOM1
+D TQFP100, 256k Flash, 8k SRAM, 4k EEPROM, JTAG, CUSTOM1
+F http://www.atmel.com/Images/Atmel-2549-8-bit-AVR-Microcontroller-ATmega640-1280-1281-2560-2561_datasheet.pdf
+$ENDCMP
+#
 $CMP IC-MCU-ATMEGA328-TQFP32
 D IC MCU 8BIT 32KB FLASH 32TQFP
 F http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf
@@ -922,6 +947,11 @@ $ENDCMP
 $CMP IC-SHIFTER-HEX-74HC4050-SOIC16
 D IC SHIFTER HEX HIGH-LOW 16SOIC
 F http://www.nxp.com/documents/data_sheet/74HC4050.pdf
+$ENDCMP
+#
+$CMP IC-SP3485-8SOIC
+D IC TXRX RS485 HALF DUPLEX SP3485 8SOIC 
+F https://www.exar.com/content/document.ashx?id=639
 $ENDCMP
 #
 $CMP IC-SPX29300-TO-263
@@ -1236,9 +1266,19 @@ D RES SMD 205K OHM 1% 1/10W 0603
 F http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ3EKF2053V+7+WW
 $ENDCMP
 #
+$CMP RES-22-OHM-5%-1/10W-0603
+D RES SMD 22 OHM 5% 1/10W 0603 
+F http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_04.pdf
+$ENDCMP
+#
 $CMP RES-220-5%-1/10W-0402
 D RES SMD 220 OHM 5% 1/10W 0402
 F http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0001+ERJ2GEJ221X+7+WW
+$ENDCMP
+#
+$CMP RES-220-5%-1/4W-CF
+D RES 220 OHM 1/4W 5% CARBON FILM
+F http://www.seielect.com/catalog/SEI-CF_CFM.pdf
 $ENDCMP
 #
 $CMP RES-220-5%-1/4W-TH-CFMINI
@@ -1326,11 +1366,6 @@ D RES SMD 866 OHM 1% 1/10W 0402
 F http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF8660X+7+WW
 $ENDCMP
 #
-$CMP RES220-5%-1/4W-CF
-D RES 220 OHM 1/4W 5% CARBON FILM
-F http://www.seielect.com/catalog/SEI-CF_CFM.pdf
-$ENDCMP
-#
 $CMP SHUNT-JUMPER-2PIN-P0.1IN
 D SHUNT JUMPER 0.1IN BLACK GOLD
 F http://multimedia.3m.com/mws/mediawebserver?66666UuZjcFSLXTtNxTElXf6EVuQEcuZgVs6EVs6E666666--
@@ -1415,8 +1450,25 @@ D POT 10K OHM 1/5W PLASTIC LINEAR
 F http://www.bitechnologies.com/pdfs/p160.pdf
 $ENDCMP
 #
+$CMP VADJ
+K POWER, PWR
+$ENDCMP
+#
+$CMP VBAT
+K POWER, PWR
+$ENDCMP
+#
 $CMP VIN
 K POWER, PWR
+$ENDCMP
+#
+$CMP VUSB
+K POWER, PWR
+$ENDCMP
+#
+$CMP ZXMP6A13FTA
+D MOSFET P-CH 60V 0.9A SOT23-3
+F http://www.diodes.com/_files/datasheets/ZXMP6A13F.pdf
 $ENDCMP
 #
 #End Doc Library
