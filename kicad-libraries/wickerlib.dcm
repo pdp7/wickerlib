@@ -724,6 +724,11 @@ D HEADER MALE 6POS TH 1x06 0.1”
 F https://cdn.harwin.com/pdfs/60page140.pdf
 $ENDCMP
 #
+$CMP HEADER-MALE-6POS-TH-2x3-P0.1IN
+D HEADER MALE 6POS 2x3 0.1”
+F http://cdn.harwin.com/pdfs/60page147.pdf
+$ENDCMP
+#
 $CMP HEADER-MALE-7POS-TH-1x07-P0.1IN
 D HEADER MALE 7POS TH 1x07 0.1”
 F https://cdn.harwin.com/pdfs/60page140.pdf
