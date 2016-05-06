@@ -1,0 +1,18 @@
+Reference|Value|Footprint|Count|Datasheet|Package|MF_Name|MF_PN|S1_Name|S1_PN|Description|Verified
+C5|100nF|Wickerlib:0805|1|http://www.samsungsem.com/kr/front/downloadcms.do?path=/kr/support/product-search/mlcc/__icsFiles/afieldfile/2014/11/05&fileName=C_CL21B104KACNNNC.pdf|0805|Samsung|CL21B104KACNNNC|Digikey|1276-1099-1-ND|CAP CER 0.1UF 25V X7R 0805|Not Verified
+D3|40V 1A|Wickerlib:SMA_Standard|1|http://www.vishay.com/docs/94301/vs-mbra140trpbf.pdf|SMA_Standard|Vishay|VS-MBRA140TRPBF|Digikey|VS-MBRA140TRPBFCT-ND|DIODE SCHOTTKY 40V 1A SMA|Not Verified
+R3|10K|Wickerlib:0805|1|http://www.yageo.com/NewPortal/yageodocoutput?fileName=/pdf/R-Chip/PYu-RC_Group_51_RoHS_L_3.pdf|0805|Yageo|RC0805JR-0710KL|Digikey|311-10KARCT-ND|RES SMD 10K OHM 5% 1/8W 0805|Not Verified
+X1|16MHz 18pF|Wickerlib:CRYSTAL-CTS-4SMD|1|http://www.ctscorp.com/wp-content/uploads/2015/11/008-0260-0.pdf|CRYSTAL-CTS-4SMD|CTS|406I35D16M00000|Digikey|CTX1206CT-ND|16MHz ±30ppm Crystal 18pF 40 Ohm 4SMD NOLEAD|Not Verified
+C2;C3|22pF|Wickerlib:0603|2|http://www.kemet.com/docfinder?Partnumber=C0603C220F1GACTU|0603|Kemet|C0805C220J5GACTU|Digikey|399-11145-1-ND|CAP CER 22pF 100V C0G NP0 0603|Not Verified
+L1|BLM21|Wickerlib:0402|1|http://cdn.lairdtech.com/home/brandworld/files/Catalog_EMI%20Filtering%20&%20RF%20Inductors.pdf|0402|Laird-Signal|LI0402C221R-10|Digikey|240-2554-1-ND|FERRITE BEAD 220 OHM 0402 1LN|Not Verified
+D1;D2|3.6V|Wickerlib:Diode_DO-41|2|http://www.fairchildsemi.com/datasheets/BZ/BZX85C10.pdf|Diode_DO-41|Fairchild|BZX85C3V6|Digikey|BZX85C3V6-ND|DIODE ZENER 3.6V 1W DO41|Not Verified
+J1|USB-MICROB|Wickerlib:USB-Micro-B-10118193_0001LF|1|http://portal.fciconnect.com/Comergent//fci/drawing/10118193.pdf|USB_Micro-B_10118193_0001LF|Amphenol|10118193-0001LF|Digikey|609-4616-1-ND|USB MICRO-B RECEPTACLE 5PIN SMT R/A STUDS|Not Verified
+F1|MF-MSMF050-2|Wickerlib:1812|1|http://www.bourns.com/docs/Product-Datasheets/mfmsmf.pdf|1812|Bourns|MF-MSMF050-2|Digikey|MF-MSMF050-2CT-ND|RESETTABLE FUSE 500mA 15V MF-MSMF|Not Verified
+R1;R2|22|Wickerlib:0603|2|http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_04.pdf|0603|Yageo|RC0603JR-0722RL|Digikey|311-22GRCT-ND|RES 22 OHM 5% 1/10W 0603|Not Verified
+U1|IC-MCU-ATMEGA16U2-MU-VQFN32|Wickerlib:QFN-32-1EP_5x5mm_Pitch0.5mm|1|http://www.atmel.com/Images/doc7799.pdf|QFN32|Atmel|ATMEGA16U2-MU|Digikey|ATMEGA16U2-MU-ND|MCU 8BIT 16KB FLASH 32VQFN|Not Verified
+C4|1uF|Wickerlib:0603|1|http://ds.yuden.co.jp/TYCOMPAS/ut/detail.do?productNo=TMK107B7105KA-T&fileName=TMK107B7105KA-T_SS&mode=specSheetDownload|0603|Taiyo Yuden|TMK107B7105KA-T|Digikey|587-2984-1-ND|CAP CER 1UF 25V X7R 0603|Not Verified
+C1|100nF|Wickerlib:0402|1|http://www.samsungsem.com/kr/support/product-search/mlcc/CL05B104KO5NNNC.jsp|0402|Samsung|CL05B104KO5NNNC|Digikey|1276-1001-1-ND|CAP CER 0.1UF 16V X7R 0402|Not Verified
+R4;R8;R7;R6;R5|1K|Wickerlib:0603|5|http://media.digikey.com/pdf/Data%20Sheets/Samsung%20PDFs/RC_Series_ds.pdf|0603|Samsung|RC1608F102CS|Digikey|1276-3484-1-ND|RES SMD 1K OHM 1% 1/10W 0603|Not Verified
+LED2;LED1|AMBER|Wickerlib:0603|2|http://media.digikey.com/pdf/Data%20Sheets/Osram%20PDFs/LSLALOLY_296.pdf|0603|OSRAM Opto|LA L296-Q2R2-1-Z|Digikey|475-2712-1-ND|LED AMBER DIFFUSED 0603 SMD|Not Verified
+J2|ICSP|Wickerlib:Pin_Header_Straight_2x03|1|http://cdn.harwin.com/pdfs/60page147.pdf|UNDEFINED|Harwin|M20-9720345|Digikey|952-1921-ND|HEADER MALE 6POS 2x3 0.1”|Not Verified
+J3|OUTPUT|Wickerlib:Pin_Header_Straight_1x05|1|https://cdn.harwin.com/pdfs/60page140.pdf|Pin_Header_Straight_1x05|Harwin|M20-7820542|Digikey|952-1801-ND|HEADER FEMALE 5POS TH 1x05 0.1”|Not Verified

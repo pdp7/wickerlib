@@ -1,0 +1,1019 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>/home/wicker/proj/wbox/wickerlib/reference-circuits/atmega16u2-breakout/atmega16u2.sch</source>
+    <date>Thu 05 May 2016 10:15:41 PM PDT</date>
+    <tool>Eeschema 4.0.1-3.201512221402+6198~38~ubuntu14.04.1-stable</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>Atmega16U2 Breakout Board</title>
+        <company>Released under the CERN Open Hardware License v1.2</company>
+        <rev>1.0</rev>
+        <date>2016-05-02</date>
+        <source>atmega16u2.sch</source>
+        <comment number="1" value="Contact: jeh.wicker@gmail.com"/>
+        <comment number="2" value="Author: Jenner Hanni"/>
+        <comment number="3" value="Wickerbox Electronics"/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C5">
+      <value>100nF</value>
+      <footprint>Wickerlib:0805</footprint>
+      <datasheet>http://www.samsungsem.com/kr/front/downloadcms.do?path=/kr/support/product-search/mlcc/__icsFiles/afieldfile/2014/11/05&amp;fileName=C_CL21B104KACNNNC.pdf</datasheet>
+      <fields>
+        <field name="Package">0805</field>
+        <field name="MF_Name">Samsung</field>
+        <field name="MF_PN">CL21B104KACNNNC</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">1276-1099-1-ND</field>
+        <field name="Description">CAP CER 0.1UF 25V X7R 0805</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="CAP-CER-0.1UF-25V-X7R-0805"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572AC2DD</tstamp>
+    </comp>
+    <comp ref="D3">
+      <value>40V 1A</value>
+      <footprint>Wickerlib:SMA_Standard</footprint>
+      <datasheet>http://www.vishay.com/docs/94301/vs-mbra140trpbf.pdf</datasheet>
+      <fields>
+        <field name="Package">SMA_Standard</field>
+        <field name="MF_Name">Vishay</field>
+        <field name="MF_PN">VS-MBRA140TRPBF</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">VS-MBRA140TRPBFCT-ND</field>
+        <field name="Description">DIODE SCHOTTKY 40V 1A SMA</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="DIODE-SCHOTTKY-40V-1A-SMA"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572B02B5</tstamp>
+    </comp>
+    <comp ref="R3">
+      <value>10K</value>
+      <footprint>Wickerlib:0805</footprint>
+      <datasheet>http://www.yageo.com/NewPortal/yageodocoutput?fileName=/pdf/R-Chip/PYu-RC_Group_51_RoHS_L_3.pdf</datasheet>
+      <fields>
+        <field name="Package">0805</field>
+        <field name="MF_Name">Yageo</field>
+        <field name="MF_PN">RC0805JR-0710KL</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">311-10KARCT-ND</field>
+        <field name="Description">RES SMD 10K OHM 5% 1/8W 0805</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="RES-10K-5%-1/8W-0805"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572B4588</tstamp>
+    </comp>
+    <comp ref="X1">
+      <value>16MHz 18pF</value>
+      <footprint>Wickerlib:CRYSTAL-CTS-4SMD</footprint>
+      <datasheet>http://www.ctscorp.com/wp-content/uploads/2015/11/008-0260-0.pdf</datasheet>
+      <fields>
+        <field name="Package">CRYSTAL-CTS-4SMD</field>
+        <field name="MF_Name">CTS</field>
+        <field name="MF_PN">406I35D16M00000</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">CTX1206CT-ND</field>
+        <field name="Description">16MHz ±30ppm Crystal 18pF 40 Ohm 4SMD NOLEAD</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="CRYSTAL-16MHZ-18PF-40OHM-CTS-4SMD"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572B6680</tstamp>
+    </comp>
+    <comp ref="C2">
+      <value>22pF</value>
+      <footprint>Wickerlib:0603</footprint>
+      <datasheet>http://www.kemet.com/docfinder?Partnumber=C0603C220F1GACTU</datasheet>
+      <fields>
+        <field name="Package">0603</field>
+        <field name="MF_Name">Kemet</field>
+        <field name="MF_PN">C0805C220J5GACTU</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">399-11145-1-ND</field>
+        <field name="Description">CAP CER 22pF 100V C0G NP0 0603</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="CAP-CER-22PF-100V-C0G-NP0-0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572AE99D</tstamp>
+    </comp>
+    <comp ref="L1">
+      <value>BLM21</value>
+      <footprint>Wickerlib:0402</footprint>
+      <datasheet>http://cdn.lairdtech.com/home/brandworld/files/Catalog_EMI%20Filtering%20&amp;%20RF%20Inductors.pdf</datasheet>
+      <fields>
+        <field name="Package">0402</field>
+        <field name="MF_Name">Laird-Signal</field>
+        <field name="MF_PN">LI0402C221R-10</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">240-2554-1-ND</field>
+        <field name="Description">FERRITE BEAD 220 OHM 0402 1LN</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="FERRITE-BEAD-220-OHM-0402-1LN"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572B268D</tstamp>
+    </comp>
+    <comp ref="C3">
+      <value>22pF</value>
+      <footprint>Wickerlib:0603</footprint>
+      <datasheet>http://www.kemet.com/docfinder?Partnumber=C0603C220F1GACTU</datasheet>
+      <fields>
+        <field name="Package">0603</field>
+        <field name="MF_Name">Kemet</field>
+        <field name="MF_PN">C0805C220J5GACTU</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">399-11145-1-ND</field>
+        <field name="Description">CAP CER 22pF 100V C0G NP0 0603</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="CAP-CER-22PF-100V-C0G-NP0-0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572B2A1F</tstamp>
+    </comp>
+    <comp ref="D1">
+      <value>3.6V</value>
+      <footprint>Wickerlib:Diode_DO-41</footprint>
+      <datasheet>http://www.fairchildsemi.com/datasheets/BZ/BZX85C10.pdf</datasheet>
+      <fields>
+        <field name="Package">Diode_DO-41</field>
+        <field name="MF_Name">Fairchild</field>
+        <field name="MF_PN">BZX85C3V6</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">BZX85C3V6-ND</field>
+        <field name="Description">DIODE ZENER 3.6V 1W DO41</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="DIODE-ZENER-3.6V-1W-DO41"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572B6B94</tstamp>
+    </comp>
+    <comp ref="J1">
+      <value>USB-MICROB</value>
+      <footprint>Wickerlib:USB-Micro-B-10118193_0001LF</footprint>
+      <datasheet>http://portal.fciconnect.com/Comergent//fci/drawing/10118193.pdf</datasheet>
+      <fields>
+        <field name="Package">USB_Micro-B_10118193_0001LF</field>
+        <field name="MF_Name">Amphenol</field>
+        <field name="MF_PN">10118193-0001LF</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">609-4616-1-ND</field>
+        <field name="Description">USB MICRO-B RECEPTACLE 5PIN SMT R/A STUDS</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="CONN-USB-MICRO-B-10118193"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572B8AA0</tstamp>
+    </comp>
+    <comp ref="F1">
+      <value>MF-MSMF050-2</value>
+      <footprint>Wickerlib:1812</footprint>
+      <datasheet>http://www.bourns.com/docs/Product-Datasheets/mfmsmf.pdf</datasheet>
+      <fields>
+        <field name="Package">1812</field>
+        <field name="MF_Name">Bourns</field>
+        <field name="MF_PN">MF-MSMF050-2</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">MF-MSMF050-2CT-ND</field>
+        <field name="Description">RESETTABLE FUSE 500mA 15V MF-MSMF</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="FUSE-RESET-500MA-15V-MF-MSMF"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572BA96E</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>22</value>
+      <footprint>Wickerlib:0603</footprint>
+      <datasheet>http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_04.pdf</datasheet>
+      <fields>
+        <field name="Package">0603</field>
+        <field name="MF_Name">Yageo</field>
+        <field name="MF_PN">RC0603JR-0722RL</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">311-22GRCT-ND</field>
+        <field name="Description">RES 22 OHM 5% 1/10W 0603</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="RES-22-OHM-5%-1/10W-0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572ACE16</tstamp>
+    </comp>
+    <comp ref="U1">
+      <value>IC-MCU-ATMEGA16U2-MU-VQFN32</value>
+      <footprint>Wickerlib:QFN-32-1EP_5x5mm_Pitch0.5mm</footprint>
+      <datasheet>http://www.atmel.com/Images/doc7799.pdf</datasheet>
+      <fields>
+        <field name="Package">QFN32</field>
+        <field name="MF_Name">Atmel</field>
+        <field name="MF_PN">ATMEGA16U2-MU</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">ATMEGA16U2-MU-ND</field>
+        <field name="Description">MCU 8BIT 16KB FLASH 32VQFN</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="IC-MCU-ATMEGA16U2-MU-VQFN32"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572A82CE</tstamp>
+    </comp>
+    <comp ref="D2">
+      <value>3.6V</value>
+      <footprint>Wickerlib:Diode_DO-41</footprint>
+      <datasheet>http://www.fairchildsemi.com/datasheets/BZ/BZX85C10.pdf</datasheet>
+      <fields>
+        <field name="Package">Diode_DO-41</field>
+        <field name="MF_Name">Fairchild</field>
+        <field name="MF_PN">BZX85C3V6</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">BZX85C3V6-ND</field>
+        <field name="Description">DIODE ZENER 3.6V 1W DO41</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="DIODE-ZENER-3.6V-1W-DO41"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572B5B7F</tstamp>
+    </comp>
+    <comp ref="R2">
+      <value>22</value>
+      <footprint>Wickerlib:0603</footprint>
+      <datasheet>http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_04.pdf</datasheet>
+      <fields>
+        <field name="Package">0603</field>
+        <field name="MF_Name">Yageo</field>
+        <field name="MF_PN">RC0603JR-0722RL</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">311-22GRCT-ND</field>
+        <field name="Description">RES 22 OHM 5% 1/10W 0603</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="RES-22-OHM-5%-1/10W-0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572B646C</tstamp>
+    </comp>
+    <comp ref="C4">
+      <value>1uF</value>
+      <footprint>Wickerlib:0603</footprint>
+      <datasheet>http://ds.yuden.co.jp/TYCOMPAS/ut/detail.do?productNo=TMK107B7105KA-T&amp;fileName=TMK107B7105KA-T_SS&amp;mode=specSheetDownload</datasheet>
+      <fields>
+        <field name="Package">0603</field>
+        <field name="MF_Name">Taiyo Yuden</field>
+        <field name="MF_PN">TMK107B7105KA-T</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">587-2984-1-ND</field>
+        <field name="Description">CAP CER 1UF 25V X7R 0603</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="CAP-CER-1UF-25V-X7R-0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572B98C6</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>100nF</value>
+      <footprint>Wickerlib:0402</footprint>
+      <datasheet>http://www.samsungsem.com/kr/support/product-search/mlcc/CL05B104KO5NNNC.jsp</datasheet>
+      <fields>
+        <field name="Package">0402</field>
+        <field name="MF_Name">Samsung</field>
+        <field name="MF_PN">CL05B104KO5NNNC</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">1276-1001-1-ND</field>
+        <field name="Description">CAP CER 0.1UF 16V X7R 0402</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="CAP-CER-100NF-16V-X7R-0402"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572BB81F</tstamp>
+    </comp>
+    <comp ref="R4">
+      <value>1K</value>
+      <footprint>Wickerlib:0603</footprint>
+      <datasheet>http://media.digikey.com/pdf/Data%20Sheets/Samsung%20PDFs/RC_Series_ds.pdf</datasheet>
+      <fields>
+        <field name="Package">0603</field>
+        <field name="MF_Name">Samsung</field>
+        <field name="MF_PN">RC1608F102CS</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">1276-3484-1-ND</field>
+        <field name="Description">RES SMD 1K OHM 1% 1/10W 0603</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="RES-1K-1%-1/10W-0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572C557D</tstamp>
+    </comp>
+    <comp ref="R8">
+      <value>1K</value>
+      <footprint>Wickerlib:0603</footprint>
+      <datasheet>http://media.digikey.com/pdf/Data%20Sheets/Samsung%20PDFs/RC_Series_ds.pdf</datasheet>
+      <fields>
+        <field name="Package">0603</field>
+        <field name="MF_Name">Samsung</field>
+        <field name="MF_PN">RC1608F102CS</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">1276-3484-1-ND</field>
+        <field name="Description">RES SMD 1K OHM 1% 1/10W 0603</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="RES-1K-1%-1/10W-0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572C5C31</tstamp>
+    </comp>
+    <comp ref="R7">
+      <value>1K</value>
+      <footprint>Wickerlib:0603</footprint>
+      <datasheet>http://media.digikey.com/pdf/Data%20Sheets/Samsung%20PDFs/RC_Series_ds.pdf</datasheet>
+      <fields>
+        <field name="Package">0603</field>
+        <field name="MF_Name">Samsung</field>
+        <field name="MF_PN">RC1608F102CS</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">1276-3484-1-ND</field>
+        <field name="Description">RES SMD 1K OHM 1% 1/10W 0603</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="RES-1K-1%-1/10W-0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572C5D19</tstamp>
+    </comp>
+    <comp ref="R6">
+      <value>1K</value>
+      <footprint>Wickerlib:0603</footprint>
+      <datasheet>http://media.digikey.com/pdf/Data%20Sheets/Samsung%20PDFs/RC_Series_ds.pdf</datasheet>
+      <fields>
+        <field name="Package">0603</field>
+        <field name="MF_Name">Samsung</field>
+        <field name="MF_PN">RC1608F102CS</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">1276-3484-1-ND</field>
+        <field name="Description">RES SMD 1K OHM 1% 1/10W 0603</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="RES-1K-1%-1/10W-0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572C7FCC</tstamp>
+    </comp>
+    <comp ref="R5">
+      <value>1K</value>
+      <footprint>Wickerlib:0603</footprint>
+      <datasheet>http://media.digikey.com/pdf/Data%20Sheets/Samsung%20PDFs/RC_Series_ds.pdf</datasheet>
+      <fields>
+        <field name="Package">0603</field>
+        <field name="MF_Name">Samsung</field>
+        <field name="MF_PN">RC1608F102CS</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">1276-3484-1-ND</field>
+        <field name="Description">RES SMD 1K OHM 1% 1/10W 0603</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="RES-1K-1%-1/10W-0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572C804B</tstamp>
+    </comp>
+    <comp ref="LED2">
+      <value>AMBER</value>
+      <footprint>Wickerlib:0603</footprint>
+      <datasheet>http://media.digikey.com/pdf/Data%20Sheets/Osram%20PDFs/LSLALOLY_296.pdf</datasheet>
+      <fields>
+        <field name="Package">0603</field>
+        <field name="MF_Name">OSRAM Opto</field>
+        <field name="MF_PN">LA L296-Q2R2-1-Z</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">475-2712-1-ND</field>
+        <field name="Description">LED AMBER DIFFUSED 0603 SMD</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="LED-AMBER-0603-SMT-L296-Q2R2"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572CDD75</tstamp>
+    </comp>
+    <comp ref="LED1">
+      <value>AMBER</value>
+      <footprint>Wickerlib:0603</footprint>
+      <datasheet>http://media.digikey.com/pdf/Data%20Sheets/Osram%20PDFs/LSLALOLY_296.pdf</datasheet>
+      <fields>
+        <field name="Package">0603</field>
+        <field name="MF_Name">OSRAM Opto</field>
+        <field name="MF_PN">LA L296-Q2R2-1-Z</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">475-2712-1-ND</field>
+        <field name="Description">LED AMBER DIFFUSED 0603 SMD</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="LED-AMBER-0603-SMT-L296-Q2R2"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572CDF02</tstamp>
+    </comp>
+    <comp ref="J2">
+      <value>ICSP</value>
+      <footprint>Wickerlib:Pin_Header_Straight_2x03</footprint>
+      <datasheet>http://cdn.harwin.com/pdfs/60page147.pdf</datasheet>
+      <fields>
+        <field name="Package">UNDEFINED</field>
+        <field name="MF_Name">Harwin</field>
+        <field name="MF_PN">M20-9720345</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">952-1921-ND</field>
+        <field name="Description">HEADER MALE 6POS 2x3 0.1”</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="HEADER-MALE-6POS-TH-2x3-P0.1IN"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572C265F</tstamp>
+    </comp>
+    <comp ref="J3">
+      <value>OUTPUT</value>
+      <footprint>Wickerlib:Pin_Header_Straight_1x05</footprint>
+      <datasheet>https://cdn.harwin.com/pdfs/60page140.pdf</datasheet>
+      <fields>
+        <field name="Package">Pin_Header_Straight_1x05</field>
+        <field name="MF_Name">Harwin</field>
+        <field name="MF_PN">M20-7820542</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">952-1801-ND</field>
+        <field name="Description">HEADER FEMALE 5POS TH 1x05 0.1”</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <libsource lib="wickerlib" part="HEADER-FEMALE-5POS-TH-1x05-P0.1IN"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>572C803F</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="wickerlib" part="CAP-CER-0.1UF-25V-X7R-0805">
+      <description>CAP CER 0.1UF 25V X7R 0805</description>
+      <docs>http://www.samsungsem.com/kr/front/downloadcms.do?path=/kr/support/product-search/mlcc/__icsFiles/afieldfile/2014/11/05&amp;fileName=C_CL21B104KACNNNC.pdf</docs>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CAP-CER-0.1UF-25V-X7R-0805</field>
+        <field name="Footprint">0805</field>
+        <field name="Datasheet">http://www.samsungsem.com/kr/front/downloadcms.do?path=/kr/support/product-search/mlcc/__icsFiles/afieldfile/2014/11/05&amp;fileName=C_CL21B104KACNNNC.pdf</field>
+        <field name="Package">0805</field>
+        <field name="MF_Name">Samsung</field>
+        <field name="MF_PN">CL21B104KACNNNC</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">1276-1099-1-ND</field>
+        <field name="Description">CAP CER 0.1UF 25V X7R 0805</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="wickerlib" part="CAP-CER-100NF-16V-X7R-0402">
+      <description>CAP CER 0.1UF 16V X7R 0402</description>
+      <docs>http://www.samsungsem.com/kr/support/product-search/mlcc/CL05B104KO5NNNC.jsp</docs>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CAP-CER-100NF-16V-X7R-0402</field>
+        <field name="Footprint">0402</field>
+        <field name="Datasheet">http://www.samsungsem.com/kr/support/product-search/mlcc/CL05B104KO5NNNC.jsp</field>
+        <field name="Package">0402</field>
+        <field name="MF_Name">Samsung</field>
+        <field name="MF_PN">CL05B104KO5NNNC</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">1276-1001-1-ND</field>
+        <field name="Description">CAP CER 0.1UF 16V X7R 0402</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="wickerlib" part="CAP-CER-1UF-25V-X7R-0603">
+      <description>CAP CER 1UF 25V X7R 0603</description>
+      <docs>http://ds.yuden.co.jp/TYCOMPAS/ut/detail.do?productNo=TMK107B7105KA-T&amp;fileName=TMK107B7105KA-T_SS&amp;mode=specSheetDownload</docs>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CAP-CER-1UF-25V-X7R-0603</field>
+        <field name="Footprint">0603</field>
+        <field name="Datasheet">http://ds.yuden.co.jp/TYCOMPAS/ut/detail.do?productNo=TMK107B7105KA-T&amp;fileName=TMK107B7105KA-T_SS&amp;mode=specSheetDownload</field>
+        <field name="Package">0603</field>
+        <field name="MF_Name">Taiyo Yuden</field>
+        <field name="MF_PN">TMK107B7105KA-T</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">587-2984-1-ND</field>
+        <field name="Description">CAP CER 1UF 25V X7R 0603</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="wickerlib" part="CAP-CER-22PF-100V-C0G-NP0-0603">
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">CAP-CER-22PF-100V-C0G-NP0-0603</field>
+        <field name="Footprint">0603</field>
+        <field name="Datasheet">http://www.kemet.com/docfinder?Partnumber=C0603C220F1GACTU</field>
+        <field name="Package">0603</field>
+        <field name="MF_Name">Kemet</field>
+        <field name="MF_PN">C0805C220J5GACTU</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">399-11145-1-ND</field>
+        <field name="Description">CAP CER 22pF 100V C0G NP0 0603</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="wickerlib" part="CONN-USB-MICRO-B-10118193">
+      <description>USB MICRO-B RECEPTACLE 5PIN SMT R/A STUDS</description>
+      <docs>http://portal.fciconnect.com/Comergent//fci/drawing/10118193.pdf</docs>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">CONN-USB-MICRO-B-10118193</field>
+        <field name="Footprint">USB-10118193</field>
+        <field name="Datasheet">http://portal.fciconnect.com/Comergent//fci/drawing/10118193.pdf</field>
+        <field name="Package">USB_Micro-B_10118193_0001LF</field>
+        <field name="MF_Name">Amphenol</field>
+        <field name="MF_PN">10118193-0001LF</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">609-4616-1-ND</field>
+        <field name="Description">USB MICRO-B RECEPTACLE 5PIN SMT R/A STUDS</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VCC" type="power_in"/>
+        <pin num="2" name="D-" type="passive"/>
+        <pin num="3" name="D+" type="passive"/>
+        <pin num="4" name="GND" type="power_in"/>
+        <pin num="5" name="shield" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="wickerlib" part="CRYSTAL-16MHZ-18PF-40OHM-CTS-4SMD">
+      <description>16MHz ±30ppm Crystal 18pF 40 Ohm 4SMD NOLEAD</description>
+      <docs>http://www.ctscorp.com/wp-content/uploads/2015/11/008-0260-0.pdf</docs>
+      <fields>
+        <field name="Reference">X</field>
+        <field name="Value">CRYSTAL-16MHZ-18PF-40OHM-CTS-4SMD</field>
+        <field name="Footprint">CTS-4SMD</field>
+        <field name="Datasheet">http://www.ctscorp.com/wp-content/uploads/2015/11/008-0260-0.pdf</field>
+        <field name="Package">CRYSTAL-CTS-4SMD</field>
+        <field name="MF_Name">CTS</field>
+        <field name="MF_PN">406I35D16M00000</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">CTX1206CT-ND</field>
+        <field name="Description">16MHz ±30ppm Crystal 18pF 40 Ohm 4SMD NOLEAD</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <pins>
+        <pin num="1" name="EN" type="passive"/>
+        <pin num="2" name="GND" type="passive"/>
+        <pin num="3" name="OUT" type="passive"/>
+        <pin num="4" name="GND" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="wickerlib" part="DIODE-SCHOTTKY-40V-1A-SMA">
+      <description>DIODE SCHOTTKY 40V 1A SMA</description>
+      <docs>http://www.vishay.com/docs/94301/vs-mbra140trpbf.pdf</docs>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">DIODE-SCHOTTKY-40V-1A-SMA</field>
+        <field name="Footprint">SMA</field>
+        <field name="Datasheet">http://www.vishay.com/docs/94301/vs-mbra140trpbf.pdf</field>
+        <field name="Package">SMA_Standard</field>
+        <field name="MF_Name">Vishay</field>
+        <field name="MF_PN">VS-MBRA140TRPBF</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">VS-MBRA140TRPBFCT-ND</field>
+        <field name="Description">DIODE SCHOTTKY 40V 1A SMA</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="wickerlib" part="DIODE-ZENER-3.6V-1W-DO41">
+      <description>DIODE ZENER 3.6V 1W DO41</description>
+      <docs>http://www.fairchildsemi.com/datasheets/BZ/BZX85C10.pdf</docs>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">DIODE-ZENER-3.6V-1W-DO41</field>
+        <field name="Footprint">DO41</field>
+        <field name="Datasheet">http://www.fairchildsemi.com/datasheets/BZ/BZX85C10.pdf</field>
+        <field name="Package">Diode_DO-41</field>
+        <field name="MF_Name">Fairchild</field>
+        <field name="MF_PN">BZX85C3V6</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">BZX85C3V6-ND</field>
+        <field name="Description">DIODE ZENER 3.6V 1W DO41</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="wickerlib" part="FERRITE-BEAD-220-OHM-0402-1LN">
+      <description>FERRITE BEAD 220 OHM 0402 1LN</description>
+      <docs>http://cdn.lairdtech.com/home/brandworld/files/Catalog_EMI%20Filtering%20&amp;%20RF%20Inductors.pdf</docs>
+      <fields>
+        <field name="Reference">L</field>
+        <field name="Value">FERRITE-BEAD-220-OHM-0402-1LN</field>
+        <field name="Footprint">0402</field>
+        <field name="Datasheet">http://cdn.lairdtech.com/home/brandworld/files/Catalog_EMI%20Filtering%20&amp;%20RF%20Inductors.pdf</field>
+        <field name="Package">0402</field>
+        <field name="MF_Name">Laird-Signal</field>
+        <field name="MF_PN">LI0402C221R-10</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">240-2554-1-ND</field>
+        <field name="Description">FERRITE BEAD 220 OHM 0402 1LN</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="wickerlib" part="FUSE-RESET-500MA-15V-MF-MSMF">
+      <description>RESETTABLE FUSE 500mA 15V USB</description>
+      <docs>http://www.bourns.com/docs/Product-Datasheets/mfmsmf.pdf</docs>
+      <fields>
+        <field name="Reference">F</field>
+        <field name="Value">FUSE-RESET-500MA-15V-MF-MSMF</field>
+        <field name="Footprint">1812</field>
+        <field name="Datasheet">http://www.bourns.com/docs/Product-Datasheets/mfmsmf.pdf</field>
+        <field name="Package">1812</field>
+        <field name="MF_Name">Bourns</field>
+        <field name="MF_PN">MF-MSMF050-2</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">MF-MSMF050-2CT-ND</field>
+        <field name="Description">RESETTABLE FUSE 500mA 15V MF-MSMF</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="wickerlib" part="HEADER-FEMALE-5POS-TH-1x05-P0.1IN">
+      <description>HEADER FEMALE 5POS TH 1x05 0.1”</description>
+      <docs>https://cdn.harwin.com/pdfs/60page140.pdf</docs>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">HEADER-FEMALE-5POS-TH-1x05-P0.1IN</field>
+        <field name="Footprint">CONN-1x05-2.54MM-TH</field>
+        <field name="Datasheet">https://cdn.harwin.com/pdfs/60page140.pdf</field>
+        <field name="Package">Pin_Header_Straight_1x05</field>
+        <field name="MF_Name">Harwin</field>
+        <field name="MF_PN">M20-7820542</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">952-1801-ND</field>
+        <field name="Description">HEADER FEMALE 5POS TH 1x05 0.1”</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+        <pin num="3" name="P3" type="passive"/>
+        <pin num="4" name="P4" type="passive"/>
+        <pin num="5" name="P5" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="wickerlib" part="HEADER-MALE-6POS-TH-2x3-P0.1IN">
+      <description>HEADER MALE 6POS 2x3 0.1”</description>
+      <docs>http://cdn.harwin.com/pdfs/60page147.pdf</docs>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">HEADER-MALE-6POS-TH-2x3-P0.1IN</field>
+        <field name="Footprint">CONN-2x03</field>
+        <field name="Datasheet">http://cdn.harwin.com/pdfs/60page147.pdf</field>
+        <field name="Package">UNDEFINED</field>
+        <field name="MF_Name">Harwin</field>
+        <field name="MF_PN">M20-9720345</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">952-1921-ND</field>
+        <field name="Description">HEADER MALE 6POS 2x3 0.1”</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P1" type="passive"/>
+        <pin num="2" name="P2" type="passive"/>
+        <pin num="3" name="P3" type="passive"/>
+        <pin num="4" name="P4" type="passive"/>
+        <pin num="5" name="P5" type="passive"/>
+        <pin num="6" name="P6" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="wickerlib" part="IC-MCU-ATMEGA16U2-MU-VQFN32">
+      <description>VQFN32, 16k Flash, 512B SRAM, 512B EEPROM</description>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">IC-MCU-ATMEGA16U2-MU-VQFN32</field>
+        <field name="Footprint">VQFN32</field>
+        <field name="Datasheet">http://www.atmel.com/Images/doc7799.pdf</field>
+        <field name="Package">VQFN32</field>
+        <field name="MF_Name">Atmel</field>
+        <field name="MF_PN">ATMEGA16U2-MU</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">ATMEGA16U2-MU-ND</field>
+        <field name="Description">MCU 8BIT 16KB FLASH 32VQFN</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <pins>
+        <pin num="1" name="XTAL1" type="input"/>
+        <pin num="2" name="PC0(XTAL2)" type="BiDi"/>
+        <pin num="3" name="GND" type="power_in"/>
+        <pin num="4" name="VCC" type="power_in"/>
+        <pin num="5" name="(PCINT11/AIN2)PC2" type="BiDi"/>
+        <pin num="6" name="(OC.0B/INT0)PD0" type="BiDi"/>
+        <pin num="7" name="(AIN0/INT1)PD1" type="BiDi"/>
+        <pin num="8" name="(RXD1/AIN1/INT2)PD2" type="BiDi"/>
+        <pin num="9" name="(TXD1/INT3)PD3" type="BiDi"/>
+        <pin num="10" name="(INT5/AIN3)PD4" type="BiDi"/>
+        <pin num="11" name="(XCK/AIN4/PCINT12)PD5" type="BiDi"/>
+        <pin num="12" name="(~RTS~/AIN5/INT6)PD6" type="BiDi"/>
+        <pin num="13" name="(~CTS~/~HWB~/AIN6/T0/INT7)PD7" type="BiDi"/>
+        <pin num="14" name="(~SS~/PCINT0)PB0" type="BiDi"/>
+        <pin num="15" name="(SCLK/PCINT1)PB1" type="BiDi"/>
+        <pin num="16" name="(PDI/MOSI/PCINT2)PB2" type="BiDi"/>
+        <pin num="17" name="(PD0/MISO/PCINT3)PB3" type="BiDi"/>
+        <pin num="18" name="(T1/PCINT4)PB4" type="BiDi"/>
+        <pin num="19" name="(PCINT5)PB5" type="BiDi"/>
+        <pin num="20" name="(PCINT6)PB6" type="BiDi"/>
+        <pin num="21" name="(PCINT7/OC.0A/OC.1C)PB7" type="BiDi"/>
+        <pin num="22" name="(INT4/ICP1/CLK0)PC7" type="BiDi"/>
+        <pin num="23" name="(OC.1A/PCINT8)PC6" type="BiDi"/>
+        <pin num="24" name="PC1(~RESET~/dW)" type="BiDi"/>
+        <pin num="25" name="(PCINT9/OC.1B)PC5" type="BiDi"/>
+        <pin num="26" name="(PCINT10)PC4" type="BiDi"/>
+        <pin num="27" name="UCAP" type="passive"/>
+        <pin num="28" name="UGND" type="power_in"/>
+        <pin num="29" name="D+" type="BiDi"/>
+        <pin num="30" name="D-" type="BiDi"/>
+        <pin num="31" name="UVCC" type="power_in"/>
+        <pin num="32" name="AVCC" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="wickerlib" part="LED-AMBER-0603-SMT-L296-Q2R2">
+      <description>LED AMBER DIFFUSED 0603 SMD</description>
+      <docs>"http://media.digikey.com/pdf/Data%20Sheets/Osram%20PDFs/LSLALOLY_296.pdf</docs>
+      <fields>
+        <field name="Reference">LED</field>
+        <field name="Value">LED-AMBER-0603-SMT-L296-Q2R2</field>
+        <field name="Footprint">0603</field>
+        <field name="Datasheet">http://media.digikey.com/pdf/Data%20Sheets/Osram%20PDFs/LSLALOLY_296.pdf</field>
+        <field name="Package">0603</field>
+        <field name="MF_Name">OSRAM Opto</field>
+        <field name="MF_PN">LA L296-Q2R2-1-Z</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">475-2712-1-ND</field>
+        <field name="Description">LED AMBER DIFFUSED 0603 SMD</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="wickerlib" part="RES-10K-5%-1/8W-0805">
+      <description>RES SMD 10K OHM 5% 1/8W 0805</description>
+      <docs>http://www.yageo.com/NewPortal/yageodocoutput?fileName=/pdf/R-Chip/PYu-RC_Group_51_RoHS_L_3.pdf</docs>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">RES-10K-5%-1/8W-0805</field>
+        <field name="Footprint">0805</field>
+        <field name="Datasheet">http://www.yageo.com/NewPortal/yageodocoutput?fileName=/pdf/R-Chip/PYu-RC_Group_51_RoHS_L_3.pdf</field>
+        <field name="Package">0805</field>
+        <field name="MF_Name">Yageo</field>
+        <field name="MF_PN">RC0805JR-0710KL</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">311-10KARCT-ND</field>
+        <field name="Description">RES SMD 10K OHM 5% 1/8W 0805</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="wickerlib" part="RES-1K-1%-1/10W-0603">
+      <description>RES SMD 1K OHM 1% 1/10W 0603</description>
+      <docs>http://media.digikey.com/pdf/Data%20Sheets/Samsung%20PDFs/RC_Series_ds.pdf</docs>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">RES-1K-1%-1/10W-0603</field>
+        <field name="Footprint">0603</field>
+        <field name="Datasheet">http://media.digikey.com/pdf/Data%20Sheets/Samsung%20PDFs/RC_Series_ds.pdf</field>
+        <field name="Package">0603</field>
+        <field name="MF_Name">Samsung</field>
+        <field name="MF_PN">RC1608F102CS</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">1276-3484-1-ND</field>
+        <field name="Description">RES SMD 1K OHM 1% 1/10W 0603</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="wickerlib" part="RES-22-OHM-5%-1/10W-0603">
+      <description>RES SMD 22 OHM 5% 1/10W 0603 </description>
+      <docs>http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_04.pdf</docs>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">RES-22-OHM-5%-1/10W-0603</field>
+        <field name="Footprint">0603</field>
+        <field name="Datasheet">http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_04.pdf</field>
+        <field name="Package">0603</field>
+        <field name="MF_Name">Yageo</field>
+        <field name="MF_PN">RC0603JR-0722RL</field>
+        <field name="S1_Name">Digikey</field>
+        <field name="S1_PN">311-22GRCT-ND</field>
+        <field name="Description">RES 22 OHM 5% 1/10W 0603</field>
+        <field name="Verified">Not Verified</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="wickerlib">
+      <uri>/home/wicker/proj/wbox/wickerlib/kicad-libraries/wickerlib.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="Net-(C2-Pad1)">
+      <node ref="C2" pin="1"/>
+      <node ref="X1" pin="1"/>
+      <node ref="U1" pin="1"/>
+    </net>
+    <net code="2" name="Net-(C3-Pad1)">
+      <node ref="U1" pin="2"/>
+      <node ref="C3" pin="1"/>
+      <node ref="X1" pin="3"/>
+    </net>
+    <net code="3" name="Net-(D1-Pad1)">
+      <node ref="D1" pin="1"/>
+      <node ref="J1" pin="2"/>
+      <node ref="R1" pin="2"/>
+    </net>
+    <net code="4" name="Net-(D2-Pad1)">
+      <node ref="R2" pin="2"/>
+      <node ref="D2" pin="1"/>
+      <node ref="J1" pin="3"/>
+    </net>
+    <net code="5" name="Net-(R2-Pad1)">
+      <node ref="U1" pin="29"/>
+      <node ref="R2" pin="1"/>
+    </net>
+    <net code="6" name="Net-(R1-Pad1)">
+      <node ref="U1" pin="30"/>
+      <node ref="R1" pin="1"/>
+    </net>
+    <net code="7" name="+5V">
+      <node ref="R3" pin="1"/>
+      <node ref="J2" pin="2"/>
+      <node ref="D3" pin="1"/>
+      <node ref="U1" pin="32"/>
+      <node ref="C5" pin="1"/>
+      <node ref="R5" pin="1"/>
+      <node ref="R6" pin="1"/>
+      <node ref="J3" pin="1"/>
+      <node ref="U1" pin="4"/>
+      <node ref="C1" pin="1"/>
+      <node ref="F1" pin="2"/>
+      <node ref="U1" pin="31"/>
+    </net>
+    <net code="8" name="Net-(U1-Pad14)">
+      <node ref="U1" pin="14"/>
+    </net>
+    <net code="9" name="Net-(U1-Pad21)">
+      <node ref="U1" pin="21"/>
+    </net>
+    <net code="10" name="Net-(U1-Pad6)">
+      <node ref="U1" pin="6"/>
+    </net>
+    <net code="11" name="Net-(U1-Pad7)">
+      <node ref="U1" pin="7"/>
+    </net>
+    <net code="12" name="Net-(U1-Pad12)">
+      <node ref="U1" pin="12"/>
+    </net>
+    <net code="13" name="Net-(U1-Pad18)">
+      <node ref="U1" pin="18"/>
+    </net>
+    <net code="14" name="Net-(U1-Pad19)">
+      <node ref="U1" pin="19"/>
+    </net>
+    <net code="15" name="Net-(U1-Pad20)">
+      <node ref="U1" pin="20"/>
+    </net>
+    <net code="16" name="GND">
+      <node ref="X1" pin="2"/>
+      <node ref="J2" pin="6"/>
+      <node ref="C5" pin="2"/>
+      <node ref="U1" pin="3"/>
+      <node ref="C3" pin="2"/>
+      <node ref="X1" pin="4"/>
+      <node ref="J3" pin="5"/>
+      <node ref="L1" pin="2"/>
+      <node ref="C2" pin="2"/>
+      <node ref="R4" pin="2"/>
+    </net>
+    <net code="17" name="Net-(C4-Pad1)">
+      <node ref="U1" pin="27"/>
+      <node ref="C4" pin="1"/>
+    </net>
+    <net code="18" name="Net-(F1-Pad1)">
+      <node ref="F1" pin="1"/>
+      <node ref="J1" pin="1"/>
+    </net>
+    <net code="19" name="USB_GND">
+      <node ref="C4" pin="2"/>
+      <node ref="C1" pin="2"/>
+      <node ref="D2" pin="2"/>
+      <node ref="L1" pin="1"/>
+      <node ref="U1" pin="28"/>
+      <node ref="D1" pin="2"/>
+      <node ref="J1" pin="4"/>
+      <node ref="J1" pin="5"/>
+    </net>
+    <net code="20" name="Net-(J3-Pad3)">
+      <node ref="J3" pin="3"/>
+      <node ref="R7" pin="2"/>
+    </net>
+    <net code="21" name="Net-(J3-Pad2)">
+      <node ref="J3" pin="2"/>
+      <node ref="R8" pin="2"/>
+    </net>
+    <net code="22" name="Net-(LED1-Pad2)">
+      <node ref="R5" pin="2"/>
+      <node ref="LED1" pin="2"/>
+    </net>
+    <net code="23" name="Net-(LED2-Pad2)">
+      <node ref="R6" pin="2"/>
+      <node ref="LED2" pin="2"/>
+    </net>
+    <net code="24" name="Net-(U1-Pad5)">
+      <node ref="U1" pin="5"/>
+    </net>
+    <net code="25" name="Net-(U1-Pad22)">
+      <node ref="U1" pin="22"/>
+    </net>
+    <net code="26" name="/MISO">
+      <node ref="U1" pin="17"/>
+      <node ref="J2" pin="1"/>
+    </net>
+    <net code="27" name="/SCLK">
+      <node ref="U1" pin="15"/>
+      <node ref="J2" pin="3"/>
+    </net>
+    <net code="28" name="/~RESET">
+      <node ref="U1" pin="24"/>
+      <node ref="R3" pin="2"/>
+      <node ref="D3" pin="2"/>
+      <node ref="J2" pin="5"/>
+    </net>
+    <net code="29" name="/MOSI">
+      <node ref="J2" pin="4"/>
+      <node ref="U1" pin="16"/>
+    </net>
+    <net code="30" name="Net-(U1-Pad26)">
+      <node ref="U1" pin="26"/>
+    </net>
+    <net code="31" name="Net-(U1-Pad25)">
+      <node ref="U1" pin="25"/>
+    </net>
+    <net code="32" name="Net-(U1-Pad23)">
+      <node ref="U1" pin="23"/>
+    </net>
+    <net code="33" name="/TX_LED">
+      <node ref="LED2" pin="1"/>
+      <node ref="U1" pin="11"/>
+    </net>
+    <net code="34" name="/RX_LED">
+      <node ref="U1" pin="10"/>
+      <node ref="LED1" pin="1"/>
+    </net>
+    <net code="35" name="/RX">
+      <node ref="R8" pin="1"/>
+      <node ref="U1" pin="8"/>
+    </net>
+    <net code="36" name="/TX">
+      <node ref="U1" pin="9"/>
+      <node ref="R7" pin="1"/>
+    </net>
+    <net code="37" name="/HWB">
+      <node ref="U1" pin="13"/>
+      <node ref="R4" pin="1"/>
+      <node ref="J3" pin="4"/>
+    </net>
+  </nets>
+</export>
