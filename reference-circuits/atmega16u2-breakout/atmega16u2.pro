@@ -1,4 +1,4 @@
-update=Mon 02 May 2016 09:11:38 PM PDT
+update=Thu 05 May 2016 09:59:32 PM PDT
 version=1
 last_client=kicad
 [pcbnew]
@@ -22,6 +22,14 @@ BoardOutlineThickness=0.100000000000
 ModuleOutlineThickness=0.150000000000
 [general]
 version=1
+[cvpcb]
+version=1
+NetIExt=net
+[eeschema]
+version=1
+LibDir=/home/wicker/proj/kicad/
+[eeschema/libraries]
+LibName1=/home/wicker/proj/wbox/wickerlib/kicad-libraries/wickerlib
 [schematic_editor]
 version=1
 PageLayoutDescrFile=
@@ -32,11 +40,3 @@ NetFmtName=
 SpiceForceRefPrefix=0
 SpiceUseNetNumbers=0
 LabSize=60
-[cvpcb]
-version=1
-NetIExt=net
-[eeschema]
-version=1
-LibDir=/home/wicker/proj/kicad/
-[eeschema/libraries]
-LibName1=/home/wicker/proj/wbox/wickerlib/kicad-libraries/wickerlib
