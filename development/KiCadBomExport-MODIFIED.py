@@ -22,6 +22,10 @@
 #
 #   Required Template Fieldname (within EESchema, Preferences / Schematic Editor Options / Template Field Name)
 #   - Mfg_Part_No   Store the manufacturer's part number.  Be specific down to package if you use the online costing, to get specific part
+#   - MF_Name
+#   - MF_PN
+#   - S1_Name
+#   - S1_PN
 #
 #   Suggested Template Fieldnames (not used here, but I found them useful):
 #   - Manufacturer
@@ -51,12 +55,6 @@
 #   License: GNU General Public License v3.0
 #       http://www.gnu.org/licenses/gpl-3.0.html
 
-
-
-
-
-
-
 import csv
 import sys
 import os
@@ -67,8 +65,6 @@ import json
 import logging
 from os.path import expanduser
 from xml.etree.ElementTree import Element, SubElement, ElementTree
-
-
 
 #List of initial field names for our CSV file - is expanded as we go.
 CSVFieldNames = ['Reference','Value','Footprint','Count','Datasheet']
@@ -81,7 +77,7 @@ tagFootprint = 'footprint'
 tagFields = 'fields'
 tagDatasheet = 'datasheet'
 
-fldMfgPartNo = 'MF_PN'
+fldMfgPartNo = 'Mfg_Part_No'
 
 #If we use an online pricing service (FindChips)
 pricingService = ''   #The online Pricing service we're using (F = FindChips)
@@ -118,7 +114,7 @@ def main(argv):
 #    fileOut = ''   #replace with filename
 ######
 
-
+    print 'Running the program'
 
     ########################################################
     #Process the Command Line
@@ -128,6 +124,7 @@ def main(argv):
         opts, args = getopt.getopt(argv, "hgfa:i:o:", ["help", "group", "apikey=", "input=", "output="])
     except getopt.GetoptError:
         printUsage()
+        print 'error'
         logger.error('Invalid argument list provided')
         sys.exit(2)
         
@@ -179,7 +176,7 @@ def main(argv):
     ########################################################
     #Generate the Output CSV File
     with open(fileOut+'.csv', 'wb') as fOut:
-        csvWriter = csv.DictWriter(fOut, delimiter = ',', fieldnames = CSVFieldNames)
+        csvWriter = csv.DictWriter(fOut, delimiter = '|', fieldnames = CSVFieldNames)
         csvWriter.writeheader()
         utf8Output = []
         for row in listOutput:
