@@ -37,6 +37,4 @@ version=1
 NetIExt=net
 [eeschema]
 version=1
-LibDir=/home/wicker/proj/kicad/
 [eeschema/libraries]
-LibName1=/home/wicker/proj/wbox/wickerlib/kicad-libraries/wickerlib

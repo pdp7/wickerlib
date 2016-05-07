@@ -37,4 +37,7 @@ version=1
 NetIExt=net
 [eeschema]
 version=1
+LibDir=/home/wicker/proj/wbox/wickerlib/libraries/
 [eeschema/libraries]
+LibName1=wickerlib
+
