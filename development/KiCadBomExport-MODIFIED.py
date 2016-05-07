@@ -77,7 +77,7 @@ tagFootprint = 'footprint'
 tagFields = 'fields'
 tagDatasheet = 'datasheet'
 
-fldMfgPartNo = 'Mfg_Part_No'
+fldMfgPartNo = 'MF_PN'
 
 #If we use an online pricing service (FindChips)
 pricingService = ''   #The online Pricing service we're using (F = FindChips)
