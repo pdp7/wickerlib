@@ -10,10 +10,10 @@ Title "Arduino 101 Shield KiCad Template"
 Date "2016-05-02"
 Rev "1.0"
 Comp "Released under the CERN Open Hardware License v1.2"
-Comment1 "Contact: jeh.wicker@gmail.com"
-Comment2 "Author: Jenner Hanni"
-Comment3 "This version created by Wickerbox Electronics"
-Comment4 "Based on original template by Jonathan (poulc13)"
+Comment1 "wickerboxen@gmail.com - http://wickerbox.net"
+Comment2 "Adapted by Jenner at Wickerbox Electronics"
+Comment3 "Based on original template by Jonathan (poulc13)"
+Comment4 ""
 $EndDescr
 $Comp
 L ARDUINO-101-SHIELD U1

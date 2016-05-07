@@ -15,9 +15,8 @@
   (page A4)
   (title_block
     (company "Released under the CERN Open Hardware License v1.2")
-    (comment 1 jeh.wicker@gmail.com)
-    (comment 2 "Jenner Hanni")
-    (comment 3 "Wickerbox Electronics")
+    (comment 1 "wickerboxen@gmail.com - http://wickerbox.net")
+    (comment 2 "Designed by Jenner at Wickerbox Electronics")
   )
 
   (layers
