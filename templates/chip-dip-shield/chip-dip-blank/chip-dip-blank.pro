@@ -1,4 +1,4 @@
-update=Sat 07 May 2016 06:52:45 PM PDT
+update=Sat 07 May 2016 10:32:44 PM PDT
 version=1
 last_client=kicad
 [pcbnew]
@@ -37,6 +37,6 @@ SpiceUseNetNumbers=0
 LabSize=60
 [eeschema]
 version=1
-LibDir=/home/wicker/proj/wbox/wickerlib/libraries/
+LibDir=
 [eeschema/libraries]
-LibName1=chip-dips
+LibName1=/home/wicker/proj/wbox/wickerlib/libraries/chip-dips

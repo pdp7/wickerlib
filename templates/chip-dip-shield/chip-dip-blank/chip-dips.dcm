@@ -1,0 +1,8 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP DIP-HEADER-2x20
+D DIP-HEADER-2x20
+F http://media.digikey.com/pdf/Data%20Sheets/Sullins%20PDFs/SFH11-PxxC-Dxx-ST-xx%2011160-C.pdf
+$ENDCMP
+#
+#End Doc Library
