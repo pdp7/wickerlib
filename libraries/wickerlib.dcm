@@ -469,6 +469,11 @@ D FIXED IND 6.8NH 430MA 250 MOHM
 F http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/L0075S0083LQG18H.pdf
 $ENDCMP
 #
+$CMP FUSE-RESET-1.1A-25V-MF-MSMF
+D RESETTABLE FUSE 1.1A 25V
+F http://www.bourns.com/docs/Product-Datasheets/mfmsmf.pdf
+$ENDCMP
+#
 $CMP FUSE-RESET-500MA-15V-MF-MSMF
 D RESETTABLE FUSE 500mA 15V USB
 F http://www.bourns.com/docs/Product-Datasheets/mfmsmf.pdf
@@ -904,8 +909,13 @@ D IC QUAD1:2 FET MUX/DEMUX 16TSSOP
 F http://www.ti.com/lit/ds/symlink/sn74cb3q3257.pdf
 $ENDCMP
 #
-$CMP IC-NCP1117-DPAK
-D IC REG LDO 3.3V 1A DPAK
+$CMP IC-NCP1117-3.3V-DPAK
+D IC REG LDO 3.3V 1A NCP1117 DPAK
+F http://www.onsemi.com/pub_link/Collateral/NCP1117-D.PDF
+$ENDCMP
+#
+$CMP IC-NCP1117-5V-SOT223
+D IC REG LDO 5V 1.1A NCP1117 SOT223
 F http://www.onsemi.com/pub_link/Collateral/NCP1117-D.PDF
 $ENDCMP
 #
@@ -1469,11 +1479,6 @@ $ENDCMP
 #
 $CMP VUSB
 K POWER, PWR
-$ENDCMP
-#
-$CMP ZXMP6A13FTA
-D MOSFET P-CH 60V 0.9A SOT23-3
-F http://www.diodes.com/_files/datasheets/ZXMP6A13F.pdf
 $ENDCMP
 #
 #End Doc Library
