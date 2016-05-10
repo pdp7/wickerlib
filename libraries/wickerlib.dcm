@@ -769,16 +769,6 @@ D GYRO/ACCELEROMETER 9-AXIS 24LGA MPU9150
 F http://store.invensense.com/datasheets/invensense/MPU-9150_DataSheet_V4%203.pdf
 $ENDCMP
 #
-$CMP IC-AAT3221-SOT23-5
-D IC REG LDO 3.3V 0.15A SOT23-5
-F http://www.skyworksinc.com/uploads/documents/AAT3221_AAT3222_202251B.pdf
-$ENDCMP
-#
-$CMP IC-AP3012-SOT23-5
-D IC REG BOOST ADJ 0.5A SOT25
-F http://www.diodes.com/_files/datasheets/AP3012.pdf
-$ENDCMP
-#
 $CMP IC-ATTINY861V-SOIC20
 D IC MCU 8BIT 8KB FLASH 20SOIC
 F http://www.atmel.com/images/atmel-2588-8-bit-avr-microcontrollers-tinyavr-attiny261-attiny461-attiny861_datasheet.pdf
@@ -804,11 +794,6 @@ D IC I/O EXPANDER I2C 8B 18SOIC
 F http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en021920
 $ENDCMP
 #
-$CMP IC-LD29300-P2PAK-4
-D IC REG LDO 3.3V 3A P2PAK-4
-F http://www.st.com/web/en/resource/technical/document/datasheet/CD00003208.pdf
-$ENDCMP
-#
 $CMP IC-LI-ION-CONTROLLER-MCP73831-SOT23-5
 D IC CONTROLLR LI-ION 4.2V SOT23-5
 F http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en025112
@@ -817,21 +802,6 @@ $ENDCMP
 $CMP IC-LI-ION-CONTROLLER-MCP73833-MSOP10
 D IC LI-ION/LI-POLY CTRLR 10MSOP
 F http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en027983
-$ENDCMP
-#
-$CMP IC-LM1117-SOT223
-D IC REG LDO 3.3V 0.8A SOT223
-F http://www.ti.com/lit/ds/symlink/lm1117.pdf
-$ENDCMP
-#
-$CMP IC-MC7809-TO220AB
-D IC REG LDO 9V 1A TO220AB
-F http://www.onsemi.com/pub_link/Collateral/MC7800-D.PDF
-$ENDCMP
-#
-$CMP IC-MCP1703-SOT23A-3
-D IC REG LDO 3.3V 0.25A SOT23A-3
-F http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en530937
 $ENDCMP
 #
 $CMP IC-MCU-ATMEGA1284-TQFP44
@@ -909,21 +879,6 @@ D IC QUAD1:2 FET MUX/DEMUX 16TSSOP
 F http://www.ti.com/lit/ds/symlink/sn74cb3q3257.pdf
 $ENDCMP
 #
-$CMP IC-NCP1117-3.3V-DPAK
-D IC REG LDO 3.3V 1A NCP1117 DPAK
-F http://www.onsemi.com/pub_link/Collateral/NCP1117-D.PDF
-$ENDCMP
-#
-$CMP IC-NCP1117-5V-SOT223
-D IC REG LDO 5V 1.1A NCP1117 SOT223
-F http://www.onsemi.com/pub_link/Collateral/NCP1117-D.PDF
-$ENDCMP
-#
-$CMP IC-NCP7805-TO220AB
-D IC REG LDO 5V 1A TO220AB
-F http://www.onsemi.com/pub_link/Collateral/NCP7800-D.PDF
-$ENDCMP
-#
 $CMP IC-NJM386-DIP8
 D IC AUDIO PWR AMP LOW VOLT 8-DIP
 F http://semicon.njr.co.jp/eng/PDF/NJM386_E.pdf
@@ -954,6 +909,76 @@ D IC OPAMP JFET 3MHZ DIP8
 F http://www.ti.com/lit/ds/symlink/tl081a.pdf
 $ENDCMP
 #
+$CMP IC-REG-BOOST-5V-295MA-XC9140-SOT23-5
+D IC REG BST 5V 295MA SYNC XC9140 SOT-25
+F http://www.torex.co.jp/english/products/dcdc_converters/data/XC9140.pdf
+$ENDCMP
+#
+$CMP IC-REG-BOOST-ADJ-0.5A-AP3012-SOT23-5
+D IC REG BOOST ADJ 0.5A AP3012 SOT25
+F http://www.diodes.com/_files/datasheets/AP3012.pdf
+$ENDCMP
+#
+$CMP IC-REG-LDO-3.3V-0.15A-AAT3221-SOT23-5
+D IC REG LDO 3.3V 0.15A AAT3221 SOT23-5
+F http://www.skyworksinc.com/uploads/documents/AAT3221_AAT3222_202251B.pdf
+$ENDCMP
+#
+$CMP IC-REG-LDO-3.3V-0.15A-TC2185-SOT23-5
+D IC REG LDO 3.3V 0.15A TC2185 SOT23-5
+F http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en011649
+$ENDCMP
+#
+$CMP IC-REG-LDO-3.3V-0.25A-MCP1703-SOT23A-3
+D IC REG LDO 3.3V 0.25A MCP1703 SOT23A-3
+F http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en530937
+$ENDCMP
+#
+$CMP IC-REG-LDO-3.3V-0.5A-BU33SD5WG-SSOP5
+D IC REG LDO 3.3V 0.5A BU33SD5WG 5SSOP
+F http://rohmfs.rohm.com/en/products/databook/datasheet/ic/power/linear_regulator/buxxsd5wg-e.pdf
+$ENDCMP
+#
+$CMP IC-REG-LDO-3.3V-0.8A-LM1117-SOT223
+D IC REG LDO 3.3V 0.8A LM1117 SOT223
+F http://www.ti.com/lit/ds/symlink/lm1117.pdf
+$ENDCMP
+#
+$CMP IC-REG-LDO-3.3V-1A-NCP1117-3.3V-DPAK
+D IC REG LDO 3.3V 1A NCP1117 DPAK
+F http://www.onsemi.com/pub_link/Collateral/NCP1117-D.PDF
+$ENDCMP
+#
+$CMP IC-REG-LDO-3.3V-3A-LD29300-P2PAK-4
+D IC REG LDO 3.3V 3A LD29300 P2PAK-4
+F http://www.st.com/web/en/resource/technical/document/datasheet/CD00003208.pdf
+$ENDCMP
+#
+$CMP IC-REG-LDO-5V-1.1A-NCP1117-5V-SOT223
+D IC REG LDO 5V 1.1A NCP1117 SOT223
+F http://www.onsemi.com/pub_link/Collateral/NCP1117-D.PDF
+$ENDCMP
+#
+$CMP IC-REG-LDO-5V-1A-NCP7805-TO220AB
+D IC REG LDO 5V 1A NCP7805 TO220AB
+F http://www.onsemi.com/pub_link/Collateral/NCP7800-D.PDF
+$ENDCMP
+#
+$CMP IC-REG-LDO-5V-3A-SPX29300-TO-263
+D IC REG LDO 5V 3A SPX29300 TO263-3
+F http://www.exar.com/Common/Content/Document.ashx?id=1328
+$ENDCMP
+#
+$CMP IC-REG-LDO-9V-1A-MC7809-TO220AB
+D IC REG LDO 9V 1A MC7809 TO220AB
+F http://www.onsemi.com/pub_link/Collateral/MC7800-D.PDF
+$ENDCMP
+#
+$CMP IC-REG-LDO-ADJ-0.5A-LM317-DPAK
+D IC REG LDO ADJ 0.5A LM317 DPAK
+F http://www.st.com/web/en/resource/technical/document/datasheet/CD00000549.pdf
+$ENDCMP
+#
 $CMP IC-SHIFT-REGISTER-74HC595-DIP16
 D IC 8-BIT SHIFT REGISTER 16-DIP
 F http://www.ti.com/lit/ds/symlink/sn74hc595.pdf
@@ -967,16 +992,6 @@ $ENDCMP
 $CMP IC-SP3485-8SOIC
 D IC TXRX RS485 HALF DUPLEX SP3485 8SOIC 
 F https://www.exar.com/content/document.ashx?id=639
-$ENDCMP
-#
-$CMP IC-SPX29300-TO-263
-D IC REG LDO 5V 3A TO263-3
-F http://www.exar.com/Common/Content/Document.ashx?id=1328
-$ENDCMP
-#
-$CMP IC-TC2185-SOT23-5
-D IC REG LDO 3.3V 0.15A SOT23-5
-F http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en011649
 $ENDCMP
 #
 $CMP IC-TEMPSENSE-TMP36-TO92
@@ -1009,24 +1024,9 @@ D IC VOLT-LEVEL TRANSLATOR 14TSSOP
 F http://www.ti.com/lit/ds/symlink/txb0104.pdf
 $ENDCMP
 #
-$CMP IC-VOLT-REG-LDO-3.3V-0.5A-SSOP5
-D IC REG LDO 3.3V 0.5A 5SSOP
-F http://rohmfs.rohm.com/en/products/databook/datasheet/ic/power/linear_regulator/buxxsd5wg-e.pdf
-$ENDCMP
-#
-$CMP IC-VOLT-REG-LDO-ADJ-0.5A-DPAK
-D IC REG LDO ADJ 0.5A DPAK
-F http://www.st.com/web/en/resource/technical/document/datasheet/CD00000549.pdf
-$ENDCMP
-#
 $CMP IC-WAVEFORM-GENERATOR-AD9833-MSOP10
 D IC WAVEFORM GENERTR PROG 10-MSOP
 F http://www.analog.com/media/en/technical-documentation/data-sheets/AD9833.pdf
-$ENDCMP
-#
-$CMP IC-XC9140-SOT23-5
-D IC REG BST 5V 295MA SYNC SOT-25
-F http://www.torex.co.jp/english/products/dcdc_converters/data/XC9140.pdf
 $ENDCMP
 #
 $CMP IOREF
