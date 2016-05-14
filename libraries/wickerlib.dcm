@@ -1450,6 +1450,11 @@ D SWITCH TOGGLE SPDT 5A 120V
 F https://www.e-switch.com/system/asset/product_line/data_sheet/129/100.pdf
 $ENDCMP
 #
+$CMP TEENSY-LC
+D HEADER FEMALE 11POS TH 1x11 0.1”
+F https://cdn.harwin.com/pdfs/60page140.pdf
+$ENDCMP
+#
 $CMP TEENSY2.0-16MHZ
 D TEENSY 2.0 8BIT  16MHZ
 F https://www.pjrc.com/teensy/
