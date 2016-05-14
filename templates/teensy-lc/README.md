@@ -6,7 +6,7 @@ This template comes preset for the OSH Park design rules.
 
 ### Usage
 
-This is the blank template. You will be able to download the <a href="#">zip file</a> containing the project and libraries.
+This is the blank template. You will be able to download the <a href="https://github.com/wickerbox/wickerlib/blob/master/templates/teensy-lc/teensy-lc-template.zip?raw=true">zip file</a> containing the project and libraries.
 
 To use the template:
 
@@ -16,6 +16,14 @@ To use the template:
 1. Add your libraries, add your parts, wire them up.
 1. When you're ready to start layout, create the new netlist. 
 1. Go to PCBNew and import the new netlist. 
-1. Lay out your board! The existing headers are locked in place, so don't try to move them.
+1. Delete the silk note and silk text if you want. The silk is not a part of the footprint. 
+1. Lay out your board! The footprint is already in place, but it is not locked so you can move it around. 
 1. You can upload the .kicad_pcb file directly to oshpark.com to check the preview images.
+
+### Test Board
+
+I've included the example project I created to verify the footprint. It doesn't include any routing and probably isn't useful. 
+
+<img src="oshpreview.png">
+
 
