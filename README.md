@@ -9,6 +9,18 @@ Wickerlib is part of my quest to build my small hardware design business and tur
 - wickerlib.lib
 - Wickerlib.pretty
 
+### Templates
+
+- Blank OSH Park 2 layer and 4 layer templates
+- Blank Wickerbox 2 layer and 4 layer templates
+
+##### Projects with Symbol and Footprint
+
+- Teensy LC project
+- Teensy 3.2 project
+- Arduino 101 shield
+- CHIP DIP shield
+
 ### Articles
 
 1. KiCad Templates simplify starting a new project. 
@@ -28,19 +40,6 @@ Wickerlib is part of my quest to build my small hardware design business and tur
 1. Assembling the Boards
 1. Tips for Testing and Bringing up Boards
 
-### Templates
-
-- Blank OSH Park 2 layer and 4 layer templates
-- Blank Wickerbox 2 layer and 4 layer templates
-
-##### Projects with Symbol and Footprint
-
-- Teensy board shield
-- Arduino Pro Mini shield
-- Arduino Uno shield
-- Arduino 101 shield
-- CHIP DIP shield
-
 ### Makefiles
 
 - Create a BOM
@@ -53,7 +52,3 @@ Wickerlib is part of my quest to build my small hardware design business and tur
 Breadboard-compatible, proven, using wickerlib parts, with bills of material.
 
 - Input Power Board (9V -> 5V -> 3.3V)
-
-- MMA7660 Accelerometer
-- 4-pin RGB 5050
-- ATtiny861V (DIP14)
