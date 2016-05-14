@@ -48,12 +48,12 @@ Wickerlib is part of my quest to build my small hardware design business and tur
 - Generate paste layers for a stencil
 - Generate assembly files
 
-### Reference Circuits
+### Circuits
 
 Breadboard-compatible, proven, using wickerlib parts, with bills of material.
+
+- Input Power Board (9V -> 5V -> 3.3V)
 
 - MMA7660 Accelerometer
 - 4-pin RGB 5050
 - ATtiny861V (DIP14)
-- Input Power Board (9V -> 5V -> 3.3V)
-
