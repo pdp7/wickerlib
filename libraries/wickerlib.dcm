@@ -354,6 +354,16 @@ D CONN SMA JACK STR 50 OHM TH
 F http://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1814832&DocType=Customer+Drawing&DocLang=English
 $ENDCMP
 #
+$CMP CONN-TERM-SCREW-GREEN-2.54MM-2POS-TH
+D CONN TERM SCREW GREEN 2.54MM 2POS TH
+F http://www.on-shore.com/sites/default/files/manuals/ostvnxxa150.pdf
+$ENDCMP
+#
+$CMP CONN-TERM-SCREW-GREEN-2.54MM-3POS-TH
+D CONN TERM SCREW GREEN 2.54MM 3POS TH
+F http://www.on-shore.com/sites/default/files/manuals/ostvnxxa150.pdf
+$ENDCMP
+#
 $CMP CONN-USB-A-R/A
 D CONN USB-A R/A
 F http://www.keyelco.com/product-pdf.cfm?p=2859
@@ -404,8 +414,8 @@ D DIODE GEN PURP 75V 250MA BAS16 SOD323
 F http://www.vishay.com/docs/85752/bas16ws.pdf
 $ENDCMP
 #
-$CMP DIODE-SCHOTTKY-20V-1A-SS12-DO214AC
-D DIODE SCHOTTKY 20V 1A SS12 DO214AC
+$CMP DIODE-SCHOTTKY-20V-1A-SS12-SMA
+D DIODE SCHOTTKY 20V 1A SS12 SMA
 F http://www.vishay.com/docs/88746/ss12.pdf
 $ENDCMP
 #
@@ -427,6 +437,11 @@ $ENDCMP
 $CMP DIODE-TVS-TPD3E001-SOT5
 D DIODE TVS TPD3E001  SOT5
 F http://www.ti.com/lit/ds/symlink/tpd3e001.pdf
+$ENDCMP
+#
+$CMP DIODE-ZENER-3.6V-1.5W-1SMA5914BT3G-SMA
+D DIODE ZENER 3.6V 1.5W 1SMA5914BT3G SMA
+F http://www.onsemi.com/pub_link/Collateral/1SMA5913BT3-D.PDF 
 $ENDCMP
 #
 $CMP DIODE-ZENER-3.6V-1W-BZX85C3V6-DO41
