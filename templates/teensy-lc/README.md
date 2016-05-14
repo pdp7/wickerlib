@@ -18,6 +18,7 @@ To use the template:
 1. Go to PCBNew and import the new netlist. 
 1. Delete the silk note and silk text if you want. The silk is not a part of the footprint. 
 1. Lay out your board! The footprint is already in place, but it is not locked so you can move it around. 
+1. Draw the board outline on the Edge Cuts layer.
 1. You can upload the .kicad_pcb file directly to oshpark.com to check the preview images.
 
 ### Test Board
