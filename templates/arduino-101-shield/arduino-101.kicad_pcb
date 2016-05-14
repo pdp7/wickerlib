@@ -1,9 +1,9 @@
 (kicad_pcb (version 4) (host pcbnew 4.0.1-3.201512221402+6198~38~ubuntu14.04.1-stable)
 
   (general
-    (links 8)
-    (no_connects 8)
-    (area 110.922999 72.949999 179.653001 126.440001)
+    (links 5)
+    (no_connects 5)
+    (area 104.572999 71.338 179.653001 129.172)
     (thickness 1.6)
     (drawings 26)
     (tracks 0)
@@ -43,7 +43,7 @@
     (zone_clearance 0.508)
     (zone_45_only no)
     (trace_min 0.1524)
-    (segment_width 0.2)
+    (segment_width 0.1524)
     (edge_width 0.15)
     (via_size 0.6858)
     (via_drill 0.3302)
@@ -66,7 +66,7 @@
     (pad_drill 0.762)
     (pad_to_mask_clearance 0.2)
     (aux_axis_origin 124.968 123.825)
-    (grid_origin 124.968 123.825)
+    (grid_origin 131.064 97.536)
     (visible_elements FFFCDF7D)
     (pcbplotparams
       (layerselection 0x00030_80000001)
@@ -110,9 +110,7 @@
     (uvia_drill 0.3302)
     (add_net +3V3)
     (add_net /A4)
-    (add_net "/A4(SDA)")
     (add_net /A5)
-    (add_net "/A5(SCL)")
     (add_net GND)
   )
 
