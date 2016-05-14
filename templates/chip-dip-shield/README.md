@@ -6,7 +6,7 @@ It comes preset for the OSH Park design rules.
 
 ### Usage
 
-This is the blank template. You can download the zip file containing the project and libraries here.
+This is the blank template. You can download the <a href="https://github.com/wickerbox/wickerlib/blob/master/templates/chip-dip-shield/chip-dip-blank-project.zip?raw=true">template zip file</a> containing the project and libraries here.
 
 To use the template:
 
