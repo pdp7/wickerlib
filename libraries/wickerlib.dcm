@@ -799,8 +799,13 @@ D IC GPS RECEIVER 28TQFN
 F http://datasheets.maximintegrated.com/en/ds/MAX2769.pdf
 $ENDCMP
 #
+$CMP IC-HALLSENSE-SS40AF-TO92
+D SENSOR HALL EFFECT BIPOLAR SS40AF TO92
+F http://sensing.honeywell.com/index.php/ci_id/45288/la_id/1/document/1/re_id/0
+$ENDCMP
+#
 $CMP IC-HALLSENSE-SS411P-TO92
-D SENSOR HALL EFFECT BIPOLAR TO92
+D SENSOR HALL EFFECT BIPOLAR SS411 TO92
 F http://sensing.honeywell.com/index.php/ci_id/45288/la_id/1/document/1/re_id/0
 $ENDCMP
 #
@@ -957,6 +962,11 @@ $ENDCMP
 $CMP IC-REG-LDO-3.3V-0.8A-LM1117-SOT223
 D IC REG LDO 3.3V 0.8A LM1117 SOT223
 F http://www.ti.com/lit/ds/symlink/lm1117.pdf
+$ENDCMP
+#
+$CMP IC-REG-LDO-3.3V-1A-LD1117-TO220AB
+D IC REG LDO 3.3V 1A LD1117 TO220AB
+F http://www.st.com/web/en/resource/technical/document/datasheet/CD00002116.pdf
 $ENDCMP
 #
 $CMP IC-REG-LDO-3.3V-1A-NCP1117-3.3V-DPAK
@@ -1466,6 +1476,11 @@ F https://www.pjrc.com/teensy/
 $ENDCMP
 #
 $CMP TEENSY3.2-72MHz
+D TEENSY 3.2 32BIT 72MHZ
+F https://www.pjrc.com/teensy/
+$ENDCMP
+#
+$CMP TEENSY3.2-LEAFBOARD-ADAPTER
 D TEENSY 3.2 32BIT 72MHZ
 F https://www.pjrc.com/teensy/
 $ENDCMP
