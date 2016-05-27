@@ -135,6 +135,11 @@ D CAP CER 0.33UF 50V X7R RADIAL
 F https://product.tdk.com/info/en/documents/catalog/leadmlcc_conventional_fk_en.pdf
 $ENDCMP
 #
+$CMP CAP-CER-0.47UF-100V-X7R-RADIAL
+D CAP CER 0.47UF 100V X7R RADIAL
+F https://product.tdk.com/info/en/documents/catalog/leadmlcc_conventional_fk_en.pdf
+$ENDCMP
+#
 $CMP CAP-CER-10000PF-50V-C0G-RADIAL
 D CAP CER 10000PF 50V C0G RADIAL
 F https://product.tdk.com/info/en/documents/catalog/leadmlcc_conventional_fk_en.pdf
@@ -203,6 +208,11 @@ $ENDCMP
 $CMP CAP-CER-120PF-50V-NP0-0603
 D CAP CER 120PF 50V NP0 0603
 F http://www.kemet.com/docfinder?Partnumber=C0603C121J5GACTU
+$ENDCMP
+#
+$CMP CAP-CER-15000PF-50V-X7R-RADIAL
+D CAP CER 15000PF 50V X7R RADIAL
+F https://media.digikey.com/pdf/Data%20Sheets/Murata%20PDFs/RDE%20Series.pdf
 $ENDCMP
 #
 $CMP CAP-CER-150PF-50V-NP0-RADIAL
@@ -769,6 +779,11 @@ D CONN MALE DB9 SERIAL TH 9PIN
 F http://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1634580&DocType=Customer+Drawing&DocLang=English
 $ENDCMP
 #
+$CMP HEADER-MALE-KK100-1x02-0.1IN-SHROUD-TH
+D HEADER MALE 6POS KK100 0.1IN SHROUD TH
+F http://www.molex.com/pdm_docs/sd/022232061_sd.pdf
+$ENDCMP
+#
 $CMP IC-3G-CELL-UC15
 D QUECTEL UC15 3G CELL MODULE
 F http://www.orcam.eu/res/Datablad/quectel_uc15_umtshsdpa_specification_v14.pdf
@@ -979,8 +994,8 @@ D IC REG LDO 3.3V 3A LD29300 P2PAK-4
 F http://www.st.com/web/en/resource/technical/document/datasheet/CD00003208.pdf
 $ENDCMP
 #
-$CMP IC-REG-LDO-5V-1.1A-NCP1117-5V-SOT223
-D IC REG LDO 5V 1.1A NCP1117 SOT223
+$CMP IC-REG-LDO-5V-1.1A-NCP1117-5V-DPAK
+D IC REG LDO 5V 1.1A NCP1117 DPAK
 F http://www.onsemi.com/pub_link/Collateral/NCP1117-D.PDF
 $ENDCMP
 #
