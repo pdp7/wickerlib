@@ -7,7 +7,7 @@ It comes with all the design rules to meet the 2-layer OSH Park specs and stacku
 - <a href="http://docs.oshpark.com/services/two-layer/">OSH Park Two Layer Specs</a>
 - <a href="http://docs.oshpark.com/design-tools/kicad">OSH Park KiCad help</a>
 
-### To create a new project from the template
+### Instructions
 
 1. Open KiCad.
 1. Open Preferences > Configure Paths and note the value of 'KICAD_PTEMPLATES'.
