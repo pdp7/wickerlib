@@ -5,8 +5,8 @@ This is a KiCad template to make it easy to include the Teensy LC in a project.
 It comes with all the design rules to meet the 2-layer OSH Park specs and stackup.
 
 - <a href="http://docs.oshpark.com/services/two-layer/">OSH Park Two Layer Specs</a>
-- <a href="http://docs.oshpark.com/design-tools/kicad">OSH Park KiCad help</a>
-- <a href="https://www.pjrc.com/teensy/teensyLC.html">Teensy LC</a>
+- <a href="http://docs.oshpark.com/design-tools/kicad">OSH Park KiCad Help</a>
+- <a href="https://www.pjrc.com/teensy/teensyLC.html">PJRC Teensy LC Product Page</a>
 
 ### Instructions
 
