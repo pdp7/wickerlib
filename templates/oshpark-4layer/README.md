@@ -2,17 +2,19 @@
 
 This is a KiCad template to simplify making printed circuit boards.  
 
-It comes preset for the OSH Park design rules.
+It comes with all the design rules to meet the 4-layer OSH Park specs and stackup. 
 
-### Usage
+- <a href="http://docs.oshpark.com/services/four-layer/">OSH Park Four Layer Specs</a>
+- <a href="http://docs.oshpark.com/design-tools/kicad">OSH Park KiCad help</a>
 
-This is the blank template. You can download the <a href="https://github.com/wickerbox/wickerlib/blob/master/templates/oshpark-4layer/oshpark-4layer-template.zip?raw=true">template zip file</a> containing the project and libraries here.
+### Instructions
 
-To use the template:
-
-1. Download and extract the zip into a folder.
-1. Rename all the files to replace `oshpark-4layer` with your filename. 
-1. Open the project file in KiCad.
-1. Add your libraries, add your parts, wire them up, and proceed as usual.
-1. When finished, you can upload the .kicad_pcb file directly to oshpark.com to check the preview images.
+1. Open KiCad.
+1. Open Preferences > Configure Paths and note the value of 'KICAD_PTEMPLATES'.
+1. <a href="https://github.com/wickerbox/wickerlib/blob/master/templates/oshpark-4layer-template.zip?raw=true">Download the template zip</a> and extract into the location of 'KICAD_PTEMPLATES'.
+1. In KiCad, open File > New Project > New Project from Template.
+1. Select the location of your new project. The name of the folder will be the name of your project.
+1. The templates with folders in the 'KICAD_PTEMPLATES' are listed under 'Portable Templates" tab.
+1. Select the template and click 'OK'.
+1. Your project now exists, so you can open EESchema and PCBNew and design as usual.
 
