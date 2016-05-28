@@ -1,4 +1,4 @@
-update=Mon 02 May 2016 09:11:38 PM PDT
+update=Sat 28 May 2016 01:49:32 PM PDT
 version=1
 last_client=kicad
 [pcbnew]
@@ -37,6 +37,4 @@ version=1
 NetIExt=net
 [eeschema]
 version=1
-LibDir=/home/wicker/proj/wbox/wickerlib/libraries/
-[eeschema/libraries]
-LibName1=wickerlib
+LibDir=

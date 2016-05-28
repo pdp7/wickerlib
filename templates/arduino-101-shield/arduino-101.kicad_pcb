@@ -302,7 +302,7 @@
     )
   )
 
-  (module Wickerlib:ARDUINO-MOUNTING-HOLE locked (layer F.Cu) (tedit 0) (tstamp 572896E9)
+  (module ARDUINO-MOUNTING-HOLE locked (layer F.Cu) (tedit 0) (tstamp 572896E9)
     (at 124.968 123.825)
     (descr "module 1 pin (ou trou mecanique de percage)")
     (tags DEV)
@@ -317,7 +317,7 @@
     (pad 1 thru_hole circle (at 0 0) (size 4.064 4.064) (drill 3.048) (layers *.Cu *.Mask F.SilkS))
   )
 
-  (module Wickerlib:ARDUINO-MOUNTING-HOLE locked (layer F.Cu) (tedit 0) (tstamp 572896EE)
+  (module ARDUINO-MOUNTING-HOLE locked (layer F.Cu) (tedit 0) (tstamp 572896EE)
     (at 177.038 118.745)
     (descr "module 1 pin (ou trou mecanique de percage)")
     (tags DEV)
@@ -332,7 +332,7 @@
     (pad 1 thru_hole circle (at 0 0) (size 4.064 4.064) (drill 3.048) (layers *.Cu *.Mask F.SilkS))
   )
 
-  (module Wickerlib:ARDUINO-MOUNTING-HOLE locked (layer F.Cu) (tedit 0) (tstamp 572896F3)
+  (module ARDUINO-MOUNTING-HOLE locked (layer F.Cu) (tedit 0) (tstamp 572896F3)
     (at 126.238 75.565)
     (descr "module 1 pin (ou trou mecanique de percage)")
     (tags DEV)
@@ -347,7 +347,7 @@
     (pad 1 thru_hole circle (at 0 0) (size 4.064 4.064) (drill 3.048) (layers *.Cu *.Mask F.SilkS))
   )
 
-  (module Wickerlib:ARDUINO-MOUNTING-HOLE locked (layer F.Cu) (tedit 0) (tstamp 572896F8)
+  (module ARDUINO-MOUNTING-HOLE locked (layer F.Cu) (tedit 0) (tstamp 572896F8)
     (at 177.038 90.805)
     (descr "module 1 pin (ou trou mecanique de percage)")
     (tags DEV)
