@@ -1,4 +1,4 @@
-# KiCad Teensy LC Project
+# KiCad Template for Teensy LC
 
 This is a KiCad template to make it easy to include the Teensy LC in a project. 
 

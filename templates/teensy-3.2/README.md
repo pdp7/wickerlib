@@ -1,4 +1,4 @@
-# KiCad Teensy 3.2 Project
+# KiCad Template for Teensy 3.2 
 
 This is a KiCad template to make it easy to include the Teensy 3.2 in a project. 
 

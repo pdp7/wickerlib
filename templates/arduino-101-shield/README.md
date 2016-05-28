@@ -1,4 +1,4 @@
-# KiCad Arduino 101 Project
+# KiCad Template for Arduino 101 Shield 
 
 This is a KiCad template to make it easy to include the Arduino 101 in a project. 
 
