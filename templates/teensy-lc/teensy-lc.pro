@@ -1,4 +1,4 @@
-update=Sat 14 May 2016 03:25:29 PM PDT
+update=Sat 28 May 2016 01:17:58 PM PDT
 version=1
 last_client=kicad
 [general]
@@ -16,11 +16,6 @@ NetFmtName=
 SpiceForceRefPrefix=0
 SpiceUseNetNumbers=0
 LabSize=60
-[eeschema]
-version=1
-LibDir=
-[eeschema/libraries]
-LibName1=/home/wicker/proj/wbox/wickerlib/libraries/wickerlib
 [pcbnew]
 version=1
 PageLayoutDescrFile=
@@ -40,3 +35,8 @@ SolderMaskMinWidth=0.1016
 DrawSegmentWidth=0.15
 BoardOutlineThickness=0.15
 ModuleOutlineThickness=0.15
+[eeschema]
+version=1
+LibDir=
+[eeschema/libraries]
+LibName1=teensy

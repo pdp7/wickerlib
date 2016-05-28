@@ -1,5 +1,5 @@
 EESchema Schematic File Version 2
-LIBS:wickerlib
+LIBS:teensy-lc-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -8,46 +8,28 @@ Sheet 1 1
 Title ""
 Date ""
 Rev ""
-Comp "This design uses a KiCad DIP template created by Jenner at Wickerbox Electronics"
+Comp "This design uses a KiCad template created by Jenner at Wickerbox Electronics."
 Comment1 "Released under the CERN Open Hardware License v1.2"
 Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L TEENSY-LC J1
-U 1 1 57379A54
-P 3025 3200
-F 0 "J1" H 2575 4350 50  0000 L CNN
-F 1 "TEENSY LC" H 2575 625 50  0000 L CNN
-F 2 "Wickerlib:TEENSY-LC" V 2525 2800 50  0001 C CIN
-F 3 "https://cdn.harwin.com/pdfs/60page140.pdf" H 2825 3200 5   0001 C CNN
-F 4 "TEENSY-LC" V 2525 2800 50  0001 C CIN "Package"
-F 5 "Harwin" V 2525 2800 50  0001 C CIN "MF_Name"
-F 6 "TEENSY-LC" V 2525 2800 50  0001 C CIN "MF_PN"
-F 7 "PJRC" V 2525 2800 50  0001 C CIN "S1_Name"
-F 8 "TEENSY-LC" V 2525 2850 50  0001 C CIN "S1_PN"
-F 9 "TEENSY LC " V 2525 2800 50  0001 C CIN "Description"
-F 10 "Not Verified" V 2525 2800 50  0001 C CIN "Verified"
-	1    3025 3200
-	1    0    0    -1  
-$EndComp
-$Comp
-L VIN #PWR2
+L VIN #PWR01
 U 1 1 57379B4D
-P 3175 2125
-F 0 "#PWR2" H 3175 1975 50  0001 C CNN
-F 1 "VIN" H 3175 2265 50  0000 C CNN
-F 2 "" H 3175 2125 50  0000 C CNN
-F 3 "" H 3175 2125 50  0000 C CNN
-	1    3175 2125
+P 3175 2000
+F 0 "#PWR01" H 3175 1850 50  0001 C CNN
+F 1 "VIN" H 3175 2140 50  0000 C CNN
+F 2 "" H 3175 2000 50  0000 C CNN
+F 3 "" H 3175 2000 50  0000 C CNN
+	1    3175 2000
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3.3V #PWR3
+L +3.3V #PWR02
 U 1 1 57379B69
 P 3400 2125
-F 0 "#PWR3" H 3400 1975 50  0001 C CNN
+F 0 "#PWR02" H 3400 1975 50  0001 C CNN
 F 1 "+3.3V" H 3400 2265 50  0000 C CNN
 F 2 "" H 3400 2125 50  0000 C CNN
 F 3 "" H 3400 2125 50  0000 C CNN
@@ -66,7 +48,7 @@ Connection ~ 3400 2300
 Wire Wire Line
 	3075 2200 3175 2200
 Wire Wire Line
-	3175 2200 3175 2125
+	3175 2200 3175 2000
 Wire Wire Line
 	3025 2600 3325 2600
 Wire Wire Line
@@ -178,10 +160,10 @@ Wire Wire Line
 Wire Wire Line
 	3150 5400 3150 5650
 $Comp
-L GND #PWR1
+L GND #PWR03
 U 1 1 5737A0A3
 P 3150 5650
-F 0 "#PWR1" H 3150 5400 50  0001 C CNN
+F 0 "#PWR03" H 3150 5400 50  0001 C CNN
 F 1 "GND" H 3150 5500 50  0000 C CNN
 F 2 "" H 3150 5650 50  0000 C CNN
 F 3 "" H 3150 5650 50  0000 C CNN
@@ -194,4 +176,22 @@ Connection ~ 3150 5600
 Wire Wire Line
 	3025 5500 3150 5500
 Connection ~ 3150 5500
+$Comp
+L TEENSY-LC J1
+U 1 1 5749FE2C
+P 3025 3200
+F 0 "J1" H 2575 4450 50  0000 L CNN
+F 1 "TEENSY-LC" H 2575 4350 50  0000 L CNN
+F 2 "TEENSY-LC" V 2525 2800 50  0001 C CIN
+F 3 "https://cdn.harwin.com/pdfs/60page140.pdf" H 2825 3200 5   0001 C CNN
+F 4 "TEENSY-LC" V 2525 2800 50  0001 C CIN "Package"
+F 5 "Harwin" V 2525 2800 50  0001 C CIN "MF_Name"
+F 6 "TEENSY-LC" V 2525 2800 50  0001 C CIN "MF_PN"
+F 7 "PJRC" V 2525 2800 50  0001 C CIN "S1_Name"
+F 8 "TEENSY-LC" V 2525 2850 50  0001 C CIN "S1_PN"
+F 9 "TEENSY LC " V 2525 2800 50  0001 C CIN "Description"
+F 10 "Not Verified" V 2525 2800 50  0001 C CIN "Verified"
+	1    3025 3200
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
