@@ -2,22 +2,19 @@
 
 This is a KiCad template to make it easy to include the Teensy 3.2 in a project. 
 
-This template comes preset for the OSH Park design rules.
+It comes with all the design rules to meet the 2-layer OSH Park specs and stackup.
 
-### Usage
+- <a href="http://docs.oshpark.com/services/two-layer/">OSH Park Two Layer Specs</a>
+- <a href="http://docs.oshpark.com/design-tools/kicad">OSH Park KiCad Help</a>
+- <a href="https://www.pjrc.com/store/teensy32.html">PJRC Teensy 3.2 Product Page</a>
 
-This is the blank template. You will be able to download the <a href="https://github.com/wickerbox/wickerlib/blob/master/templates/teensy-3.2/teensy-3.2-template.zip?raw=true">zip file</a> containing the project and libraries.
+### Instructions
 
-To use the template:
-
-1. Download and extract the zip into a folder.
-1. Rename all the files to replace `teensy-3.2` with your filename. 
-1. Open the project file in KiCad.
-1. Add your libraries, add your parts, wire them up.
-1. When you're ready to start layout, create the new netlist. 
-1. Go to PCBNew and import the new netlist. 
-1. Delete the silk note and silk text if you want. The silk is not a part of the footprint. 
-1. Lay out your board! The footprint is already in place, but it is not locked so you can move it around. 
-1. Draw the board outline on the Edge Cuts layer.
-1. You can upload the .kicad_pcb file directly to oshpark.com to check the preview images.
-
+1. Open KiCad.
+1. Open Preferences > Configure Paths and note the value of 'KICAD_PTEMPLATES'.
+1. <a href="https://github.com/wickerbox/wickerlib/blob/master/templates/teensy-3.2-template.zip?raw=true">Download the template zip</a> and extract into the location of 'KICAD_PTEMPLATES'.
+1. In KiCad, open File > New Project > New Project from Template.
+1. Select the location of your new project. The name of the folder will be the name of your project.
+1. The templates with folders in the 'KICAD_PTEMPLATES' are listed under 'Portable Templates" tab.
+1. Select the template and click 'OK'.
+1. Your project now exists, so you can open EESchema and PCBNew and design as usual.

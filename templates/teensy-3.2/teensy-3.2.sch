@@ -1,5 +1,4 @@
 EESchema Schematic File Version 2
-LIBS:wickerlib
 LIBS:teensy-3.2-cache
 EELAYER 25 0
 EELAYER END
@@ -9,7 +8,7 @@ Sheet 1 1
 Title ""
 Date ""
 Rev ""
-Comp "This design uses a KiCad DIP template created by Jenner at Wickerbox Electronics"
+Comp "This design uses a KiCad Teensy template created by Jenner at Wickerbox Electronics"
 Comment1 "Released under the CERN Open Hardware License v1.2"
 Comment2 ""
 Comment3 ""

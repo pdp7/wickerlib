@@ -14,7 +14,7 @@
 
   (page A4)
   (title_block
-    (company "This design uses a KiCad DIP template created by Jenner at Wickerbox Electronics")
+    (company "This design uses a KiCad Teensy template created by Jenner at Wickerbox Electronics")
     (comment 1 "Released under the CERN Open Hardware License v1.2")
   )
 
@@ -113,7 +113,7 @@
     (add_net GND)
   )
 
-  (module Wickerlib:TEENSY-LC (layer F.Cu) (tedit 5737ABFA) (tstamp 57379F2D)
+  (module TEENSY-LC (layer F.Cu) (tedit 5737ABFA) (tstamp 57379F2D)
     (at 105.41 82.804)
     (path /57379A54)
     (fp_text reference J1 (at -7.62 20.066 270) (layer F.SilkS)
