@@ -12,14 +12,17 @@ Wickerlib is part of my quest to build my small hardware design business and tur
 ### Templates
 
 - Blank OSH Park 2 layer and 4 layer templates
-- Blank Wickerbox 2 layer and 4 layer templates
 
-##### Projects with Symbol and Footprint
+- Wickerbox Electronics OSH Park-compatible 2 layer and 4 layer templates
+
+##### Project Templates 
 
 - Teensy LC project
 - Teensy 3.2 project
 - Arduino 101 shield
 - CHIP DIP shield
+- Atmega328 breakout
+- Atmega2560 breakout
 
 ### Articles
 
