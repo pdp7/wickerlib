@@ -334,6 +334,11 @@ D CONN MICRO SD CARD HINGED TYPE
 F http://www.molex.com/pdm_docs/sd/5009010801_sd.pdf
 $ENDCMP
 #
+$CMP CONN-MICRO-SD-CARD-PUSH-PULL
+D CONN MICRO SD CARD HINGED TYPE
+F http://www.molex.com/pdm_docs/sd/5009010801_sd.pdf
+$ENDCMP
+#
 $CMP CONN-PWR-JACK-2.0X6.5MM-HIGH-CUR
 D CONN PWR JACK 2.0X6.5MM HIGH CUR
 F http://www.cui.com/product/resource/digikeypdf/pj-202ah.pdf
@@ -439,6 +444,11 @@ D DIODE SCHOTTKY 40V 250MA NSR0240H SOD323
 F http://www.onsemi.com/pub_link/Collateral/NSR0240H-D.PDF
 $ENDCMP
 #
+$CMP DIODE-TVS-CG0603MLC-05E
+D TVS VARISTOR ESD PROTECT USB
+F http://www.bourns.com/docs/Product-Datasheets/MLC.pdf
+$ENDCMP
+#
 $CMP DIODE-TVS-SMAJ14A-13-F-SMA
 D  TVS DIODE 14VWM 23.2VC SMAJ14A-13-F SMA 
 F http://www.diodes.com/_files/datasheets/ds19005.pdf
@@ -457,6 +467,11 @@ $ENDCMP
 $CMP DIODE-ZENER-3.6V-1W-BZX85C3V6-DO41
 D DIODE ZENER 3.6V 1W BZX85C3V6 DO41
 F http://www.fairchildsemi.com/datasheets/BZ/BZX85C10.pdf
+$ENDCMP
+#
+$CMP DIP-SWITCH-8POS
+D SWITCH TOGGLE SPDT 5A 120V
+F https://www.e-switch.com/system/asset/product_line/data_sheet/129/100.pdf
 $ENDCMP
 #
 $CMP EM-506-GPS-RECEIVER
@@ -829,6 +844,16 @@ D IC I/O EXPANDER I2C 8B 18SOIC
 F http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en021920
 $ENDCMP
 #
+$CMP IC-LEVEL-TRANS-MAX3373-SOT23-8
+D IC TRANSCEIVER CAN HI-SPD 8-SOIC
+F http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en011797
+$ENDCMP
+#
+$CMP IC-LEVEL-TRANS-MAX3377-TSSOP14
+D IC TRANSCEIVER CAN HI-SPD 8-SOIC
+F http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en011797
+$ENDCMP
+#
 $CMP IC-LI-ION-CONTROLLER-MCP73831-SOT23-5
 D IC CONTROLLR LI-ION 4.2V SOT23-5
 F http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en025112
@@ -864,6 +889,21 @@ D TQFP100, 256k Flash, 8k SRAM, 4k EEPROM, JTAG, CUSTOM1
 F http://www.atmel.com/Images/Atmel-2549-8-bit-AVR-Microcontroller-ATmega640-1280-1281-2560-2561_datasheet.pdf
 $ENDCMP
 #
+$CMP IC-MCU-ATMEGA2560-CUSTOM2
+D TQFP100, 256k Flash, 8k SRAM, 4k EEPROM, JTAG, CUSTOM1
+F http://www.atmel.com/Images/Atmel-2549-8-bit-AVR-Microcontroller-ATmega640-1280-1281-2560-2561_datasheet.pdf
+$ENDCMP
+#
+$CMP IC-MCU-ATMEGA2560-CUSTOM3
+D TQFP100, 256k Flash, 8k SRAM, 4k EEPROM, JTAG, CUSTOM1
+F http://www.atmel.com/Images/Atmel-2549-8-bit-AVR-Microcontroller-ATmega640-1280-1281-2560-2561_datasheet.pdf
+$ENDCMP
+#
+$CMP IC-MCU-ATMEGA2560-SIMPLE
+D TQFP100, 256k Flash, 8k SRAM, 4k EEPROM, JTAG, CUSTOM1
+F http://www.atmel.com/Images/Atmel-2549-8-bit-AVR-Microcontroller-ATmega640-1280-1281-2560-2561_datasheet.pdf
+$ENDCMP
+#
 $CMP IC-MCU-ATMEGA328-TQFP32
 D IC MCU 8BIT 32KB FLASH 32TQFP
 F http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf
@@ -872,6 +912,11 @@ $ENDCMP
 $CMP IC-MCU-ATMEGA328P-TQFP32
 D IC MCU 8BIT 32KB FLASH 32TQFP
 F http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf
+$ENDCMP
+#
+$CMP IC-MCU-ATMEGA32U4-TQFP44
+D  IC MCU 8BIT 32KB FLASH 44TQFP 
+K AVR 8bit Microcontroller MegaAVR
 $ENDCMP
 #
 $CMP IC-MCU-ATTINY85-DIP8
@@ -907,6 +952,11 @@ $ENDCMP
 $CMP IC-MOTOR-DRIVER-VNH5019-MULTIPWRSO30
 D IC MOTOR DRIVER PAR 30MULTIPWRSO
 F http://www.st.com/web/en/resource/technical/document/datasheet/CD00234623.pdf
+$ENDCMP
+#
+$CMP IC-MUX-CD74HC4067SM96-SSOP24
+D IC MUX/DEMUX CD74HC4067SM96 24SSOP
+F https://cdn.harwin.com/pdfs/60page140.pdf
 $ENDCMP
 #
 $CMP IC-MUX-SN74CB3Q3257-TSSOP16
@@ -1088,6 +1138,11 @@ D LCD MODULE 16X2 CHARACTER 1602
 $ENDCMP
 #
 $CMP LCD-MODULE-16X2-CHARACTER-1602A
+D LCD MODULE 16X2 CHARACTER 1602A
+F https://www.adafruit.com/datasheets/TC1602A-01T.pdf
+$ENDCMP
+#
+$CMP LCD-MODULE-16X2-CHARACTER-1602A-CUSTOM1
 D LCD MODULE 16X2 CHARACTER 1602A
 F https://www.adafruit.com/datasheets/TC1602A-01T.pdf
 $ENDCMP
@@ -1331,6 +1386,10 @@ D RES SMD 220 OHM 5% 1/10W 0402
 F http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0001+ERJ2GEJ221X+7+WW
 $ENDCMP
 #
+$CMP RES-220-5%-1/10W-0603
+D RES SMD 220 OHM 5% 1/10W 0603
+$ENDCMP
+#
 $CMP RES-220-5%-1/4W-CF
 D RES 220 OHM 1/4W 5% CARBON FILM
 F http://www.seielect.com/catalog/SEI-CF_CFM.pdf
@@ -1404,6 +1463,11 @@ $ENDCMP
 $CMP RES-510-5%-1/2W-2010
 D RES SMD 510 OHM 5% 1/2W 2010
 F http://rohmfs.rohm.com/en/products/databook/datasheet/passive/resistor/chip_resistor/mcr.pdf
+$ENDCMP
+#
+$CMP RES-560-5%-1/10W-0603
+D RES SMD 560 OHM 5% 1/10W 0603 
+F http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ3EKF10R0V+7+WW
 $ENDCMP
 #
 $CMP RES-62K-1%-1/10W-0402
