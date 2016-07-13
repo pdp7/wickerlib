@@ -11,4 +11,5 @@ KiCad templates are projects with design rules, layer views, libraries, and page
 - OSH Park 2 Layer Generic
 - OSH Park 4 Layer Generic
 
-
+- Atmega328 Project
+- Atmega2560 Project
