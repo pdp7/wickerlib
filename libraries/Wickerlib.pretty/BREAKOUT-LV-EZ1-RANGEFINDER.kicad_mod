@@ -1,0 +1,35 @@
+# KiCad Footprint
+# Created by Jenner for Wickerlib
+#   http://github.com/wickerbox/wickerlib
+# This library file is provided under the GPLv3
+#   https://www.gnu.org/licenses/gpl-3.0.html
+# The footprint may not be correct! It is the end
+# user's responsibility to verify the package.
+
+
+(module BREAKOUT-LV-EZ1-RANGEFINDER (layer F.Cu) (tedit 56C12A82)
+  (descr http://maxbotix.com/uploads/LV-MaxSonar-EZ1-Datasheet.pdf)
+  (tags "Rangefinder Module Breakout Board")
+  (fp_text reference REF** (at 2.65 -23.3) (layer F.SilkS)
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_text value BREAKOUT-LV-EZ1-RANGEFINDER (at 1.375 -13.65 90) (layer F.Fab)
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_line (start 0 -22.098) (end 19.939 -22.098) (layer F.SilkS) (width 0.1524))
+  (fp_line (start 19.939 0) (end 19.939 -22.098) (layer F.SilkS) (width 0.1524))
+  (fp_line (start 0 0) (end 0 -22.098) (layer F.SilkS) (width 0.1524))
+  (fp_line (start 0 0) (end 19.939 0) (layer F.SilkS) (width 0.1524))
+  (fp_line (start 19.939 -15.655) (end 17.455 -15.655) (layer F.SilkS) (width 0.15))
+  (fp_line (start 17.125 -16.775) (end 17.125 -18.325) (layer F.SilkS) (width 0.15))
+  (fp_line (start 17.15 -18.35) (end 19.939 -18.35) (layer F.SilkS) (width 0.15))
+  (pad "" np_thru_hole circle (at 15.494 -19.558) (size 3.1496 3.1496) (drill 3.1496) (layers F.Cu))
+  (pad 1 thru_hole rect (at 18.669 -16.891) (size 2.032 1.7272) (drill 1.016) (layers *.Cu *.Mask F.SilkS))
+  (pad 2 thru_hole oval (at 18.669 -14.351) (size 2.032 1.7272) (drill 1.016) (layers *.Cu *.Mask F.SilkS))
+  (pad 3 thru_hole oval (at 18.669 -11.811) (size 2.032 1.7272) (drill 1.016) (layers *.Cu *.Mask F.SilkS))
+  (pad 4 thru_hole oval (at 18.669 -9.271) (size 2.032 1.7272) (drill 1.016) (layers *.Cu *.Mask F.SilkS))
+  (pad 5 thru_hole oval (at 18.669 -6.731) (size 2.032 1.7272) (drill 1.016) (layers *.Cu *.Mask F.SilkS))
+  (pad 6 thru_hole oval (at 18.669 -4.191) (size 2.032 1.7272) (drill 1.016) (layers *.Cu *.Mask F.SilkS))
+  (pad 7 thru_hole oval (at 18.669 -1.651) (size 2.032 1.7272) (drill 1.016) (layers *.Cu *.Mask F.SilkS))
+  (pad "" np_thru_hole circle (at 2.54 -2.54) (size 3.1496 3.1496) (drill 3.1496) (layers F.Cu))
+)

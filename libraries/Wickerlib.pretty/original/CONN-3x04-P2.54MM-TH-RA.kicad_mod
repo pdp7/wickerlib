@@ -1,8 +1,0 @@
-(module CONN-3x04-P2.54MM-TH-RA (layer F.Cu) (tedit 57244D5A)
-  (fp_text reference REF** (at 0 0.5) (layer F.SilkS)
-    (effects (font (size 1 1) (thickness 0.15)))
-  )
-  (fp_text value CONN-3x04-P2.54MM-TH-RA (at 0 -0.5) (layer F.Fab)
-    (effects (font (size 1 1) (thickness 0.15)))
-  )
-)
