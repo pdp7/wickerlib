@@ -50,6 +50,11 @@ D CR2032 BATTERY STRAP SMT PC PINS
 F http://www.memoryprotectiondevices.com/datasheets/BC-2003-datasheet.pdf
 $ENDCMP
 #
+$CMP BJT-NPN-40V-0.2A-MMBT3904
+D TRANS NPN 40V 0.6A SOT23
+F http://www.onsemi.com/pub_link/Collateral/MMBT2222LT1-D.PDF
+$ENDCMP
+#
 $CMP BJT-NPN-40V-0.6A-MMBT2222
 D TRANS NPN 40V 0.6A SOT23
 F http://www.onsemi.com/pub_link/Collateral/MMBT2222LT1-D.PDF
@@ -850,8 +855,8 @@ F http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en011797
 $ENDCMP
 #
 $CMP IC-LEVEL-TRANS-MAX3377-TSSOP14
-D IC TRANSCEIVER CAN HI-SPD 8-SOIC
-F http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en011797
+D IC LVL XLTR LV 230KBPS 14TSOP 
+F https://datasheets.maximintegrated.com/en/ds/MAX3372E-MAX3393E.pdf
 $ENDCMP
 #
 $CMP IC-LI-ION-CONTROLLER-MCP73831-SOT23-5
@@ -1007,6 +1012,16 @@ $ENDCMP
 $CMP IC-REG-LDO-3.3V-0.15A-AAT3221-SOT23-5
 D IC REG LDO 3.3V 0.15A AAT3221 SOT23-5
 F http://www.skyworksinc.com/uploads/documents/AAT3221_AAT3222_202251B.pdf
+$ENDCMP
+#
+$CMP IC-REG-LDO-3.3V-0.15A-MIC5365-SOT-23-5
+D IC REG LDO 3.3V 0.5A BU33SD5WG 5SSOP
+F http://rohmfs.rohm.com/en/products/databook/datasheet/ic/power/linear_regulator/buxxsd5wg-e.pdf
+$ENDCMP
+#
+$CMP IC-REG-LDO-3.3V-0.15A-MIC5365-SOT353
+D IC REG LDO 3.3V 0.5A BU33SD5WG 5SSOP
+F http://rohmfs.rohm.com/en/products/databook/datasheet/ic/power/linear_regulator/buxxsd5wg-e.pdf
 $ENDCMP
 #
 $CMP IC-REG-LDO-3.3V-0.15A-TC2185-SOT23-5
@@ -1577,6 +1592,11 @@ $ENDCMP
 $CMP TRIMPOT-10K-3PIN-TH-0.20W-P160KN
 D POT 10K OHM 1/5W PLASTIC LINEAR
 F http://www.bitechnologies.com/pdfs/p160.pdf
+$ENDCMP
+#
+$CMP TRIMPOT-10K-3PIN-TH-3362-Series
+D TRIMMER 10K OHM 0.1W SMD
+F http://www.bourns.com/docs/Product-Datasheets/TC33.pdf
 $ENDCMP
 #
 $CMP VADJ
