@@ -9,6 +9,11 @@
 # user's responsibility to verify the package.
 
 
+(module CONN-HEADER-STRAIGHT-P2.54MM-2x33 (layer F.Cu)
+  (descr "Through hole pin header")
+  (tags "pin header")
+  (fp_text reference REF** (at 0 -5.1) (layer F.SilkS)
+    (effects (font (size 1 1) (thickness 0.15)))
   )
   (fp_text value CONN-HEADER-STRAIGHT-P2.54MM-2x33 (at 0 -3.1) (layer F.Fab)
     (effects (font (size 1 1) (thickness 0.15)))

@@ -1,0 +1,31 @@
+# KiCad Footprint 
+# Originally from the KiCad Official Libraries
+#   http://github.com/kicad/  
+# Edited by Jenner for Wickerlib
+#   http://github.com/wickerbox/wickerlib
+# This library file is provided under the GPLv3
+#   https://www.gnu.org/licenses/gpl-3.0.html
+# The footprint may not be correct! It is the end 
+# user's responsibility to verify the package. 
+
+# KiCad Footprint
+# Created by Jenner for Wickerlib
+#   http://github.com/wickerbox/wickerlib
+# This library file is provided under the GPLv3
+#   https://www.gnu.org/licenses/gpl-3.0.html
+# The footprint may not be correct! It is the end 
+# user's responsibility to verify the package. 
+
+
+# KiCad Footprint 
+# Based on a template made by Jonathan 
+#   
+#   http://github.com/kicad/  
+# Edited by Jenner for Wickerlib
+#   http://github.com/wickerbox/wickerlib
+# This library file is provided under the GPLv3
+#   https://www.gnu.org/licenses/gpl-3.0.html
+# The footprint may not be correct! It is the end 
+# user's responsibility to verify the package. 
+
+http://meta-blog.eklablog.com/kicad-librairie-arduino-pretty-p930786

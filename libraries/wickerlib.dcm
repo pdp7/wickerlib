@@ -105,6 +105,11 @@ D WATTUINO NANITE841
 F https://github.com/watterott/wattuino
 $ENDCMP
 #
+$CMP BUZZER-4KHZ-SINGLE-TONE-SMT
+D SPEAKER 8 OHM .25W 23MM ROUND
+F http://www.mallory-sonalert.com/specifications/PSR-23F08S-JQ.PDF
+$ENDCMP
+#
 $CMP CAP-CER-0.022UF-50V-X7R-0603
 D CAP CER 0.022UF 50V X7R 0603
 F http://www.samsungsem.com/kr/support/product-search/mlcc/CL10B223KB8SFNC.jsp
@@ -869,6 +874,11 @@ D IC LI-ION/LI-POLY CTRLR 10MSOP
 F http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en027983
 $ENDCMP
 #
+$CMP IC-MAX31855-SOIC8
+D IC CONV THERMOCOUPLE MAX31855 SOIC8
+F http://datasheets.maximintegrated.com/en/ds/MAX31855.pdf
+$ENDCMP
+#
 $CMP IC-MCU-ATMEGA1284-TQFP44
 D IC MCU 8BIT 128KB FLASH 44TQFP
 F http://www.atmel.com/Images/Atmel-8272-8-bit-AVR-microcontroller-ATmega164A_PA-324A_PA-644A_PA-1284_P_datasheet.pdf
@@ -904,6 +914,11 @@ D TQFP100, 256k Flash, 8k SRAM, 4k EEPROM, JTAG, CUSTOM1
 F http://www.atmel.com/Images/Atmel-2549-8-bit-AVR-Microcontroller-ATmega640-1280-1281-2560-2561_datasheet.pdf
 $ENDCMP
 #
+$CMP IC-MCU-ATMEGA2560-CUSTOM4
+D TQFP100, 256k Flash, 8k SRAM, 4k EEPROM, JTAG
+F http://www.atmel.com/Images/Atmel-2549-8-bit-AVR-Microcontroller-ATmega640-1280-1281-2560-2561_datasheet.pdf
+$ENDCMP
+#
 $CMP IC-MCU-ATMEGA2560-SIMPLE
 D TQFP100, 256k Flash, 8k SRAM, 4k EEPROM, JTAG, CUSTOM1
 F http://www.atmel.com/Images/Atmel-2549-8-bit-AVR-Microcontroller-ATmega640-1280-1281-2560-2561_datasheet.pdf
@@ -920,6 +935,11 @@ F http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48P
 $ENDCMP
 #
 $CMP IC-MCU-ATMEGA32U4-TQFP44
+D  IC MCU 8BIT 32KB FLASH 44TQFP 
+K AVR 8bit Microcontroller MegaAVR
+$ENDCMP
+#
+$CMP IC-MCU-ATMEGA32U4-TQFP44-CUSTOM1
 D  IC MCU 8BIT 32KB FLASH 44TQFP 
 K AVR 8bit Microcontroller MegaAVR
 $ENDCMP
@@ -1164,6 +1184,11 @@ $ENDCMP
 #
 $CMP LCD-MODULE-16X2-CHARACTER-1602B
 D LCD MODULE 16X2 CHARACTER 1602B
+$ENDCMP
+#
+$CMP LED-4x7-SEGMENT-LTC-4727JR
+D LED DISPLAY 4CHAR 7SEGMENT COMMON CATHODE LTC-4727JR
+F http://optoelectronics.liteon.com/upload/download/DS30-2000-193/S_110_C4727JR.pdf
 $ENDCMP
 #
 $CMP LED-AMBER-0603-SMT-L296-Q2R2
@@ -1570,6 +1595,11 @@ F https://www.pjrc.com/teensy/
 $ENDCMP
 #
 $CMP TEENSY3.2-72MHz
+D TEENSY 3.2 32BIT 72MHZ
+F https://www.pjrc.com/teensy/
+$ENDCMP
+#
+$CMP TEENSY3.2-72MHz-SIMPLE
 D TEENSY 3.2 32BIT 72MHZ
 F https://www.pjrc.com/teensy/
 $ENDCMP
