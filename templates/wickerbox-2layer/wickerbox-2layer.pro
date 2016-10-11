@@ -1,4 +1,4 @@
-update=Sat 30 Jul 2016 06:39:52 PM PDT
+update=Tue 11 Oct 2016 02:07:21 PM PDT
 version=1
 last_client=kicad
 [general]
@@ -10,26 +10,26 @@ NetIExt=net
 version=1
 PageLayoutDescrFile=
 LastNetListRead=
-PadDrill=1.016
-PadDrillOvalY=1.016
-PadSizeH=1.7272
-PadSizeV=1.7272
-PcbTextSizeV=0.762
-PcbTextSizeH=0.762
-PcbTextThickness=0.1524
-ModuleTextSizeV=0.762
-ModuleTextSizeH=0.762
-ModuleTextSizeThickness=0.1524
-SolderMaskClearance=0.07619999999999999
-SolderMaskMinWidth=0.1016
-DrawSegmentWidth=0.15
-BoardOutlineThickness=0.15
-ModuleOutlineThickness=0.15
+PadDrill=0.600000000000
+PadDrillOvalY=0.600000000000
+PadSizeH=1.500000000000
+PadSizeV=1.500000000000
+PcbTextSizeV=1.016000000000
+PcbTextSizeH=1.016000000000
+PcbTextThickness=0.152400000000
+ModuleTextSizeV=1.016000000000
+ModuleTextSizeH=1.016000000000
+ModuleTextSizeThickness=0.152400000000
+SolderMaskClearance=0.003000000000
+SolderMaskMinWidth=0.004000000000
+DrawSegmentWidth=0.152400000000
+BoardOutlineThickness=0.152400000000
+ModuleOutlineThickness=0.152400000000
 [eeschema]
 version=1
-LibDir=/home/wicker/proj/wbox/wickerlib/libraries/
+LibDir=/home/wicker/wickerlib/libraries/
 [eeschema/libraries]
-LibName1=/home/wicker/proj/wickerlib/libraries/wickerlib
+LibName1=/home/wicker/wickerlib/libraries/wickerlib
 [schematic_editor]
 version=1
 PageLayoutDescrFile=
@@ -39,4 +39,4 @@ SubpartFirstId=65
 NetFmtName=
 SpiceForceRefPrefix=0
 SpiceUseNetNumbers=0
-LabSize=60
+LabSize=50
