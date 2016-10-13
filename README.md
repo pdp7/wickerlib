@@ -11,18 +11,19 @@ Wickerlib is part of my quest to build my small hardware design business and tur
 
 ### Templates
 
-- Blank OSH Park 2 layer and 4 layer templates
+_Blank 2-layer and 4-layer OSH Park Templates_
 
-- Wickerbox Electronics OSH Park-compatible 2 layer and 4 layer templates
+- <a href="https://github.com/wickerbox/wickerlib/tree/master/templates/oshpark-2layer">OSH Park 2 Layer Generic</a>
+- <a href="https://github.com/wickerbox/wickerlib/tree/master/templates/oshpark-4layer">OSH Park 4 Layer Generic</a>
 
-##### Project Templates 
+_Project Templates_
 
-- Teensy LC project
-- Teensy 3.2 project
-- Arduino 101 shield
-- CHIP DIP shield
-- Atmega328 breakout
-- Atmega2560 breakout
+- <a href="https://github.com/wickerbox/wickerlib/tree/master/templates/teensy-lc">Teensy LC Footprint</a>
+- <a href="https://github.com/wickerbox/wickerlib/tree/master/templates/teensy-3.2">Teensy 3.2 Footprint</a>
+- <a href="https://github.com/wickerbox/wickerlib/tree/master/templates/arduino-101-shield">Arduino 101 Shield</a>
+- <a href="https://github.com/wickerbox/wickerlib/tree/master/templates/chip-dip-2layer">CHIP DIP Shield</a>
+- <a href="https://github.com/wickerbox/wickerlib/tree/master/templates/atmega328">Atmega328 Project</a>
+- <a href="https://github.com/wickerbox/wickerlib/tree/master/templates/atmega2560">Atmega2560 Project</a>
 
 ### Articles
 
