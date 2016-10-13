@@ -1,6 +1,5 @@
 EESchema Schematic File Version 2
 LIBS:wickerlib
-LIBS:wickerbox-2layer-cache
 EELAYER 25 0
 EELAYER END
 $Descr USLetter 11000 8500
