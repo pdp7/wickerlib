@@ -1,6 +1,9 @@
 # KiCad Templates
 
-KiCad templates are KiCad projects with design rules, layer views, libraries, and page settings already in place. I've created templates for my own use with wickerlib, but I've also created the OSH Park 2-layer and 4-layer templates that incorporate OSH Park's design rules. 
+KiCad templates are KiCad projects with design rules, layer views, libraries, and page settings already in place. 
+
+The blank OSH Park templates are truly blank, with no company-specific notes, but the other templates are all set up for use by Wickerbox Electronics. To use them, save the project zip to your computer and modify it to meet your needs.    
+ 
 
 *Shields, Hats, and other Daughter Boards*
 
