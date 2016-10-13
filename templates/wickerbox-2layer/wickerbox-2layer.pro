@@ -1,8 +1,6 @@
-update=Tue 11 Oct 2016 02:07:21 PM PDT
+update=Tue 11 Oct 2016 05:25:07 PM PDT
 version=1
 last_client=kicad
-[general]
-version=1
 [cvpcb]
 version=1
 NetIExt=net
@@ -40,3 +38,5 @@ NetFmtName=
 SpiceForceRefPrefix=0
 SpiceUseNetNumbers=0
 LabSize=50
+[general]
+version=1
