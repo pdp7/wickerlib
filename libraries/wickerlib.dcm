@@ -207,7 +207,6 @@ $ENDCMP
 #
 $CMP CAP-CER-10UF-25V-X7R-1210
 D CAP CER 10UF 25V X7R 1210
-F http://www.yuden.co.jp/productdata/catalog/en/mlcc_all_e.pdf
 $ENDCMP
 #
 $CMP CAP-CER-10UF-25V-X7R-RADIAL
