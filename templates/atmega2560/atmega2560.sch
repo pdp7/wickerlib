@@ -3,14 +3,14 @@ LIBS:wickerlib
 LIBS:atmega2560-cache
 EELAYER 25 0
 EELAYER END
-$Descr A4 11693 8268
+$Descr USLetter 11000 8500
 encoding utf-8
 Sheet 1 1
 Title "Atmega2560 KiCad Template"
 Date "2016-06-23"
 Rev "1.0"
 Comp "Released under the CERN Open Hardware License v1.2"
-Comment1 "wickerboxen@gmail.com - http://wickerbox.net"
+Comment1 "jenner@wickerbox.net - http://wickerbox.net"
 Comment2 "Designed by Jenner at Wickerbox Electronics"
 Comment3 ""
 Comment4 ""
