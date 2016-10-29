@@ -94,4 +94,24 @@ plot_plan = [
     ( "B.Fab", B_Fab, "Assembly bottom" ),
 ]
 
+# Generate all gerbers
+for layer_info in plot_plan:
+    pctl.SetLayer(layer_info[1])
+    pctl.OpenPlotfile(layer_info[0], PLOT_FORMAT_GERBER, layer_info[2])
+    pctl.PlotLayer()
+
+#generate internal copper layers, if any
+lyrcnt = board.GetCopperLayerCount();
+
+for innerlyr in range ( 1, lyrcnt-1 ):
+    pctl.SetLayer(innerlyr)
+    lyrname = 'In.%s' % innerlyr
+    pctl.OpenPlotfile(lyrname, PLOT_FORMAT_GERBER, "Inner")
+    #print 'plot %s' % pctl.GetPlotFileName()
+    if pctl.PlotLayer() == False:
+        print "Plot Error: Layer Missing?"
+
+# Close out the plot to safely free the object.
+pctl.ClosePlot()
+
 
