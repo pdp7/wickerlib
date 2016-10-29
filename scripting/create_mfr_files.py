@@ -47,6 +47,9 @@ board = LoadBoard(filename)
 
 plotDir = "gerbers/"
 
+if not os.path.exists(plotDir):
+    os.makedirs(plotDir)
+
 # remove all files in the output dir
 os.chdir(plotDir)
 filelist = glob.glob('*')
