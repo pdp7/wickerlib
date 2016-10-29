@@ -14,13 +14,13 @@
       - a zip file of gerbers with the version number
       - a zip file of stencil files with the version number
       - a zip file of the complete files ready for assembly
-      - composite zip file with everything for assembly
       - SVG files for easy adding to Github repository READMEs      
       - one PDF file containing all info
 
 '''
 
 import sys
+import glob, os
 
 from pcbnew import *
 
@@ -42,6 +42,15 @@ board = LoadBoard(filename)
 
 plotDir = "gerbers/"
 
+# remove all files in the output dir
+os.chdir(plotDir)
+filelist = glob.glob('*')
+for f in filelist:
+  os.remove(f)
+os.chdir('..')
+
+# create plot controller objects
+
 pctl = PLOT_CONTROLLER(board)
 popt = pctl.GetPlotOptions()
 popt.SetOutputDirectory(plotDir)
@@ -60,17 +69,10 @@ popt.SetScale(1)
 popt.SetSubtractMaskFromSilk(False)
 
 popt.SetUseAuxOrigin(False)        # must be set true
-# is this because I didn't set one?
+# is this because I didn't set one in KiCad itself?
 # all the pdfs were coming out empty
 
-# this doesn't generate anything with F_Fab or F_SilkS
-# I want it on the Fab layer since that's where my assy info is
-# It might just be out of place
-#pctl.SetLayer(F_Fab)
-#pctl.OpenPlotfile("Fab", PLOT_FORMAT_PDF, "Assembly diagram")
-#pctl.PlotLayer()
-
-# The middle value is an integer layer number:
+# Note: the middle value in plot_plan is an integer layer number:
 # F.Cu      0
 # B.Cu      31
 # F.Paste   35
@@ -115,14 +117,54 @@ for innerlyr in range ( 1, lyrcnt-1 ):
         print "Plot Error: Layer Missing?"
 
 pctl.SetLayer(F_Fab)
-popt.SetTextMode(PLOTTEXTMODE_STROKE)
 pctl.OpenPlotfile("AssyOutlinesTop", PLOT_FORMAT_PDF, "Assembly outline top")
-pctl.PlotLayer()
-pctl.OpenPlotfile("Assembly", PLOT_FORMAT_SVG, "Assembly outline top")
 pctl.PlotLayer()
 
 # Close out the plot to safely free the object.
 pctl.ClosePlot()
 
-# Definitely want to trim every svg in the folder to remove whitespace
-# plt.savefig("test.png",bbox_inches='tight')
+# Create Enhanced Excellon and PDF drill files
+
+drlwriter = EXCELLON_WRITER( board )
+drlwriter.SetMapFileFormat( PLOT_FORMAT_PDF )
+
+mirror = False
+minimalHeader = False
+offset = wxPoint(0,0)
+
+mergeNPTH = False 
+metricFmt = True
+genDrl = True
+genMap = True
+
+drlwriter.SetOptions( mirror, minimalHeader, offset, mergeNPTH )
+drlwriter.SetFormat( metricFmt )
+drlwriter.CreateDrillandMapFilesSet( pctl.GetPlotDirName(), genDrl, genMap );
+
+# Create the drill statistics report
+
+rptfn = pctl.GetPlotDirName() + 'drill_report.rpt'
+drlwriter.GenDrillReportFile( rptfn );
+
+# Create bill of materials with position information
+
+# Create zip file for OSH Park manufacturing
+
+# Create zip file for OSH Stencils
+
+# Create zip file of the complete assembly package
+
+# Create images
+
+plotDir = "."
+
+pctl.SetLayer(F_Fab)
+popt.SetTextMode(PLOTTEXTMODE_STROKE)
+pctl.OpenPlotfile("Assembly", PLOT_FORMAT_SVG, "Assembly outline top")
+pctl.PlotLayer()
+
+# Fix up the images 
+  # Definitely want to trim every svg in the folder to remove whitespace
+  # plt.savefig("test.png",bbox_inches='tight')
+
+
