@@ -1,4 +1,6 @@
-# Scan all parts and build a Markdown table list 
+# Scan all parts and build a Markdown table list
+# Create a README file in the footprint library directory
+# Table looks like this:
 # |Footprint|Verified|
 
 import os
