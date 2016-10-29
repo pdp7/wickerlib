@@ -17,10 +17,11 @@
       - SVG files for easy adding to Github repository READMEs      
       - one PDF file containing all info
 
+    TODO: add warnings, such as empty edge.cuts files.
+
 '''
 
-import sys
-import glob, os
+import sys, os, zipfile, glob
 
 from pcbnew import *
 
@@ -150,7 +151,30 @@ drlwriter.GenDrillReportFile( rptfn );
 
 # Create zip file for OSH Park manufacturing
 
+files = []
+
+for ext in ('*.drl','*.gbl','*.gtl','*.gbo','*.gto','*.gbs','*.gts','*.gbr','*.gm1','*.gtp','*.gbp',):
+  files.extend(glob.glob(os.path.join(plotDir, ext)))
+
+os.chdir(plotDir)
+ZipFile = zipfile.ZipFile(filename.rstrip('.kicad_pcb')+"-gerbers.zip", "w")
+for f in files:
+  ZipFile.write(os.path.basename(f))
+os.chdir("..")
+
 # Create zip file for OSH Stencils
+# always using .gm1 (outline) and .gtp,.gbp (paste) files
+
+files = []
+
+for ext in ('*.gm1','*.gtp','*.gbp'):
+  files.extend(glob.glob(os.path.join(plotDir, ext)))
+
+os.chdir(plotDir)
+ZipFile = zipfile.ZipFile(filename.rstrip('.kicad_pcb')+"-stencils.zip", "w")
+for f in files:
+  ZipFile.write(os.path.basename(f))
+os.chdir("..")
 
 # Create zip file of the complete assembly package
 
