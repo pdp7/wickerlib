@@ -7,6 +7,8 @@
 #   https://www.gnu.org/licenses/gpl-3.0.html
 # The footprint may not be correct! It is the end
 # user's responsibility to verify the package.
+#
+# Verified: No
 
 (module TSSOP-14-4.4x5MM-P0.65MM (layer F.Cu) (tedit 57954E27)
   (descr "14-Lead Plastic Thin Shrink Small Outline (ST)-4.4 mm Body [TSSOP] (see Microchip Packaging Specification 00000049BS.pdf)")

@@ -5,6 +5,8 @@
 #   https://www.gnu.org/licenses/gpl-3.0.html
 # The footprint may not be correct! It is the end
 # user's responsibility to verify the package.
+#
+# Verified: No
 
 
 (module SWITCH-TECONN-MOMENTARY-SMD-FSMSM (layer F.Cu) (tedit 555C8B1B)

@@ -5,6 +5,8 @@
 #   https://www.gnu.org/licenses/gpl-3.0.html
 # The footprint may not be correct! It is the end
 # user's responsibility to verify the package.
+#
+# Verified: No
 
 
 (module CAPSENSE_CIRCLE_D10 (layer F.Cu) (tedit 56C12BC6)

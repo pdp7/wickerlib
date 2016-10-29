@@ -5,7 +5,10 @@
 #   https://www.gnu.org/licenses/gpl-3.0.html
 # The footprint may not be correct! It is the end
 # user's responsibility to verify the package.
-
+#
+# Verified: No
+#
+# Verified: No
 
 (module ANTENNA-CALVUS-A10340-SMD (layer F.Cu) (tedit 57244CE0)
   (fp_text reference REF** (at 0 0.5) (layer F.SilkS)

@@ -5,6 +5,8 @@
 #   https://www.gnu.org/licenses/gpl-3.0.html
 # The footprint may not be correct! It is the end
 # user's responsibility to verify the package.
+#
+# Verified: No
 
 
 (module CONN-SD-MICRO-TECONN-2041021-4 (layer F.Cu) (tedit 578ADE06)

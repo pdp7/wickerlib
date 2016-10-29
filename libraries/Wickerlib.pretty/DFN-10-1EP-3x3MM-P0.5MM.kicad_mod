@@ -7,6 +7,8 @@
 #   https://www.gnu.org/licenses/gpl-3.0.html
 # The footprint may not be correct! It is the end
 # user's responsibility to verify the package.
+#
+# Verified: No
 
 
 (module DFN-10-1EP-3x3MM-P0.5MM (layer F.Cu) (tedit 54130A77)

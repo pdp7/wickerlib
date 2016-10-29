@@ -7,7 +7,8 @@
 #   https://www.gnu.org/licenses/gpl-3.0.html
 # The footprint may not be correct! It is the end
 # user's responsibility to verify the package.
-
+#
+# Verified: No
 
 (module ARDU-UNOSHIELD-WITH-ICSP (layer F.Cu) (tedit 56C13BF1)
   (fp_text reference ARDU-UNOSHIELD-WITH-ICSP (at 5.715 -57.15) (layer F.SilkS)

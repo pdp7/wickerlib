@@ -7,6 +7,8 @@
 #   https://www.gnu.org/licenses/gpl-3.0.html
 # The footprint may not be correct! It is the end
 # user's responsibility to verify the package.
+#
+# Verified: No
 
 
 (module CONN-HEADER-STRAIGHT-P2.54MM-1x16 (layer F.Cu)
