@@ -57,8 +57,11 @@ popt.SetUseGerberAttributes(True)
 popt.SetUseGerberProtelExtensions(True)
 popt.SetExcludeEdgeLayer(False)
 popt.SetScale(1)
-popt.SetUseAuxOrigin(True)
 popt.SetSubtractMaskFromSilk(False)
+
+popt.SetUseAuxOrigin(False)        # must be set true
+# is this because I didn't set one?
+# all the pdfs were coming out empty
 
 # this doesn't generate anything with F_Fab or F_SilkS
 # I want it on the Fab layer since that's where my assy info is
@@ -111,7 +114,15 @@ for innerlyr in range ( 1, lyrcnt-1 ):
     if pctl.PlotLayer() == False:
         print "Plot Error: Layer Missing?"
 
+pctl.SetLayer(F_Fab)
+popt.SetTextMode(PLOTTEXTMODE_STROKE)
+pctl.OpenPlotfile("AssyOutlinesTop", PLOT_FORMAT_PDF, "Assembly outline top")
+pctl.PlotLayer()
+pctl.OpenPlotfile("Assembly", PLOT_FORMAT_SVG, "Assembly outline top")
+pctl.PlotLayer()
+
 # Close out the plot to safely free the object.
 pctl.ClosePlot()
 
-
+# Definitely want to trim every svg in the folder to remove whitespace
+# plt.savefig("test.png",bbox_inches='tight')
