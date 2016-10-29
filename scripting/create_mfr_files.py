@@ -18,6 +18,10 @@
       - one PDF file containing all info
 
     TODO: add warnings, such as empty edge.cuts files.
+    TODO: add argparse
+    TODO: integrate bill of materials (see kicost, kifield?, kicadbomexport)
+    TODO: integrate position information to create assembly zip file
+    TODO: automatically trim whitespace away from SVG files
 
 '''
 
