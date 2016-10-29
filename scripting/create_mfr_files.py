@@ -18,33 +18,37 @@
       - one PDF file containing all info
 
     TODO: add warnings, such as empty edge.cuts files.
-    TODO: add argparse
     TODO: integrate bill of materials (see kicost, kifield?, kicadbomexport)
     TODO: integrate position information to create assembly zip file
     TODO: automatically trim whitespace away from SVG files
 
 '''
 
-import sys, os, zipfile, glob
+import sys, os, zipfile, glob, argparse
 
 from pcbnew import *
+
+# capture command line arguments
+parser = argparse.ArgumentParser()
+parser.add_argument("-n","--name", nargs=1, help="project name", required=True)
+parser.add_argument("-v","--version", nargs=1, help="version number, 'v1.1'")
+
+args = parser.parse_args()
 
 # handles the argument and sets filename
 # adds .kicad_pcb ending if necessary
 
-if len(sys.argv) > 1:
-  if '.kicad_pcb' not in sys.argv[1]:
-    filename=sys.argv[1]+'.kicad_pcb'
-  else:
-    filename=sys.argv[1]
+if args.version:
+  version = '-'+args.version[0]
 else:
-  print "Error: This script needs the root project name.\nUsage: 'create_mfr_files.py filename'"
-  exit()
+  version = ''
 
-print filename
+if '.kicad_pcb' not in args.name[0]:
+  filename=args.name[0]+'.kicad_pcb'
+else:
+  filename=args.name[0]
 
 board = LoadBoard(filename)
-
 plotDir = "gerbers/"
 
 if not os.path.exists(plotDir):
@@ -164,7 +168,7 @@ for ext in ('*.drl','*.gbl','*.gtl','*.gbo','*.gto','*.gbs','*.gts','*.gbr','*.g
   files.extend(glob.glob(os.path.join(plotDir, ext)))
 
 os.chdir(plotDir)
-ZipFile = zipfile.ZipFile(filename.rstrip('.kicad_pcb')+"-gerbers.zip", "w")
+ZipFile = zipfile.ZipFile(filename.rstrip('.kicad_pcb')+version+"-gerbers.zip", "w")
 for f in files:
   ZipFile.write(os.path.basename(f))
 os.chdir("..")
@@ -178,7 +182,7 @@ for ext in ('*.gm1','*.gtp','*.gbp'):
   files.extend(glob.glob(os.path.join(plotDir, ext)))
 
 os.chdir(plotDir)
-ZipFile = zipfile.ZipFile(filename.rstrip('.kicad_pcb')+"-stencils.zip", "w")
+ZipFile = zipfile.ZipFile(filename.rstrip('.kicad_pcb')+version+"-stencils.zip", "w")
 for f in files:
   ZipFile.write(os.path.basename(f))
 os.chdir("..")
