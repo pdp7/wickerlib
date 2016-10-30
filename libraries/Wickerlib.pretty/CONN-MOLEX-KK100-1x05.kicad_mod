@@ -8,16 +8,22 @@
 #
 # Verified: No
 
-
-(module Socket_Strip_KK100_5PIN (layer F.Cu) (tedit 57094F83)
+(module CONN-MOLEX-KK100-1x05 (layer F.Cu) (tedit 5815688B)
   (descr "Through hole socket strip")
   (tags "socket strip")
-  (fp_text reference REF** (at 0.508 -4.064) (layer F.SilkS)
+  (fp_text reference REF** (at 5.75 0.25) (layer F.Fab)
+    (effects (font (size 2.032 2.032) (thickness 0.254)))
+  )
+  (fp_text value KK100-5PIN (at 7.112 4.318) (layer F.Fab) hide
     (effects (font (size 1 1) (thickness 0.15)))
   )
-  (fp_text value KK100-5PIN (at 7.112 4.318) (layer F.Fab)
+  (fp_text user %R (at 0.25 -4.25) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
   )
+  (fp_line (start -1.75 3.25) (end -1.75 -3.25) (layer F.Fab) (width 0.0508))
+  (fp_line (start 12 3.25) (end -1.75 3.25) (layer F.Fab) (width 0.0508))
+  (fp_line (start 12 -3.25) (end 12 3.25) (layer F.Fab) (width 0.0508))
+  (fp_line (start -1.75 -3.25) (end 12 -3.25) (layer F.Fab) (width 0.0508))
   (fp_line (start 11.938 3.302) (end 11.938 -3.302) (layer F.SilkS) (width 0.1524))
   (fp_line (start -1.778 3.302) (end 11.938 3.302) (layer F.SilkS) (width 0.1524))
   (fp_line (start -1.778 -3.302) (end -1.778 3.302) (layer F.SilkS) (width 0.1524))

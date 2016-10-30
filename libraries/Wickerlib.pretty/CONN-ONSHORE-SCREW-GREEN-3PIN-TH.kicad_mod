@@ -8,12 +8,11 @@
 #
 # Verified: No
 
-
-(module CONN-ONSHORE-SCREW-GREEN-3PIN-TH (layer F.Cu) (tedit 5790402C)
+(module CONN-ONSHORE-SCREW-GREEN-3PIN-TH (layer F.Cu) (tedit 58156919)
   (descr "Through hole pin header")
   (tags "pin header")
   (fp_text reference J11 (at 0 2.54) (layer F.Fab)
-    (effects (font (size 1 1) (thickness 0.15)))
+    (effects (font (size 2.032 2.032) (thickness 0.254)))
   )
   (fp_text value RS485 (at 2.286 3.302 90) (layer F.Fab) hide
     (effects (font (size 1 1) (thickness 0.15)))

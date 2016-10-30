@@ -8,7 +8,6 @@
 #
 # Verified: No
 
-
 (module RES-TRIMPOT-BOURNS-3362-SQUARE-TH-CENTER (layer F.Cu) (tedit 5790459A)
   (descr "Through hole pin header")
   (tags "pin header")
@@ -18,6 +17,11 @@
   (fp_text value 10K (at 0.508 0.254 90) (layer F.Fab) hide
     (effects (font (size 1 1) (thickness 0.15)))
   )
+  (fp_line (start 3.6 -4.1) (end 3.5 -4.1) (layer F.CrtYd) (width 0.0508))
+  (fp_line (start 3.6 3.8) (end 3.6 -4.1) (layer F.CrtYd) (width 0.0508))
+  (fp_line (start -3.6 3.8) (end 3.6 3.8) (layer F.CrtYd) (width 0.0508))
+  (fp_line (start -3.6 -4.1) (end -3.6 3.8) (layer F.CrtYd) (width 0.0508))
+  (fp_line (start 3.5 -4.1) (end -3.6 -4.1) (layer F.CrtYd) (width 0.0508))
   (fp_line (start 3.556 -3.81) (end 3.556 -4.064) (layer F.SilkS) (width 0.1016))
   (fp_line (start 3.556 3.81) (end 3.556 -3.81) (layer F.SilkS) (width 0.1016))
   (fp_line (start -3.556 3.81) (end 3.556 3.81) (layer F.SilkS) (width 0.1016))

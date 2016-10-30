@@ -10,16 +10,22 @@
 #
 # Verified: No
 
-
-(module CONN-HEADER-STRAIGHT-P1.27MM-2x04 (layer F.Cu) (tedit 555E01CC)
+(module CONN-HEADER-STRAIGHT-P1.27MM-2x04 (layer F.Cu) (tedit 58155C70)
   (descr "Through hole pin header, pitch 1.27mm")
   (tags "pin header")
-  (fp_text reference REF** (at 0.65 -1.65) (layer F.SilkS)
+  (fp_text reference REF** (at 0.75 2 90) (layer F.Fab)
     (effects (font (size 1 1) (thickness 0.15)))
   )
-  (fp_text value CONN-HEADER-STRAIGHT-P1.27MM-2x04 (at 0 5.6) (layer F.Fab)
+  (fp_text value CONN-HEADER-STRAIGHT-P1.27MM-2x04 (at 0 5.6) (layer F.Fab) hide
     (effects (font (size 1 1) (thickness 0.15)))
   )
+  (fp_text user %R (at 0.75 -2.25) (layer F.SilkS)
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_line (start 2.4 4.9) (end 2.4 -1.1) (layer F.Fab) (width 0.0508))
+  (fp_line (start -1.1 4.9) (end 2.4 4.9) (layer F.Fab) (width 0.0508))
+  (fp_line (start -1.1 -1.1) (end -1.1 4.9) (layer F.Fab) (width 0.0508))
+  (fp_line (start 2.4 -1.1) (end -1.1 -1.1) (layer F.Fab) (width 0.0508))
   (fp_line (start 2.1 -0.8) (end 1.3 -0.8) (layer F.SilkS) (width 0.15))
   (fp_line (start 2.1 4.6) (end 2.1 -0.8) (layer F.SilkS) (width 0.15))
   (fp_line (start 2.1 4.6) (end -0.85 4.6) (layer F.SilkS) (width 0.15))

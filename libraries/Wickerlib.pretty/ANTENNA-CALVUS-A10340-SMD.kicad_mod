@@ -7,8 +7,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
-#
-# Verified: No
+# Finished: No
 
 (module ANTENNA-CALVUS-A10340-SMD (layer F.Cu) (tedit 57244CE0)
   (fp_text reference REF** (at 0 0.5) (layer F.SilkS)

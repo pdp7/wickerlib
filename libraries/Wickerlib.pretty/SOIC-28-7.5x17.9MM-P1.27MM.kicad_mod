@@ -10,17 +10,24 @@
 #
 # Verified: No
 
-
-(module SOIC-28-7.5x17.9MM-P1.27MM (layer F.Cu) (tedit 54130A77)
+(module SOIC-28-7.5x17.9MM-P1.27MM (layer F.Cu) (tedit 581579DA)
   (descr "28-Lead Plastic Small Outline (SO) - Wide, 7.50 mm Body [SOIC] (see Microchip Packaging Specification 00000049BS.pdf)")
   (tags "SOIC 1.27")
   (attr smd)
-  (fp_text reference REF** (at 0 -10.05) (layer F.SilkS)
+  (fp_text reference REF** (at -0.1 -0.1) (layer F.Fab)
     (effects (font (size 1 1) (thickness 0.15)))
   )
-  (fp_text value SOIC-28-7.5x17.9MM-P1.27MM (at 0 10.05) (layer F.Fab)
+  (fp_text value SOIC-28-7.5x17.9MM-P1.27MM (at 0 10.05) (layer F.Fab) hide
     (effects (font (size 1 1) (thickness 0.15)))
   )
+  (fp_line (start 6 9.3) (end 6 -9.3) (layer F.Fab) (width 0.0508))
+  (fp_line (start -5.9 9.3) (end 6 9.3) (layer F.Fab) (width 0.0508))
+  (fp_line (start -5.9 -9.3) (end -5.9 9.3) (layer F.Fab) (width 0.0508))
+  (fp_line (start 6 -9.3) (end -5.9 -9.3) (layer F.Fab) (width 0.0508))
+  (fp_text user %R (at 0 -10.3) (layer F.SilkS)
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_circle (center -4.7 -8.2) (end -4.7 -7.9) (layer F.Fab) (width 0.254))
   (fp_line (start -5.95 -9.3) (end -5.95 9.3) (layer F.CrtYd) (width 0.05))
   (fp_line (start 5.95 -9.3) (end 5.95 9.3) (layer F.CrtYd) (width 0.05))
   (fp_line (start -5.95 -9.3) (end 5.95 -9.3) (layer F.CrtYd) (width 0.05))

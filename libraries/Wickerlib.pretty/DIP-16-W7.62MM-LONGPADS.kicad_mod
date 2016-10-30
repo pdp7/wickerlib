@@ -10,12 +10,11 @@
 #
 # Verified: No
 
-
-(module DIP-16-W7.62MM-LONGPADS (layer F.Cu) (tedit 579044C0)
+(module DIP-16-W7.62MM-LONGPADS (layer F.Cu) (tedit 58156DF0)
   (descr "16-lead dip package, row spacing 7.62 mm (300 mils), longer pads")
   (tags "dil dip 2.54 300")
-  (fp_text reference S2 (at 4.064 8.128) (layer F.Fab)
-    (effects (font (size 1 1) (thickness 0.15)))
+  (fp_text reference S2 (at 4 9.25 90) (layer F.Fab)
+    (effects (font (size 2.032 2.032) (thickness 0.254)))
   )
   (fp_text value DIP-SWITCH-SPST (at 4.064 9.144 90) (layer F.Fab) hide
     (effects (font (size 1 1) (thickness 0.15)))

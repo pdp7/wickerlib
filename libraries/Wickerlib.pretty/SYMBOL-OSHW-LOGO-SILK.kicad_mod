@@ -10,17 +10,20 @@
 #
 # Verified: No
 
-
-(module SYMBOL-OSHW-LOGO-SILK (layer F.Cu)
-  (at 0 0)
+(module SYMBOL-OSHW-LOGO-SILK (layer F.Cu) (tedit 58157C96)
   (descr "Symbol, OSHW-Logo, Silk Screen,")
   (tags "Symbol, OSHW-Logo, Silk Screen,")
-  (fp_text reference REF** (at 0.09906 -4.38912) (layer F.SilkS)
+  (fp_text reference REF** (at 0.09906 -4.38912) (layer F.Fab) hide
     (effects (font (size 1 1) (thickness 0.15)))
   )
-  (fp_text value SYMBOL-OSHW-LOGO-SILK (at 0.30988 6.56082) (layer F.Fab)
+  (fp_text value SYMBOL-OSHW-LOGO-SILK (at 0.30988 6.56082) (layer F.Fab) hide
     (effects (font (size 1 1) (thickness 0.15)))
   )
+  (fp_line (start 3.3 -2.9) (end 3.2 -2.9) (layer F.CrtYd) (width 0.0508))
+  (fp_line (start 3.3 4.6) (end 3.3 -2.9) (layer F.CrtYd) (width 0.0508))
+  (fp_line (start -3.3 4.6) (end 3.3 4.6) (layer F.CrtYd) (width 0.0508))
+  (fp_line (start -3.3 -2.9) (end -3.3 4.6) (layer F.CrtYd) (width 0.0508))
+  (fp_line (start 3.2 -2.9) (end -3.3 -2.9) (layer F.CrtYd) (width 0.0508))
   (fp_line (start 1.66878 2.68986) (end 2.02946 4.16052) (layer F.SilkS) (width 0.15))
   (fp_line (start 2.02946 4.16052) (end 2.30886 3.0988) (layer F.SilkS) (width 0.15))
   (fp_line (start 2.30886 3.0988) (end 2.61874 4.17068) (layer F.SilkS) (width 0.15))

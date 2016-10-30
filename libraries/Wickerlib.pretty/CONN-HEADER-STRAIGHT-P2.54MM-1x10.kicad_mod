@@ -10,16 +10,19 @@
 #
 # Verified: No
 
-
-(module CONN-HEADER-STRAIGHT-P2.54MM-1x10 (layer F.Cu)
+(module CONN-HEADER-STRAIGHT-P2.54MM-1x10 (layer F.Cu) (tedit 58155EC8)
   (descr "Through hole pin header")
   (tags "pin header")
-  (fp_text reference REF** (at 0 -5.1) (layer F.SilkS)
+  (fp_text reference REF** (at 0.1 11.5 90) (layer F.Fab)
+    (effects (font (size 2.032 2.032) (thickness 0.254)))
+  )
+  (fp_text value CONN-HEADER-STRAIGHT-P2.54MM-1x10 (at -3 11 90) (layer F.Fab) hide
     (effects (font (size 1 1) (thickness 0.15)))
   )
-  (fp_text value CONN-HEADER-STRAIGHT-P2.54MM-1x10 (at 0 -3.1) (layer F.Fab)
-    (effects (font (size 1 1) (thickness 0.15)))
-  )
+  (fp_line (start -1.8 24.7) (end -1.8 -1.8) (layer F.Fab) (width 0.0508))
+  (fp_line (start 1.8 24.7) (end -1.8 24.7) (layer F.Fab) (width 0.0508))
+  (fp_line (start 1.8 -1.8) (end 1.8 24.7) (layer F.Fab) (width 0.0508))
+  (fp_line (start -1.8 -1.8) (end 1.8 -1.8) (layer F.Fab) (width 0.0508))
   (fp_line (start -1.75 -1.75) (end -1.75 24.65) (layer F.CrtYd) (width 0.05))
   (fp_line (start 1.75 -1.75) (end 1.75 24.65) (layer F.CrtYd) (width 0.05))
   (fp_line (start -1.75 -1.75) (end 1.75 -1.75) (layer F.CrtYd) (width 0.05))

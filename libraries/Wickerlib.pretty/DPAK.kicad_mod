@@ -10,13 +10,12 @@
 #
 # Verified: No
 
-
-(module DPAK (layer F.Cu) (tedit 5790340A)
+(module DPAK (layer F.Cu) (tedit 58156EC0)
   (descr "MOS boitier DPACK G-D-S")
   (tags "CMD DPACK")
   (attr smd)
-  (fp_text reference U3 (at 0.0508 -6.858 180) (layer F.Fab)
-    (effects (font (size 1.016 1.016) (thickness 0.1778)))
+  (fp_text reference U3 (at 0.0508 -6.858) (layer F.Fab)
+    (effects (font (size 2.032 2.032) (thickness 0.254)))
   )
   (fp_text value NCP1117-5V (at 0 -4.39928) (layer F.Fab) hide
     (effects (font (size 0.4 0.4) (thickness 0.07493)))

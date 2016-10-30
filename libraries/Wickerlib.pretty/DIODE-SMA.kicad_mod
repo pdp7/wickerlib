@@ -10,13 +10,12 @@
 #
 # Verified: No
 
-
-(module DIODE-SMA (layer F.Cu) (tedit 579032A9)
+(module DIODE-SMA (layer F.Cu) (tedit 58156C6D)
   (descr "Diode SMA")
   (tags "Diode SMA")
   (attr smd)
-  (fp_text reference D10 (at 0 0 180) (layer F.Fab)
-    (effects (font (size 1 1) (thickness 0.15)))
+  (fp_text reference D10 (at 0 0) (layer F.Fab)
+    (effects (font (size 2.032 2.032) (thickness 0.254)))
   )
   (fp_text value 14V (at 0 0) (layer F.Fab) hide
     (effects (font (size 1 1) (thickness 0.15)))

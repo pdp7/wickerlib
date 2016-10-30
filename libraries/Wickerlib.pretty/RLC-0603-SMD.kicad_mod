@@ -10,7 +10,6 @@
 #
 # Verified: No
 
-
 (module RLC-0603-SMD (layer F.Cu) (tedit 579029AB)
   (descr "Capacitor SMD RLC-0603-SMD, reflow soldering, AVX (see smccp.pdf)")
   (tags "capacitor RLC-0603-SMD")
