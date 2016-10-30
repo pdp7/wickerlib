@@ -16,7 +16,6 @@
 # The footprint may not be correct! It is the end 
 # user's responsibility to verify the package. 
 
-
 # KiCad Footprint 
 # Based on a template made by Jonathan 
 #   
