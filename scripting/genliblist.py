@@ -22,11 +22,10 @@ for module_path in modules:
     for line in module:
       if 'Verified' in line:
         line_verify = line.lstrip('# Verified: ').rstrip('\n')
-        if 'ICSP' in line:
-          mod_name = 'ARDUINO-UNO-WITH-ICSP'
-        else:
-          mod_name = module_path.lstrip(libdir).rstrip('.kicad_mod')
-        liblist_output.append('| '+mod_name+' | '+line_verify+' |')
+      if 'Finished' in line:
+        line_finish = line.lstrip('# Finished: ').rstrip('\n')
+    mod_name = module_path.lstrip(libdir).rstrip('.kicad_mod')
+    liblist_output.append('| '+mod_name+' | '+line_verify+' | '+line_finish+' |')
 
 outfile_path = 'README.md'
 today = datetime.datetime.today()
@@ -38,7 +37,7 @@ with open(outfile_path,'w') as o:
   o.write("\nIt is always the end user's responsibility to verify the package.") 
   o.write("\n\nThis list is updated each time the repository is updated.")
   o.write("\n\nLast updated: "+dt)
-  o.write("\n\n|Module Name|Verified|")
-  o.write("\n|------|--------|")
+  o.write("\n\n|Module Name|Verified|Finished|")
+  o.write("\n|------|--------|--------|")
   for l in liblist_output:
     o.write("\n"+l)
