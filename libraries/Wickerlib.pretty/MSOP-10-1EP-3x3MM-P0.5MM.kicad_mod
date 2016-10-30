@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module MSOP-10-1EP-3x3MM-P0.5MM (layer F.Cu) (tedit 58157486)
   (descr "MSE Package; 10-Lead Plastic MSOP, Exposed Die Pad (see Linear Technology 05081664_I_MSE.pdf)")

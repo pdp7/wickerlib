@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module DFN-10-1EP-3x3MM-P0.5MM (layer F.Cu) (tedit 58156C0B)
   (descr "10-Lead Plastic Dual Flat, No Lead Package (MF) - 3x3x0.9 mm Body [DFN] (see Microchip Packaging Specification 00000049BS.pdf)")

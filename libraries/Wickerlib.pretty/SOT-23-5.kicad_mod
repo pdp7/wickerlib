@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module SOT-23-5 (layer F.Cu) (tedit 58157B5A)
   (descr "5-pin SOT23 package")

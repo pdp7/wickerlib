@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module SOT-223 (layer F.Cu) (tedit 58157AA1)
   (descr "module CMS SOT223 4 pins")

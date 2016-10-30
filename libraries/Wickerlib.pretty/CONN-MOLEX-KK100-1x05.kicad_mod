@@ -7,6 +7,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module CONN-MOLEX-KK100-1x05 (layer F.Cu) (tedit 5815688B)
   (descr "Through hole socket strip")

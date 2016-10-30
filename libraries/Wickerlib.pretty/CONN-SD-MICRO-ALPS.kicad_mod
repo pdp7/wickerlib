@@ -7,6 +7,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: No
 
 (module CONN-SD-MICRO-ALPS (layer F.Cu) (tedit 58157519)
   (fp_text reference J1 (at 0 6.8) (layer F.Fab)

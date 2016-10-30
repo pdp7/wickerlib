@@ -8,7 +8,8 @@
 # The footprint may not be correct! It is the end
 # user's responsibility to verify the package.
 #
-# Verified: No
+# Verified: Yes
+# Finished: Yes
 
 (module CONN-HEADER-STRAIGHT-P2.54MM-2x09 (layer F.Cu) (tedit 5815669D)
   (descr "Through hole pin header")

@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module SOD-323 (layer F.Cu) (tedit 58157775)
   (descr SOD-323)

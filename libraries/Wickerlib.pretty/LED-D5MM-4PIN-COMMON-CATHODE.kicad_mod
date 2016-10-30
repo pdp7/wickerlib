@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module LED-D5MM-4PIN-COMMON-CATHODE (layer F.Cu) (tedit 581573AE)
   (descr "5mm common cathode RGB LED")

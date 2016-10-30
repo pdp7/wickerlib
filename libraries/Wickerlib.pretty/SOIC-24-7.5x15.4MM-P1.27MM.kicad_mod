@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module SOIC-24-7.5x15.4MM-P1.27MM (layer F.Cu) (tedit 581579AE)
   (descr "24-Lead Plastic Small Outline (SO) - Wide, 7.50 mm Body [SOIC] (see Microchip Packaging Specification 00000049BS.pdf)")

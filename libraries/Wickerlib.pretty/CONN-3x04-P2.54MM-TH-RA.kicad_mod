@@ -9,7 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
-
+# Finished: No
 
 (module CONN-3x04-P2.54MM-TH-RA (layer F.Cu) (tedit 57244D5A)
   (fp_text reference REF** (at 0 0.5) (layer F.SilkS)

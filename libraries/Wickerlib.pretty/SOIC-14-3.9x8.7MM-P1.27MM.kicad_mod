@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module SOIC-14-3.9x8.7MM-P1.27MM (layer F.Cu) (tedit 58157842)
   (descr "14-Lead Plastic Small Outline (SL) - Narrow, 3.90 mm Body [SOIC] (see Microchip Packaging Specification 00000049BS.pdf)")

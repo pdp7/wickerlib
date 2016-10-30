@@ -7,6 +7,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: No
 
 
 (module CONN-USB-A-PCB-TRACES (layer F.Cu) (tedit 56D672FC)

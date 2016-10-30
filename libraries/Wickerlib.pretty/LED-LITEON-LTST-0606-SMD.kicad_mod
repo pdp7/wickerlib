@@ -7,6 +7,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: No
 
 
 (module LED-LITEON-LTST-0606-SMD (layer F.Cu) (tedit 57244DFC)

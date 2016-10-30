@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module LED-1206-SMD (layer F.Cu) (tedit 581570DE)
   (descr "LED 1206 smd package")

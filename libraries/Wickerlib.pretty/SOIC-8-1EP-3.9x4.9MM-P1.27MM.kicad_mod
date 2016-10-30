@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module SOIC-8-1EP-3.9x4.9MM-P1.27MM (layer F.Cu) (tedit 58157A2A)
   (descr "8-Lead Thermally Enhanced Plastic Small Outline (SE) - Narrow, 3.90 mm Body [SOIC] (see Microchip Packaging Specification 00000049BS.pdf)")

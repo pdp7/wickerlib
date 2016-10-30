@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module DB9-FEMALE-D (layer F.Cu) (tedit 58156B16)
   (descr "Connecteur DB9 femelle droit")

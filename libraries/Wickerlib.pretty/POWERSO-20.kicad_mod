@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module POWERSO-20 (layer F.Cu) (tedit 581575E5)
   (fp_text reference U6 (at 0 -0.1) (layer F.Fab)

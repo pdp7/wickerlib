@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module RLC-2220-SMD (layer F.Cu) (tedit 58157196)
   (descr "Capacitor SMD RLC-2220-SMD, reflow soldering, AVX (see smccp.pdf)")

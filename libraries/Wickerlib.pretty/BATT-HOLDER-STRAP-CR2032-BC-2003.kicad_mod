@@ -7,6 +7,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module BATT-HOLDER-STRAP-CR2032-BC-2003 (layer F.Cu) (tedit 581559B9)
   (fp_text reference J1 (at 0 0) (layer F.Fab)

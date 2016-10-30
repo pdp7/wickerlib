@@ -7,6 +7,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: No
 
 
 (module CONN-SD-FULL-TECONN-2041021-4 (layer F.Cu) (tedit 54A89A84)

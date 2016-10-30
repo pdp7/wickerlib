@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: 
 
 (module CONN-HEADER-STRAIGHT-P1.27MM-2x05 (layer F.Cu) (tedit 58155CC2)
   (descr "Through hole pin header, pitch 1.27mm")

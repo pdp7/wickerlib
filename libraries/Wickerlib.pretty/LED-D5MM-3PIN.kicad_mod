@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module LED-D5MM-3PIN (layer F.Cu) (tedit 5815737A)
   (descr "3-lead LED 5mm - Lead pitch 100mil (2,54mm)")

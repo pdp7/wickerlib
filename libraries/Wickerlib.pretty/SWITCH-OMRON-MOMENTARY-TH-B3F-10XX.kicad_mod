@@ -6,7 +6,8 @@
 # The footprint may not be correct! It is the end
 # user's responsibility to verify the package.
 #
-# Verified: No
+# Verified: Yes
+# Finished: Yes
 
 (module SWITCH-OMRON-MOMENTARY-TH-B3F-10XX (layer F.Cu) (tedit 57C4CEE6)
   (descr SWITCH-OMRON-MOMENTARY-TH-B3F-10XX)

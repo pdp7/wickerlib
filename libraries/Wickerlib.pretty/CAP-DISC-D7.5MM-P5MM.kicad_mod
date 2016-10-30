@@ -1,3 +1,16 @@
+# KiCad Footprint 
+# Originally from the KiCad Official Libraries
+#   http://github.com/kicad/
+# Edited by Jenner for Wickerlib
+#   http://github.com/wickerbox/wickerlib
+# This library file is provided under the GPLv3
+#   https://www.gnu.org/licenses/gpl-3.0.html
+# The footprint may not be correct! It is the end
+# user's responsibility to verify the package.
+#
+# Verified: No
+# Finished: Yes
+
 (module CAP-DISC-D7.5MM-P5MM (layer F.Cu) (tedit 579D5E22)
   (descr "Capacitor 7.5mm Disc, Pitch 5mm")
   (tags Capacitor)

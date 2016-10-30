@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 
 (module SOT-23-3 (layer F.Cu) (tedit 57907550)

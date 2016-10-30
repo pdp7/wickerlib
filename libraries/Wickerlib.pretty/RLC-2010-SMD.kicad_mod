@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module RLC-2010-SMD (layer F.Cu) (tedit 58157164)
   (descr "Resistor SMD RLC-2010-SMD, reflow soldering, Vishay (see dcrcw.pdf)")

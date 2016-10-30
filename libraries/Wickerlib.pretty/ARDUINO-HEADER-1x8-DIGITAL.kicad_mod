@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module ARDUINO-HEADER-1x8-DIGITAL (layer F.Cu) (tedit 58155921)
   (descr "Through hole socket strip")

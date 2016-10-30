@@ -6,7 +6,8 @@
 # The footprint may not be correct! It is the end
 # user's responsibility to verify the package.
 #
-# Verified: No
+# Verified: Yes
+# Finished: Yes
 
 (module CRYSTAL-CTS-4SMD (layer F.Cu) (tedit 58156A29)
   (fp_text reference X1 (at 0 0) (layer F.Fab)

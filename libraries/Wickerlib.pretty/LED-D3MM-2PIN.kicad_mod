@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module LED-D3MM-2PIN (layer F.Cu) (tedit 5815723F)
   (descr "LED 3mm round vertical")

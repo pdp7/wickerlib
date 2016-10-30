@@ -7,6 +7,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module RES-CARBONFILM-7MM (layer F.Cu) (tedit 58157667)
   (descr "Resistor, Axial,  RM 7.62mm, 1/3W,")

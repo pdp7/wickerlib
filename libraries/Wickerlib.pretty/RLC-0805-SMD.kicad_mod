@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 
 (module RLC-0805-SMD (layer F.Cu) (tedit 57904162)

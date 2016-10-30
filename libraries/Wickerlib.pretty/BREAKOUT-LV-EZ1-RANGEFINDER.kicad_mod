@@ -6,7 +6,8 @@
 # The footprint may not be correct! It is the end
 # user's responsibility to verify the package.
 #
-# Verified: No
+# Verified: Yes
+# Finished: Yes
 
 (module BREAKOUT-LV-EZ1-RANGEFINDER (layer F.Cu) (tedit 58155A61)
   (descr http://maxbotix.com/uploads/LV-MaxSonar-EZ1-Datasheet.pdf)

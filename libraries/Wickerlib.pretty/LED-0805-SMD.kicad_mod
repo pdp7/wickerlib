@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module LED-0805-SMD (layer F.Cu) (tedit 58157081)
   (descr "LED 0805 smd package")

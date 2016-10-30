@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module DB9-FEMALE-C (layer F.Cu) (tedit 58156AB3)
   (descr "Connecteur DB9 femelle couche")

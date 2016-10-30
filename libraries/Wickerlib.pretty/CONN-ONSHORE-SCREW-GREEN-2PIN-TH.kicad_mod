@@ -6,7 +6,8 @@
 # The footprint may not be correct! It is the end
 # user's responsibility to verify the package.
 #
-# Verified: No
+# Verified: Yes
+# Finished: Yes
 
 (module CONN-ONSHORE-SCREW-GREEN-2PIN-TH (layer F.Cu) (tedit 58156906)
   (descr "Through hole pin header")

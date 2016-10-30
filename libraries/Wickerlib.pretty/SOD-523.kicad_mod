@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module SOD-523 (layer F.Cu) (tedit 581577CD)
   (descr "http://www.diodes.com/datasheets/ap02001.pdf p.144")

@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: 
 
 (module DIP-8-W7.62MM-LONGPADS (layer F.Cu) (tedit 58156E3D)
   (descr "8-lead dip package, row spacing 7.62 mm (300 mils), longer pads")

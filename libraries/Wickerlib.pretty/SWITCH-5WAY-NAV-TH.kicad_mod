@@ -7,6 +7,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: No
 
 
 (module SWITCH-5WAY-NAV-TH (layer F.Cu) (tedit 57244C0A)

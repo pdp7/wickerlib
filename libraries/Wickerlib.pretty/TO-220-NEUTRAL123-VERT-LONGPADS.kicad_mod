@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module TO-220-NEUTRAL123-VERT-LONGPADS (layer F.Cu) (tedit 579D5D16)
   (descr "TO-220, Neutral, Vertical, Large Pads,")

@@ -9,6 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
+# Finished: Yes
 
 (module TO-92-INLINE-NARROW-OVAL (layer F.Cu) (tedit 58157D9D)
   (descr "TO-92 leads in-line, narrow, oval pads, drill 0.6mm (see NXP sot054_po.pdf)")

@@ -1,3 +1,16 @@
+# KiCad Footprint 
+# Originally from the KiCad Official Libraries
+#   http://github.com/kicad/
+# Edited by Jenner for Wickerlib
+#   http://github.com/wickerbox/wickerlib
+# This library file is provided under the GPLv3
+#   https://www.gnu.org/licenses/gpl-3.0.html
+# The footprint may not be correct! It is the end
+# user's responsibility to verify the package.
+#
+# Verified: No
+# Finished: No
+
 (module CONN-SD-MICRO-MOLEX-0475710001 (layer F.Cu) (tedit 57958DF9)
   (fp_text reference J2 (at 0 3.25) (layer F.Fab)
     (effects (font (size 1 1) (thickness 0.15)))
