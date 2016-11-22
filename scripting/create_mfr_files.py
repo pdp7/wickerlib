@@ -76,7 +76,7 @@ popt.SetScale(1)                   # do not change it
 popt.SetMirror(False)
 popt.SetUseGerberAttributes(True)
 popt.SetUseGerberProtelExtensions(True)
-popt.SetExcludeEdgeLayer(False)
+popt.SetExcludeEdgeLayer(True)
 popt.SetScale(1)
 popt.SetSubtractMaskFromSilk(False)
 
@@ -144,7 +144,7 @@ mirror = False
 minimalHeader = False
 offset = wxPoint(0,0)
 
-mergeNPTH = False 
+mergeNPTH = True
 metricFmt = True
 genDrl = True
 genMap = True
