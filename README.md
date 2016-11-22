@@ -44,7 +44,7 @@ _Project Templates_
 1. Assembling the Boards
 1. Tips for Testing and Bringing up Boards
 
-### Makefiles
+### Scripts
 
 - Create a BOM
 - Generate gerbers

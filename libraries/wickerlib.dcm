@@ -769,7 +769,7 @@ F https://cdn.harwin.com/pdfs/60page140.pdf
 $ENDCMP
 #
 $CMP HEADER-MALE-5POS-TH-1x05-P0.1IN
-D HEADER MALE 5POS TH 1x05 0.1”
+D HEADER MALE 5POS TH 1x05 0.1IN
 F https://cdn.harwin.com/pdfs/60page140.pdf
 $ENDCMP
 #
@@ -1340,6 +1340,11 @@ D RES SMD 1.5K OHM 1% 1/10W 0402
 F http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF1501X+7+WW
 $ENDCMP
 #
+$CMP RES-1.5K-5%-1/2W-TH
+D RES SMD 1.5K OHM 5% 1/8W 0805
+F http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0001+ERJ6GEYJ152V+7+WW
+$ENDCMP
+#
 $CMP RES-1.5K-5%-1/8W-0805
 D RES SMD 1.5K OHM 5% 1/8W 0805
 F http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0001+ERJ6GEYJ152V+7+WW
@@ -1512,6 +1517,11 @@ $ENDCMP
 $CMP RES-62K-1%-1/10W-0402
 D RES SMD 62K OHM 1% 1/10W 0402
 F http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF6202X+7+WW
+$ENDCMP
+#
+$CMP RES-66.5-1%-1/4W-TH
+D RES 66.5 OHM 1/4W 1% AXIAL
+F http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0001+ERJ6GEYJ152V+7+WW
 $ENDCMP
 #
 $CMP RES-82K-5%-1/4W-TH-CFMINI

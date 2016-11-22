@@ -18,7 +18,6 @@
       - one PDF file containing all info
 
     TODO: add warnings, such as empty edge.cuts files.
-    TODO: integrate bill of materials (see kicost, kifield?, kicadbomexport)
     TODO: integrate position information to create assembly zip file
     TODO: automatically trim whitespace away from SVG files
 
@@ -158,8 +157,82 @@ drlwriter.CreateDrillandMapFilesSet( pctl.GetPlotDirName(), genDrl, genMap );
 rptfn = pctl.GetPlotDirName() + 'drill_report.rpt'
 drlwriter.GenDrillReportFile( rptfn );
 
-# Create bill of materials with position information
+# Create bill of materials 
 
+bomfile = args.name[0]+'.csv'
+bom_outfile_csv = args.name[0]+'-bom.csv'
+bom_outfile_md = args.name[0]+'-bom.md'
+
+vendors = []
+
+# figure out what vendors are necessary
+
+which_line = 0
+with open(bomfile,'r') as ibom:
+  for line in ibom:
+    if which_line is 0:
+      which_line = 1
+    else:
+      l = line.split(',')
+      vendors.append(l[9].lower())
+  vendors = set(vendors)
+
+# create the master CSV with vendor information
+ 
+outbom_list = []
+outfile = args.name[0]+'-bom.csv'
+
+which_line = 0
+with open(bomfile,'r') as ibom:
+  for line in ibom:
+    l = line.split(',')
+    outbom_list.append(l[0]+','+l[3]+','+l[11]+','+l[7]+','+l[8]+','+l[9]+','+l[10])
+
+with open(outfile,'w') as obom:
+  for line in outbom_list:
+    obom.write(line+'\n')
+
+# Create a markdown file for github with each vendor
+# given its own table for easy reading
+
+outbom_list = []
+outfile = args.name[0]+'-bom.md'
+
+for v in vendors:
+  which_line = 0
+  with open(bomfile,'r') as ibom:
+    for line in ibom:
+      if which_line is 0:
+        outbom_list.append('|Ref|Qty|Description|'+v+' PN|')
+        outbom_list.append('|---|---|-----------|------|')
+        which_line = 1
+      else:
+        l = line.split(',')
+        if l[9] == v:
+          outbom_list.append('|'+l[0]+'|'+l[3]+'|'+l[11]+'|'+l[10]+'|')
+    outbom_list.append('')
+
+with open(outfile,'w') as obom:
+  for line in outbom_list:
+    obom.write(line+'\n')
+
+# Create a separate csv for each vendor site
+
+for v in vendors:
+  outbom_list = []
+  outfile = args.name[0]+'-bom-'+v+'.csv'
+
+  which_line = 0
+  with open(bomfile,'r') as ibom:
+    for line in ibom:
+      l = line.split(',')
+      if l[9] == v:
+        outbom_list.append(l[0]+','+l[3]+','+l[11]+','+l[7]+','+l[8]+','+l[10])
+
+  with open(outfile,'w') as obom:
+    for line in outbom_list:
+      obom.write(line+'\n') 
+  
 # Create zip file for OSH Park manufacturing
 
 files = []
