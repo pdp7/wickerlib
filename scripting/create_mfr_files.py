@@ -23,8 +23,9 @@
 
 '''
 
-import sys, os, zipfile, glob, argparse
-
+import sys, os, zipfile, glob, argparse, re
+from shutil import copyfile
+from subprocess import call
 from pcbnew import *
 
 # capture command line arguments
@@ -132,7 +133,47 @@ pctl.OpenPlotfile("AssyOutlinesTop", PLOT_FORMAT_PDF, "Assembly outline top")
 pctl.PlotLayer()
 
 # Close out the plot to safely free the object.
+
 pctl.ClosePlot()
+
+# Report the size of the board
+# The code in this section is derived from Wayne and Layne's script
+# to query Gerber file outer dimensions, which is public domain
+# wayneandlayne.com, accessed 2016
+
+xmin = None
+xmax = None
+ymin = None
+ymax = None
+for line in file('gerbers/'+args.name[0]+'-Edge.Cuts.gm1'):
+    results = re.search("^X([\d-]+)Y([\d-]+)", line.strip())
+    if results:
+        x = int(results.group(1))
+        y = int(results.group(2))
+        xmin = min(xmin, x) if xmin else x
+        xmax = max(xmax, x) if xmax else x
+        ymin = min(ymin, y) if ymin else y
+        ymax = max(ymax, y) if ymax else y
+
+x = (xmax-xmin)/10000000.0
+y = (ymax-ymin)/10000000.0
+
+w = '%.2f' % x
+h = '%.2f' % y
+
+dim_ratio = x/y
+
+if x > y:
+  outw = 700
+  outh = outw/dim_ratio
+else:
+  outh = 700
+  outw = outh*dim_ratio
+
+outw = str(outw)
+outh = str(outh)
+
+print '\nThis board is '+w+' x '+h+' inches'
 
 # Create Enhanced Excellon and PDF drill files
 
@@ -151,6 +192,46 @@ genMap = True
 drlwriter.SetOptions( mirror, minimalHeader, offset, mergeNPTH )
 drlwriter.SetFormat( metricFmt )
 drlwriter.CreateDrillandMapFilesSet( pctl.GetPlotDirName(), genDrl, genMap );
+
+# Create composite board top image creating a GerbV .gvp project file
+# first, create the project file
+
+projfile = 'top.gvp'
+cwd = os.getcwd()
+print cwd 
+
+with open('gerbers/'+projfile,'w') as pf:
+  pf.write("(gerbv-file-version! \"2.0A\")\n")
+  pf.write("(define-layer! 4 (cons \'filename \""+args.name[0]+"-F.Cu.gtl\")(cons \'visible #t)(cons \'color #(59110 51400 0)))\n")
+  pf.write("(define-layer! 3 (cons \'filename \""+args.name[0]+"-F.Mask.gts\")(cons \'inverted #t)(cons \'visible #t)(cons \'color #(21175 0 23130)))\n")
+  pf.write("(define-layer! 2 (cons \'filename \""+args.name[0]+"-F.Silk.gto\")(cons \'visible #t)(cons \'color #(65535 65535 65535)))\n")
+  pf.write("(define-layer! 1 (cons \'filename \""+args.name[0]+"-Edge.Cuts.gm1\")(cons \'visible #t)(cons \'color #(0 0 0)))\n")
+  pf.write("(define-layer! 0 (cons \'filename \""+args.name[0]+".drl\")(cons \'visible #t)(cons \'color #(0 0 0))(cons \'attribs (list (list \'autodetect \'Boolean 1) (list \'zero_supression \'Enum 1) (list \'units \'Enum 0) (list \'digits \'Integer 4))))\n")
+  pf.write("(define-layer! -1 (cons \'filename \""+cwd+"\")(cons \'visible #f)(cons \'color #(0 0 0)))\n")
+  pf.write("(set-render-type! 0)")
+
+# create the composite top image
+call(['gerbv','-x','png','--project','gerbers/'+projfile,'-w',outw+'x'+outh,'-o','preview.png','-B=0'])
+
+# create the top assembly diagram
+call(['gerbv','-x','png','gerbers/'+args.name[0]+'-F.Fab.gbr','-b#ffffff','-f#000000','-w',outw+'x'+outh,'-o','assembly.png'])
+
+# replaced by project file solutions
+# but this is code to create an individual image for all the layers
+#
+#gerber_images = [['-F.Fab.gbr','assembly.png','#ffffff','#000000'],
+#                 ['-Edge.Cuts.gm1','outline.png','#ffffff','#000000'],
+#                 ['-F.Cu.gtl','top-copper.png','#ffffff','#b18883'],
+#                 ['-B.Cu.gbl','bottom-copper.png','#ffffff','#b18883'],
+#                 ['-F.Silk.gto','top-silk.png','#ffffff','#401264'],
+#                 ['-B.Silk.gbo','bottom-silk.png','#ffffff','#401264'],
+#                 ['-F.Mask.gts','top-mask.png','#ffffff','#401264'],
+#                 ['-B.Mask.gbs','bottom-mask.png','#ffffff','#401264'],
+#                 ['.drl','drills.png','#ffffff','#000000']]
+#
+#for t in gerber_images:
+#  call(['gerbv','-x','png','gerbers/'+args.name[0]+t[0],'-b'+t[2],'-f'+t[3],'-o',t[1]])
+#  call(['convert',t[1],'-transparent',t[2],t[1]])
 
 # Create the drill statistics report
 
@@ -203,12 +284,12 @@ for v in vendors:
   with open(bomfile,'r') as ibom:
     for line in ibom:
       if which_line is 0:
-        outbom_list.append('|Ref|Qty|Description|'+v+' PN|')
+        outbom_list.append('|Ref|Qty|Description|'+v.capitalize()+' PN|')
         outbom_list.append('|---|---|-----------|------|')
         which_line = 1
       else:
         l = line.split(',')
-        if l[9] == v:
+        if l[9] == v.capitalize():
           outbom_list.append('|'+l[0]+'|'+l[3]+'|'+l[11]+'|'+l[10]+'|')
     outbom_list.append('')
 
@@ -262,17 +343,37 @@ os.chdir("..")
 
 # Create zip file of the complete assembly package
 
-# Create images
+# Append the BOM to the README if there's a commented section
 
-plotDir = "."
+readme = 'README.md'
+newbomlinefile = args.name[0]+'-bom.md'
 
-pctl.SetLayer(F_Fab)
-popt.SetTextMode(PLOTTEXTMODE_STROKE)
-pctl.OpenPlotfile("Assembly", PLOT_FORMAT_SVG, "Assembly outline top")
-pctl.PlotLayer()
+tempfile = []
+newbomlines = []
 
-# Fix up the images 
-  # Definitely want to trim every svg in the folder to remove whitespace
-  # plt.savefig("test.png",bbox_inches='tight')
+with open(newbomlinefile,'r') as f:
+  for line in f:
+    newbomlines.append(line)
 
+write_bom = False
 
+with open(readme,'r') as f:
+  for line in f:
+    if write_bom is False:
+      tempfile.append(line)
+      if '<!--- bom start' in line:
+        write_bom = True
+        for bomline in newbomlines:
+          tempfile.append(bomline)
+    else:
+      if '<!--- bom end' in line:
+        tempfile.append(line)
+        write_bom = False
+
+with open(readme,'w') as f:
+  for line in tempfile:
+    f.write(line)
+
+# Finally, create PDF for posterity
+
+call(['pandoc','-V','geometry:margin=1in','README.md','-o',args.name[0]+version+'.pdf']) 
