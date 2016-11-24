@@ -20,11 +20,6 @@ D ANTENNA CALVUS 824-960MHZ SMD
 F http://media.digikey.com/PDF/Data%20Sheets/Antenova/A10340.pdf
 $ENDCMP
 #
-$CMP ARDUINO-101
-D ARDUINO 101
-F https://www.adafruit.com/products/2891
-$ENDCMP
-#
 $CMP ARDUINO-101-SHIELD
 D ARDUINO 101 SHIELD
 F https://www.adafruit.com/product/3033
