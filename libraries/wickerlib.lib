@@ -2069,7 +2069,7 @@ F5 "CTS" 0 -350 50 H I C CIN "MF_Name"
 F6 "406I35D16M00000" 0 -350 50 H I C CIN "MF_PN"
 F7 "Digikey" 0 -350 50 H I C CIN "S1_Name"
 F8 "CTX1206CT-ND" 0 -350 50 H I C CIN "S1_PN"
-F9 "16MHz ±30ppm Crystal 18pF 40 Ohm 4SMD NOLEAD" 0 -350 50 H I C CIN "Description"
+F9 "16MHz 30ppm Crystal 18pF 40 Ohm 4SMD NOLEAD" 0 -350 50 H I C CIN "Description"
 F10 "Not Verified" 0 -350 50 H I C CIN "Verified"
 DRAW
 S -200 100 200 -100 0 1 12 N
