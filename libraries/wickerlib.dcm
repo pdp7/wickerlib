@@ -899,17 +899,17 @@ F http://www.atmel.com/Images/Atmel-2549-8-bit-AVR-Microcontroller-ATmega640-128
 $ENDCMP
 #
 $CMP IC-MCU-ATMEGA2560-CUSTOM2
-D TQFP100, 256k Flash, 8k SRAM, 4k EEPROM, JTAG, CUSTOM1
+D TQFP100, 256k Flash, 8k SRAM, 4k EEPROM, JTAG, CUSTOM2
 F http://www.atmel.com/Images/Atmel-2549-8-bit-AVR-Microcontroller-ATmega640-1280-1281-2560-2561_datasheet.pdf
 $ENDCMP
 #
 $CMP IC-MCU-ATMEGA2560-CUSTOM3
-D TQFP100, 256k Flash, 8k SRAM, 4k EEPROM, JTAG, CUSTOM1
+D TQFP100, 256k Flash, 8k SRAM, 4k EEPROM, JTAG, CUSTOM3
 F http://www.atmel.com/Images/Atmel-2549-8-bit-AVR-Microcontroller-ATmega640-1280-1281-2560-2561_datasheet.pdf
 $ENDCMP
 #
 $CMP IC-MCU-ATMEGA2560-CUSTOM4
-D TQFP100, 256k Flash, 8k SRAM, 4k EEPROM, JTAG
+D TQFP100, 256k Flash, 8k SRAM, 4k EEPROM, JTAG,CUSTOM4
 F http://www.atmel.com/Images/Atmel-2549-8-bit-AVR-Microcontroller-ATmega640-1280-1281-2560-2561_datasheet.pdf
 $ENDCMP
 #
