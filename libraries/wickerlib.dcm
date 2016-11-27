@@ -1646,7 +1646,7 @@ K point tp
 $ENDCMP
 #
 $CMP TRIMPOT-10K-3PIN-SMT-0.1W-TC33X
-D TRIMMER 10K OHM 0.1W SMD
+D TRIMMER 10K OHM 0.1W TC33X SMD
 F http://www.bourns.com/docs/Product-Datasheets/TC33.pdf
 $ENDCMP
 #
