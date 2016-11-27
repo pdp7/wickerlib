@@ -1585,11 +1585,6 @@ D SWITCH SLIDE SPDT 200MA 30V
 F https://www.e-switch.com/system/asset/product_line/data_sheet/119/EG.pdf
 $ENDCMP
 #
-$CMP SWITCH-TACT-NAV-4DIR-SEL-SMT
-D SWITCH TACT NAV 4DIR W/SELECT SMT
-F http://media.digikey.com/pdf/Data%20Sheets/C&K/TPA%20Series.pdf
-$ENDCMP
-#
 $CMP SWITCH-TACTILE-SPST-NO-0.05A-12V
 D SWITCH TACTILE SPST-NO 0.05A 12V
 F http://www.omron.com/ecb/products/pdf/en-b3u.pdf
