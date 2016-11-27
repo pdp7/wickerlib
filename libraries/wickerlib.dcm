@@ -1641,8 +1641,8 @@ F https://www.pjrc.com/teensy/
 $ENDCMP
 #
 $CMP TEST_1P
-D point
-K point tp
+D Test Point Std Pin Hole
+K Test Point
 $ENDCMP
 #
 $CMP TRIMPOT-10K-3PIN-SMT-0.1W-TC33X
