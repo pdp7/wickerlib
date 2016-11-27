@@ -938,6 +938,16 @@ D  IC MCU 8BIT 32KB FLASH 44TQFP
 K AVR 8bit Microcontroller MegaAVR
 $ENDCMP
 #
+$CMP IC-MCU-ATTINY85-10MHZ-SOIC8
+D IC MCU ATTINY85 10MHZ 8BIT 1.8V-5.5V 8KB FLASH 8SOIC
+F http://www.atmel.com/Images/Atmel-2586-AVR-8-bit-Microcontroller-ATtiny25-ATtiny45-ATtiny85_Datasheet.pdf
+$ENDCMP
+#
+$CMP IC-MCU-ATTINY85-20MHZ-SOIC8
+D IC MCU ATTINY85 20MHZ 8BIT 8KB FLASH 8SOIC
+F http://www.atmel.com/Images/Atmel-2586-AVR-8-bit-Microcontroller-ATtiny25-ATtiny45-ATtiny85_Datasheet.pdf
+$ENDCMP
+#
 $CMP IC-MCU-ATTINY85-DIP8
 D IC MCU 8BIT 8KB FLASH 8PDIP
 F http://www.atmel.com/Images/Atmel-2586-AVR-8-bit-Microcontroller-ATtiny25-ATtiny45-ATtiny85_Datasheet.pdf
@@ -964,6 +974,11 @@ F http://www.st.com/web/en/resource/technical/document/datasheet/DM00037051.pdf
 $ENDCMP
 #
 $CMP IC-MMA7660-DFN10
+D IC ACCELEROMETER 3X3 DGTL 10-DFN
+F http://cache.freescale.com/files/sensors/doc/data_sheet/MMA7660FC.pdf
+$ENDCMP
+#
+$CMP IC-MMA8653-DFN10
 D IC ACCELEROMETER 3X3 DGTL 10-DFN
 F http://cache.freescale.com/files/sensors/doc/data_sheet/MMA7660FC.pdf
 $ENDCMP
@@ -1230,6 +1245,10 @@ D LED GRN/YLW DIFF 3MM ROUND T/H
 F http://www.sunledusa.com/products/spec/XLUGY34M.pdf
 $ENDCMP
 #
+$CMP LED-GREEN-YELLOW-3PIN-TH-XLUGY59M
+D LED YELLOW/GREEN DIFF 5MM ROUND XLUGY59M T/H
+$ENDCMP
+#
 $CMP LED-RED-0603-SMT-150060RS75000
 D LED RED CLEAR 0603 SMD
 F http://katalog.we-online.de/led/datasheet/150060RS75000.pdf
@@ -1263,6 +1282,10 @@ $ENDCMP
 $CMP LED-RED-GREEN-3PIN-TH-XLUGR59M
 D LED GRN/RED DIFF 5MM ROUND T/H
 F http://www.sunledusa.com/products/spec/XLUGR59M.pdf
+$ENDCMP
+#
+$CMP LED-RED-YELLOW-3PIN-TH-XLUYR59M
+D LED RED/YEL DIFF 5MM ROUND XLUYR59M T/H
 $ENDCMP
 #
 $CMP LED-RGB-WS2812B-4SMD
@@ -1492,6 +1515,10 @@ $ENDCMP
 $CMP RES-4.7K-1%-1/10W-0402
 D RES SMD 4.7K OHM 1% 1/10W 0402
 F http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF33R0X+7+WW
+$ENDCMP
+#
+$CMP RES-47-OHM-5%-1/10W-0603
+D RES SMD 47 OHM 5% 1/10W 0603 
 $ENDCMP
 #
 $CMP RES-470-5%-1/4W-0603
