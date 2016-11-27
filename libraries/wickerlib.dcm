@@ -1595,11 +1595,6 @@ D SWITCH TACTILE SPST-NO 0.05A 24V
 F http://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1437566-3&DocType=Customer+Drawing&DocLang=English
 $ENDCMP
 #
-$CMP SWITCH-TH-5WAY-NAV-JOYSTICK
-D SWITCH TH 5WAY NAV JOYSTICK
-F https://www.adafruit.com/products/504
-$ENDCMP
-#
 $CMP SWITCH-TOGGLE-SPDT-5A-120V
 D SWITCH TOGGLE SPDT 5A 120V
 F https://www.e-switch.com/system/asset/product_line/data_sheet/129/100.pdf
