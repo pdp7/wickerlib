@@ -4,7 +4,7 @@ It is always the end user's responsibility to verify the package.
 
 This list is updated each time the repository is updated.
 
-Last updated: 30 October 2016
+Last updated: 02 December 2016
 
 |Module Name|Verified|Finished|
 |------|--------|--------|
@@ -32,7 +32,8 @@ Last updated: 30 October 2016
 | CONN-AMPHENOL-RJ45-NOLED | No | Yes |
 | CONN-AMPHENOL-SIM-C707-10M006-0492 | No | No |
 | CONN-BARREL-JACK-2.5x5.5MM-TH | Yes | Yes |
-| CONN-BNC-MOLEX-0731375003 | No | Yes |
+| CONN-BNC-TECONN-1-1634612-0 | No | Yes |
+| CONN-HEADER-FH34SRJ-34S-0.5SH | No | Yes |
 | CONN-HEADER-STRAIGHT-P1.27MM-2x04 | No |  |
 | CONN-HEADER-STRAIGHT-P1.27MM-2x05 | No |  |
 | CONN-HEADER-STRAIGHT-P2.54MM-1x01 | Yes | Yes |
@@ -123,6 +124,7 @@ Last updated: 30 October 2016
 | LED-0603-SMD | No | Yes |
 | LED-0805-SMD | No | Yes |
 | LED-1206-SMD | No | Yes |
+| LED-BIVAR-SMP4-4PLCC-SMD | No | No |
 | LED-D3MM-2PIN | No | Yes |
 | LED-D3MM-3PIN | No | Yes |
 | LED-D5MM-2PIN | No | Yes |
@@ -138,6 +140,7 @@ Last updated: 30 October 2016
 | QFN-32-1EP-5x5MM-P0.5MM | No | Yes |
 | RES-CARBONFILM-7MM | No | Yes |
 | RES-TRIMPOT-BOURNS-3362-SQUARE-TH-CENTER | No | Yes |
+| RES-TRIMPOT-TC33X-2 | No | Yes |
 | RES-TRIMPOT-TTELEC-P160-TH | No | Yes |
 | RLC-0402-SMD | No | Yes |
 | RLC-0603-SMD | No | Yes |
@@ -176,9 +179,12 @@ Last updated: 30 October 2016
 | SWITCH-TECONN-MOMENTARY-SMD-FSMSM | No | Yes |
 | SYMBOL-OSHW-LOGO-SILK | Yes | Yes |
 | TEENSY-3.2-LEAFBOARD-ADAPTER | No | No |
+| TEENSY-3.2-NOSILK-SIMPLE | No | No |
 | TEENSY-3.2-NOSILK | No | No |
-| TEENSY-3.2-SIMPLE | No | No |
+| TEENSY-3.2-SILK-SIMPLE | No | No |
+| TEENSY-3.2-SILK | No | No |
 | TEENSY-LC-NOSILK | No | No |
+| TEENSY-LC-SILK | No | No |
 | TO-220-NEUTRAL123-VERT-LONGPADS | No | Yes |
 | TO-92-INLINE-NARROW-OVAL | No | Yes |
 | TQFP-100-14x14MM-P0.5MM | No | Yes |
