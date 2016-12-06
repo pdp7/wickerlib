@@ -73,6 +73,7 @@ class Project():
   name = ''
   filename = ''
   version = ''
+  schonly = ''
   board = ''
   height_mm = ''
   width_mm = '' 
@@ -86,6 +87,7 @@ components = []
 parser = argparse.ArgumentParser()
 parser.add_argument("-n","--name", nargs=1, help="project name", required=True)
 parser.add_argument("-v","--version", nargs=1, help="version number, 'v1.1'")
+parser.add_argument("-s","--schonly", action="store_true", default=False, help="use this flag if no board exists yet")
 args = parser.parse_args()
 
 ###########################################################
@@ -110,6 +112,11 @@ def parse_arguments():
   else:
     proj.filename=args.name[0]
     proj.name = args.name[0].replace('.kicad_pcb','')
+
+  if args.schonly:
+    proj.schonly = True
+  else:
+    proj.schonly = False
 
 ###########################################################
 #
@@ -620,7 +627,8 @@ if __name__ == "__main__":
   plot_gerbers(board)    
   create_drill_files(board,popt,pctl)
 
-  get_board_size()
+  if proj.schonly is False:
+    get_board_size()
 
   create_image_preview()
   create_assembly_diagrams()
