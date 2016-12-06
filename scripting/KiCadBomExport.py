@@ -112,8 +112,6 @@ def main(argv):
 #    fileOut = ''   #replace with filename
 ######
 
-
-
     ########################################################
     #Process the Command Line
     logger.info('Command Line Arguments: %s',str(argv))
@@ -147,13 +145,11 @@ def main(argv):
     #Perform error checking to make sure cmd-line params passed, files exist etc.
     checkParams(fileIn)
 
-
     #If no output file specified, create one:
     if fileOut == '':
-        fileOut = fileIn[:fileIn.rfind('.')] + '_BOM'    #strip the extension off the Input file
+        fileOut = fileIn[:fileIn.rfind('.')] + '-bom-master'    #strip the extension off the Input file
         logger.info('No OUTPUT Filename specified - using: %s', fileOut)
 
-    
     ########################################################
     #Parse and process the XML netlist
     eTree = ElementTree()
@@ -161,6 +157,7 @@ def main(argv):
     root = eTree.getroot()
     section = root.find(tagComponent)  #Find the component-level in the XML Netlist
 
+    
     #Loop through each component
     for component in section:
         processComponent(listOutput, component, groupParts) #Extract compoonent info and add to listOutput 
@@ -244,9 +241,15 @@ def processComponent(listOutput, xmlComponent, groupParts):
     if xmlComponent.find(tagValue) != None: curPart['Value'] = xmlComponent.find(tagValue).text
     if xmlComponent.find(tagFootprint) != None:
       fieldValue = xmlComponent.find(tagFootprint).text.split(':')
+      print logger.info(fieldValue[0])
+      print logger.info(fieldValue[1])
+ 
       curPart[addCSVField('FootprintLib')] = fieldValue[0]
+
       curPart['Footprint'] = fieldValue[1]
       
+    print logger.info("test") #,curPart['Reference'])
+
     if xmlComponent.find(tagDatasheet) != None: curPart['Datasheet'] = xmlComponent.find(tagDatasheet).text
     curPart['Count'] = '1'
         

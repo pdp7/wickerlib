@@ -1142,6 +1142,11 @@ D IC VREF GND REF ADJ DIP8
 F http://www.ti.com/lit/ds/symlink/tle2426.pdf
 $ENDCMP
 #
+$CMP IC-TLE2426-TO92
+D IC VREF GND REF ADJ DIP8
+F http://www.ti.com/lit/ds/symlink/tle2426.pdf
+$ENDCMP
+#
 $CMP IC-TRANSCEIVER-CAN-MCP2551-SOIC8
 D IC TRANSCEIVER CAN HI-SPD 8-SOIC
 F http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en011797
@@ -1377,9 +1382,19 @@ D RES SMD 10 OHM 1% 1/10W 0603
 F http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ3EKF10R0V+7+WW
 $ENDCMP
 #
+$CMP RES-10-5%-1/4W-CF
+D RES 220 OHM 1/4W 5% CARBON FILM
+F http://www.seielect.com/catalog/SEI-CF_CFM.pdf
+$ENDCMP
+#
 $CMP RES-100-1%-1/10W-0402
 D RES SMD 100 OHM 1% 1/10W 0402
 F http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF1000X+7+WW
+$ENDCMP
+#
+$CMP RES-100K-5%-1/4W-CF
+D RES 220 OHM 1/4W 5% CARBON FILM
+F http://www.seielect.com/catalog/SEI-CF_CFM.pdf
 $ENDCMP
 #
 $CMP RES-10K-1%-1/10W-0402
@@ -1400,6 +1415,11 @@ $ENDCMP
 $CMP RES-10K-5%-1/8W-0805
 D RES SMD 10K OHM 5% 1/8W 0805
 F http://www.yageo.com/NewPortal/yageodocoutput?fileName=/pdf/R-Chip/PYu-RC_Group_51_RoHS_L_3.pdf
+$ENDCMP
+#
+$CMP RES-10M-5%-1/4W-CF
+D RES 220 OHM 1/4W 5% CARBON FILM
+F http://www.seielect.com/catalog/SEI-CF_CFM.pdf
 $ENDCMP
 #
 $CMP RES-150-5%-1/4W-TH-CFMINI
@@ -1429,6 +1449,16 @@ $ENDCMP
 #
 $CMP RES-1K-5%-1/4W-TH-CFMINI
 D RES 1K OHM 1/4W 5% CF MINI
+F http://www.seielect.com/catalog/SEI-CF_CFM.pdf
+$ENDCMP
+#
+$CMP RES-1M-5%-1/4W-CF
+D RES 220 OHM 1/4W 5% CARBON FILM
+F http://www.seielect.com/catalog/SEI-CF_CFM.pdf
+$ENDCMP
+#
+$CMP RES-2.2K-5%-1/4W-CF
+D RES 220 OHM 1/4W 5% CARBON FILM
 F http://www.seielect.com/catalog/SEI-CF_CFM.pdf
 $ENDCMP
 #
@@ -1484,6 +1514,11 @@ $ENDCMP
 $CMP RES-2K-1%-1/8W-0603
 D RES SMD 2K OHM 1% 1/8W 0603
 F http://www.seielect.com/catalog/SEI-RNCP.pdf
+$ENDCMP
+#
+$CMP RES-3.3K-5%-1/4W-CF
+D RES 220 OHM 1/4W 5% CARBON FILM
+F http://www.seielect.com/catalog/SEI-CF_CFM.pdf
 $ENDCMP
 #
 $CMP RES-31.6K-1%-1/10W-0603
