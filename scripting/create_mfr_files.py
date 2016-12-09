@@ -23,6 +23,7 @@ import sys, os, zipfile, glob, argparse, re
 from shutil import copyfile
 from subprocess import call
 from pcbnew import *
+import Image
 
 # create a component class
 class Comp():
@@ -220,10 +221,6 @@ def plot_gerbers(board):
       if pctl.PlotLayer() == False:
           print "Plot Error: Layer Missing?"
 
-  pctl.SetLayer(F_Fab)
-  pctl.OpenPlotfile("AssyOutlinesTop", PLOT_FORMAT_PDF, "Assembly outline top")
-  pctl.PlotLayer()
-
   # Close out the plot to safely free the object.
 
   pctl.ClosePlot()
@@ -300,10 +297,10 @@ def get_board_size():
 
   if x > y:
     outw = 700
-    outh = outw/dim_ratio
+    outh = int(outw/dim_ratio)
   else:
     outh = 700
-    outw = outh*dim_ratio
+    outw = int(outh*dim_ratio)
 
   proj.width_mm = str(outw)
   proj.height_mm = str(outh)
@@ -323,6 +320,8 @@ def get_board_size():
 
 def create_image_preview():
 
+  # top side
+
   projfile = 'top.gvp'
   cwd = os.getcwd()
   print cwd 
@@ -337,8 +336,42 @@ def create_image_preview():
     pf.write("(define-layer! -1 (cons \'filename \""+cwd+"\")(cons \'visible #f)(cons \'color #(0 0 0)))\n")
     pf.write("(set-render-type! 0)")
 
-  # create the composite top image
-  call(['gerbv','-x','png','--project','gerbers/'+projfile,'-w',proj.width_mm+'x'+proj.height_mm,'-o','preview.png','-B=0'])
+  call(['gerbv','-x','png','--project','gerbers/'+projfile,'-w',proj.width_mm+'x'+proj.height_mm,'-o','preview-top.png','-B=0'])
+
+  # bottom side
+
+  projfile = 'bottom.gvp'
+  cwd = os.getcwd()
+  print cwd 
+
+  with open('gerbers/'+projfile,'w') as pf:
+    pf.write("(gerbv-file-version! \"2.0A\")\n")
+    pf.write("(define-layer! 4 (cons \'filename \""+proj.name+"-B.Cu.gbl\")(cons \'visible #t)(cons \'color #(59110 51400 0)))\n")
+    pf.write("(define-layer! 3 (cons \'filename \""+proj.name+"-B.Mask.gbs\")(cons \'inverted #t)(cons \'visible #t)(cons \'color #(21175 0 23130)))\n")
+    pf.write("(define-layer! 2 (cons \'filename \""+proj.name+"-B.Silk.gbo\")(cons \'visible #t)(cons \'color #(65535 65535 65535)))\n")
+    pf.write("(define-layer! 1 (cons \'filename \""+proj.name+"-Edge.Cuts.gm1\")(cons \'visible #t)(cons \'color #(0 0 0)))\n")
+    pf.write("(define-layer! 0 (cons \'filename \""+proj.name+".drl\")(cons \'visible #t)(cons \'color #(0 0 0))(cons \'attribs (list (list \'autodetect \'Boolean 1) (list \'zero_supression \'Enum 1) (list \'units \'Enum 0) (list \'digits \'Integer 4))))\n")
+    pf.write("(define-layer! -1 (cons \'filename \""+cwd+"\")(cons \'visible #f)(cons \'color #(0 0 0)))\n")
+    pf.write("(set-render-type! 0)")
+
+  call(['gerbv','-x','png','--project','gerbers/'+projfile,'-w',proj.width_mm+'x'+proj.height_mm,'-o','preview-bottom.png','-B=0'])
+  call(['convert','preview-bottom.png','-flop','preview-bottom.png'])
+
+  # create stitched-together previews based on whether they're portrait or landscape
+
+  new_w = str(int(proj.width_mm) + 20)
+  new_h = str(int(proj.height_mm) + 20)
+
+  if proj.width_mm > proj.height_mm:
+    call(['convert','preview-top.png','-bordercolor','white','-extent',proj.width_mm+'x'+new_h,'preview-top.png'])
+    call(['convert','preview-top.png','preview-bottom.png','-append','preview.png'])
+  else:
+    call(['convert','preview-top.png','-bordercolor','white','-extent',new_w+'x'+proj.height_mm,'preview-top.png'])
+    call(['convert','preview-top.png','preview-bottom.png','+append','preview.png'])
+
+  # cleanup
+
+  call(['rm','preview-top.png','preview-bottom.png'])
 
 ###########################################################
 #
@@ -355,29 +388,36 @@ def create_assembly_diagrams():
   call(['gerbv','-x','png','gerbers/'+proj.name+'-F.Fab.gbr','-b#ffffff','-f#000000','-w',proj.width_mm+'x'+proj.height_mm,'-o','assembly-top.png'])
   call(['gerbv','-x','png','gerbers/'+proj.name+'-B.Fab.gbr','-b#ffffff','-f#000000','-w',proj.width_mm+'x'+proj.height_mm,'-o','assembly-bottom.png'])
 
-###########################################################
-#       create_individual_layer_images                    #
-###########################################################
+  img = Image.open('assembly-top.png')
+  extrema = img.convert("L").getextrema()
+  if extrema[0] == extrema[1]:
+    call(['rm','assembly-top.png'])
+  img = Image.open('assembly-bottom.png')
+  extrema = img.convert("L").getextrema()
+  if extrema[0] == extrema[1]:
+    call(['rm','assembly-bottom.png'])
 
-def create_individual_layer_images():
+  # create preview.png file from one or both 
+  f1 = os.path.isfile('assembly-top.png')
+  f2 = os.path.isfile('assembly-bottom.png')
 
-  # replaced by project file solutions
-  # but this is code to create an individual image for all the layers
-  
-  gerber_images = [['-F.Fab.gbr','assembly.png','#ffffff','#000000'],
-                     ['-Edge.Cuts.gm1','outline.png','#ffffff','#000000'],
-                     ['-F.Cu.gtl','top-copper.png','#ffffff','#b18883'],
-                     ['-B.Cu.gbl','bottom-copper.png','#ffffff','#b18883'],
-                     ['-F.Silk.gto','top-silk.png','#ffffff','#401264'],
-                     ['-B.Silk.gbo','bottom-silk.png','#ffffff','#401264'],
-                     ['-F.Mask.gts','top-mask.png','#ffffff','#401264'],
-                     ['-B.Mask.gbs','bottom-mask.png','#ffffff','#401264'],
-                     ['.drl','drills.png','#ffffff','#000000']]
-  
-  for t in gerber_images:
-    call(['gerbv','-x','png','gerbers/'+proj.name+t[0],'-b'+t[2],'-f'+t[3],'-o',t[1]])
-    call(['convert',t[1],'-transparent',t[2],t[1]])
+  if f1 is True and f2 is True:
+    new_w = str(int(proj.width_mm) + 20)
+    new_h = str(int(proj.height_mm) + 20)
 
+    if proj.width_mm > proj.height_mm:
+      call(['convert','assembly-top.png','-bordercolor','white','-extent',proj.width_mm+'x'+new_h,'assembly-top.png'])
+      call(['convert','assembly-top.png','assembly-bottom.png','-append','assembly.png'])
+    else:
+      call(['convert','assembly-top.png','-bordercolor','white','-extent',new_w+'x'+proj.height_mm,'assembly-top.png'])
+      call(['convert','assembly-top.png','assembly-bottom.png','+append','assembly.png'])
+    call(['rm','assembly-top.png','assembly-bottom.png'])
+  elif f1 is True:
+    call(['mv','assembly-top.png','assembly.png'])
+  elif f2 is True:
+    call(['mv','assembly-bottom.png','assembly.png'])
+  else:
+    print "no assembly diagrams."
 
 ###########################################################
 #
@@ -462,7 +502,12 @@ def create_bill_of_materials():
       if 'S1_Name' in f[0]:
         vendors.append(f[1])
 
+  vtemp = []
   vendors = set(vendors)
+  for v in vendors:
+    vtemp.append(v)
+
+  vendors = vtemp
 
   # create the master BOM object
    
@@ -494,16 +539,21 @@ def create_bill_of_materials():
       bomline.fields = c.fields
       bom.append(bomline)
 
-  # no fields yet
-  # --------------
+  # sort bom ref entries by alphabet
+  # ex: C1 C2 C5 instead of C2 C5 C1
 
-  # sort bom
-
+  # sort bom list by ref
+  # ex: C1 C2 ~~~~
+  #     C3    ~~~~
+  #     D1 D2 ~~~~
+  #     S1    ~~~~
+  #     
   bom.sort(key=lambda x: x.refs)
 
   title_string = 'Ref,Qty,Value,Footprint,Footprint Library,Symbol,Symbol Library,Datasheet'
 
-  # create master output string based on fields that are present
+  # create master output string including the dynamic fields
+
   for f in optional_fields:
     title_string = title_string+','+f
   title_string = title_string+'\n'
@@ -521,58 +571,57 @@ def create_bill_of_materials():
 
       for of in optional_fields:
         for bf in b.fields:
-          print of,bf[0]
           if of == bf[0]:
             obom.write(','+bf[1])
-            print "yes"
-          else:
-            print "no"
       obom.write('\n')
-
-  exit()
 
   # Create a markdown file for github with each vendor
   # given its own table for easy reading
+  # Also create the vendor-specific csv files
 
   outbom_list = []
-  outfile = proj.name+'-bom.md'
+  outcsv_list = []
+  outfile_md = proj.name+'-bom.md'
 
   for v in vendors:
+    outfile_csv = proj.name+'-bom-'+v.lower()+'.csv'
     which_line = 0
-    with open(bomfile,'r') as ibom:
-      for line in ibom:
-        if which_line is 0:
-          outbom_list.append('|Ref|Qty|Description|'+v.capitalize()+' PN|')
-          outbom_list.append('|---|---|-----------|------|')
-          which_line = 1
-        else:
-          l = line.split(',')
-          if l[9] == v.capitalize():
-            outbom_list.append('|'+l[0]+'|'+l[3]+'|'+l[11]+'|'+l[10]+'|')
-      outbom_list.append('')
+    for line in bom:
+      if which_line is 0:
+        outcsv_list.append('Ref,Qty,Description,Digikey PN')
+        outbom_list.append('|Ref|Qty|Description|'+v.capitalize()+' PN|')
+        outbom_list.append('|---|---|-----------|------|')
+        which_line = 1
+      else:
+        for f in line.fields:
+          if f[1] == v.capitalize():
+            md_line_string = '|'+line.refs+'|'+str(line.qty)+'|'
+            csv_line_string = line.refs+','+str(line.qty)+','
+            for i in line.fields:
+              if i[0] == 'Description':
+                md_line_string = md_line_string + i[1]+'|'
+                csv_line_string = csv_line_string + i[1]+','
+            for i in line.fields:
+              if i[0] == 'S1_PN':
+                md_line_string = md_line_string+i[1]+'|'
+                csv_line_string = csv_line_string+i[1] 
+            outbom_list.append(md_line_string)
+            outcsv_list.append(csv_line_string)
+    outbom_list.append('')
 
-  with open(outfile,'w') as obom:
+    with open(outfile_csv,'w') as ocsv:
+      for line in outcsv_list:
+        ocsv.write(line+'\n')
+
+    if v == vendors[-1]:
+      outbom_list.append('')
+    
+  with open(outfile_md,'w') as obom:
     for line in outbom_list:
       obom.write(line+'\n')
 
-  # Create a separate csv for each vendor site
+  outbom_list = []
 
-  for v in vendors:
-    outbom_list = []
-    outfile = proj.name+'-bom-'+v+'.csv'
-
-    which_line = 0
-    with open(bomfile,'r') as ibom:
-      for line in ibom:
-        l = line.split(',')
-        if l[9] == v:
-          outbom_list.append(l[0]+','+l[3]+','+l[11]+','+l[7]+','+l[8]+','+l[10])
-
-    with open(outfile,'w') as obom:
-      for line in outbom_list:
-        obom.write(line+'\n') 
-
- 
 ###########################################################
 #                   create_zip_files                      #
 ###########################################################
@@ -587,7 +636,7 @@ def create_zip_files():
     files.extend(glob.glob(os.path.join(plotDir, ext)))
 
   os.chdir(plotDir)
-  ZipFile = zipfile.ZipFile(filename.rstrip('.kicad_pcb')+version+"-gerbers.zip", "w")
+  ZipFile = zipfile.ZipFile(proj.name+'-'+proj.version+"-gerbers.zip", "w")
   for f in files:
     ZipFile.write(os.path.basename(f))
   os.chdir("..")
@@ -601,7 +650,7 @@ def create_zip_files():
     files.extend(glob.glob(os.path.join(plotDir, ext)))
 
   os.chdir(plotDir)
-  ZipFile = zipfile.ZipFile(filename.rstrip('.kicad_pcb')+version+"-stencils.zip", "w")
+  ZipFile = zipfile.ZipFile(proj.name+'-'+proj.version+"-stencils.zip", "w")
   for f in files:
     ZipFile.write(os.path.basename(f))
   os.chdir("..")
@@ -660,7 +709,7 @@ def update_README():
 ###########################################################
 
 def create_pdf():
-  call(['pandoc','-V','geometry:margin=1in','README.md','-o',proj.name+version+'.pdf']) 
+  call(['pandoc','-V','geometry:margin=1in','README.md','-o',proj.name+'-'+proj.version+'.pdf']) 
 
 ###########################################################
 #                      main                               #
@@ -689,12 +738,11 @@ if __name__ == "__main__":
     get_board_size()
     create_image_preview()
     create_assembly_diagrams()
-    create_individual_layer_images()
+    create_zip_files()
+    create_pos_file()
 
   create_bill_of_materials()
 
-  create_zip_files()
-  create_pos_file()
   update_README()
   create_pdf()
 
