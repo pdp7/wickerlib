@@ -424,17 +424,59 @@ def create_assembly_diagrams():
 
 ###########################################################
 #
+#           create_project_info_from_netlist           
+#
+###########################################################
+
+def create_project_info_from_netlist():
+
+  netfile_name = proj.name+'.net'
+
+  sheet_flag = False
+
+  with open(netfile_name,'r') as netfile:
+    for line in netfile:
+      if '(sheet ' in line:
+        sheet_flag = True
+      if '(components' in line: 
+        sheet_flag = False
+
+      if sheet_flag is True:
+        print line
+
+        if '(title' in line: 
+          proj.title = line.lstrip(' ').replace('(title "','').replace('")\n','')
+        if 'company' in line: 
+          proj.company = line.lstrip(' ').replace('(company "','').replace('")\n','')
+        if 'rev' in line: 
+          proj.rev = line.lstrip(' ').replace('(rev ','').replace(')\n','')
+        if 'date' in line: 
+          proj.date = line.lstrip(' ').replace('(date ','').replace(')\n','')
+        if 'comment (number 1)' in line:
+          proj.comment1 = line.lstrip(' ').replace('(comment (number 1) (value "','').replace('"))','')
+        if 'comment (number 2)' in line: 
+          proj.comment2 = line.lstrip(' ').replace('(comment (number 2) (value "','').replace('"))','')
+        if 'comment (number 3)' in line: 
+          proj.comment3 = line.lstrip(' ').replace('(comment (number 3) (value "','').replace('"))','')
+        if 'comment (number 4)' in line: 
+          proj.comment4 = line.lstrip(' ').replace('(comment (number 4) (value "','').replace('")))))','')
+        
+
+###########################################################
+#
 #           create_component_list_from_netlist            
 #
 ###########################################################
 
 def create_component_list_from_netlist():
 
+  netfile_name = proj.name+'.net'
+
   comp_flag = False
   comp_count = 0
   fields_flag = False
 
-  with open(proj.name+'.net','r') as netfile:
+  with open(netfile_name,'r') as netfile:
     for line in netfile:
       if 'components' in line:
         comp_flag = True
@@ -704,11 +746,6 @@ def create_zip_files():
   os.chdir("..")
   call(['rm','gerbers/'+proj.name+'-Edge.Cuts.gko'])
 
-  
-
-  # Create zip file of the complete assembly package
-
-
 
 ###########################################################
 #                    create_pos_file                      #
@@ -726,6 +763,30 @@ def create_pos_file():
 ###########################################################
 
 def update_README():
+
+  # create the README if we don't have one
+
+  README = 'README.md'
+  if not os.path.isfile(README):
+    with open(README,'w') as r:
+      r.write('# '+proj.title+'\n')
+      r.write('\n')
+      r.write('Version: '+proj.version+'\n')
+      r.write('Date: '+proj.date+'\n')
+      r.write('\n')
+      r.write(proj.comment1)
+      r.write(proj.comment2)
+      r.write(proj.comment3)
+      r.write(proj.comment4)
+      r.write(proj.company+'\n')
+      r.write('\n')
+      r.write('![](preview.png)\n\n')
+      r.write('![](assembly.png)\n\n')
+      r.write('### Bill of Materials\n\n')
+      r.write('<!--- bom start --->\n')
+      r.write('<!--- bom end --->\n')
+
+  # update the README
 
   readme = 'README.md'
   newbomlinefile = bomDir+proj.name+'-bom.md'
@@ -794,6 +855,7 @@ if __name__ == "__main__":
     create_zip_files()
     create_pos_file()
 
+  create_project_info_from_netlist()
   create_bill_of_materials()
 
   update_README()
