@@ -1556,6 +1556,11 @@ D RES SMD 4.7K OHM 1% 1/10W 0402
 F http://industrial.panasonic.com/www-cgi/jvcr13pz.cgi?E+PZ+3+AOA0002+ERJ2RKF33R0X+7+WW
 $ENDCMP
 #
+$CMP RES-4.7K-5%-1/4W-TH-CFMINI
+D RES 4.7K OHM 1/4W 5% CF MINI
+F http://www.seielect.com/catalog/SEI-CF_CFM.pdf
+$ENDCMP
+#
 $CMP RES-47-OHM-5%-1/10W-0603
 D RES SMD 47 OHM 5% 1/10W 0603 
 $ENDCMP

@@ -442,7 +442,6 @@ def create_project_info_from_netlist():
         sheet_flag = False
 
       if sheet_flag is True:
-        print line
 
         if '(title' in line: 
           proj.title = line.lstrip(' ').replace('(title "','').replace('")\n','')
@@ -771,11 +770,11 @@ def update_README():
     with open(README,'w') as r:
       r.write('# '+proj.title+'\n')
       r.write('\n')
-      r.write('Version: '+proj.version+'\n')
+      r.write('Version: '+proj.version+'\n\n')
       r.write('Date: '+proj.date+'\n')
       r.write('\n')
-      r.write(proj.comment1)
-      r.write(proj.comment2)
+      r.write(proj.comment1+'\n')
+      r.write(proj.comment2+'\n')
       r.write(proj.comment3)
       r.write(proj.comment4)
       r.write(proj.company+'\n')
