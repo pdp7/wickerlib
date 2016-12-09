@@ -430,9 +430,8 @@ def create_component_list_from_netlist():
         if fields_flag is True:
           if 'fields' not in line:
             line = line.replace('(field (name ','').replace(')\n','').replace('"','').lstrip(' ')
-            line = line.split(') ')
+            line = line.rstrip(')').split(') ')
             comp.fields.append((line[0],line[1]))
-
 
 
 ###########################################################
@@ -492,6 +491,7 @@ def create_bill_of_materials():
       bomline.symbol = c.symbol
       bomline.sym_library = c.sym_library
       bomline.datasheet = c.datasheet
+      bomline.fields = c.fields
       bom.append(bomline)
 
   # no fields yet
@@ -501,20 +501,35 @@ def create_bill_of_materials():
 
   bom.sort(key=lambda x: x.refs)
 
+  title_string = 'Ref,Qty,Value,Footprint,Footprint Library,Symbol,Symbol Library,Datasheet'
+
+  # create master output string based on fields that are present
+  for f in optional_fields:
+    title_string = title_string+','+f
+  title_string = title_string+'\n'
+
   # write to the master output file
 
   outfile = proj.name+'-bom-master.csv'
 
   with open(outfile,'w') as obom:
-    obom.write('Ref,Qty,Value,Footprint,Footprint Library,Symbol,Symbol Library,Datasheet\n')
+    obom.write(title_string)
     for b in bom:
       
       obom.write(b.refs+','+str(b.qty)+','+b.value+','+b.footprint+','+b.fp_library+','+ \
-                 b.symbol+','+b.sym_library+','+b.datasheet+'\n')
+                 b.symbol+','+b.sym_library+','+b.datasheet)
+
+      for of in optional_fields:
+        for bf in b.fields:
+          print of,bf[0]
+          if of == bf[0]:
+            obom.write(','+bf[1])
+            print "yes"
+          else:
+            print "no"
+      obom.write('\n')
 
   exit()
-
-  # create the master CSV with vendor information
 
   # Create a markdown file for github with each vendor
   # given its own table for easy reading
