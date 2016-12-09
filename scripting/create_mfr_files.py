@@ -24,30 +24,6 @@ from shutil import copyfile
 from subprocess import call
 from pcbnew import *
 
-# create a schematic class
-class Sch():
-  path = ''
-  name = ''
-  title = ''
-  company = ''
-  rev = ''
-  date = ''
-  comment1 = ''
-  comment2 = ''
-  comment3 = ''
-  comment4 = ''
-
-  def print_schematic(self):
-    print '------------------------'
-    print 'Project',self.name,self.rev
-    print self.title
-    print self.company
-    print self.date
-    print self.comment1
-    print self.comment2
-    print self.comment3
-    print self.comment4
-
 # create a component class
 class Comp():
   ref = ''
@@ -68,15 +44,57 @@ class Comp():
     for f in self.fields:
       print f[0],f[1]
 
+class BOMline():
+  refs = ''
+  qty = ''
+  value = ''
+  footprint = ''
+  fp_library = ''
+  symbol = ''
+  sym_library = ''
+  datasheet = ''
+  mf_pn = ''
+  mf_name = ''
+  s1_pn = ''
+  s1_name = ''
+
+  def print_line(self):
+    print self.refs,self.qty,self.value,self.footprint,self.fp_library,self.symbol,self.sym_library,self.datasheet,self.mf_name,self.mf_pn,self.s1_name,self.s1_pn
 
 class Project():
+  # from input arguments
   name = ''
   filename = ''
   version = ''
   schonly = ''
+
+  # will contain the board object
   board = ''
+
+  # max dimensions
   height_mm = ''
   width_mm = '' 
+
+  # from netlist
+  title = ''
+  company = ''
+  rev = ''
+  date = ''
+  comment1 = ''
+  comment2 = ''
+  comment3 = ''
+  comment4 = ''
+
+  def print_schematic(self):
+    print '------------------------'
+    print 'Project',self.name,self.rev
+    print self.title
+    print self.company
+    print self.date
+    print self.comment1
+    print self.comment2
+    print self.comment3
+    print self.comment4
 
 # project global
 proj = Project()
@@ -369,109 +387,134 @@ def create_individual_layer_images():
 
 def create_component_list_from_netlist():
 
-  sch = Sch()
-
-  if args.name is None:
-    sch.path = os.getcwd()
-    sch.name = os.path.basename(sch.path)
-  else:
-    sch.name = args.name[0]
-
-  if args.version is None:
-    sch.rev = ''
-  elif 'v' in args.version[0]:
-    sch.rev = args.version[0]
-  else: 
-    sch.rev = 'v'+args.version[0]
-
-  sch.path = sch.path+'/'+sch.name+'.net'
-
   comp_flag = False
   comp_count = 0
   fields_flag = False
 
-  with open(sch.path,'r') as schfile:
-    for line in schfile:
+  with open(proj.name+'.net','r') as netfile:
+    for line in netfile:
       if 'components' in line:
         comp_flag = True
       if 'libparts' in line:
         comp_flag = False
 
       if comp_flag is True:
-        if 'comp' in line:
-          if comp_count > 0:
-            components.append(comp)
+        if 'comp' in line and 'components' not in line:
           comp = Comp()
           comp_count = comp_count + 1
-          comp.ref = line.replace(')','').replace('\n','').strip('(comp (ref ')
+          comp.ref = line.replace(')','').replace('\n','').replace('(comp (ref ','').lstrip(' ')
         if 'value' in line: 
           comp.value = line
-          comp.value = line.replace(')','').replace('\n','').strip('(value ') 
+          comp.value = line.replace(')','').replace('\n','').strip('(value ').lstrip(' ')
         if 'footprint' in line: 
           if ':' not in line:
-            comp.footprint = line.replace('       (footprint ','').replace(')\n','')
+            comp.footprint = line.replace('(footprint ','').replace(')\n','').lstrip(' ')
             comp.fp_library = 'None'
           else:
-            line = line.replace('      (footprint ','').replace(')\n','').split(':')
+            line = line.replace('(footprint','').replace(')\n','').lstrip(' ').split(':')
             comp.footprint = line[1]
             comp.fp_library = line[0]
         if 'datasheet' in line: 
           comp.datasheet = line.replace('(datasheet ','').lstrip(' ').replace(')\n','')
         if 'libsource' in line:
+          fields_flag = False
           line = line.replace('(libsource (lib ','').replace('))','').lstrip(' \n').split(') (')
           comp.sym_library = line[0]
           comp.symbol = line[1].lstrip('part ').replace('\n','')
+          components.append(comp)
 
         if 'fields' in line:
           fields_flag = True
-          fields = []
-        if '))' in line:
-          fields_flag = False
-
+          del comp.fields[:]
+          comp.fields = []
         if fields_flag is True:
           if 'fields' not in line:
-            if '\"' in line:
-              line = line.replace('\"','')
-            line = line.replace('(field (name ','').lstrip(' ').replace(')\n','').split(') ')
+            line = line.replace('(field (name ','').replace(')\n','').replace('"','').lstrip(' ')
+            line = line.split(') ')
             comp.fields.append((line[0],line[1]))
+
+
 
 ###########################################################
 #             create_bill_of_materials                    #
 ###########################################################
 
 def create_bill_of_materials():
-  bomfile = proj.name+'.csv'
-  bom_outfile_csv = proj.name+'-bom.csv'
-  bom_outfile_md = proj.name+'-bom.md'
+
+  print ''
+  print "Creating bill of materials."
+
+  create_component_list_from_netlist()
+
+  bom_outfile_csv = proj.name+'-bom-master.csv'
+  bom_outfile_md = proj.name+'-bom-readme.md'
 
   vendors = []
+  optional_fields = []
+  bom = []
 
-  # figure out what vendors are necessary
+  # get the list of field names
+  # and figure out what vendors are necessary
 
-  which_line = 0
-  with open(bomfile,'r') as ibom:
-    for line in ibom:
-      if which_line is 0:
-        which_line = 1
-      else:
-        l = line.split(',')
-        vendors.append(l[9].lower())
-    vendors = set(vendors)
+  for c in components:
+    for f in c.fields:
+      if f[0] not in optional_fields: 
+        optional_fields.append(f[0])
+      if 'S1_Name' in f[0]:
+        vendors.append(f[1])
 
-  # create the master CSV with vendor information
+  vendors = set(vendors)
+
+  # create the master BOM object
    
-  outbom_list = []
-  outfile = proj.name+'-bom.csv'
+  bom = []
 
-  which_line = 0
-  with open(bomfile,'r') as ibom:
-    for line in ibom:
-      l = line.split(',')
-      outbom_list.append(l[0]+','+l[3]+','+l[11]+','+l[7]+','+l[8]+','+l[9]+','+l[10])
+  for c in components:
+
+    exists_flag = False
+
+    if bom:
+      for line in bom:
+        if line.symbol in c.symbol:
+          line.qty = line.qty + 1
+          line.refs = line.refs+' '+c.ref
+          exists_flag = True
+          break
+          
+
+    if not exists_flag:
+      bomline = BOMline()
+      bomline.refs = c.ref
+      bomline.qty = 1
+      bomline.value = c.value
+      bomline.footprint = c.footprint
+      bomline.fp_library = c.fp_library
+      bomline.symbol = c.symbol
+      bomline.sym_library = c.sym_library
+      bomline.datasheet = c.datasheet
+      bom.append(bomline)
+
+  # no fields yet
+  # --------------
+
+  # sort bom
+
+  bom.sort(key=lambda x: x.refs)
+
+  # write to the master output file
+
+  outfile = proj.name+'-bom-master.csv'
 
   with open(outfile,'w') as obom:
-    for line in outbom_list:
-      obom.write(line+'\n')
+    obom.write('Ref,Qty,Value,Footprint,Footprint Library,Symbol,Symbol Library,Datasheet\n')
+    for b in bom:
+      
+      obom.write(b.refs+','+str(b.qty)+','+b.value+','+b.footprint+','+b.fp_library+','+ \
+                 b.symbol+','+b.sym_library+','+b.datasheet+'\n')
+
+  exit()
+
+  # create the master CSV with vendor information
 
   # Create a markdown file for github with each vendor
   # given its own table for easy reading
@@ -615,6 +658,8 @@ if __name__ == "__main__":
   print 'proj name:\t',proj.name+'-'+proj.version
   print ''
 
+  # set the 
+
   # create global board object
   board = LoadBoard(proj.filename)
   
@@ -622,18 +667,17 @@ if __name__ == "__main__":
   pctl = PLOT_CONTROLLER(board)
   popt = pctl.GetPlotOptions()
   popt.SetOutputDirectory(plotDir)
-
   
-  plot_gerbers(board)    
-  create_drill_files(board,popt,pctl)
-
   if proj.schonly is False:
+    plot_gerbers(board)    
+    create_drill_files(board,popt,pctl)
     get_board_size()
+    create_image_preview()
+    create_assembly_diagrams()
+    create_individual_layer_images()
 
-  create_image_preview()
-  create_assembly_diagrams()
-  create_individual_layer_images()
   create_bill_of_materials()
+
   create_zip_files()
   create_pos_file()
   update_README()
