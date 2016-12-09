@@ -100,6 +100,7 @@ class Project():
 # project global
 proj = Project()
 plotDir = "gerbers/"
+bomDir = "bom/"
 components = []
 
 # capture command line arguments
@@ -151,7 +152,7 @@ def parse_arguments():
 def plot_gerbers(board):
 
   if not os.path.exists(plotDir):
-      os.makedirs(plotDir)
+    os.makedirs(plotDir)
 
   # remove all files in the output dir
   os.chdir(plotDir)
@@ -337,6 +338,7 @@ def create_image_preview():
     pf.write("(set-render-type! 0)")
 
   call(['gerbv','-x','png','--project','gerbers/'+projfile,'-w',proj.width_mm+'x'+proj.height_mm,'-o','preview-top.png','-B=0'])
+  call(['rm','gerbers/top.gvp'])
 
   # bottom side
 
@@ -356,6 +358,7 @@ def create_image_preview():
 
   call(['gerbv','-x','png','--project','gerbers/'+projfile,'-w',proj.width_mm+'x'+proj.height_mm,'-o','preview-bottom.png','-B=0'])
   call(['convert','preview-bottom.png','-flop','preview-bottom.png'])
+  call(['rm','gerbers/bottom.gvp'])
 
   # create stitched-together previews based on whether they're portrait or landscape
 
@@ -483,10 +486,13 @@ def create_bill_of_materials():
   print ''
   print "Creating bill of materials."
 
+  if not os.path.exists(bomDir):
+    os.makedirs(bomDir)
+
   create_component_list_from_netlist()
 
-  bom_outfile_csv = proj.name+'-bom-master.csv'
-  bom_outfile_md = proj.name+'-bom-readme.md'
+  bom_outfile_csv = bomDir+proj.name+'-bom-master.csv'
+  bom_outfile_md = bomDir+proj.name+'-bom-readme.md'
 
   vendors = []
   optional_fields = []
@@ -560,7 +566,7 @@ def create_bill_of_materials():
 
   # write to the master output file
 
-  outfile = proj.name+'-bom-master.csv'
+  outfile = bomDir+proj.name+'-bom-master.csv'
 
   with open(outfile,'w') as obom:
     obom.write(title_string)
@@ -575,16 +581,31 @@ def create_bill_of_materials():
             obom.write(','+bf[1])
       obom.write('\n')
 
+  # Create the master Seeed output
+
+  outfile = bomDir+proj.name+'-bom-seeed.csv'
+  
+  with open(outfile,'w') as obom:
+    obom.write('Location,MPN/Seeed SKU,Quantity\n')
+    for b in bom:
+      obom.write(b.refs+',')
+
+      for bf in b.fields:
+        if bf[0] == 'MF_PN':
+          obom.write(bf[1]+',')
+
+      obom.write(str(b.qty)+'\n')
+
   # Create a markdown file for github with each vendor
   # given its own table for easy reading
   # Also create the vendor-specific csv files
 
   outbom_list = []
   outcsv_list = []
-  outfile_md = proj.name+'-bom.md'
+  outfile_md = bomDir+proj.name+'-bom.md'
 
   for v in vendors:
-    outfile_csv = proj.name+'-bom-'+v.lower()+'.csv'
+    outfile_csv = bomDir+proj.name+'-bom-'+v.lower()+'.csv'
     which_line = 0
     for line in bom:
       if which_line is 0:
@@ -628,6 +649,8 @@ def create_bill_of_materials():
 
 def create_zip_files():
 
+  call(['cp','gerbers/'+proj.name+'-Edge.Cuts.gm1','gerbers/'+proj.name+'-Edge.Cuts.gko'])
+
   # Create zip file for OSH Park manufacturing
 
   files = []
@@ -636,7 +659,7 @@ def create_zip_files():
     files.extend(glob.glob(os.path.join(plotDir, ext)))
 
   os.chdir(plotDir)
-  ZipFile = zipfile.ZipFile(proj.name+'-'+proj.version+"-gerbers.zip", "w")
+  ZipFile = zipfile.ZipFile(proj.name+'-'+proj.version+"-gerbers-oshpark.zip", "w")
   for f in files:
     ZipFile.write(os.path.basename(f))
   os.chdir("..")
@@ -650,19 +673,49 @@ def create_zip_files():
     files.extend(glob.glob(os.path.join(plotDir, ext)))
 
   os.chdir(plotDir)
-  ZipFile = zipfile.ZipFile(proj.name+'-'+proj.version+"-stencils.zip", "w")
+  ZipFile = zipfile.ZipFile(proj.name+'-'+proj.version+"-stencils-oshstencils.zip", "w")
   for f in files:
     ZipFile.write(os.path.basename(f))
   os.chdir("..")
 
+  # Create zip files for Seeed
+  # always using .gko not .gm1 for the outline
+
+  files = []
+
+  for ext in ('*.gko','*.gtp','*.gbp'):
+    files.extend(glob.glob(os.path.join(plotDir, ext)))
+
+  os.chdir(plotDir)
+  ZipFile = zipfile.ZipFile(proj.name+'-'+proj.version+"-stencils-seeed.zip", "w")
+  for f in files:
+    ZipFile.write(os.path.basename(f))
+  os.chdir("..")
+
+  files = []
+
+  for ext in ('*.drl','*.gbl','*.gtl','*.gbo','*.gto','*.gbs','*.gts','*.gbr','*.gko','*.gtp','*.gbp',):
+    files.extend(glob.glob(os.path.join(plotDir, ext)))
+
+  os.chdir(plotDir)
+  ZipFile = zipfile.ZipFile(proj.name+'-'+proj.version+"-gerbers-seeed.zip", "w")
+  for f in files:
+    ZipFile.write(os.path.basename(f))
+  os.chdir("..")
+  call(['rm','gerbers/'+proj.name+'-Edge.Cuts.gko'])
+
+  
+
   # Create zip file of the complete assembly package
+
+
 
 ###########################################################
 #                    create_pos_file                      #
 ###########################################################
 
 def create_pos_file():
-  print "create pos file"
+  print "unable to create pos file"
 
 
 ###########################################################
@@ -675,7 +728,7 @@ def create_pos_file():
 def update_README():
 
   readme = 'README.md'
-  newbomlinefile = proj.name+'-bom.md'
+  newbomlinefile = bomDir+proj.name+'-bom.md'
 
   tempfile = []
   newbomlines = []
