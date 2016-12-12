@@ -1,10 +1,10 @@
-(module DIODE-DO-41 (layer F.Cu) (tedit 58156C41)
+(module DIODE-DO-41 (layer F.Cu) (tedit 584B48DD)
   (descr "Diode, DO-41, SOD81, Horizontal, RM 10mm,")
   (tags "Diode, DO-41, SOD81, Horizontal, RM 10mm, 1N4007, SB140,")
   (fp_text reference D1 (at 5.25 0) (layer F.Fab)
-    (effects (font (size 2.032 2.032) (thickness 0.254)))
+    (effects (font (size 1.016 1.016) (thickness 0.1524)))
   )
-  (fp_text value 3.6V (at 4.37134 -3.55854) (layer F.Fab) hide
+  (fp_text value 1N4001 (at 4.37134 -3.55854) (layer F.Fab) hide
     (effects (font (size 1 1) (thickness 0.15)))
   )
   (fp_line (start 11.5 -1.75) (end 11.75 -1.75) (layer F.CrtYd) (width 0.0508))

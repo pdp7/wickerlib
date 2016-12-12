@@ -1,30 +1,19 @@
-# KiCad Footprint
-# Created by Jenner for Wickerlib
-#   http://github.com/wickerbox/wickerlib
-# This library file is provided under the GPLv3
-#   https://www.gnu.org/licenses/gpl-3.0.html
-# The footprint may not be correct! It is the end
-# user's responsibility to verify the package.
-#
-# Verified: No
-# Finished: Yes
-
-(module CONN-SMA-STRAIGHT-TH (layer F.Cu) (tedit 581569D1)
+(module CONN-SMA-STRAIGHT-TH (layer F.Cu) (tedit 584B615E)
   (descr "SMA pcb mounting jack")
   (tags "SMA Jack  Striaght")
-  (fp_text reference REF** (at 0 0) (layer F.Fab)
+  (fp_text reference SMA1 (at 0 0) (layer F.Fab)
     (effects (font (size 1.016 1.016) (thickness 0.127)))
   )
-  (fp_text value CONN-SMA-STRAIGHT-TH (at 0.25 0) (layer F.Fab) hide
+  (fp_text value "ANT IN" (at 0.25 0) (layer F.Fab) hide
     (effects (font (size 1 1) (thickness 0.15)))
   )
-  (fp_text user %R (at -2.1 -5.1) (layer F.SilkS)
+  (fp_text user %R (at -5.334 2.286 90) (layer F.SilkS)
     (effects (font (size 1 1) (thickness 0.15)))
   )
-  (fp_line (start -4.25 -4.25) (end 4.25 -4.25) (layer B.CrtYd) (width 0.05))
-  (fp_line (start 4.25 -4.25) (end 4.25 4.25) (layer B.CrtYd) (width 0.05))
-  (fp_line (start 4.25 4.25) (end -4.25 4.25) (layer B.CrtYd) (width 0.05))
-  (fp_line (start -4.25 4.25) (end -4.25 -4.25) (layer B.CrtYd) (width 0.05))
+  (fp_line (start -4.25 -4.25) (end 4.25 -4.25) (layer F.Fab) (width 0.05))
+  (fp_line (start 4.25 -4.25) (end 4.25 4.25) (layer F.Fab) (width 0.05))
+  (fp_line (start 4.25 4.25) (end -4.25 4.25) (layer F.Fab) (width 0.05))
+  (fp_line (start -4.25 4.25) (end -4.25 -4.25) (layer F.Fab) (width 0.05))
   (fp_line (start 4.25 4.25) (end -4.25 4.25) (layer F.CrtYd) (width 0.05))
   (fp_line (start -4.25 4.25) (end -4.25 -4.25) (layer F.CrtYd) (width 0.05))
   (fp_line (start 4.25 -4.25) (end 4.25 4.25) (layer F.CrtYd) (width 0.05))

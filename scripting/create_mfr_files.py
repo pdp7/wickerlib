@@ -822,7 +822,7 @@ def update_README():
 ###########################################################
 
 def create_pdf():
-  call(['pandoc','-V','geometry:margin=1in','README.md','-o',proj.name+'-'+proj.version+'.pdf']) 
+  call(['pandoc','-S','-V','geometry:margin=1in','README.md','-o',proj.name+'-'+proj.version+'.pdf']) 
 
 ###########################################################
 #                      main                               #
