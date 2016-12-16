@@ -26,14 +26,20 @@ import Image
 
 def plot_gerbers_and_drills(filename, plot_dir):
 
+  # sort out the project name
+  # filename: projname.kicad_pcb
   projname = ''
 
-  # filename: projname.kicad_pcb
-  if '.kicad_pcb' not in filename:
+  if '.kicad_pcb' in filename:
+    projname = filename.split('.')[0]
+  else:
     projname = filename
     filename = filename+'.kicad_pcb'
-  else:
-    projname = filename.split('.')[0]
+
+  x = raw_input("The root project name is "+projname+", is this correct? Y/N: ")
+  if 'N' in x or 'n' in x:
+    projname = raw_input("Enter the project name: ")
+    filename = projname+'.kicad_pcb'
 
   # create board object
   board = LoadBoard(filename)
@@ -42,7 +48,8 @@ def plot_gerbers_and_drills(filename, plot_dir):
   pctl = PLOT_CONTROLLER(board)
   popt = pctl.GetPlotOptions()
   popt.SetOutputDirectory(plot_dir)
-  
+
+  # make the output dir if it doesn't already exist  
   if not os.path.exists(plot_dir):
     os.makedirs(plot_dir)
 
