@@ -6,6 +6,39 @@ import Image
 
 ###########################################################
 #
+#          sanitize_input_kicad_filename
+#
+# inputs:
+# - filename that may or may not end in .kicad_pcb
+# 
+# outputs:
+# - projname and filename where
+#   filename = projname.kicad_pcb
+# 
+###########################################################
+
+def sanitize_input_kicad_filename(filename):
+
+  # sort out the project name
+  # filename: projname.kicad_pcb
+  projname = ''
+
+  if '.kicad_pcb' in filename:
+    projname = filename.split('.')[0]
+  else:
+    projname = filename
+    filename = filename+'.kicad_pcb'
+
+  x = raw_input("The root project name is "+projname+", is this correct? Y/N: ")
+  if 'N' in x or 'n' in x:
+    projname = raw_input("Enter the project name: ")
+    filename = projname+'.kicad_pcb'
+
+  return (projname, filename)
+
+
+###########################################################
+#
 #              plot_gerbers_and_drills
 #
 #  inputs:
@@ -26,20 +59,9 @@ import Image
 
 def plot_gerbers_and_drills(filename, plot_dir):
 
-  # sort out the project name
-  # filename: projname.kicad_pcb
-  projname = ''
-
-  if '.kicad_pcb' in filename:
-    projname = filename.split('.')[0]
-  else:
-    projname = filename
-    filename = filename+'.kicad_pcb'
-
-  x = raw_input("The root project name is "+projname+", is this correct? Y/N: ")
-  if 'N' in x or 'n' in x:
-    projname = raw_input("Enter the project name: ")
-    filename = projname+'.kicad_pcb'
+  x = sanitize_input_kicad_filename(filename)
+  projname = x[0]
+  filename = x[1]
 
   # create board object
   board = LoadBoard(filename)
@@ -158,7 +180,65 @@ def plot_gerbers_and_drills(filename, plot_dir):
   call(['mv',path+'-Edge.Cuts.gm1',path+'-Edge.Cuts.gko'])
   call(['mv',path+'.drl',path+'.xln'])
 
-  
+##########################################################
+#
+#                get_board_size                     
+#
+# - report the size of the board outline
+#   
+#   from gerbers in KiCad's export format
+#
+# Note: the code in this section is derived from Wayne 
+# and Layne's script to get Gerber file outer dimensions, 
+# which is public domain. > wayneandlayne.com, accessed 2016
+#
+###########################################################
+
+def get_board_size(filename,plot_dir):
+
+  p = sanitize_input_kicad_filename(filename)
+  projname = p[0]
+  fp = plot_dir+'/'+projname+'-Edge.Cuts.gko'
+  print fp 
+
+  xmin = None
+  xmax = None
+  ymin = None
+  ymax = None
+  with open(fp, 'r') as f:
+    for line in f:
+      results = re.search("^X([\d-]+)Y([\d-]+)", line.strip())
+      if results:
+        x = int(results.group(1))
+        y = int(results.group(2))
+        xmin = min(xmin, x) if xmin else x
+        xmax = max(xmax, x) if xmax else x
+        ymin = min(ymin, y) if ymin else y
+        ymax = max(ymax, y) if ymax else y
+
+  x = (xmax-xmin)/1000000.0
+  y = (ymax-ymin)/1000000.0
+
+  print type(x)
+
+  width_mm = '%.2f' % x
+  height_mm = '%.2f' % y
+
+  width_in = '%.2f' % float(x*0.03937)
+  height_in = '%.2f' % float(y*0.03937)
+
+  dim_ratio = x/y
+
+  if x > y:
+    scaled_w = 700
+    scaled_h = int(scaled_w/dim_ratio)
+  else:
+    scaled_h = 700
+    scaled_w = int(scaled_h*dim_ratio)
+
+  ret_list = [width_in,height_in,width_mm,height_mm]
+
+  return ret_list
 
 ###########################################################
 #                      main                               #
@@ -172,5 +252,11 @@ if __name__ == '__main__':
   args = parser.parse_args()
 
   plot_gerbers_and_drills(args.proj_name,args.plot_dir)
+  board_dims = get_board_size(args.proj_name,args.plot_dir)
+  
+  print '\nThis board is '+board_dims[0]+' x '+board_dims[1]+' inches (' \
+        +board_dims[2]+' x '+board_dims[3]+' mm)'
+
+  
 
   
