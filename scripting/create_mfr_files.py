@@ -25,7 +25,6 @@ from subprocess import call
 from pcbnew import *
 import Image
 
-# create a component class
 class Comp():
   ref = ''
   value = ''
@@ -68,6 +67,7 @@ class Project():
   filename = ''
   version = ''
   schonly = ''
+  brdonly = ''
 
   # will contain the board object
   board = ''
@@ -103,12 +103,20 @@ plotDir = "gerbers/"
 bomDir = "bom/"
 components = []
 
-# capture command line arguments
-parser = argparse.ArgumentParser()
-parser.add_argument("-n","--name", nargs=1, help="project name", required=True)
-parser.add_argument("-v","--version", nargs=1, help="version number, 'v1.1'")
-parser.add_argument("-s","--schonly", action="store_true", default=False, help="use this flag if no board exists yet")
-args = parser.parse_args()
+###########################################################
+#
+#                 capture_arguments()
+#
+###########################################################
+
+def capture_arguments():
+
+  parser = argparse.ArgumentParser()
+  parser.add_argument("-n","--name", nargs=1, help="project name", required=True)
+  parser.add_argument("-v","--version", nargs=1, help="version number, 'v1.1'")
+  parser.add_argument("-s","--schonly", action="store_true", default=False, help="use this flag if no board exists yet")
+  parser.add_argument("-b","--brdonly", action="store_true", default=False, help="use this flag if no sch files exists")
+  args = parser.parse_args()
 
 ###########################################################
 #
@@ -138,24 +146,48 @@ def parse_arguments():
   else:
     proj.schonly = False
 
+  if args.brdonly:
+    proj.brdonly = True
+  else:
+    proj.brdonly = False
+
+
 ###########################################################
 #
 #              plot_gerbers               
 #
+#  inputs:
+#  - filename that may or may not end in .kicad_pcb
+#  - directory to put output files
+# 
+#  what it does:
+#  - adds .kicad_pcb suffix if necessary
 #  - clean the output dir by removing all files
 #  - set plot options
-#  - create plot layers
+#  - create plot layers in output directory
 #  - safely close the plot object
 #
 ###########################################################
 
-def plot_gerbers(board):
+def plot_gerbers(filename, plot_dir):
 
-  if not os.path.exists(plotDir):
-    os.makedirs(plotDir)
+  # fix up the filename
+  if '.kicad_pcb' not in filename:
+    filename = filename+'.kicad_pcb'
+
+  # create board object
+  board = LoadBoard(filename)
+  
+  # create plot controller objects
+  pctl = PLOT_CONTROLLER(board)
+  popt = pctl.GetPlotOptions()
+  popt.SetOutputDirectory(plot_dir)
+  
+  if not os.path.exists(plot_dir):
+    os.makedirs(plot_dir)
 
   # remove all files in the output dir
-  os.chdir(plotDir)
+  os.chdir(plot_dir)
   filelist = glob.glob('*')
   for f in filelist:
     os.remove(f)
@@ -316,6 +348,12 @@ def get_board_size():
 # - create the composite top image in GerbV
 # - use ImageMagick to flip the images 
 #   because GerbV command line doesn't support mirroring.
+#
+# inpired by this code for the one liner
+# - https://github.com/lukeweston/eagle-makefile/blob/master/makefile
+#
+# inspired by this code for the project-based solution
+# - https://gist.github.com/docprofsky/70b718b434d7d184c59729263d436a3d#file-heliopsis-gvp
 # 
 ###########################################################
 
@@ -335,7 +373,7 @@ def create_image_preview():
     pf.write("(define-layer! 1 (cons \'filename \""+proj.name+"-Edge.Cuts.gm1\")(cons \'visible #t)(cons \'color #(0 0 0)))\n")
     pf.write("(define-layer! 0 (cons \'filename \""+proj.name+".drl\")(cons \'visible #t)(cons \'color #(0 0 0))(cons \'attribs (list (list \'autodetect \'Boolean 1) (list \'zero_supression \'Enum 1) (list \'units \'Enum 0) (list \'digits \'Integer 4))))\n")
     pf.write("(define-layer! -1 (cons \'filename \""+cwd+"\")(cons \'visible #f)(cons \'color #(0 0 0)))\n")
-    pf.write("(set-render-type! 0)")
+    pf.write("(set-render-type! 3)")
 
   call(['gerbv','-x','png','--project','gerbers/'+projfile,'-w',proj.width_mm+'x'+proj.height_mm,'-o','preview-top.png','-B=0'])
   call(['rm','gerbers/top.gvp'])
@@ -822,7 +860,7 @@ def update_README():
 ###########################################################
 
 def create_pdf():
-  call(['pandoc','-S','-V','geometry:margin=1in','README.md','-o',proj.name+'-'+proj.version+'.pdf']) 
+  call(['pandoc','-fmarkdown-implicit_figures','-R','--toc','--template=projectoutput.tex','-V','geometry:margin=1in','README.md','-o',proj.name+'-'+proj.version+'.pdf']) 
 
 ###########################################################
 #                      main                               #
@@ -837,14 +875,6 @@ if __name__ == "__main__":
 
   # set the 
 
-  # create global board object
-  board = LoadBoard(proj.filename)
-  
-  # create global plot controller objects
-  pctl = PLOT_CONTROLLER(board)
-  popt = pctl.GetPlotOptions()
-  popt.SetOutputDirectory(plotDir)
-  
   if proj.schonly is False:
     plot_gerbers(board)    
     create_drill_files(board,popt,pctl)
@@ -853,6 +883,14 @@ if __name__ == "__main__":
     create_assembly_diagrams()
     create_zip_files()
     create_pos_file()
+
+  if proj.brdonly is True:
+    plot_gerbers(board)    
+    create_drill_files(board,popt,pctl)
+    get_board_size()
+    create_image_preview()
+    create_assembly_diagrams()
+    create_zip_files()
 
   create_project_info_from_netlist()
   create_bill_of_materials()
