@@ -612,6 +612,21 @@ def create_pdf(projname,version,template):
   
   call(['pandoc','-fmarkdown-implicit_figures','-R','--template='+template,'-V','geometry:margin=1in',inputfile,'-o',projname+'-'+version+'.pdf']) 
 
+
+###########################################################
+#
+#               arg_wrapper_new_project
+#
+# 
+#
+###########################################################
+
+def arg_wrapper_new_project():
+  
+  projname = "{0!r}".format(getattr(parsed_args, 'projname'))
+  print projname
+  return projname
+
 ###########################################################
 #                      main                               #
 ###########################################################
@@ -619,12 +634,32 @@ def create_pdf(projname,version,template):
 if __name__ == '__main__':
 
   parser = argparse.ArgumentParser('Kingfisher automates KiCad project management.\n')
-  parser.add_argument('proj_name',action='store',help="Name of the project")
-  parser.add_argument('plot_dir',action='store',help="Subdirectory to place output files.")
-  parser.add_argument('version',action='store',help="Version number (i.e. '1.1')")
+  parser.add_argument('name',action='store',help="Name of the project")
+  parser.add_argument('-n','--new',action='store_true',default=False,dest='new',help='create a new project')
+  parser.add_argument('-m','--mfr',action='store_true',default=False,dest='mfr',help='create manufacturing output files')
+  parser.add_argument('-b','--bom',action='store_true',default=False,dest='bom',help='create bill of materials output files')
+  parser.add_argument('-p','--pdf',action='store_true',default=False,dest='pdf',help='create output PDF file')
   args = parser.parse_args()
 
-  create_new_project(args.proj_name)
+  if args.new:
+    if (args.mfr or args.bom or args.pdf):
+      print "Creating a new project but not performing any other operations."
+      print "Try again without the -n file to create output files."
+    else:
+      print "Creating a new project."
+    create_new_project(args.name)
+  else:
+    if args.mfr:
+      print "Creating the manufacturing file outputs."
+      #create_board_outputs()
+      
+    if args.bom:
+      print "Creating the bill of materials, which will update the README."
+      #create_bom_outputs()
+
+    if args.pdf: 
+      print "Creating or updating the PDF."
+      #create_pdf()
 
   exit()
   plot_gerbers_and_drills(args.proj_name,args.plot_dir)
