@@ -232,7 +232,6 @@ def sanitize_input_kicad_filename(filename):
 #  - name of a subdirectory to put output files
 # 
 #  what it does:
-#  - adds .kicad_pcb suffix if necessary
 #  - clean the output dir by removing all files
 #  - set plot options
 #  - create plot layers in output directory
@@ -247,26 +246,26 @@ def sanitize_input_kicad_filename(filename):
 
 def plot_gerbers_and_drills(projname, plot_dir):
 
-  projname_full = projname+'.kicad_pcb'
-
-  # create board object
-  board = LoadBoard(projname_full)
-  
-  # create plot controller objects
-  pctl = PLOT_CONTROLLER(board)
-  popt = pctl.GetPlotOptions()
-  popt.SetOutputDirectory(plot_dir)
-
   # make the output dir if it doesn't already exist  
   if not os.path.exists(plot_dir):
     os.makedirs(plot_dir)
 
   # remove all files in the output dir
+  cwd = os.getcwd()
   os.chdir(plot_dir)
   filelist = glob.glob('*')
   for f in filelist:
     os.remove(f)
   os.chdir('..')
+  print os.getcwd()
+
+  # create board object
+  board = LoadBoard(projname+'.kicad_pcb')
+
+  # create plot controller objects
+  pctl = PLOT_CONTROLLER(board)
+  popt = pctl.GetPlotOptions()
+  popt.SetOutputDirectory(plot_dir)
 
   # set plot options
 
@@ -349,13 +348,13 @@ def plot_gerbers_and_drills(projname, plot_dir):
   genDrl = True
   genMap = True
 
-  # create drill and map files
+  # Create drill and map files
 
   drlwriter.SetOptions( mirror, minimalHeader, offset, mergeNPTH )
   drlwriter.SetFormat( metricFmt )
   drlwriter.CreateDrillandMapFilesSet( pctl.GetPlotDirName(), genDrl, genMap );
 
-  # create the drill statistics report
+  # Create the drill statistics report
 
   rptfn = pctl.GetPlotDirName() + 'drill_report.rpt'
   drlwriter.GenDrillReportFile( rptfn );
@@ -390,13 +389,15 @@ def plot_gerbers_and_drills(projname, plot_dir):
 # and Layne's script to get Gerber file outer dimensions, 
 # which is public domain. > wayneandlayne.com, accessed 2016
 #
+# TODO: handle circle boards!
+#
 ###########################################################
 
 def get_board_size(projname,plot_dir):
 
-  fp = plot_dir+'/'+projname+'-Edge.Cuts.gko'
+  fp = os.path.join(plot_dir,projname+'-Edge.Cuts.gko')
+  
   print fp 
-
   xmin = None
   xmax = None
   ymin = None
@@ -415,24 +416,27 @@ def get_board_size(projname,plot_dir):
   x = (xmax-xmin)/1000000.0
   y = (ymax-ymin)/1000000.0
 
-  print type(x)
-
   width_mm = '%.2f' % x
   height_mm = '%.2f' % y
 
   width_in = '%.2f' % float(x*0.03937)
   height_in = '%.2f' % float(y*0.03937)
 
-  dim_ratio = x/y
-
-  if x > y:
-    scaled_w = 700
-    scaled_h = int(scaled_w/dim_ratio)
+  if x is 0 or y is 0:
+    print "This may be a circular board, can't deal with it yet."
+    print "can't continue."
+    exit()
   else:
-    scaled_h = 700
-    scaled_w = int(scaled_h*dim_ratio)
+    dim_ratio = x/y
 
-  ret_list = [width_in,height_in,width_mm,height_mm,scaled_w,scaled_h]
+    if x > y:
+      scaled_w = 700
+      scaled_h = int(scaled_w/dim_ratio)
+    else:
+      scaled_h = 700
+      scaled_w = int(scaled_h*dim_ratio)
+
+    ret_list = [width_in,height_in,width_mm,height_mm,scaled_w,scaled_h]
 
   return ret_list
 
@@ -545,8 +549,8 @@ def create_image_previews(projname,plotdir,width_pixels,height_pixels):
     pf.write("(define-layer! 4 (cons \'filename \""+projname+"-F.Cu.gtl\")(cons \'visible #t)(cons \'color #(59110 51400 0)))\n")
     pf.write("(define-layer! 3 (cons \'filename \""+projname+"-F.Mask.gts\")(cons \'inverted #t)(cons \'visible #t)(cons \'color #(21175 0 23130)))\n")
     pf.write("(define-layer! 2 (cons \'filename \""+projname+"-F.Silk.gto\")(cons \'visible #t)(cons \'color #(65535 65535 65535)))\n")
-    pf.write("(define-layer! 1 (cons \'filename \""+projname+"-Edge.Cuts.gm1\")(cons \'visible #t)(cons \'color #(0 0 0)))\n")
-    pf.write("(define-layer! 0 (cons \'filename \""+projname+".drl\")(cons \'visible #t)(cons \'color #(0 0 0))(cons \'attribs (list (list \'autodetect \'Boolean 1) (list \'zero_supression \'Enum 1) (list \'units \'Enum 0) (list \'digits \'Integer 4))))\n")
+    pf.write("(define-layer! 1 (cons \'filename \""+projname+"-Edge.Cuts.gko\")(cons \'visible #t)(cons \'color #(0 0 0)))\n")
+    pf.write("(define-layer! 0 (cons \'filename \""+projname+".xln\")(cons \'visible #t)(cons \'color #(0 0 0))(cons \'attribs (list (list \'autodetect \'Boolean 1) (list \'zero_supression \'Enum 1) (list \'units \'Enum 0) (list \'digits \'Integer 4))))\n")
     pf.write("(define-layer! -1 (cons \'filename \""+cwd+"\")(cons \'visible #f)(cons \'color #(0 0 0)))\n")
     pf.write("(set-render-type! 3)")
 
@@ -564,8 +568,8 @@ def create_image_previews(projname,plotdir,width_pixels,height_pixels):
     pf.write("(define-layer! 4 (cons \'filename \""+projname+"-B.Cu.gbl\")(cons \'visible #t)(cons \'color #(59110 51400 0)))\n")
     pf.write("(define-layer! 3 (cons \'filename \""+projname+"-B.Mask.gbs\")(cons \'inverted #t)(cons \'visible #t)(cons \'color #(21175 0 23130)))\n")
     pf.write("(define-layer! 2 (cons \'filename \""+projname+"-B.Silk.gbo\")(cons \'visible #t)(cons \'color #(65535 65535 65535)))\n")
-    pf.write("(define-layer! 1 (cons \'filename \""+projname+"-Edge.Cuts.gm1\")(cons \'visible #t)(cons \'color #(0 0 0)))\n")
-    pf.write("(define-layer! 0 (cons \'filename \""+projname+".drl\")(cons \'visible #t)(cons \'color #(0 0 0))(cons \'attribs (list (list \'autodetect \'Boolean 1) (list \'zero_supression \'Enum 1) (list \'units \'Enum 0) (list \'digits \'Integer 4))))\n")
+    pf.write("(define-layer! 1 (cons \'filename \""+projname+"-Edge.Cuts.gko\")(cons \'visible #t)(cons \'color #(0 0 0)))\n")
+    pf.write("(define-layer! 0 (cons \'filename \""+projname+".xln\")(cons \'visible #t)(cons \'color #(0 0 0))(cons \'attribs (list (list \'autodetect \'Boolean 1) (list \'zero_supression \'Enum 1) (list \'units \'Enum 0) (list \'digits \'Integer 4))))\n")
     pf.write("(define-layer! -1 (cons \'filename \""+cwd+"\")(cons \'visible #f)(cons \'color #(0 0 0)))\n")
     pf.write("(set-render-type! 0)")
 
@@ -612,21 +616,6 @@ def create_pdf(projname,version,template):
   
   call(['pandoc','-fmarkdown-implicit_figures','-R','--template='+template,'-V','geometry:margin=1in',inputfile,'-o',projname+'-'+version+'.pdf']) 
 
-
-###########################################################
-#
-#               arg_wrapper_new_project
-#
-# 
-#
-###########################################################
-
-def arg_wrapper_new_project():
-  
-  projname = "{0!r}".format(getattr(parsed_args, 'projname'))
-  print projname
-  return projname
-
 ###########################################################
 #                      main                               #
 ###########################################################
@@ -649,9 +638,37 @@ if __name__ == '__main__':
       print "Creating a new project."
     create_new_project(args.name)
   else:
+
+    # read in the proj.json if it exists
+    # error gracefully if it does not
+    if os.path.isfile(args.name+'/proj.json'):
+      with open(args.name+'/proj.json') as jfile:
+        data = json.load(jfile)
+    else:
+      print "This project is missing a proj.json file. Leaving program."
+      exit()
+
+    # all plotting is done from the same dir as the kicad files
+    cwd = os.getcwd()
+    os.chdir(data['projname'])
+
     if args.mfr:
       print "Creating the manufacturing file outputs."
-      #create_board_outputs()
+      plot_gerbers_and_drills(data['projname'],data['gerbers_dir'])
+      board_dims = get_board_size(data['projname'],data['gerbers_dir'])
+      
+      width_in = board_dims[0]
+      height_in = board_dims[1]
+      width_mm = board_dims[2]
+      height_mm = board_dims[3]
+      width_pixels = board_dims[4]
+      height_pixels = board_dims[5]
+
+      print '\nThis board is '+width_in+' x '+height_in+' inches (' \
+            +width_mm+' x '+height_mm+' mm)'
+
+      create_assembly_diagrams(data['projname'],data['gerbers_dir'],width_pixels, height_pixels) 
+      create_image_previews(data['projname'],data['gerbers_dir'],width_pixels, height_pixels) 
       
     if args.bom:
       print "Creating the bill of materials, which will update the README."
@@ -662,21 +679,6 @@ if __name__ == '__main__':
       #create_pdf()
 
   exit()
-  plot_gerbers_and_drills(args.proj_name,args.plot_dir)
-  board_dims = get_board_size(args.proj_name,args.plot_dir)
-  
-  width_in = board_dims[0]
-  height_in = board_dims[1]
-  width_mm = board_dims[2]
-  height_mm = board_dims[3]
-  width_pixels = board_dims[4]
-  height_pixels = board_dims[5]
-
-  print '\nThis board is '+width_in+' x '+height_in+' inches (' \
-        +width_mm+' x '+height_mm+' mm)'
-
-  create_assembly_diagrams(args.proj_name,args.plot_dir,width_pixels, height_pixels) 
-  create_image_previews(args.proj_name,args.plot_dir,width_pixels, height_pixels) 
 
   template = 'rewire.tex'
 
