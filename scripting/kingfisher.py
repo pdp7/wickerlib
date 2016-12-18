@@ -5,6 +5,62 @@ from shutil import copyfile
 from subprocess import call
 from pcbnew import *
 
+class Comp():
+  ref = ''
+  value = ''
+  footprint = ''
+  fp_library = ''
+  symbol = ''
+  sym_library = ''
+  datasheet = ''
+  fields = [('','')]
+
+  def print_component(self):
+    print '-------------------------'
+    print 'Ref:',self.ref,'\t','Value:',self.value
+    print self.datasheet
+    print 'Symbol:',self.symbol, 'in' ,self.sym_library
+    print 'Footprint:',self.footprint,'in',self.fp_library
+    for f in self.fields:
+      print f[0],f[1]
+
+class BOMline():
+  refs = ''
+  qty = ''
+  value = ''
+  footprint = ''
+  fp_library = ''
+  symbol = ''
+  sym_library = ''
+  datasheet = ''
+  mf_pn = ''
+  mf_name = ''
+  s1_pn = ''
+  s1_name = ''
+
+  def print_line(self):
+    print self.refs,self.qty,self.value,self.footprint,self.fp_library,self.symbol,self.sym_library,self.datasheet,self.mf_name,self.mf_pn,self.s1_name,self.s1_pn
+
+###########################################################
+#
+#                    update_version
+#
+# inputs:
+# - a bunch of raw input (for now)
+# 
+###########################################################
+
+def update_version(name,version):
+
+  filename = os.path.join(name,'proj.json')
+  with open(filename,'r') as jsonfile:
+    data = json.load(jsonfile)
+
+  data['version'] = version
+
+  with open(filename, 'w') as jsonfile:
+    json.dump(data, jsonfile, indent=4, sort_keys=True, separators=(',', ':'))
+  
 ###########################################################
 #
 #              create_new_project
@@ -112,7 +168,7 @@ def create_new_project(projname):
       exit()
 
   with open(filename, 'w') as outfile:
-      json.dump(data, outfile, indent=4, sort_keys=True, separators=(',', ':'))
+    json.dump(data, outfile, indent=4, sort_keys=True, separators=(',', ':'))
 
   # copy over the KiCad template files and fill in values
 
@@ -595,6 +651,293 @@ def create_image_previews(projname,plotdir,width_pixels,height_pixels):
 
 ###########################################################
 #
+#           create_component_list_from_netlist            
+#
+# inputs:
+# - data object
+#
+#
+###########################################################
+
+def create_component_list_from_netlist(data):
+
+  netfile_name = data['projname']+'.net'
+
+  components = []
+
+  comp_flag = False
+  comp_count = 0
+  fields_flag = False
+
+  with open(netfile_name,'r') as netfile:
+    for line in netfile:
+      if 'components' in line:
+          comp_flag = True
+      if 'libparts' in line:
+        comp_flag = False
+
+      if comp_flag is True:
+        if 'comp' in line and 'components' not in line:
+          comp = Comp()
+          comp_count = comp_count + 1
+          comp.ref = line.replace(')','').replace('\n','').replace('(comp (ref ','').lstrip(' ')
+        if 'value' in line: 
+          comp.value = line
+          comp.value = line.replace(')','').replace('\n','').strip('(value ').lstrip(' ')
+        if 'footprint' in line: 
+          if ':' not in line:
+            comp.footprint = line.replace('(footprint ','').replace(')\n','').lstrip(' ')
+            comp.fp_library = 'None'
+          else:
+            line = line.replace('(footprint','').replace(')\n','').lstrip(' ').split(':')
+            comp.footprint = line[1]
+            comp.fp_library = line[0]
+        if 'datasheet' in line: 
+          comp.datasheet = line.replace('(datasheet ','').lstrip(' ').replace(')\n','')
+        if 'libsource' in line:
+          fields_flag = False
+          line = line.replace('(libsource (lib ','').replace('))','').lstrip(' \n').split(') (')
+          comp.sym_library = line[0]
+          comp.symbol = line[1].lstrip('part ').replace('\n','')
+          components.append(comp)
+
+        if 'fields' in line:
+          fields_flag = True
+          del comp.fields[:]
+          comp.fields = []
+        if fields_flag is True:
+          if 'fields' not in line:
+            line = line.replace('(field (name ','').replace(')\n','').replace('"','').lstrip(' ')
+            line = line.rstrip(')').split(') ')
+            comp.fields.append((line[0],line[1]))
+
+  return components
+
+###########################################################
+#
+#             create_bill_of_materials 
+# 
+# inputs: 
+# - data object
+#
+# what it does:
+# - create a components list organized by refdes
+# - figures out which vendors are necessary
+# - create the master BOM object made up of BOM lines
+# - create a master CSV file with all possible info 
+# - create a CSV file in the Seeed format
+# - create CSV files for each vendor
+# - create one Markdown file with tables
+# 
+###########################################################
+
+def create_bill_of_materials(data):
+
+  if not os.path.exists(data['bom_dir']):
+    os.makedirs(data['bom_dir'])
+
+  components = create_component_list_from_netlist(data)
+
+  bom_outfile_csv = data['bom_dir']+'/'+data['projname']+'-bom-master.csv'
+  bom_outfile_md = data['bom_dir']+'/'+data['projname']+'-bom-readme.md'
+
+  vendors = []
+  optional_fields = []
+  bom = []
+
+  # get the list of field names
+  # and figure out what vendors are necessary
+
+  for c in components:
+    for f in c.fields:
+      if f[0] not in optional_fields: 
+        optional_fields.append(f[0])
+      if 'S1_Name' in f[0]:
+        vendors.append(f[1])
+
+  vtemp = []
+  vendors = set(vendors)
+  for v in vendors:
+    vtemp.append(v)
+
+  vendors = vtemp
+
+  # create the master BOM object
+   
+  bom = []
+
+  for c in components:
+
+    exists_flag = False
+
+    if bom:
+      for line in bom:
+        if line.symbol in c.symbol:
+          line.qty = line.qty + 1
+          line.refs = line.refs+' '+c.ref
+          exists_flag = True
+          break
+          
+
+    if not exists_flag:
+      bomline = BOMline()
+      bomline.refs = c.ref
+      bomline.qty = 1
+      bomline.value = c.value
+      bomline.footprint = c.footprint
+      bomline.fp_library = c.fp_library
+      bomline.symbol = c.symbol
+      bomline.sym_library = c.sym_library
+      bomline.datasheet = c.datasheet
+      bomline.fields = c.fields
+      bom.append(bomline)
+
+  # sort bom ref entries by alphabet
+  # ex: C1 C2 C5 instead of C2 C5 C1
+
+  # sort bom list by ref
+  # ex: C1 C2 ~~~~
+  #     C3    ~~~~
+  #     D1 D2 ~~~~
+  #     S1    ~~~~
+  #     
+  bom.sort(key=lambda x: x.refs)
+
+  title_string = 'Ref,Qty,Value,Footprint,Footprint Library,Symbol,Symbol Library,Datasheet'
+
+  # create master output string including the dynamic fields
+
+  for f in optional_fields:
+    title_string = title_string+','+f
+  title_string = title_string+'\n'
+
+  # write to the master output file
+
+  outfile = data['bom_dir']+'/'+data['projname']+'-bom-master.csv'
+
+  with open(outfile,'w') as obom:
+    obom.write(title_string)
+    for b in bom:
+      
+      obom.write(b.refs+','+str(b.qty)+','+b.value+','+b.footprint+','+b.fp_library+','+ \
+                 b.symbol+','+b.sym_library+','+b.datasheet)
+
+      for of in optional_fields:
+        for bf in b.fields:
+          if of == bf[0]:
+            obom.write(','+bf[1])
+      obom.write('\n')
+
+  # Create the master Seeed output
+
+  outfile = data['bom_dir']+'/'+data['projname']+'-bom-seeed.csv'
+  
+  with open(outfile,'w') as obom:
+    obom.write('Location,MPN/Seeed SKU,Quantity\n')
+    for b in bom:
+      obom.write(b.refs+',')
+
+      for bf in b.fields:
+        if bf[0] == 'MF_PN':
+          obom.write(bf[1]+',')
+
+      obom.write(str(b.qty)+'\n')
+
+  # Create a markdown file for github with each vendor
+  # given its own table for easy reading
+  # Also create the vendor-specific csv files
+
+  outbom_list = []
+  outcsv_list = []
+  outfile_md = data['bom_dir']+'/'+data['projname']+'-bom.md'
+
+  for v in vendors:
+
+    outfile_csv = data['bom_dir']+'/'+data['projname']+'-bom-'+v.lower()+'.csv'
+    which_line = 0
+
+    for line in bom:
+      if which_line is 0:
+        outcsv_list.append('Ref,Qty,Description,Digikey PN')
+        outbom_list.append('|Ref|Qty|Description|'+v.capitalize()+' PN|')
+        outbom_list.append('|---|---|-----------|------|')
+        which_line = 1
+
+      for f in line.fields:
+        if f[1] == v.capitalize():
+          md_line_string = '|'+line.refs+'|'+str(line.qty)+'|'
+          csv_line_string = line.refs+','+str(line.qty)+','
+          for i in line.fields:
+            if i[0] == 'Description':
+              md_line_string = md_line_string + i[1]+'|'
+              csv_line_string = csv_line_string + i[1]+','
+          for i in line.fields:
+            if i[0] == 'S1_PN':
+              md_line_string = md_line_string+i[1]+'|'
+              csv_line_string = csv_line_string+i[1] 
+          outbom_list.append(md_line_string)
+          outcsv_list.append(csv_line_string)
+
+    outbom_list.append('')
+
+    with open(outfile_csv,'w') as ocsv:
+      for line in outcsv_list:
+        ocsv.write(line+'\n')
+
+    if v == vendors[-1]:
+      outbom_list.append('')
+    
+  with open(outfile_md,'w') as obom:
+    for line in outbom_list:
+      obom.write(line+'\n')
+
+###########################################################
+#
+#                   create_zip_files 
+#
+# inputs:
+# - data object
+# 
+# what it does:
+# - creates generic zip file for boards (gko, xln)
+# - creates zip file for osh stencils (gko, gtp, gbp)
+# - creates zip files for Seeed assembly
+# - 
+#
+###########################################################
+
+def create_zip_files(data):
+
+  # Create zip file for OSH Park and Seeed manufacturing
+
+  files = []
+
+  for ext in ('*.xln','*.gbl','*.gtl','*.gbo','*.gto','*.gbs',
+              '*.gts','*.gbr','*.gko','*.gtp','*.gbp',):
+    files.extend(glob.glob(os.path.join(data['gerbers_dir'], ext)))
+
+  os.chdir(data['gerbers_dir'])
+  ZipFile = zipfile.ZipFile(data['projname']+'-'+data['version']+"-gerbers.zip", "w")
+  for f in files:
+    ZipFile.write(os.path.basename(f))
+  os.chdir("..")
+
+  # Create zip file for stencils
+  # always using .gko (outline) and .gtp,.gbp (paste) files
+
+  files = []
+
+  for ext in ('*.gko','*.gtp','*.gbp'):
+    files.extend(glob.glob(os.path.join(data['gerbers_dir'], ext)))
+
+  os.chdir(data['gerbers_dir'])
+  ZipFile = zipfile.ZipFile(data['projname']+'-'+data['version']+"-stencil.zip", "w")
+  for f in files:
+    ZipFile.write(os.path.basename(f))
+  os.chdir("..")
+
+###########################################################
+#
 #                      create_pdf                      
 #
 # inputs: 
@@ -654,6 +997,7 @@ if __name__ == '__main__':
   parser.add_argument('-m','--mfr',action='store_true',default=False,dest='mfr',help='create manufacturing output files')
   parser.add_argument('-b','--bom',action='store_true',default=False,dest='bom',help='create bill of materials output files')
   parser.add_argument('-p','--pdf',action='store_true',default=False,dest='pdf',help='create output PDF file')
+  parser.add_argument('-v',action='store',dest='version',help='update existing version in proj.json')
   args = parser.parse_args()
 
   if args.new:
@@ -669,12 +1013,15 @@ if __name__ == '__main__':
     # error gracefully if it does not
     if os.path.isfile(args.name+'/proj.json'):
       with open(args.name+'/proj.json') as jfile:
+        if args.version:
+          update_version(args.name,args.version)
         data = json.load(jfile)
     else:
       print "This project is missing a proj.json file. Leaving program."
       exit()
 
-    print data['description']
+    print 'This is the',data['title'],'project:'
+    print data['description']+'\n'
 
     # all plotting is done from the same dir as the kicad files
     cwd = os.getcwd()
@@ -700,11 +1047,12 @@ if __name__ == '__main__':
       
     if args.bom:
       print "Creating the bill of materials, which will update the README."
-      #create_bom_outputs()
+      create_bill_of_materials(data)
+      create_zip_files(data)
 
     if args.pdf: 
       print "Creating or updating the PDF."
       create_pdf(data)
 
-  print "Program completed running successfully."
+  print "\nProgram completed running successfully."
   exit()
