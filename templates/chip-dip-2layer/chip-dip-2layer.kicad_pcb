@@ -1,9 +1,9 @@
-(kicad_pcb (version 4) (host pcbnew 4.0.4+e1-6308~48~ubuntu14.04.1-stable)
+(kicad_pcb (version 4) (host pcbnew 4.0.4+e1-6308~48~ubuntu16.04.1-stable)
 
   (general
     (links 10)
     (no_connects 10)
-    (area 71.973 45.009999 178.510001 123.265001)
+    (area 72.123 45.009999 178.510001 123.265001)
     (thickness 1.6)
     (drawings 22)
     (tracks 0)
@@ -14,6 +14,9 @@
 
   (page USLetter)
   (title_block
+    (title Title)
+    (date 2016-12-14)
+    (rev v1.0)
     (company "Released under the CERN Open Hardware License v1.2")
     (comment 1 "jenner@wickerbox.net - http://wickerbox.net")
     (comment 2 "Designed by Jenner at Wickerbox Electronics")
