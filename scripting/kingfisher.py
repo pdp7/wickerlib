@@ -1,9 +1,13 @@
-# this script depends on a couple of objects -- the bomfile, the project, and the component
+# this script depends on a couple of objects -- the bomfile and the component
 
 import sys, os, zipfile, glob, argparse, re, datetime, json, Image
 from shutil import copyfile
 from subprocess import call
 from pcbnew import *
+
+# globals for proj.json locations
+rewire_json = '/home/wicker/proj/Rewire-Circuits/Development/templates/rewire.json'
+wickerbox_json = '/home/wicker/wickerlib/templates/wickerbox.json'
 
 class Comp():
   ref = ''
@@ -69,6 +73,7 @@ def update_version(name,version):
 # - a bunch of raw input (for now)
 # - library directory path
 # - template directory path
+# - possibly-updated version number
 # 
 # what it does:
 # - creates a subfolder called projname
@@ -85,53 +90,48 @@ def update_version(name,version):
 # 
 ###########################################################
 
-def create_new_project(projname):
+## ideally,
+#  load a json template file
+#  if empty values, poll user
+#  display all values and prompt if good y/n
+#  create proj.json 
+
+def create_new_project(projname,which_template,version):
 
   if not os.path.exists(projname):
           os.makedirs(projname)
 
-  # use test.json for testing if it exists
-  # otherwise, lots of raw_input!
-  if os.path.isfile(projname+'/test.json'):
-    with open('test.json') as jfile:    
-      data = json.load(jfile) 
-    print 'file exists!'
-
+  # copy in the appropriate json file
+  if which_template is None:
+    which_template = raw_input("what is the absolute path to the json template file? ")
+  elif 'rewire' in which_template:
+    which_template = rewire_json
+  elif 'wickerbox' in which_template:
+    which_template = wickerbox_json
   else:
-    print 'using test values'
-    title = 'E202VAR VLF Receiver'
-    version = '1.1'
-    description = 'Natural radio receiver below 22Hz based on Romero E202'
-    company = 'Wickerbox Electronics'
-    email = 'jenner@wickerbox.net'
-    website = 'http://wickerbox.net/'
-    license = 'CERN Open Hardware License v1.2'
-    now = datetime.datetime.now()
-    date_create = now.strftime('%B %d, %Y')
-    date_update = ''
-    lib_dir = '/home/wicker/wickerlib/libraries/'
-    template_dir = '/home/wicker/wickerlib/templates/'
-    template_kicad = 'wickerbox-2layer'
-    template_latex = 'wickerbox'
-    bom_dir = 'bom'
-    gerbers_dir = 'gerbers'
+    which_template = raw_input("what is the absolute path to the json template file? ")
 
-    data = {'projname':projname,
-          'title':title,
-          'version':version,
-          'description':description,
-          'company':company,
-          'email':email,
-          'website':website,
-          'license':license,
-          'date_create':date_create, 
-          'date_update':date_update,
-          'lib_dir':lib_dir,
-          'template_dir':template_dir,
-          'template_kicad':template_kicad,
-          'template_latex':template_latex,
-          'bom_dir':bom_dir,
-          'gerbers_dir':gerbers_dir}
+  call(['cp',which_template,projname+'/proj.json'])
+
+  # load the proj.json file and make updates if necessary
+
+  with open(projname+'/proj.json','r') as jsonfile:
+    data = json.load(jsonfile)
+
+  data['projname'] = projname
+  now = datetime.datetime.now()
+  data['date_create'] = data['date_update'] = now.strftime('%d %b %Y')
+  if data['version'] is not version:
+    data['version'] = version
+
+  for item in data:
+    if not data[item]:
+      data[item] = raw_input('%s: ' %item)
+    else:
+      print item+': '+data[item]
+
+  with open(projname+'/proj.json', 'w') as jsonfile:
+    json.dump(data, jsonfile, indent=4, sort_keys=True, separators=(',', ':'))
 
   # create README.md
 
@@ -146,40 +146,28 @@ def create_new_project(projname):
       exit()
    
   with open(filename,'w') as o:
+    o.write('<!--- start title --->\n')
     o.write('# '+data['title']+' v'+data['version']+'\n')
     o.write(data['description']+'\n\n')
-    o.write('## Introduction\n\n')
+    o.write('<!--- end title --->\n')
+    if which_template is not 'rewire':
+      o.write('## Introduction\n\n')
     o.write('Intro text.\n\n')
     o.write('<!--- start bom --->\n\n')
     o.write('<!--- end bom --->\n\n')
     o.write('![Assembly Diagram](assembly.png)\n\n')
     o.write('![Gerber Preview](preview.png)\n\n')
 
-  # create proj.json
-
-  filename=os.path.join(data['projname'],'proj.json')
-  
-  if os.path.exists(filename) is True:
-    s = raw_input("proj.json exists. Do you want to overwrite it? Y/N: ")
-    if 'Y' in s or 'y' in s:
-      print "great, we'll overwrite."
-    else:
-      print "okay, closing program."
-      exit()
-
-  with open(filename, 'w') as outfile:
-    json.dump(data, outfile, indent=4, sort_keys=True, separators=(',', ':'))
-
   # copy over the KiCad template files and fill in values
 
   print "\ncreating KiCad Project from template", data['template_kicad']
 
-  templatesrc = data['template_dir']+data['template_kicad']+'/'+data['template_kicad']
+  templatesrc = data['template_dir']+'/'+data['template_kicad']+'/'+data['template_kicad']
   newpath = os.path.join(data['projname'],data['projname'])
   call(['cp',templatesrc+'.kicad_pcb',newpath+'.kicad_pcb'])
   call(['cp',templatesrc+'.pro',newpath+'.pro'])
   call(['cp',templatesrc+'.sch',newpath+'.sch'])
-  call(['cp',data['template_dir']+data['template_kicad']+'/fp-lib-table',data['projname']+'/fp-lib-table'])
+  call(['cp',data['template_dir']+'/'+data['template_kicad']+'/fp-lib-table',data['projname']+'/fp-lib-table'])
 
   # replace entire title block of .kicad_pcb file 
 
@@ -960,10 +948,26 @@ def create_pdf(data):
   tempfile = 'temporary.md' 
   src = 'README.md'
   src_list = []
+  title_flag = False
  
   with open(src,'r') as s:
     for line in s:
-      src_list.append(line)
+      if 'start title' in line:
+        title_flag = True
+
+      if title_flag is True:
+        if 'end title' in line:
+          title_flag = False
+      else:
+        if '.png' in line:
+          src_list.append('\ \n')
+          src_list.append('\n')
+          line = line.replace('.png)','.png){width=48%}')
+          src_list.append(line)
+          src_list.append('\ \n')
+          src_list.append('\n')
+        else:
+          src_list.append(line)
  
   with open(tempfile,'w') as tfile:
     tfile.write('---\n')
@@ -980,8 +984,10 @@ def create_pdf(data):
     for line in src_list:
       tfile.write(line)
 
+  latex_template_dir = data['template_dir'][:-9]
+
   # create PDF
-  call(['pandoc','-fmarkdown-implicit_figures','-R','--data-dir=/home/wicker/wickerlib/','--template='+'wickerbox.tex','-V','geometry:margin=1in',tempfile,'-o',data['projname']+'-'+data['version']+'.pdf']) 
+  call(['pandoc','-fmarkdown-implicit_figures','-R','--data-dir='+latex_template_dir,'--template='+data['template_latex'],'-V','geometry:margin=1in',tempfile,'-o',data['projname']+'-'+data['version']+'.pdf']) 
   # remove input file
   call(['rm',tempfile])
 
@@ -998,6 +1004,7 @@ if __name__ == '__main__':
   parser.add_argument('-b','--bom',action='store_true',default=False,dest='bom',help='create bill of materials output files')
   parser.add_argument('-p','--pdf',action='store_true',default=False,dest='pdf',help='create output PDF file')
   parser.add_argument('-v',action='store',dest='version',help='update existing version in proj.json')
+  parser.add_argument('-t',action='store',dest='template',help='only used with new project; which template?')
   args = parser.parse_args()
 
   if args.new:
@@ -1006,7 +1013,19 @@ if __name__ == '__main__':
       print "Try again without the -n file to create output files."
     else:
       print "Creating a new project."
-    create_new_project(args.name)
+    if os.path.exists(args.name):
+      x = raw_input("This folder exists. Do you want to remove it and start fresh? Y/N: ")
+      if 'y' or 'Y' in x:
+        call(['rm','-rf',args.name])
+        print 
+      else:
+        print "Try again with a different project name. Exiting program."
+    if args.version:
+      version = args.version
+    else:
+      version = '1.0'
+    create_new_project(args.name,args.template,version)
+
   else:
 
     # read in the proj.json if it exists
@@ -1015,6 +1034,8 @@ if __name__ == '__main__':
       with open(args.name+'/proj.json') as jfile:
         if args.version:
           update_version(args.name,args.version)
+          print "Remember! The README.md does not update version automatically."
+          print "Update it before you generate the PDF!"
         data = json.load(jfile)
     else:
       print "This project is missing a proj.json file. Leaving program."
