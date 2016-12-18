@@ -144,19 +144,8 @@ def create_new_project(projname,which_template,version):
     else:
       print "okay, closing program."
       exit()
-   
-  with open(filename,'w') as o:
-    o.write('<!--- start title --->\n')
-    o.write('# '+data['title']+' v'+data['version']+'\n')
-    o.write(data['description']+'\n\n')
-    o.write('<!--- end title --->\n')
-    if which_template is not 'rewire':
-      o.write('## Introduction\n\n')
-    o.write('Intro text.\n\n')
-    o.write('<!--- start bom --->\n\n')
-    o.write('<!--- end bom --->\n\n')
-    o.write('![Assembly Diagram](assembly.png)\n\n')
-    o.write('![Gerber Preview](preview.png)\n\n')
+
+  create_readme(filename, data)
 
   # copy over the KiCad template files and fill in values
 
@@ -233,6 +222,46 @@ def create_new_project(projname,which_template,version):
       fixfile.write(line)
 
   exit()
+
+###########################################################
+#
+#                 create_readme
+#
+# inputs:
+# - relative file path
+# - data object
+# 
+# what it does:
+# - takes the values in data and writes to file path
+#
+# returns nothing
+# 
+###########################################################
+
+def create_readme(filename,data):
+
+  with open(filename,'w') as o:
+
+    o.write('<!--- start title --->\n')
+    o.write('# '+data['title']+' v'+data['version']+'\n')
+    o.write(data['description']+'\n\n')
+    o.write('\n')
+    o.write('Updated: '+data['date_update']+'\n')
+    o.write('\n')
+    if data['author']:
+      print "EXISTS"
+      o.write('Author: '+data['author']+'\n')
+    o.write('Website: '+data['website']+'\n')
+    o.write('Company: '+data['company']+'\n')
+    o.write('License: '+data['license']+'\n')
+    o.write('\n')
+    o.write('<!--- end title --->\n')
+    o.write('Intro text.\n\n')
+    o.write('### Bill of Materials\n\n')
+    o.write('<!--- bom start --->\n')
+    o.write('<!--- bom end --->\n')
+    o.write('![Assembly Diagram](assembly.png)\n\n')
+    o.write('![Gerber Preview](preview.png)\n\n')
 
 ###########################################################
 #
@@ -926,6 +955,66 @@ def create_zip_files(data):
 
 ###########################################################
 #
+#                    create_pos_file    
+#
+###########################################################
+
+def create_pos_file():
+  print "unable to create pos file at this time"
+
+
+###########################################################
+#
+#                     update_readme
+#
+#   - create README.md if it doesn't already exist
+#   - append BOM to README if there's a commented section
+#
+###########################################################
+
+def update_readme(data):
+
+  # NEED TO STANDARDIZE READMES TO USE COMMENT, COMPANY VALUES 
+  # ALSO START TITLE END TITLE
+
+  # create the README if we don't have one
+
+  readme = 'README.md'
+  if not os.path.isfile(readme):
+    create_readme(readme,data)
+
+  # now update the README
+
+  newbomlinefile = data['bom_dir']+'/'+data['projname']+'-bom.md'
+
+  tempfile = []
+  newbomlines = []
+
+  with open(newbomlinefile,'r') as f:
+    for line in f:
+      newbomlines.append(line)
+
+  write_bom = False
+
+  with open(readme,'r') as f:
+    for line in f:
+      if write_bom is False:
+        tempfile.append(line)
+        if '<!--- bom start' in line:
+          write_bom = True
+          for bomline in newbomlines:
+            tempfile.append(bomline)
+      else:
+        if '<!--- bom end' in line:
+          tempfile.append(line)
+          write_bom = False
+
+  with open(readme,'w') as f:
+    for line in tempfile:
+      f.write(line)
+
+###########################################################
+#
 #                      create_pdf                      
 #
 # inputs: 
@@ -978,6 +1067,7 @@ def create_pdf(data):
     tfile.write('email: '+data['email']+'\n')
     tfile.write('website: '+data['website']+'\n')
     tfile.write('license: '+data['license']+'\n')
+    tfile.write('author: '+data['author']+'\n')
     tfile.write('---\n')
     tfile.write('\n')
 
@@ -1070,6 +1160,8 @@ if __name__ == '__main__':
       print "Creating the bill of materials, which will update the README."
       create_bill_of_materials(data)
       create_zip_files(data)
+      create_pos_file()
+      update_readme(data)
 
     if args.pdf: 
       print "Creating or updating the PDF."
