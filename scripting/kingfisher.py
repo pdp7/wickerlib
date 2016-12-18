@@ -598,9 +598,10 @@ def create_image_previews(projname,plotdir,width_pixels,height_pixels):
 #                      create_pdf                      
 #
 # inputs: 
-# - name of template with .tex extension
 # - project name
 # - project version
+# - name of template directory
+# - name of template with .tex extension
 #
 # what it does:
 # - calls pandoc to create an output PDF file from README.md
@@ -610,11 +611,36 @@ def create_image_previews(projname,plotdir,width_pixels,height_pixels):
 #
 ###########################################################
 
-def create_pdf(projname,version,template):
+def create_pdf(data):
+#projname,version,template_dir,template):
 
-  inputfile = 'README.md'
-  
-  call(['pandoc','-fmarkdown-implicit_figures','-R','--template='+template,'-V','geometry:margin=1in',inputfile,'-o',projname+'-'+version+'.pdf']) 
+  tempfile = 'temporary.md' 
+  src = 'README.md'
+  src_list = []
+ 
+  with open(src,'r') as s:
+    for line in s:
+      src_list.append(line)
+ 
+  with open(tempfile,'w') as tfile:
+    tfile.write('---\n')
+    tfile.write('title: '+data['title']+'\n')
+    tfile.write('version: '+data['version']+'\n')
+    tfile.write('description: '+data['description']+'\n')
+    tfile.write('company: '+data['company']+'\n')
+    tfile.write('email: '+data['email']+'\n')
+    tfile.write('website: '+data['website']+'\n')
+    tfile.write('license: '+data['license']+'\n')
+    tfile.write('---\n')
+    tfile.write('\n')
+
+    for line in src_list:
+      tfile.write(line)
+
+  # create PDF
+  call(['pandoc','-fmarkdown-implicit_figures','-R','--data-dir=/home/wicker/wickerlib/','--template='+'wickerbox.tex','-V','geometry:margin=1in',tempfile,'-o',data['projname']+'-'+data['version']+'.pdf']) 
+  # remove input file
+  call(['rm',tempfile])
 
 ###########################################################
 #                      main                               #
@@ -648,6 +674,8 @@ if __name__ == '__main__':
       print "This project is missing a proj.json file. Leaving program."
       exit()
 
+    print data['description']
+
     # all plotting is done from the same dir as the kicad files
     cwd = os.getcwd()
     os.chdir(data['projname'])
@@ -676,10 +704,7 @@ if __name__ == '__main__':
 
     if args.pdf: 
       print "Creating or updating the PDF."
-      #create_pdf()
+      create_pdf(data)
 
+  print "Program completed running successfully."
   exit()
-
-  template = 'rewire.tex'
-
-  create_pdf(args.proj_name,args.version,template)
