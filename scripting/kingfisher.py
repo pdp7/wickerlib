@@ -1066,7 +1066,8 @@ def create_pdf(data):
     tfile.write('email: '+data['email']+'\n')
     tfile.write('website: '+data['website']+'\n')
     tfile.write('license: '+data['license']+'\n')
-    tfile.write('author: '+data['author']+'\n')
+    if 'author' in data:
+      tfile.write('author: '+data['author']+'\n')
     tfile.write('---\n')
     tfile.write('\n')
 
