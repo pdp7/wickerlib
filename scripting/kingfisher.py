@@ -248,8 +248,7 @@ def create_readme(filename,data):
     o.write('\n')
     o.write('Updated: '+data['date_update']+'\n')
     o.write('\n')
-    if data['author']:
-      print "EXISTS"
+    if 'author' in data:
       o.write('Author: '+data['author']+'\n')
     o.write('Website: '+data['website']+'\n')
     o.write('Company: '+data['company']+'\n')
