@@ -622,11 +622,16 @@ def create_image_previews(projname,plotdir,width_pixels,height_pixels):
     pf.write("(define-layer! 3 (cons \'filename \""+projname+"-F.Mask.gts\")(cons \'inverted #t)(cons \'visible #t)(cons \'color #(21175 0 23130)))\n")
     pf.write("(define-layer! 2 (cons \'filename \""+projname+"-F.Silk.gto\")(cons \'visible #t)(cons \'color #(65535 65535 65535)))\n")
     pf.write("(define-layer! 1 (cons \'filename \""+projname+"-Edge.Cuts.gko\")(cons \'visible #t)(cons \'color #(0 0 0)))\n")
-    pf.write("(define-layer! 0 (cons \'filename \""+projname+".xln\")(cons \'visible #t)(cons \'color #(0 0 0))(cons \'attribs (list (list \'autodetect \'Boolean 1) (list \'zero_supression \'Enum 1) (list \'units \'Enum 0) (list \'digits \'Integer 4))))\n")
+    pf.write("(define-layer! 0 (cons \'filename \""+projname+".xln\")(cons \'visible #t)(cons \'color #(65535 65535 65535))(cons \'attribs (list (list \'autodetect \'Boolean 1) (list \'zero_supression \'Enum 1) (list \'units \'Enum 0) (list \'digits \'Integer 4))))\n")
     pf.write("(define-layer! -1 (cons \'filename \""+cwd+"\")(cons \'visible #f)(cons \'color #(0 0 0)))\n")
     pf.write("(set-render-type! 3)")
 
   call(['gerbv','-x','png','--project',plotdir+'/'+projfile,'-w',width_pixels+'x'+height_pixels,'-o','preview-top.png','-B=0'])
+  #call(['convert','preview-top.png','-bordercolor','White','-border','10x10','test.png'])
+  call(['convert','preview-top.png','-fill','White','-draw','color 1,1 floodfill','preview-top.png'])
+  call(['convert','preview-top.png','-fill','Black','-opaque','#E2DCB1','preview-top.png']) # fill most of drill circles
+  call(['convert','preview-top.png','-fill','Black','-opaque','#B1B1B1','preview-top.png']) # clean up drill circle edge
+  call(['convert','preview-top.png','-fill','Black','-opaque','#F6F4E7','preview-top.png']) # clean up extra copper ring
   call(['rm',plotdir+'/top.gvp'])
 
   # bottom side
@@ -647,6 +652,10 @@ def create_image_previews(projname,plotdir,width_pixels,height_pixels):
 
   call(['gerbv','-x','png','--project',plotdir+'/'+projfile,'-w',width_pixels+'x'+height_pixels,'-o','preview-bottom.png','-B=0'])
   call(['convert','preview-bottom.png','-flop','preview-bottom.png'])
+  call(['convert','preview-bottom.png','-fill','White','-draw','color 1,1 floodfill','preview-bottom.png'])
+  call(['convert','preview-bottom.png','-fill','Black','-opaque','#E2DCB1','preview-bottom.png']) # fill most of drill circles
+  call(['convert','preview-bottom.png','-fill','Black','-opaque','#B1B1B1','preview-bottom.png']) # clean up drill circle edge
+  call(['convert','preview-bottom.png','-fill','Black','-opaque','#F6F4E7','preview-bottom.png']) # clean up extra copper ring
   call(['rm',plotdir+'/bottom.gvp'])
 
   # create stitched-together previews based on whether they're portrait or landscape
