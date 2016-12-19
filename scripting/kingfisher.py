@@ -1091,6 +1091,36 @@ def create_pdf(data):
   call(['rm',tempfile])
 
 ###########################################################
+#
+#                 create_release_zipfile                      
+#
+# inputs: 
+# - data object
+#
+# what it does:
+# - creates the final release containing
+#   - seeed .csv bom
+#   - gerbers zip
+#   - stencil zip
+#   - project PDF 
+#
+###########################################################
+
+def create_release_zipfile(data):
+
+  release_zip = zipfile.ZipFile(data['projname']+'-'+data['version']+'.zip','w')
+
+  os.chdir(data['bom_dir'])
+  release_zip.write(data['projname']+'-bom-seeed.csv')
+
+  os.chdir('../'+data['gerbers_dir'])
+  release_zip.write(data['projname']+'-'+data['version']+'-gerbers.zip')
+  release_zip.write(data['projname']+'-'+data['version']+'-stencil.zip') 
+  
+  os.chdir('..')
+  release_zip.write(data['projname']+'-'+data['version']+'.pdf') 
+
+###########################################################
 #                      main                               #
 ###########################################################
 
@@ -1175,6 +1205,7 @@ if __name__ == '__main__':
     if args.pdf: 
       print "Creating or updating the PDF."
       create_pdf(data)
+      create_release_zipfile(data)
 
   print "\nProgram completed running successfully."
   exit()
