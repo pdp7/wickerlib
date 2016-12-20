@@ -1,4 +1,21 @@
-# this script depends on a couple of objects -- the bomfile and the component
+#
+# created by Jenner Hanni at Wickerbox Electronics
+# http://wickerbox.net/
+#
+# This script automates some of the KiCad process, including:
+# - generating stencil and manufacturing files
+# - creating bills of material
+# - packaging everything so it's ready to upload for ordering
+# - building a beautiful documentation PDF
+# - building a nice README with Markdown BOM table for Github
+# 
+# It depends on some assumptions of the Wickerlib environment,
+# so pay attention to the 'data' object throughout. 
+#
+# For questions, please email me at jenner@wickerbox.net.
+# 
+# Released under the GPLv3.
+#
 
 import sys, os, zipfile, glob, argparse, re, datetime, json, Image
 from shutil import copyfile
