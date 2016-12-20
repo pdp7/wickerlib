@@ -50,7 +50,15 @@ class BOMline():
 #                    update_version
 #
 # inputs:
-# - a bunch of raw input (for now)
+# - existing project name
+# - new version number
+#
+# what it does:
+# - reads in data from the appropriate proj.json file
+# - updates the version number
+# - writes the updated data back to the proj.json file
+# 
+# returns nothing
 # 
 ###########################################################
 
@@ -70,31 +78,26 @@ def update_version(name,version):
 #              create_new_project
 #
 # inputs:
-# - a bunch of raw input (for now)
-# - library directory path
-# - template directory path
-# - possibly-updated version number
+# - project name
+# - json template name
+# - version number
 # 
 # what it does:
 # - creates a subfolder called projname
-# - collects input information by raw_input or test.json
-# - creates a dict to hold all that project information
-# - create proj.json
+#   if one exists, it prompts to overwrite. this is messy.
+# - creates the json file by copying existing template
+# - prompts for additional information
+# - creates a data dict to hold all that project information
+#   that will be used throughout the rest of kingfisher
 # - create README.md
 # - copy over KiCad template files and rename to projname,
 #   including using the proj.json info for page settings
-#
-# TODO: figure out best way to handle input information
+# - replace the 'page settings' sections of sch and 
+#   .kicad_pcb files
 # 
 # returns nothing
 # 
 ###########################################################
-
-## ideally,
-#  load a json template file
-#  if empty values, poll user
-#  display all values and prompt if good y/n
-#  create proj.json 
 
 def create_new_project(projname,which_template,version):
 
@@ -102,6 +105,7 @@ def create_new_project(projname,which_template,version):
           os.makedirs(projname)
 
   # copy in the appropriate json file
+
   if which_template is None:
     which_template = raw_input("what is the absolute path to the json template file? ")
   elif 'rewire' in which_template:
@@ -221,8 +225,6 @@ def create_new_project(projname,which_template,version):
     for line in f_temp:
       fixfile.write(line)
 
-  exit()
-
 ###########################################################
 #
 #                 create_readme
@@ -269,8 +271,11 @@ def create_readme(filename,data):
 # inputs:
 # - filename that may or may not end in .kicad_pcb
 # 
+# what it does:
+# - helper function to clean .kicad_pcb suffix
+# 
 # outputs:
-#projrojname and filename where
+# - tuple ('projname','filename') where 
 #   filename = projname.kicad_pcb
 # 
 ###########################################################
@@ -299,7 +304,7 @@ def sanitize_input_kicad_filename(filename):
 #              plot_gerbers_and_drills
 #
 #  inputs:
-#  - root name of the project 
+#  - root name of the project, where the 
 #    root of 'project.kicad_pcb' would be 'project'
 #  - name of a subdirectory to put output files
 # 
@@ -681,7 +686,16 @@ def create_image_previews(projname,plotdir,width_pixels,height_pixels):
 # inputs:
 # - data object
 #
+# what it does:
+# - opens the netlist file
+# - TODO: handle error if netlist is not present
+# - for every line in the netlist, create a component line
+#   there is no handling of duplicate entries; this is a 
+#   raw list right from the netlist.
 #
+# returns:
+# - list of components
+# 
 ###########################################################
 
 def create_component_list_from_netlist(data):
@@ -926,8 +940,6 @@ def create_bill_of_materials(data):
 # what it does:
 # - creates generic zip file for boards (gko, xln)
 # - creates zip file for osh stencils (gko, gtp, gbp)
-# - creates zip files for Seeed assembly
-# - 
 #
 ###########################################################
 
@@ -965,25 +977,30 @@ def create_zip_files(data):
 #
 #                    create_pos_file    
 #
+# TODO: figure out how to get the pos file by 
+#       command line out of pcbnew module
+#
 ###########################################################
 
 def create_pos_file():
   print "unable to create pos file at this time"
 
-
 ###########################################################
 #
 #                     update_readme
 #
-#   - create README.md if it doesn't already exist
-#   - append BOM to README if there's a commented section
+# inputs:
+# - data object
+# 
+# what it does:
+# - creates README.md if it doesn't already exist
+# - appends BOM to README if there's a commented section
+#
+# returns nothing
 #
 ###########################################################
 
 def update_readme(data):
-
-  # NEED TO STANDARDIZE READMES TO USE COMMENT, COMPANY VALUES 
-  # ALSO START TITLE END TITLE
 
   # create the README if we don't have one
 
@@ -1026,21 +1043,23 @@ def update_readme(data):
 #                      create_pdf                      
 #
 # inputs: 
-# - project name
-# - project version
-# - name of template directory
-# - name of template with .tex extension
+# - data object
 #
 # what it does:
-# - calls pandoc to create an output PDF file from README.md
-#   using the input template given
+# - creates a temporary file which will be pandoc input
+# - copies over the README to the temporary file, 
+#   ignoring anything in the title 
+# - uses the appropriate LaTeX template
+# - calls pandoc to create the PDF from temporary file
+# - remove the temporary file 
 # 
-# TODO: accommodate flags, let it use proj.json if one exists
+# TODO: make adjustment to the image width by argument
+#
+# returns nothing
 #
 ###########################################################
 
 def create_pdf(data):
-#projname,version,template_dir,template):
 
   tempfile = 'temporary.md' 
   src = 'README.md'
@@ -1087,6 +1106,7 @@ def create_pdf(data):
 
   # create PDF
   call(['pandoc','-fmarkdown-implicit_figures','-R','--data-dir='+latex_template_dir,'--template='+data['template_latex'],'-V','geometry:margin=1in',tempfile,'-o',data['projname']+'-'+data['version']+'.pdf']) 
+
   # remove input file
   call(['rm',tempfile])
 
@@ -1103,6 +1123,8 @@ def create_pdf(data):
 #   - gerbers zip
 #   - stencil zip
 #   - project PDF 
+# 
+# returns nothing
 #
 ###########################################################
 
@@ -1121,7 +1143,15 @@ def create_release_zipfile(data):
   release_zip.write(data['projname']+'-'+data['version']+'.pdf') 
 
 ###########################################################
-#                      main                               #
+#
+#                      main
+#
+# you can either create a new project
+# or you can generate manufacturing files, boms, and PDF
+# from an existing project
+#
+# they are mutually exclusive options
+#
 ###########################################################
 
 if __name__ == '__main__':
