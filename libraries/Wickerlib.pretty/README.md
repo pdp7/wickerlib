@@ -4,16 +4,15 @@ It is always the end user's responsibility to verify the package.
 
 This list is updated each time the repository is updated.
 
-Last updated: 02 December 2016
+Last updated: 24 December 2016
 
 |Module Name|Verified|Finished|
 |------|--------|--------|
-| ANTENNA-CALVUS-A10340-SMD | No | No |
 | ARDU-UNOSHIELD-WITH-ICSP | No | No |
 | ARDUINO-101-SHIELD | No | No |
 | ARDUINO-HEADER-1x10-DIGITAL | Yes | Yes |
 | ARDUINO-HEADER-1x6-ANALOG | Yes | Yes |
-| ARDUINO-HEADER-1x8-DIGITAL | No | Yes |
+| ARDUINO-HEADER-1x8-DIGITAL | Yes | Yes |
 | ARDUINO-HEADER-1x8-POWER | Yes | Yes |
 | ARDUINO-MOUNTING-HOLE | Yes | Yes |
 | ARDUINO-UNO-SHIELD | No | No |
@@ -27,15 +26,14 @@ Last updated: 02 December 2016
 | CAP-DISC-D3MM-P2.5MM | No | Yes |
 | CAP-DISC-D7.5MM-P5MM | No | Yes |
 | CAPSENSE-CIRCLE-D10MM | Yes | Yes |
-| CONN-3M-JTAG-2x05 | No | No |
-| CONN-3x04-P2.54MM-TH-RA | No | No |
+| CONN-3M-JTAG-2x05 | No | Yes |
+| CONN-3x04-P2.54MM-TH-RA | No | Yes |
 | CONN-AMPHENOL-RJ45-NOLED | No | Yes |
-| CONN-AMPHENOL-SIM-C707-10M006-0492 | No | No |
-| CONN-BARREL-JACK-2.5x5.5MM-TH | Yes | Yes |
+| CONN-BARREL-JACK-2.5x5.5MM-TH | No | Yes |
 | CONN-BNC-TECONN-1-1634612-0 | No | Yes |
 | CONN-HEADER-FH34SRJ-34S-0.5SH | No | Yes |
-| CONN-HEADER-STRAIGHT-P1.27MM-2x04 | No |  |
-| CONN-HEADER-STRAIGHT-P1.27MM-2x05 | No |  |
+| CONN-HEADER-STRAIGHT-P1.27MM-2x04 | No | Yes |
+| CONN-HEADER-STRAIGHT-P1.27MM-2x05 | No | Yes |
 | CONN-HEADER-STRAIGHT-P2.54MM-1x01 | Yes | Yes |
 | CONN-HEADER-STRAIGHT-P2.54MM-1x02 | Yes | Yes |
 | CONN-HEADER-STRAIGHT-P2.54MM-1x03 | Yes | Yes |
@@ -89,18 +87,16 @@ Last updated: 02 December 2016
 | CONN-JST-S2B-PH-SM4-TB | Yes | Yes |
 | CONN-MOLEX-KK100-1x05 | No | Yes |
 | CONN-MOLEX-KK100-1x06 | No | Yes |
-| CONN-ONSHORE-SCREW-GREEN-2PIN-TH | Yes | Yes |
+| CONN-ONSHORE-SCREW-GREEN-2PIN-TH | No | Yes |
 | CONN-ONSHORE-SCREW-GREEN-3PIN-TH | Yes | Yes |
-| CONN-SD-FULL-TECONN-2041021-4 | No | No |
-| CONN-SD-MICRO-ALPS | No | No |
-| CONN-SD-MICRO-MOLEX-0475710001 | No | No |
-| CONN-SD-MICRO-MOLEX-5009010801 | No | No |
-| CONN-SD-MICRO-TECONN-2041021-4 | No | No |
+| CONN-SD-FULL-TECONN-2041021-4 | No | Yes |
+| CONN-SD-MICRO-MOLEX-0475710001 | No | Yes |
+| CONN-SD-MICRO-MOLEX-5009010801 | No | Yes |
 | CONN-SMA-STRAIGHT-TH | No | Yes |
-| CONN-USB-A-PCB-TRACES | No | No |
+| CONN-USB-A-PCB-TRACES | No | Yes |
 | CONN-USB-MICRO-B-AMPHENOL-10118193-0001LF | Yes | Yes |
-| CRYSTAL-8Y-4SMD | No | No |
-| CRYSTAL-ABM-2SMD | No | No |
+| CRYSTAL-8Y-4SMD | No | Yes |
+| CRYSTAL-ABM-2SMD | No | Yes |
 | CRYSTAL-CTS-4SMD | Yes | Yes |
 | DB9-FEMALE-C | No | Yes |
 | DB9-FEMALE-D | No | Yes |
@@ -114,12 +110,13 @@ Last updated: 02 December 2016
 | DIP-16-W10.16MM-CIRCLEPADS | No | Yes |
 | DIP-16-W10.16MM-LONGPADS | No | Yes |
 | DIP-16-W7.62MM-LONGPADS | No | Yes |
-| DIP-8-W7.62MM-LONGPADS | No |  |
-| DO214AC | No | No |
+| DIP-8-W7.62MM-LONGPADS | No | Yes |
+| DO214AC | No | Yes |
 | DPAK | Yes | Yes |
+| FIDUCIAL-2MM | Yes | Yes |
 | GPS-EM-506 | No | No |
+| HOLE-PLATED-3.2MM | No | No |
 | HOLE-PLATED-40MIL | Yes | Yes |
-| IND-78F-AXIAL | No | No |
 | LCD-1602A | No | No |
 | LED-0603-SMD | No | Yes |
 | LED-0805-SMD | No | Yes |
@@ -152,6 +149,7 @@ Last updated: 02 December 2016
 | RLC-2010-SMD | No | Yes |
 | RLC-2220-SMD | No | Yes |
 | RLC-2225-SMD | No | Yes |
+| SJ1-3523N | No | No |
 | SOD-123 | No | Yes |
 | SOD-323 | No | Yes |
 | SOD-523 | No | Yes |
