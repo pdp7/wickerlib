@@ -1,7 +1,20 @@
+# KiCad Footprint 
+# Originally from the KiCad Official Libraries
+#   http://github.com/kicad/
+# Edited by Jenner for Wickerlib
+#   http://github.com/wickerbox/wickerlib
+# This library file is provided under the GPLv3
+#   https://www.gnu.org/licenses/gpl-3.0.html
+# The footprint may not be correct! It is the end
+# user's responsibility to verify the package.
+#
+# Verified: No
+# Finished: Yes
+
 (module DIP-8-W7.62MM-LONGPADS (layer F.Cu) (tedit 584B68C5)
   (descr "8-lead dip package, row spacing 7.62 mm (300 mils), longer pads")
   (tags "dil dip 2.54 300")
-  (fp_text reference U4 (at 3.75 4 90) (layer F.Fab)
+  (fp_text reference U4 (at 3.75 4 180) (layer F.Fab)
     (effects (font (size 1.016 1.016) (thickness 0.1524)))
   )
   (fp_text value TL081CP (at 0 -3.72) (layer F.Fab) hide

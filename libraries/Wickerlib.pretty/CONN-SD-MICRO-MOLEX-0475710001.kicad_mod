@@ -9,7 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
-# Finished: No
+# Finished: Yes
 
 (module CONN-SD-MICRO-MOLEX-0475710001 (layer F.Cu) (tedit 57958DF9)
   (fp_text reference J2 (at 0 3.25) (layer F.Fab)
