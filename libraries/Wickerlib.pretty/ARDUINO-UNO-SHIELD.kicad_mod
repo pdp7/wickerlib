@@ -9,7 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
-# Finished: No
+# Finished: Yes
 
 (module ARDUINO-UNO-SHIELD (layer F.Cu) (tedit 56C13BF1)
   (descr none)

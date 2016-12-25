@@ -7,7 +7,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
-# Finished: No
+# Finished: Yes
 
 (module LED-WURTH-SBTW-4PLCC-SMD (layer F.Cu) (tedit 583BD93B)
   (fp_text reference REF** (at 0 0) (layer F.Fab)

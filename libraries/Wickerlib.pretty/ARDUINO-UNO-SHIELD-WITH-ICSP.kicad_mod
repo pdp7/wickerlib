@@ -9,13 +9,13 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
-# Finished: No
+# Finished: Yes
 
-(module ARDU-UNOSHIELD-WITH-ICSP (layer F.Cu) (tedit 58153393)
-  (fp_text reference ARDU-UNOSHIELD-WITH-ICSP (at -2 -18.4 90) (layer F.Fab) hide
+(module ARDUINO-UNO-SHIELD-WITH-ICSP (layer F.Cu) (tedit 585F103C)
+  (fp_text reference ARDUINO-UNO-SHIELD-WITH-ICSP (at -2 -18.4 90) (layer F.Fab) hide
     (effects (font (thickness 0.3048)))
   )
-  (fp_text value ARDU-UNOSHIELD-WITH-ICSP (at 33 -12.7) (layer F.Fab) hide
+  (fp_text value ARDUINO-UNO-SHIELD-WITH-ICSP (at 33 -12.7) (layer F.Fab) hide
     (effects (font (thickness 0.3048)))
   )
   (fp_line (start 0 0) (end 66.04 0) (layer F.CrtYd) (width 0.2))
