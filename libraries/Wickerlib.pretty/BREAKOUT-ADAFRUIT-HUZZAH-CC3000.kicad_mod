@@ -7,7 +7,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
-# Finished: No
+# Finished: Yes
 
 
 (module BREAKOUT-ADAFRUIT-HUZZAH-CC3000 (layer F.Cu) (tedit 573163E2)
