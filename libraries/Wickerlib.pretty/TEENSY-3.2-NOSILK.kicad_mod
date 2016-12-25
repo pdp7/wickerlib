@@ -6,8 +6,8 @@
 # The footprint may not be correct! It is the end
 # user's responsibility to verify the package.
 #
-# Verified: No
-# Finished: No
+# Verified: Yes
+# Finished: Yes
 
 (module TEENSY-3.2-NOSILK (layer F.Cu) (tedit 579D85BE)
   (fp_text reference J1 (at -2 0) (layer F.Fab)

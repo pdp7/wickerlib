@@ -9,7 +9,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
-# Finished: No
+# Finished: Yes
 
 (module LCD-1602A locked (layer F.Cu) (tedit 585EDF92)
   (descr http://www.kamami.pl/dl/wc1602a0.pdf)

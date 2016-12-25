@@ -7,7 +7,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
-# Finished: No
+# Finished: Yes
 
 (module LED-BIVAR-SMP4-4PLCC-SMD (layer F.Cu) (tedit 583BD9CD)
   (fp_text reference REF** (at 0.151961 0.076857 180) (layer F.Fab)

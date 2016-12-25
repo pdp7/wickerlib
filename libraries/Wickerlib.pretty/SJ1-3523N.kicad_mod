@@ -7,7 +7,7 @@
 # user's responsibility to verify the package.
 #
 # Verified: No
-# Finished: No
+# Finished: Yes
 
 (module SJ1-3523N (layer F.Cu) (tedit 584B4714)
   (fp_text reference J3 (at 1.27 -2.413) (layer F.Fab)

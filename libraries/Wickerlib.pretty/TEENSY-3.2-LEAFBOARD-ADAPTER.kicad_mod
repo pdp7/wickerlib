@@ -6,8 +6,8 @@
 # The footprint may not be correct! It is the end
 # user's responsibility to verify the package.
 #
-# Verified: No
-# Finished: No
+# Verified: Yes
+# Finished: Yes
 
 (module TEENSY-3.2-LEAFBOARD-ADAPTER (layer F.Cu) (tedit 58157CD1)
   (fp_text reference J2 (at -2.4 7.5) (layer F.Fab)
