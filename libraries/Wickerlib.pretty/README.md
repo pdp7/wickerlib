@@ -8,14 +8,13 @@ Last updated: 24 December 2016
 
 |Module Name|Verified|Finished|
 |------|--------|--------|
-| ARDU-UNOSHIELD-WITH-ICSP | No | No |
-| ARDUINO-101-SHIELD | No | No |
 | ARDUINO-HEADER-1x10-DIGITAL | Yes | Yes |
 | ARDUINO-HEADER-1x6-ANALOG | Yes | Yes |
 | ARDUINO-HEADER-1x8-DIGITAL | Yes | Yes |
 | ARDUINO-HEADER-1x8-POWER | Yes | Yes |
 | ARDUINO-MOUNTING-HOLE | Yes | Yes |
-| ARDUINO-UNO-SHIELD | No | No |
+| ARDUINO-UNO-SHIELD-WITH-ICSP | No | Yes |
+| ARDUINO-UNO-SHIELD | No | Yes |
 | BATT-HOLDER-STRAP-CR2032-BC-2003 | No | Yes |
 | BREAKOUT-ADAFRUIT-FONA808-CELL-GPS | No | No |
 | BREAKOUT-ADAFRUIT-FT232H | No | No |
@@ -131,7 +130,7 @@ Last updated: 24 December 2016
 | LED-LITEON-LTST-0606-SMD | No | Yes |
 | LED-LITEON-LTST-1210-SMD | No | Yes |
 | LED-RGB-5050-SMD | No | Yes |
-| LED-WURTH-SBTW-4PLCC-SMD | No | No |
+| LED-WURTH-SBTW-4PLCC-SMD | No | Yes |
 | MSOP-10-1EP-3x3MM-P0.5MM | No | Yes |
 | MSOP-10-3x3MM-P0.5MM | No | Yes |
 | POWERSO-20 | No | Yes |
