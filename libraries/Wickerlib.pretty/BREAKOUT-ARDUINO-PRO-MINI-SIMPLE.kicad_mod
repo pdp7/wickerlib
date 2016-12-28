@@ -16,8 +16,8 @@
   (fp_text value BREAKOUT-ARDUINO-PRO-MINI-SIMPLE (at -10 1.5 90) (layer F.Fab) hide
     (effects (font (size 1 1) (thickness 0.15)))
   )
-  (fp_line (start 10.16 15.24) (end 10.16S -17.78) (layer F.Fab) (width 0.04064))
-  (fp_line (start -10.16 15.24) (end 10.16 15.24) (layer F.Fab) (width 0.04064))
+  (fp_line (start 10.16 15.24) (end 10.17 -17.78) (layer F.Fab) (width 0.04064))
+  (fp_line (start -10.16 15.24) (end 10.17 15.24) (layer F.Fab) (width 0.04064))
   (fp_line (start -10.16 -17.78) (end -10.16 15.24) (layer F.Fab) (width 0.04064))
   (fp_line (start 10.16 -17.78) (end -10.16 -17.78) (layer F.Fab) (width 0.04064))
   (fp_line (start 10.16 15.24) (end 10.16 -17.78) (layer F.CrtYd) (width 0.04064))

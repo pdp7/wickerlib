@@ -9,7 +9,6 @@
 # Verified: Yes
 # Finished: Yes
 
-
 (module SWITCH-OMRON-MOMENTARY-SMD-B3U-1000P (layer F.Cu) (tedit 57904124)
   (descr SW-B3F-10XX)
   (tags "Omron B3F-10xx")

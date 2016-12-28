@@ -1092,7 +1092,23 @@ def create_pdf(data):
         if 'end title' in line:
           title_flag = False
       else:
-        if '.png' in line:
+        if 'assembly.png' in line:
+          src_list.append('\ \n')
+          src_list.append('\n')
+          line = line.replace('assembly.png)','assembly.png){width=80%}')
+          src_list.append(line)
+          src_list.append('\n')
+          src_list.append('\\pagebreak\n')
+          src_list.append('\n')
+        elif 'preview.png' in line:
+          src_list.append('\ \n')
+          src_list.append('\n')
+          line = line.replace('preview.png)','preview.png)')
+          src_list.append(line)
+          src_list.append('\n')
+          src_list.append('\\pagebreak\n')
+          src_list.append('\n')
+        elif '.png' in line:
           src_list.append('\ \n')
           src_list.append('\n')
           line = line.replace('.png)','.png){width=48%}')

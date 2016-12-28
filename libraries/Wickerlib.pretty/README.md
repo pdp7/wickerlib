@@ -4,7 +4,7 @@ It is always the end user's responsibility to verify the package.
 
 This list is updated each time the repository is updated.
 
-Last updated: 24 December 2016
+Last updated: 27 December 2016
 
 |Module Name|Verified|Finished|
 |------|--------|--------|
@@ -13,21 +13,21 @@ Last updated: 24 December 2016
 | ARDUINO-HEADER-1x8-DIGITAL | Yes | Yes |
 | ARDUINO-HEADER-1x8-POWER | Yes | Yes |
 | ARDUINO-MOUNTING-HOLE | Yes | Yes |
-| ARDUINO-UNO-SHIELD-WITH-ICSP | No | Yes |
-| ARDUINO-UNO-SHIELD | No | Yes |
-| BATT-HOLDER-STRAP-CR2032-BC-2003 | No | Yes |
+| ARDUINO-UNO-SHIELD-WITH-ICSP | Yes | Yes |
+| ARDUINO-UNO-SHIELD | Yes | Yes |
+| BATT-HOLDER-STRAP-CR2032-BC-2003 | Yes | Yes |
 | BREAKOUT-ADAFRUIT-FONA808-CELL-GPS | No | Yes |
 | BREAKOUT-ADAFRUIT-HUZZAH-CC3000 | No | Yes |
 | BREAKOUT-ADAFRUIT-UNIVGPS | No | Yes |
 | BREAKOUT-ARDUINO-PRO-MINI-SIMPLE | No | Yes |
 | BREAKOUT-LV-EZ1-RANGEFINDER | Yes | Yes |
-| CAP-DISC-D3MM-P2.5MM | No | Yes |
-| CAP-DISC-D7.5MM-P5MM | No | Yes |
+| CAP-DISC-D3MM-P2.5MM | Yes | Yes |
+| CAP-DISC-D7.5MM-P5MM | Yes | Yes |
 | CAPSENSE-CIRCLE-D10MM | Yes | Yes |
 | CONN-3M-JTAG-2x05 | No | Yes |
 | CONN-3x04-P2.54MM-TH-RA | No | Yes |
 | CONN-AMPHENOL-RJ45-NOLED | No | Yes |
-| CONN-BARREL-JACK-2.5x5.5MM-TH | No | Yes |
+| CONN-BARREL-JACK-2.5x5.5MM-TH | Yes | Yes |
 | CONN-BNC-TECONN-1-1634612-0 | No | Yes |
 | CONN-HEADER-FH34SRJ-34S-0.5SH | No | Yes |
 | CONN-HEADER-STRAIGHT-P1.27MM-2x04 | No | Yes |
@@ -85,12 +85,12 @@ Last updated: 24 December 2016
 | CONN-JST-S2B-PH-SM4-TB | Yes | Yes |
 | CONN-MOLEX-KK100-1x05 | No | Yes |
 | CONN-MOLEX-KK100-1x06 | No | Yes |
-| CONN-ONSHORE-SCREW-GREEN-2PIN-TH | No | Yes |
+| CONN-ONSHORE-SCREW-GREEN-2PIN-TH | Yes | Yes |
 | CONN-ONSHORE-SCREW-GREEN-3PIN-TH | Yes | Yes |
 | CONN-SD-FULL-TECONN-2041021-4 | No | Yes |
 | CONN-SD-MICRO-MOLEX-0475710001 | No | Yes |
 | CONN-SD-MICRO-MOLEX-5009010801 | No | Yes |
-| CONN-SMA-STRAIGHT-TH | No | Yes |
+| CONN-SMA-STRAIGHT-TH | Yes | Yes |
 | CONN-USB-A-PCB-TRACES | No | Yes |
 | CONN-USB-MICRO-B-AMPHENOL-10118193-0001LF | Yes | Yes |
 | CRYSTAL-8Y-4SMD | No | Yes |
@@ -130,14 +130,14 @@ Last updated: 24 December 2016
 | LED-LITEON-LTST-1210-SMD | No | Yes |
 | LED-RGB-5050-SMD | No | Yes |
 | LED-WURTH-SBTW-4PLCC-SMD | No | Yes |
-| MSOP-10-1EP-3x3MM-P0.5MM | No | Yes |
-| MSOP-10-3x3MM-P0.5MM | No | Yes |
+| MSOP-10-1EP-3x3MM-P0.5MM | Yes | Yes |
+| MSOP-10-3x3MM-P0.5MM | Yes | Yes |
 | POWERSO-20 | No | Yes |
 | QFN-32-1EP-5x5MM-P0.5MM | No | Yes |
-| RES-CARBONFILM-7MM | No | Yes |
-| RES-TRIMPOT-BOURNS-3362-SQUARE-TH-CENTER | No | Yes |
+| RES-CARBONFILM-7MM | Yes | Yes |
+| RES-TRIMPOT-BOURNS-3362-SQUARE-TH-CENTER | Yes | Yes |
 | RES-TRIMPOT-TC33X-2 | No | Yes |
-| RES-TRIMPOT-TTELEC-P160-TH | No | Yes |
+| RES-TRIMPOT-TTELEC-P160-TH | Yes | Yes |
 | RLC-0402-SMD | No | Yes |
 | RLC-0603-SMD | No | Yes |
 | RLC-0805-SMD | No | Yes |
@@ -148,7 +148,7 @@ Last updated: 24 December 2016
 | RLC-2010-SMD | No | Yes |
 | RLC-2220-SMD | No | Yes |
 | RLC-2225-SMD | No | Yes |
-| SJ1-3523N | No | Yes |
+| SJ1-3523N | Yes | Yes |
 | SOD-123 | No | Yes |
 | SOD-323 | No | Yes |
 | SOD-523 | No | Yes |
@@ -181,7 +181,8 @@ Last updated: 24 December 2016
 | TEENSY-3.2-SILK | Yes | Yes |
 | TEENSY-LC-NOSILK | Yes | Yes |
 | TEENSY-LC-SILK | Yes | Yes |
-| TO-220-NEUTRAL123-VERT-LONGPADS | No | Yes |
+| TO-220-NEUTRAL123-HORZ-LONGPADS | No | Yes |
+| TO-220-NEUTRAL123-VERT-LONGPADS | Yes | Yes |
 | TO-92-INLINE-NARROW-OVAL | No | Yes |
 | TQFP-100-14x14MM-P0.5MM | No | Yes |
 | TQFP-32-7x7MM-P0.8MM | No | Yes |

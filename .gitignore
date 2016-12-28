@@ -16,3 +16,4 @@
 .~lock*
 *.swp
 ref
+*.pyc

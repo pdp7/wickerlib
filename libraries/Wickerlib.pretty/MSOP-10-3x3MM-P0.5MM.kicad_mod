@@ -8,7 +8,7 @@
 # The footprint may not be correct! It is the end
 # user's responsibility to verify the package.
 #
-# Verified: No
+# Verified: Yes
 # Finished: Yes
 
 (module MSOP-10-3x3MM-P0.5MM (layer F.Cu) (tedit 581574C6)
