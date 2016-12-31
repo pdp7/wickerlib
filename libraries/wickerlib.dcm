@@ -388,32 +388,32 @@ F http://portal.fciconnect.com/Comergent//fci/drawing/10118193.pdf
 $ENDCMP
 #
 $CMP CRYSTAL-16MHZ-18PF-40OHM-CTS-4SMD
-D 16MHz 30ppm Crystal 18pF 40 Ohm 4SMD NOLEAD
+D CRYSTAL 16MHZ 30PPM 18pF 4SMD
 F http://www.ctscorp.com/wp-content/uploads/2015/11/008-0260-0.pdf
 $ENDCMP
 #
 $CMP CRYSTAL-20MHZ-18PF-40OHM-CTS-4SMD
-D 20MHz ±30ppm Crystal 18pF 40 Ohm 4SMD NOLEAD
+D CRYSTAL 20MHZ 18pF 4SMD
 F http://www.ctscorp.com/wp-content/uploads/2015/11/008-0260-0.pdf
 $ENDCMP
 #
 $CMP CRYSTAL-25MHZ-18PF-100OHM-TXC-8Y-4SMD
-D 25MHz ±30ppm Crystal 8pF 100 Ohm 4SMD NOLEAD
+D CRYSTAL 25MHZ 8pF 100 OHM 4SMD
 F http://www.txccrystal.com/images/pdf/8y.pdf
 $ENDCMP
 #
 $CMP CRYSTAL-25MHZ-18pF-40OHM-CTS-4SMD
-D 25MHz ±30ppm Crystal 18pF 40 Ohm 4SMD NOLEAD
+D CRYSTAL 25MHZ 8pF 40 OHM 4SMD
 F http://www.ctscorp.com/wp-content/uploads/2015/11/008-0260-0.pdf
 $ENDCMP
 #
 $CMP CRYSTAL-25MHZ-CB3-3C-CTS-4SMD
-D 25MHz OSC XO HCMOS TTL 4SMD
+D CRYSTAL 25MHz XO 4SMD
 F http://www.ctscorp.com/wp-content/uploads/2015/11/008-0256-0.pdf
 $ENDCMP
 #
 $CMP CRYSTAL-8MHZ-18PF-140OHM-ABM3-2SMD
-D 8MHz ±20ppm Crystal 18pF 140 Ohm 2SMD NOLEAD
+D CRYSTAL 8MHz 140 OHM 2SMD
 F http://www.abracon.com/Resonators/abm3.pdf
 $ENDCMP
 #
@@ -917,6 +917,11 @@ F http://www.atmel.com/Images/Atmel-2549-8-bit-AVR-Microcontroller-ATmega640-128
 $ENDCMP
 #
 $CMP IC-MCU-ATMEGA328-TQFP32
+D IC MCU 8BIT 32KB FLASH 32TQFP
+F http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf
+$ENDCMP
+#
+$CMP IC-MCU-ATMEGA328-TQFP32-CUSTOM1
 D IC MCU 8BIT 32KB FLASH 32TQFP
 F http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf
 $ENDCMP
