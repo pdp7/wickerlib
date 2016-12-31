@@ -23,8 +23,9 @@ from subprocess import call
 from pcbnew import *
 
 # globals for proj.json locations
-rewire_json = '/home/wicker/proj/Rewire-Circuits/Development/templates/rewire.json'
+crazy_json = '/home/wicker/proj/Crazy-Circuits/Development/templates/crazy.json'
 wickerbox_json = '/home/wicker/wickerlib/templates/wickerbox.json'
+breakout_json = '/home/wicker/proj/wickerlib/templates/breakout.json'
 
 class Comp():
   ref = ''
@@ -85,7 +86,7 @@ def update_version(name,version):
   with open(filename,'r') as jsonfile:
     data = json.load(jsonfile)
 
-  data['version'] = version
+  data['version'] = 'v'+version
 
   with open(filename, 'w') as jsonfile:
     json.dump(data, jsonfile, indent=4, sort_keys=True, separators=(',', ':'))
@@ -125,8 +126,10 @@ def create_new_project(projname,which_template,version):
 
   if which_template is None:
     which_template = raw_input("what is the absolute path to the json template file? ")
-  elif 'rewire' in which_template:
-    which_template = rewire_json
+  elif 'crazy' in which_template:
+    which_template = crazy_json
+  elif 'breakout' in which_template:
+    which_template = breakout_json
   elif 'wickerbox' in which_template:
     which_template = wickerbox_json
   else:
@@ -794,8 +797,9 @@ def create_bill_of_materials(data):
 
   components = create_component_list_from_netlist(data)
 
-  bom_outfile_csv = data['bom_dir']+'/'+data['projname']+'-bom-master.csv'
-  bom_outfile_md = data['bom_dir']+'/'+data['projname']+'-bom-readme.md'
+  bom_outfile_csv = data['bom_dir']+'/'+data['projname']+'-'+data['version']+'-bom-master.csv'
+  bom_outfile_seeed_csv = data['bom_dir']+'/'+data['projname']+'-'+data['version']+'-bom-seeed.csv'
+  bom_outfile_md = data['bom_dir']+'/'+data['projname']+'-'+data['version']+'-bom-readme.md'
 
   vendors = []
   optional_fields = []
@@ -869,7 +873,7 @@ def create_bill_of_materials(data):
 
   # write to the master output file
 
-  outfile = data['bom_dir']+'/'+data['projname']+'-bom-master.csv'
+  outfile = bom_outfile_csv
 
   with open(outfile,'w') as obom:
     obom.write(title_string)
@@ -886,7 +890,7 @@ def create_bill_of_materials(data):
 
   # Create the master Seeed output
 
-  outfile = data['bom_dir']+'/'+data['projname']+'-bom-seeed.csv'
+  outfile = bom_outfile_seeed_csv
   
   with open(outfile,'w') as obom:
     obom.write('Location,MPN/Seeed SKU,Quantity\n')
@@ -905,11 +909,11 @@ def create_bill_of_materials(data):
 
   outbom_list = []
   outcsv_list = []
-  outfile_md = data['bom_dir']+'/'+data['projname']+'-bom.md'
+  outfile_md = bom_outfile_md
 
   for v in vendors:
 
-    outfile_csv = data['bom_dir']+'/'+data['projname']+'-bom-'+v.lower()+'.csv'
+    outfile_csv = data['bom_dir']+'/'+data['projname']+'-'+data['version']+'-bom-'+v.lower()+'.csv'
     which_line = 0
 
     for line in bom:
@@ -1027,7 +1031,7 @@ def update_readme(data):
 
   # now update the README
 
-  newbomlinefile = data['bom_dir']+'/'+data['projname']+'-bom.md'
+  newbomlinefile = data['bom_dir']+'/'+data['projname']+'-'+data['version']+'-bom-readme.md'
 
   tempfile = []
   newbomlines = []
@@ -1095,18 +1099,20 @@ def create_pdf(data):
         if 'assembly.png' in line:
           src_list.append('\ \n')
           src_list.append('\n')
-          line = line.replace('assembly.png)','assembly.png){width=80%}')
+          line = line.replace('assembly.png)','assembly.png){width=50%}')
           src_list.append(line)
           src_list.append('\n')
-          src_list.append('\\pagebreak\n')
+        elif 'schematic.png' in line:
+          src_list.append('\ \n')
+          src_list.append('\n')
+          line = line.replace('schematic.png)','schematic.png)')
+          src_list.append(line)
           src_list.append('\n')
         elif 'preview.png' in line:
           src_list.append('\ \n')
           src_list.append('\n')
-          line = line.replace('preview.png)','preview.png)')
+          line = line.replace('preview.png)','preview.png){width=70%}')
           src_list.append(line)
-          src_list.append('\n')
-          src_list.append('\\pagebreak\n')
           src_list.append('\n')
         elif '.png' in line:
           src_list.append('\ \n')
@@ -1166,7 +1172,7 @@ def create_release_zipfile(data):
   release_zip = zipfile.ZipFile(data['projname']+'-'+data['version']+'.zip','w')
 
   os.chdir(data['bom_dir'])
-  release_zip.write(data['projname']+'-bom-seeed.csv')
+  release_zip.write(data['projname']+'-'+data['version']+'-bom-seeed.csv')
 
   os.chdir('../'+data['gerbers_dir'])
   release_zip.write(data['projname']+'-'+data['version']+'-gerbers.zip')
@@ -1213,9 +1219,9 @@ if __name__ == '__main__':
       else:
         print "Try again with a different project name. Exiting program."
     if args.version:
-      version = args.version
+      version = 'v'+args.version
     else:
-      version = '1.0'
+      version = 'v1.0'
     create_new_project(args.name,args.template,version)
 
   else:
