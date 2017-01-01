@@ -25,7 +25,7 @@ from pcbnew import *
 # globals for proj.json locations
 crazy_json = '/home/wicker/proj/Crazy-Circuits/Development/templates/crazy.json'
 wickerbox_json = '/home/wicker/wickerlib/templates/wickerbox.json'
-breakout_json = '/home/wicker/proj/wickerlib/templates/breakout.json'
+breakout_json = '/home/wicker/wickerlib/templates/breakout.json'
 
 class Comp():
   ref = ''
