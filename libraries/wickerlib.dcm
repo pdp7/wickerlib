@@ -188,6 +188,11 @@ D CAP CER 10000PF 50V X7R 0402
 F http://www.digikey.com/en/ptm/k/kemet/capacitor-basics---typical-uses-for-capacitors?WT.pn_sku=399-3027-1-ND&WT.z_part_id=447601&WT.z_video_source=Part_Detail
 $ENDCMP
 #
+$CMP CAP-CER-10NF-50V-X7R-0603
+D CAP CER 10000PF 100V X7S 0402
+F https://product.tdk.com/info/en/catalog/datasheets/mlcc_commercial_midvoltage_en.pdf
+$ENDCMP
+#
 $CMP CAP-CER-10PF-50V-NP0-0603
 D CAP CER 10PF 50V NP0 0603
 F http://media.digikey.com/pdf/Data%20Sheets/Samsung%20PDFs/CL10C100JB8NCNC_spec.pdf
