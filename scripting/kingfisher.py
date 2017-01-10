@@ -1099,19 +1099,19 @@ def create_pdf(data):
         if 'assembly.png' in line:
           src_list.append('\ \n')
           src_list.append('\n')
-          line = line.replace('assembly.png)','assembly.png){width=50%}')
+          line = line.replace('assembly.png)','assembly.png)')
           src_list.append(line)
           src_list.append('\n')
         elif 'schematic.png' in line:
           src_list.append('\ \n')
           src_list.append('\n')
-          line = line.replace('schematic.png)','schematic.png)')
+          line = line.replace('schematic.png)','schematic.png){width=60%}')
           src_list.append(line)
           src_list.append('\n')
         elif 'preview.png' in line:
           src_list.append('\ \n')
           src_list.append('\n')
-          line = line.replace('preview.png)','preview.png){width=70%}')
+          line = line.replace('preview.png)','preview.png)')
           src_list.append(line)
           src_list.append('\n')
         elif '.png' in line:
