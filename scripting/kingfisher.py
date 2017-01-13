@@ -1111,7 +1111,7 @@ def create_pdf(data):
         elif 'preview.png' in line:
           src_list.append('\ \n')
           src_list.append('\n')
-          line = line.replace('preview.png)','preview.png)')
+          line = line.replace('preview.png)','preview.png){width=80%}')
           src_list.append(line)
           src_list.append('\n')
         elif '.png' in line:
@@ -1144,7 +1144,7 @@ def create_pdf(data):
   latex_template_dir = data['template_dir'][:-9]
 
   # create PDF
-  call(['pandoc','-fmarkdown-implicit_figures','-R','--data-dir='+latex_template_dir,'--template='+data['template_latex'],'-V','geometry:margin=1in',tempfile,'-o',data['projname']+'-'+data['version']+'.pdf']) 
+  call(['pandoc','-fmarkdown-implicit_figures','-R','--data-dir='+latex_template_dir,'--template='+data['template_latex'],'-V','geometry:margin=1in',tempfile,'-o',data['projname']+'-v'+data['version']+'.pdf']) 
 
   # remove input file
   call(['rm',tempfile])
@@ -1179,7 +1179,7 @@ def create_release_zipfile(data):
   release_zip.write(data['projname']+'-'+data['version']+'-stencil.zip') 
   
   os.chdir('..')
-  release_zip.write(data['projname']+'-'+data['version']+'.pdf') 
+  release_zip.write(data['projname']+'-v'+data['version']+'.pdf') 
 
 ###########################################################
 #
