@@ -797,9 +797,9 @@ def create_bill_of_materials(data):
 
   components = create_component_list_from_netlist(data)
 
-  bom_outfile_csv = data['bom_dir']+'/'+data['projname']+'-'+data['version']+'-bom-master.csv'
-  bom_outfile_seeed_csv = data['bom_dir']+'/'+data['projname']+'-'+data['version']+'-bom-seeed.csv'
-  bom_outfile_md = data['bom_dir']+'/'+data['projname']+'-'+data['version']+'-bom-readme.md'
+  bom_outfile_csv = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-master.csv'
+  bom_outfile_seeed_csv = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-seeed.csv'
+  bom_outfile_md = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-readme.md'
 
   vendors = []
   optional_fields = []
@@ -913,7 +913,7 @@ def create_bill_of_materials(data):
 
   for v in vendors:
 
-    outfile_csv = data['bom_dir']+'/'+data['projname']+'-'+data['version']+'-bom-'+v.lower()+'.csv'
+    outfile_csv = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-'+v.lower()+'.csv'
     which_line = 0
 
     for line in bom:
