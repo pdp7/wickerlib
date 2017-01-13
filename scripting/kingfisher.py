@@ -1031,7 +1031,7 @@ def update_readme(data):
 
   # now update the README
 
-  newbomlinefile = data['bom_dir']+'/'+data['projname']+'-'+data['version']+'-bom-readme.md'
+  newbomlinefile = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-readme.md'
 
   tempfile = []
   newbomlines = []
