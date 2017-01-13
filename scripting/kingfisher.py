@@ -98,7 +98,7 @@ def update_version(name,version):
 # inputs:
 # - project name
 # - json template name
-# - version number
+# - version number (no preceding 'v')
 # 
 # what it does:
 # - creates a subfolder called projname
@@ -1099,7 +1099,7 @@ def create_pdf(data):
         if 'assembly.png' in line:
           src_list.append('\ \n')
           src_list.append('\n')
-          line = line.replace('assembly.png)','assembly.png)')
+          line = line.replace('assembly.png)','assembly.png){width=50%}')
           src_list.append(line)
           src_list.append('\n')
         elif 'schematic.png' in line:
@@ -1111,7 +1111,7 @@ def create_pdf(data):
         elif 'preview.png' in line:
           src_list.append('\ \n')
           src_list.append('\n')
-          line = line.replace('preview.png)','preview.png){width=80%}')
+          line = line.replace('preview.png)','preview.png){width=50%}')
           src_list.append(line)
           src_list.append('\n')
         elif '.png' in line:
@@ -1169,14 +1169,14 @@ def create_pdf(data):
 
 def create_release_zipfile(data):
 
-  release_zip = zipfile.ZipFile(data['projname']+'-'+data['version']+'.zip','w')
+  release_zip = zipfile.ZipFile(data['projname']+'-v'+data['version']+'.zip','w')
 
   os.chdir(data['bom_dir'])
-  release_zip.write(data['projname']+'-'+data['version']+'-bom-seeed.csv')
+  release_zip.write(data['projname']+'-v'+data['version']+'-bom-seeed.csv')
 
   os.chdir('../'+data['gerbers_dir'])
-  release_zip.write(data['projname']+'-'+data['version']+'-gerbers.zip')
-  release_zip.write(data['projname']+'-'+data['version']+'-stencil.zip') 
+  release_zip.write(data['projname']+'-v'+data['version']+'-gerbers.zip')
+  release_zip.write(data['projname']+'-v'+data['version']+'-stencil.zip') 
   
   os.chdir('..')
   release_zip.write(data['projname']+'-v'+data['version']+'.pdf') 
@@ -1219,9 +1219,9 @@ if __name__ == '__main__':
       else:
         print "Try again with a different project name. Exiting program."
     if args.version:
-      version = 'v'+args.version
+      version = args.version
     else:
-      version = 'v1.0'
+      version = '1.0'
     create_new_project(args.name,args.template,version)
 
   else:
