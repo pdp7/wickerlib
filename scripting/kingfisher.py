@@ -975,7 +975,7 @@ def create_zip_files(data):
     files.extend(glob.glob(os.path.join(data['gerbers_dir'], ext)))
 
   os.chdir(data['gerbers_dir'])
-  ZipFile = zipfile.ZipFile(data['projname']+'-'+data['version']+"-gerbers.zip", "w")
+  ZipFile = zipfile.ZipFile(data['projname']+'-v'+data['version']+"-gerbers.zip", "w")
   for f in files:
     ZipFile.write(os.path.basename(f))
   os.chdir("..")
@@ -989,7 +989,7 @@ def create_zip_files(data):
     files.extend(glob.glob(os.path.join(data['gerbers_dir'], ext)))
 
   os.chdir(data['gerbers_dir'])
-  ZipFile = zipfile.ZipFile(data['projname']+'-'+data['version']+"-stencil.zip", "w")
+  ZipFile = zipfile.ZipFile(data['projname']+'-v'+data['version']+"-stencil.zip", "w")
   for f in files:
     ZipFile.write(os.path.basename(f))
   os.chdir("..")
