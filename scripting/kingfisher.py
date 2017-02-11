@@ -961,12 +961,13 @@ def create_bill_of_materials(data):
 
   for v in vendors:
 
+    outcsv_list = []
     outfile_csv = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-'+v.lower()+'.csv'
     which_line = 0
 
     for line in bom:
       if which_line is 0:
-        outcsv_list.append('Ref,Qty,Description,Digikey PN')
+        outcsv_list.append('Ref,Qty,Description,'+v+' PN')
         outbom_list.append('|Ref|Qty|Description|'+v.capitalize()+' PN|')
         outbom_list.append('|---|---|-----------|------|')
         which_line = 1
@@ -991,6 +992,8 @@ def create_bill_of_materials(data):
     with open(outfile_csv,'w') as ocsv:
       for line in outcsv_list:
         ocsv.write(line+'\n')
+
+    outcsv_list = []
 
     if v == vendors[-1]:
       outbom_list.append('')
