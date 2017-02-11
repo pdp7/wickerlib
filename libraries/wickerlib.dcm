@@ -958,6 +958,11 @@ D TQFP100, 256k Flash, 8k SRAM, 4k EEPROM, JTAG, CUSTOM1
 F http://www.atmel.com/Images/Atmel-2549-8-bit-AVR-Microcontroller-ATmega640-1280-1281-2560-2561_datasheet.pdf
 $ENDCMP
 #
+$CMP IC-MCU-ATMEGA328-PB-AU-20MHz-TQFP32
+D IC MCU 8BIT 20MHz ATMEGA328PB-AU TQFP32
+F http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf
+$ENDCMP
+#
 $CMP IC-MCU-ATMEGA328-TQFP32
 D IC MCU 8BIT 32KB FLASH 32TQFP
 F http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf
@@ -1674,6 +1679,23 @@ D SPEAKER 8 OHM .25W 23MM ROUND
 F http://www.mallory-sonalert.com/specifications/PSR-23F08S-JQ.PDF
 $ENDCMP
 #
+$CMP SWITCH-MOMENT-SPDT-SMT-B3FS-4002P
+D SWITCH MOMENT SPST-NO 0.05A 24V SMT B3FS-4002P
+$ENDCMP
+#
+$CMP SWITCH-MOMENT-SPDT-TH-B3F-1000
+D SWITCH MOMENT SPST-NO 0.05A 24V TH B3F-1000
+$ENDCMP
+#
+$CMP SWITCH-MOMENT-SPDT-TH-B3F-4000
+D SWITCH MOMENT SPST-NO 0.05A 24V TH B3F-4000
+$ENDCMP
+#
+$CMP SWITCH-MOMENT-SPST-NO-0.05A-12V-SMT-B3U-1000P
+D SWITCH TACTILE SPST-NO 0.05A 12V
+F http://www.omron.com/ecb/products/pdf/en-b3u.pdf
+$ENDCMP
+#
 $CMP SWITCH-ROCKER-SPST-10A-125V
 D SWITCH ROCKER SPST 10A 125V
 F https://www.e-switch.com/system/asset/product_line/data_sheet/81/RA1.pdf
@@ -1689,18 +1711,13 @@ D SWITCH SLIDE SPDT 200MA 30V
 F https://www.e-switch.com/system/asset/product_line/data_sheet/119/EG.pdf
 $ENDCMP
 #
-$CMP SWITCH-TACTILE-SPST-NO-0.05A-12V
-D SWITCH TACTILE SPST-NO 0.05A 12V
-F http://www.omron.com/ecb/products/pdf/en-b3u.pdf
-$ENDCMP
-#
-$CMP SWITCH-TACTILE-SPST-NO-0.05A-24V
+$CMP SWITCH-TACTILE-SPST-NO-0.05A-24V-SMT-FSMSMTR
 D SWITCH TACTILE SPST-NO 0.05A 24V
 F http://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1437566-3&DocType=Customer+Drawing&DocLang=English
 $ENDCMP
 #
-$CMP SWITCH-TOGGLE-SPDT-5A-120V
-D SWITCH TOGGLE SPDT 5A 120V
+$CMP SWITCH-TOGGLE-SPDT-5A-120V-TH-100SP3
+D SWITCH TOGGLE SPDT 5A 120V 100SP3 ESWITCH
 F https://www.e-switch.com/system/asset/product_line/data_sheet/129/100.pdf
 $ENDCMP
 #
@@ -1750,6 +1767,11 @@ F http://www.bitechnologies.com/pdfs/p160.pdf
 $ENDCMP
 #
 $CMP TRIMPOT-10K-3PIN-TH-3362-Series
+D TRIMMER 10K OHM 0.1W SMD
+F http://www.bourns.com/docs/Product-Datasheets/TC33.pdf
+$ENDCMP
+#
+$CMP TRIMPOT-10K-3PIN-TH-3368P-1-103TLF
 D TRIMMER 10K OHM 0.1W SMD
 F http://www.bourns.com/docs/Product-Datasheets/TC33.pdf
 $ENDCMP

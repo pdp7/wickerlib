@@ -9,7 +9,7 @@
 # Verified: No
 # Finished: Yes
 
-(module SWITCH-ESWITCH-SLIDE-TH-EG1218 (layer F.Cu) (tedit 589D5822)
+(module 'SWITCH-ESWITCH-SLIDE-TH-EG1218 (layer F.Cu) (tedit 589D5618)
   (fp_text reference S2 (at 0 0 90) (layer F.Fab)
     (effects (font (size 1 1) (thickness 0.15)))
   )
@@ -31,7 +31,7 @@
   (fp_line (start 6 -2.032) (end -6 -2.032) (layer F.SilkS) (width 0.1524))
   (fp_line (start 6 2.032) (end -6 2.032) (layer F.SilkS) (width 0.1524))
   (fp_line (start 6 -2.032) (end 6 2.032) (layer F.SilkS) (width 0.1524))
-  (pad 2 thru_hole circle (at 0 0) (size 1.524 1.524) (drill 1.016) (layers *.Cu *.Mask))
-  (pad 3 thru_hole circle (at 2.4892 0) (size 1.524 1.524) (drill 1.016) (layers *.Cu *.Mask))
-  (pad 1 thru_hole circle (at -2.4892 0) (size 1.524 1.524) (drill 1.016) (layers *.Cu *.Mask))
+  (pad 2 thru_hole circle (at 0 0) (size 1.524 1.524) (drill 1.016) (layers *.Cu))
+  (pad 3 thru_hole circle (at 2.4892 0) (size 1.524 1.524) (drill 1.016) (layers *.Cu))
+  (pad 1 thru_hole circle (at -2.4892 0) (size 1.524 1.524) (drill 1.016) (layers *.Cu))
 )

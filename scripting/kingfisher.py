@@ -1,8 +1,11 @@
 #
+# Kingfisher
+#
 # created by Jenner Hanni at Wickerbox Electronics
 # http://wickerbox.net/
 #
-# This script automates some of the KiCad process, including:
+# This program automates some of the KiCad process, including:
+# - creating a fabrication drawing 
 # - generating stencil and manufacturing files
 # - creating bills of material
 # - packaging everything so it's ready to upload for ordering
@@ -86,11 +89,13 @@ def update_version(name,version):
   with open(filename,'r') as jsonfile:
     data = json.load(jsonfile)
 
-  data['version'] = 'v'+version
+  data['version'] = version
 
   with open(filename, 'w') as jsonfile:
     json.dump(data, jsonfile, indent=4, sort_keys=True, separators=(',', ':'))
   
+  data['version'] = 'v'+version
+
 ###########################################################
 #
 #              create_new_project
@@ -434,7 +439,7 @@ def plot_gerbers_and_drills(projname, plot_dir):
   # create drill object and set options
 
   drlwriter = EXCELLON_WRITER(board)
-  drlwriter.SetMapFileFormat(PLOT_FORMAT_PDF)
+  drlwriter.SetMapFileFormat(PLOT_FORMAT_GERBER)
 
   mirror = False
   minimalHeader = False
@@ -800,7 +805,7 @@ def create_bill_of_materials(data):
   bom_outfile_csv = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-master.csv'
   bom_outfile_seeed_csv = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-seeed.csv'
   bom_outfile_md = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-readme.md'
-
+  #bom_outfile_rw.csv = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-rw.csv'
   vendors = []
   optional_fields = []
   bom = []
@@ -1099,7 +1104,7 @@ def create_pdf(data):
         if 'assembly.png' in line:
           src_list.append('\ \n')
           src_list.append('\n')
-          line = line.replace('assembly.png)','assembly.png){width=50%}')
+          line = line.replace('assembly.png)','assembly.png){width=80%}')
           src_list.append(line)
           src_list.append('\n')
         elif 'schematic.png' in line:
@@ -1111,7 +1116,7 @@ def create_pdf(data):
         elif 'preview.png' in line:
           src_list.append('\ \n')
           src_list.append('\n')
-          line = line.replace('preview.png)','preview.png){width=50%}')
+          line = line.replace('preview.png)','preview.png){width=90%}')
           src_list.append(line)
           src_list.append('\n')
         elif '.png' in line:
