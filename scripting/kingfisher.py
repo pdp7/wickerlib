@@ -1,3 +1,4 @@
+#!/usr/bin/python
 #
 # Kingfisher
 #
@@ -21,14 +22,10 @@
 #
 
 import sys, os, zipfile, glob, argparse, re, datetime, json, Image
+import kfconfig
 from shutil import copyfile
 from subprocess import call
 from pcbnew import *
-
-# globals for proj.json locations
-crazy_json = '/home/wicker/proj/Crazy-Circuits/Development/templates/crazy.json'
-wickerbox_json = '/home/wicker/wickerlib/templates/wickerbox.json'
-breakout_json = '/home/wicker/wickerlib/templates/breakout.json'
 
 class Comp():
   ref = ''
@@ -124,22 +121,17 @@ def update_version(name,version):
 
 def create_new_project(projname,which_template,version):
 
-  if not os.path.exists(projname):
-          os.makedirs(projname)
+  if not os.path.exists(projname): 
+    os.makedirs(projname)
 
   # copy in the appropriate json file
 
   if which_template is None:
     which_template = raw_input("what is the absolute path to the json template file? ")
-  elif 'crazy' in which_template:
-    which_template = crazy_json
-  elif 'breakout' in which_template:
-    which_template = breakout_json
-  elif 'wickerbox' in which_template:
-    which_template = wickerbox_json
   else:
-    which_template = raw_input("what is the absolute path to the json template file? ")
+    which_template = kfconfig.templates_dir+which_template+'.json'
 
+  print which_template
   call(['cp',which_template,projname+'/proj.json'])
 
   # load the proj.json file and make updates if necessary
@@ -272,17 +264,14 @@ def create_readme(filename,data):
     o.write('<!--- start title --->\n')
     o.write('# '+data['title']+' v'+data['version']+'\n')
     o.write(data['description']+'\n\n')
-    o.write('\n')
-    o.write('Updated: '+data['date_update']+'\n')
-    o.write('\n')
+    o.write('- Updated: '+data['date_update']+'\n\n')
     if 'author' in data:
-      o.write('Author: '+data['author']+'\n')
-    o.write('Website: '+data['website']+'\n')
-    o.write('Company: '+data['company']+'\n')
-    o.write('License: '+data['license']+'\n')
-    o.write('\n')
-    o.write('<!--- end title --->\n')
-    o.write('Intro text.\n\n')
+      o.write('- Author: '+data['author']+'\n')
+    o.write('- Website: '+data['website']+'\n')
+    o.write('- Company: '+data['company']+'\n')
+    o.write('- License: '+data['license']+'\n')
+    o.write('<!--- end title --->\n\n')
+    o.write('Description.\n\n')
     o.write('### Bill of Materials\n\n')
     o.write('<!--- bom start --->\n')
     o.write('<!--- bom end --->\n')
@@ -1053,6 +1042,7 @@ def update_readme(data):
         tempfile.append(line)
         if '<!--- bom start' in line:
           write_bom = True
+          tempfile.append("### Bill of Materials\n\n")
           for bomline in newbomlines:
             tempfile.append(bomline)
       else:
@@ -1210,6 +1200,9 @@ if __name__ == '__main__':
   parser.add_argument('-t',action='store',dest='template',help='only used with new project; which template?')
   args = parser.parse_args()
 
+  dirname, filename = os.path.split(os.path.abspath(__file__))
+  # dirname will give the absolute path root for /templates/proj.json and /templates/default.tex
+
   if args.new:
     if (args.mfr or args.bom or args.pdf):
       print "Creating a new project but not performing any other operations."
@@ -1218,11 +1211,11 @@ if __name__ == '__main__':
       print "Creating a new project."
     if os.path.exists(args.name):
       x = raw_input("This folder exists. Do you want to remove it and start fresh? Y/N: ")
-      if 'y' or 'Y' in x:
+      if 'y' in x or 'Y' in x:
         call(['rm','-rf',args.name])
-        print 
       else:
         print "Try again with a different project name. Exiting program."
+        exit()
     if args.version:
       version = args.version
     else:
