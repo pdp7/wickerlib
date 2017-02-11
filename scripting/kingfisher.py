@@ -82,16 +82,26 @@ class BOMline():
 
 def update_version(name,version):
 
+  # update the version in the the proj.json
+  # save the old version number
   filename = os.path.join(name,'proj.json')
   with open(filename,'r') as jsonfile:
     data = json.load(jsonfile)
 
+  old_version = 'v'+data['version']
   data['version'] = version
 
   with open(filename, 'w') as jsonfile:
     json.dump(data, jsonfile, indent=4, sort_keys=True, separators=(',', ':'))
   
+  # but we need the 'v' prefix for all other operations locally so add it
   data['version'] = 'v'+version
+
+  print "Remember! The README.md does not update version automatically."
+  print "Update it before you generate the PDF!"
+
+  update_kicad_pcb_title_block(data)
+  update_sch_title_block(data)
 
 ###########################################################
 #
@@ -179,9 +189,27 @@ def create_new_project(projname,which_template,version):
   call(['cp',templatesrc+'.sch',newpath+'.sch'])
   call(['cp',data['template_dir']+'/'+data['template_kicad']+'/fp-lib-table',data['projname']+'/fp-lib-table'])
 
-  # replace entire title block of .kicad_pcb file 
+  update_kicad_pcb_title_block(data)
+  update_sch_title_block(data)
 
-  f = newpath+'.kicad_pcb'
+###########################################################
+#
+#                update_kicad_pcb_title_block
+#
+# inputs:
+# - data object
+# 
+# what it does:
+# - reads in the existing file
+# - applies the current data to the entire title block
+# - writes the file back out
+#
+# returns nothing
+# 
+###########################################################
+
+def update_kicad_pcb_title_block(data):
+  f = data['projname']+'/'+data['projname']+'.kicad_pcb'
   f_temp = []
   title_flag = False
 
@@ -211,9 +239,25 @@ def create_new_project(projname,which_template,version):
     for line in f_temp:
       fixfile.write(line)
 
-  # replace entire title block of .sch file
+###########################################################
+#
+#                update_sch_title_block
+#
+# inputs:
+# - data object
+# 
+# what it does:
+# - reads in the existing file
+# - applies the current data to the entire title block
+# - writes the file back out
+#
+# returns nothing
+# 
+###########################################################
 
-  f = newpath+'.sch'
+def update_sch_title_block(data):
+
+  f = data['projname']+'/'+data['projname']+'.sch'
   f_temp = []
   title_flag = False
 
@@ -1230,14 +1274,12 @@ if __name__ == '__main__':
       with open(args.name+'/proj.json') as jfile:
         if args.version:
           update_version(args.name,args.version)
-          print "Remember! The README.md does not update version automatically."
-          print "Update it before you generate the PDF!"
         data = json.load(jfile)
     else:
       print "This project is missing a proj.json file. Leaving program."
       exit()
 
-    print 'This is the',data['title'],'project:'
+    print '\nThis is the',data['title'],'project:\n'
     print data['description']+'\n'
 
     # all plotting is done from the same dir as the kicad files
