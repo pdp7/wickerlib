@@ -17,3 +17,6 @@
 *.swp
 ref
 *.pyc
+
+# Temp testing dir
+testing

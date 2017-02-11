@@ -818,6 +818,7 @@ def create_component_list_from_netlist(data):
 # - data object
 #
 # what it does:
+# - removes all existing bom files in that directory
 # - create a components list organized by refdes
 # - figures out which vendors are necessary
 # - create the master BOM object made up of BOM lines
@@ -832,6 +833,15 @@ def create_bill_of_materials(data):
 
   if not os.path.exists(data['bom_dir']):
     os.makedirs(data['bom_dir'])
+
+  # remove all files in the output dir
+  cwd = os.getcwd()
+  os.chdir(data['bom_dir'])
+  filelist = glob.glob('*')
+  for f in filelist:
+    os.remove(f)
+  os.chdir('..')
+  print os.getcwd()
 
   components = create_component_list_from_netlist(data)
 
