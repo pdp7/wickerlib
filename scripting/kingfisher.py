@@ -1025,7 +1025,8 @@ def create_zip_files(data):
               '*.gts','*.gbr','*.gko','*.gtp','*.gbp',):
     files.extend(glob.glob(os.path.join(data['gerbers_dir'], ext)))
 
-  os.chdir(data['gerbers_dir'])
+  if os.path.exists(data['gerbers_dir']):
+    os.chdir(data['gerbers_dir'])
   ZipFile = zipfile.ZipFile(data['projname']+'-v'+data['version']+"-gerbers.zip", "w")
   for f in files:
     ZipFile.write(os.path.basename(f))
@@ -1222,15 +1223,22 @@ def create_release_zipfile(data):
 
   release_zip = zipfile.ZipFile(data['projname']+'-v'+data['version']+'.zip','w')
 
-  os.chdir(data['bom_dir'])
-  release_zip.write(data['projname']+'-v'+data['version']+'-bom-seeed.csv')
+  if os.path.exists(data['bom_dir']):
+    os.chdir(data['bom_dir'])
+    if os.path.exists(data['projname']+'-v'+data['version']+'-bom-seeed.csv'):
+      release_zip.write(data['projname']+'-v'+data['version']+'-bom-seeed.csv')
+    os.chdir('..')
 
-  os.chdir('../'+data['gerbers_dir'])
-  release_zip.write(data['projname']+'-v'+data['version']+'-gerbers.zip')
-  release_zip.write(data['projname']+'-v'+data['version']+'-stencil.zip') 
-  
-  os.chdir('..')
-  release_zip.write(data['projname']+'-v'+data['version']+'.pdf') 
+  if os.path.exists(data['gerbers_dir']):
+    os.chdir(data['gerbers_dir'])
+    if os.path.exists(data['projname']+'-v'+data['version']+'-gerbers.zip'):
+      release_zip.write(data['projname']+'-v'+data['version']+'-gerbers.zip')
+    if os.path.exists(data['projname']+'-v'+data['version']+'-stencil.zip'):
+      release_zip.write(data['projname']+'-v'+data['version']+'-stencil.zip') 
+    os.chdir('..')
+
+  if os.path.exists(data['projname']+'-v'+data['version']+'.pdf'):
+    release_zip.write(data['projname']+'-v'+data['version']+'.pdf') 
 
 ###########################################################
 #
@@ -1319,11 +1327,11 @@ if __name__ == '__main__':
 
       create_assembly_diagrams(data['projname'],data['gerbers_dir'],width_pixels, height_pixels) 
       create_image_previews(data['projname'],data['gerbers_dir'],width_pixels, height_pixels) 
+      create_zip_files(data)
       
     if args.bom:
       print "Creating the bill of materials, which will update the README."
       create_bill_of_materials(data)
-      create_zip_files(data)
       create_pos_file()
       update_readme(data)
 
