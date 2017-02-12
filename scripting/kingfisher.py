@@ -114,7 +114,7 @@ def update_version(name,version):
 # 
 # what it does:
 # - creates a subfolder called projname
-#   if one exists, it prompts to overwrite. this is messy.
+#   if one exists, it prompts to overwrite. 
 # - creates the json file by copying existing template
 # - prompts for additional information
 # - creates a data dict to hold all that project information
@@ -847,8 +847,8 @@ def create_bill_of_materials(data):
 
   bom_outfile_csv = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-master.csv'
   bom_outfile_seeed_csv = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-seeed.csv'
+  bom_outfile_readable_csv = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-readable.csv'
   bom_outfile_md = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-readme.md'
-  #bom_outfile_rw.csv = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-rw.csv'
   vendors = []
   optional_fields = []
   bom = []
@@ -936,6 +936,30 @@ def create_bill_of_materials(data):
             obom.write(','+bf[1])
       obom.write('\n')
 
+  # Create the master readable output
+
+  outfile = bom_outfile_readable_csv
+  
+  with open(outfile,'w') as obom:
+    obom.write('Ref,Qty,Description,MF,MF PN,S1,S1_PN\n')
+    for b in bom:
+      obom.write(b.refs+',')
+      obom.write(str(b.qty)+',')
+
+      for bf in b.fields:
+        if bf[0] == 'Description':
+          bf_desc = bf[1]
+        if bf[0] == 'MF_Name':
+          bf_mf_name = bf[1]
+        if bf[0] == 'MF_PN':
+          bf_mf_pn = bf[1]
+        if bf[0] == 'S1_Name':
+          bf_s1_name = bf[1]
+        if bf[0] == 'S1_PN':
+          bf_s1_pn = bf[1]
+
+      obom.write(bf_desc+','+bf_mf_name+','+bf_mf_pn+','+bf_s1_name+','+bf_s1_pn+'\n')
+
   # Create the master Seeed output
 
   outfile = bom_outfile_seeed_csv
@@ -1017,7 +1041,7 @@ def create_bill_of_materials(data):
 
 def create_zip_files(data):
 
-  # Create zip file for OSH Park and Seeed manufacturing
+  # Create zip file for OSH Park and generic manufacturing
 
   files = []
 
@@ -1225,8 +1249,8 @@ def create_release_zipfile(data):
 
   if os.path.exists(data['bom_dir']):
     os.chdir(data['bom_dir'])
-    if os.path.exists(data['projname']+'-v'+data['version']+'-bom-seeed.csv'):
-      release_zip.write(data['projname']+'-v'+data['version']+'-bom-seeed.csv')
+    if os.path.exists(data['projname']+'-v'+data['version']+'-bom-readable.csv'):
+      release_zip.write(data['projname']+'-v'+data['version']+'-bom-readable.csv')
     os.chdir('..')
 
   if os.path.exists(data['gerbers_dir']):
