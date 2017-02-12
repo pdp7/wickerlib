@@ -1028,7 +1028,7 @@ def create_bill_of_materials(data):
 
 ###########################################################
 #
-#                   create_zip_files 
+#                   create_mfr_zip_files 
 #
 # inputs:
 # - data object
@@ -1039,7 +1039,7 @@ def create_bill_of_materials(data):
 #
 ###########################################################
 
-def create_zip_files(data):
+def create_mfr_zip_files(data):
 
   # Create zip file for OSH Park and generic manufacturing
 
@@ -1351,7 +1351,7 @@ if __name__ == '__main__':
 
       create_assembly_diagrams(data['projname'],data['gerbers_dir'],width_pixels, height_pixels) 
       create_image_previews(data['projname'],data['gerbers_dir'],width_pixels, height_pixels) 
-      create_zip_files(data)
+      create_mfr_zip_files(data)
       
     if args.bom:
       print "Creating the bill of materials, which will update the README."
