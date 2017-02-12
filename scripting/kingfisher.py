@@ -422,30 +422,70 @@ def plot_gerbers_and_drills(projname, plot_dir):
   popt.SetUseAuxOrigin(False)  
 
   # note: the middle value in plot_plan is an integer layer number:
-  # F.Cu      0
-  # B.Cu      31
-  # F.Paste   35
-  # B.Paste   34
-  # F.Silk    37
-  # B.Silk    36
-  # F.Mask    39
-  # B.Mask    38
-  # Edge.Cuts 44
-  # F.Fab     49
-  # B.Fab     48
-
+  # 0 F.Cu
+  # 1 In1.Cu
+  # 2 In2.Cu
+  # 3 In3.Cu
+  # 4 In4.Cu
+  # 5 In5.Cu
+  # 6 In6.Cu
+  # 7 In7.Cu
+  # 8 In8.Cu
+  # 9 In9.Cu
+  # 10 In10.Cu
+  # 11 In11.Cu
+  # 12 In12.Cu
+  # 13 In13.Cu
+  # 14 In14.Cu
+  # 15 In15.Cu
+  # 16 In16.Cu
+  # 17 In17.Cu
+  # 18 In18.Cu
+  # 19 In19.Cu
+  # 20 In20.Cu
+  # 21 In21.Cu
+  # 22 In22.Cu
+  # 23 In23.Cu
+  # 24 In24.Cu
+  # 25 In25.Cu
+  # 26 In26.Cu
+  # 27 In27.Cu
+  # 28 In28.Cu
+  # 29 In29.Cu
+  # 30 In30.Cu
+  # 31 B.Cu
+  # 32 B.Adhes
+  # 33 F.Adhes
+  # 34 B.Paste
+  # 35 F.Paste
+  # 36 B.SilkS
+  # 37 F.SilkS
+  # 38 B.Mask
+  # 39 F.Mask
+  # 40 Dwgs.User
+  # 41 Cmts.User
+  # 42 Eco1.User
+  # 43 Eco2.User
+  # 44 Edge.Cuts
+  # 45 Margin
+  # 46 B.CrtYd
+  # 47 F.CrtYd
+  # 48 B.Fab
+  # 49 F.Fab
+   
   plot_plan = [
-      ( "F.Cu", F_Cu, "Top layer" ), 
-      ( "B.Cu", B_Cu, "Bottom layer" ),
+      ( "F.Cu", F_Cu, "Copper top" ), 
+      ( "B.Cu", B_Cu, "Copper bottom" ),
       ( "F.Paste", F_Paste, "Paste top" ),
-      ( "B.Paste", B_Paste, "Paste Bottom" ),
-      ( "F.Silk", F_SilkS, "Silk top" ),
-      ( "B.Silk", B_SilkS, "Silk top" ),
+      ( "B.Paste", B_Paste, "Paste bottom" ),
+      ( "F.SilkS", F_SilkS, "Silk top" ),
+      ( "B.SilkS", B_SilkS, "Silk top" ),
       ( "F.Mask", F_Mask, "Mask top" ),
       ( "B.Mask", B_Mask, "Mask bottom" ),
       ( "Edge.Cuts", Edge_Cuts, "Board outline" ),
       ( "F.Fab", F_Fab, "Assembly top" ),
       ( "B.Fab", B_Fab, "Assembly bottom" ),
+      ( "Dwgs.User", Dwgs_User, "Fab notes" ),
   ]
 
   # generate all gerbers
@@ -489,6 +529,9 @@ def plot_gerbers_and_drills(projname, plot_dir):
   drlwriter.SetFormat( metricFmt )
   drlwriter.CreateDrillandMapFilesSet( pctl.GetPlotDirName(), genDrl, genMap );
 
+  # Create fab notes file
+  
+
   # Create the drill statistics report
 
   rptfn = pctl.GetPlotDirName() + 'drill_report.rpt'
@@ -497,8 +540,12 @@ def plot_gerbers_and_drills(projname, plot_dir):
   # rename the drill and outline files
 
   path = os.path.join(plot_dir,projname)
+  call(['gerbv','-x','rs274x',path+'-drl_map.gbr',path+'-Dwgs.User.gbr','-o',path+'-FabNotes.gbr'])
+  call(['rm',path+'-Dwgs.User.gbr',path+'-drl_map.gbr'])
   call(['mv',path+'-Edge.Cuts.gm1',path+'-Edge.Cuts.gko'])
   call(['mv',path+'.drl',path+'.xln'])
+  call(['mv',path+'-F.Fab.gbr',path+'-F.Assembly.gba'])
+  call(['mv',path+'-B.Fab.gbr',path+'-B.Assembly.gba'])
 
 ##########################################################
 #
@@ -683,7 +730,7 @@ def create_image_previews(projname,plotdir,width_pixels,height_pixels):
     pf.write("(gerbv-file-version! \"2.0A\")\n")
     pf.write("(define-layer! 4 (cons \'filename \""+projname+"-F.Cu.gtl\")(cons \'visible #t)(cons \'color #(59110 51400 0)))\n")
     pf.write("(define-layer! 3 (cons \'filename \""+projname+"-F.Mask.gts\")(cons \'inverted #t)(cons \'visible #t)(cons \'color #(21175 0 23130)))\n")
-    pf.write("(define-layer! 2 (cons \'filename \""+projname+"-F.Silk.gto\")(cons \'visible #t)(cons \'color #(65535 65535 65535)))\n")
+    pf.write("(define-layer! 2 (cons \'filename \""+projname+"-F.SilkS.gto\")(cons \'visible #t)(cons \'color #(65535 65535 65535)))\n")
     pf.write("(define-layer! 1 (cons \'filename \""+projname+"-Edge.Cuts.gko\")(cons \'visible #t)(cons \'color #(0 0 0)))\n")
     pf.write("(define-layer! 0 (cons \'filename \""+projname+".xln\")(cons \'visible #t)(cons \'color #(65535 65535 65535))(cons \'attribs (list (list \'autodetect \'Boolean 1) (list \'zero_supression \'Enum 1) (list \'units \'Enum 0) (list \'digits \'Integer 4))))\n")
     pf.write("(define-layer! -1 (cons \'filename \""+cwd+"\")(cons \'visible #f)(cons \'color #(0 0 0)))\n")
@@ -707,7 +754,7 @@ def create_image_previews(projname,plotdir,width_pixels,height_pixels):
     pf.write("(gerbv-file-version! \"2.0A\")\n")
     pf.write("(define-layer! 4 (cons \'filename \""+projname+"-B.Cu.gbl\")(cons \'visible #t)(cons \'color #(59110 51400 0)))\n")
     pf.write("(define-layer! 3 (cons \'filename \""+projname+"-B.Mask.gbs\")(cons \'inverted #t)(cons \'visible #t)(cons \'color #(21175 0 23130)))\n")
-    pf.write("(define-layer! 2 (cons \'filename \""+projname+"-B.Silk.gbo\")(cons \'visible #t)(cons \'color #(65535 65535 65535)))\n")
+    pf.write("(define-layer! 2 (cons \'filename \""+projname+"-B.SilkS.gbo\")(cons \'visible #t)(cons \'color #(65535 65535 65535)))\n")
     pf.write("(define-layer! 1 (cons \'filename \""+projname+"-Edge.Cuts.gko\")(cons \'visible #t)(cons \'color #(0 0 0)))\n")
     pf.write("(define-layer! 0 (cons \'filename \""+projname+".xln\")(cons \'visible #t)(cons \'color #(0 0 0))(cons \'attribs (list (list \'autodetect \'Boolean 1) (list \'zero_supression \'Enum 1) (list \'units \'Enum 0) (list \'digits \'Integer 4))))\n")
     pf.write("(define-layer! -1 (cons \'filename \""+cwd+"\")(cons \'visible #f)(cons \'color #(0 0 0)))\n")
