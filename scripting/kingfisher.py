@@ -413,7 +413,7 @@ def plot_gerbers_and_drills(projname, plot_dir):
   popt.SetUseGerberProtelExtensions(True)
   popt.SetExcludeEdgeLayer(True)
   popt.SetScale(1)
-  popt.SetSubtractMaskFromSilk(False)
+  popt.SetSubtractMaskFromSilk(True)
 
   # this option in the reference example said 'must be set true'
   # but all the PDFs were coming out empty; is this because 
