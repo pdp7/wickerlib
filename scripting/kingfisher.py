@@ -1123,11 +1123,10 @@ def update_readme(data):
 # - copies over the README to the temporary file, 
 #   ignoring anything in the title 
 # - uses the appropriate LaTeX template
+# - adjusts the width of the png files by input arg
 # - calls pandoc to create the PDF from temporary file
 # - remove the temporary file 
 # 
-# TODO: make adjustment to the image width by argument
-#
 # returns nothing
 #
 ###########################################################
@@ -1151,25 +1150,25 @@ def create_pdf(data):
         if 'assembly.png' in line:
           src_list.append('\ \n')
           src_list.append('\n')
-          line = line.replace('assembly.png)','assembly.png){width=80%}')
+          line = line.replace('assembly.png)','assembly.png){width='+str(data["wa"])+'%}')
           src_list.append(line)
           src_list.append('\n')
         elif 'schematic.png' in line:
           src_list.append('\ \n')
           src_list.append('\n')
-          line = line.replace('schematic.png)','schematic.png){width=60%}')
+          line = line.replace('schematic.png)','schematic.png){width='+str(data["ws"])+'%}')
           src_list.append(line)
           src_list.append('\n')
         elif 'preview.png' in line:
           src_list.append('\ \n')
           src_list.append('\n')
-          line = line.replace('preview.png)','preview.png){width=90%}')
+          line = line.replace('preview.png)','preview.png){width='+str(data["wp"])+'%}')
           src_list.append(line)
           src_list.append('\n')
         elif '.png' in line:
           src_list.append('\ \n')
           src_list.append('\n')
-          line = line.replace('.png)','.png){width=48%}')
+          line = line.replace('.png)','.png){width='+str(data["wo"])+'%}')
           src_list.append(line)
           src_list.append('\ \n')
           src_list.append('\n')
@@ -1254,6 +1253,10 @@ if __name__ == '__main__':
   parser.add_argument('-b','--bom',action='store_true',default=False,dest='bom',help='create bill of materials output files')
   parser.add_argument('-p','--pdf',action='store_true',default=False,dest='pdf',help='create output PDF file')
   parser.add_argument('-v',action='store',dest='version',help='update existing version in proj.json')
+  parser.add_argument('-wa',action='store',dest='width_assembly_png',help='integer value (1-100) of pdf assembly.png percent width.')
+  parser.add_argument('-wp',action='store',dest='width_preview_png',help='integer value (1-100) of pdf preview.png percent width.')
+  parser.add_argument('-ws',action='store',dest='width_schematic_png',help='integer value (1-100) of pdf schematic.png percent width.')
+  parser.add_argument('-wo',action='store',dest='width_other_png',help='integer value (1-100) of pdf other png percent width.')
   parser.add_argument('-t',action='store',dest='template',help='only used with new project; which template?')
   args = parser.parse_args()
 
@@ -1326,6 +1329,35 @@ if __name__ == '__main__':
 
     if args.pdf: 
       print "Creating or updating the PDF."
+
+      # accept user input for percent width of assembly.png in pdf
+      if args.width_assembly_png and 1 <= int(args.width_assembly_png) <= 100:
+        data['wa'] = args.width_assembly_png
+      else:
+        #print "Arg for width of assembly.png in PDF not valid or not given. Using 50%."
+        data['wa'] = kfconfig.default_assembly_image_width
+
+      # accept user input for percent width of preview.png in pdf
+      if args.width_preview_png and int(args.width_preview_png) in range (1,100):
+        data['wp'] = args.width_preview_png
+      else:
+        #print "Arg for width of preview.png in PDF not valid or not given. Using 50%."
+        data['wp'] = kfconfig.default_preview_image_width
+
+      # accept user input for percent width of schematic.png in pdf
+      if args.width_schematic_png and int(args.width_schematic_png) in range (1,100):
+        data['ws'] = args.width_schematic_png
+      else:
+        #print "Arg for width of schematic.png in PDF not valid or not given. Using 50%."
+        data['ws'] = kfconfig.default_schematic_image_width
+        
+      # accept user input for percent width of all other .png in pdf
+      if args.width_other_png and int(args.width_other_png) in range (1,100):
+        data['wo'] = args.width_other_png
+      else:
+        #print "Arg for width of other .png in PDF not valid or not given. Using 50%."
+        data['wo'] = kfconfig.default_other_image_width
+
       create_pdf(data)
       create_release_zipfile(data)
 
