@@ -626,8 +626,8 @@ def get_board_size(projname,plot_dir):
 #
 #            create_assembly_diagrams                      
 #
-# note: the assembly diagrams are created from F.Fab and 
-#       B.Fab layers. 
+# note: the assembly diagrams are created from F.Assembly and 
+#       B.Assembly layers. 
 # todo: support using another layer instead
 #
 # inputs:
@@ -638,7 +638,7 @@ def get_board_size(projname,plot_dir):
 #  - width of board in pixels
 #
 # what it does:
-# - uses gerbv to export F.Fab and B.Fab images  
+# - uses gerbv to export F.Assembly and B.Assembly images  
 # - remove empty layers 
 # - create the output file from non-empty layers,
 #   stitching them together side by side depending
@@ -653,8 +653,8 @@ def create_assembly_diagrams(projname,plotdir,width,height):
   width = str(width)
   height = str(height)
 
-  call(['gerbv','-x','png',plotdir+'/'+projname+'-F.Fab.gbr','-b#ffffff','-f#000000','-w',width+'x'+height,'-o','assembly-top.png'])
-  call(['gerbv','-x','png',plotdir+'/'+projname+'-B.Fab.gbr','-b#ffffff','-f#000000','-w',width+'x'+height,'-o','assembly-bottom.png'])
+  call(['gerbv','-x','png',plotdir+'/'+projname+'-F.Assembly.gba','-b#ffffff','-f#000000','-w',width+'x'+height,'-o','assembly-top.png'])
+  call(['gerbv','-x','png',plotdir+'/'+projname+'-B.Assembly.gba','-b#ffffff','-f#000000','-w',width+'x'+height,'-o','assembly-bottom.png'])
 
   img = Image.open('assembly-top.png')
   extrema = img.convert("L").getextrema()
@@ -1044,19 +1044,20 @@ def create_bill_of_materials(data):
         which_line = 1
 
       for f in line.fields:
-        if f[1] == v.capitalize():
-          md_line_string = '|'+line.refs+'|'+str(line.qty)+'|'
-          csv_line_string = line.refs+','+str(line.qty)+','
-          for i in line.fields:
-            if i[0] == 'Description':
-              md_line_string = md_line_string + i[1]+'|'
-              csv_line_string = csv_line_string + i[1]+','
-          for i in line.fields:
-            if i[0] == 'S1_PN':
-              md_line_string = md_line_string+i[1]+'|'
-              csv_line_string = csv_line_string+i[1] 
-          outbom_list.append(md_line_string)
-          outcsv_list.append(csv_line_string)
+        if f[1].split(' ')[0] == v.capitalize().split(' ')[0]:
+          if f[0] == 'S1_Name':
+            md_line_string = '|'+line.refs+'|'+str(line.qty)+'|'
+            csv_line_string = line.refs+','+str(line.qty)+','
+            for i in line.fields:
+              if i[0] == 'Description':
+                md_line_string = md_line_string + i[1]+'|'
+                csv_line_string = csv_line_string + i[1]+','
+            for i in line.fields:
+              if i[0] == 'S1_PN':
+                md_line_string = md_line_string+i[1]+'|'
+                csv_line_string = csv_line_string+i[1] 
+            outbom_list.append(md_line_string)
+            outcsv_list.append(csv_line_string)
 
     outbom_list.append('')
 
@@ -1370,6 +1371,11 @@ if __name__ == '__main__':
         if args.version:
           update_version(args.name,args.version)
         data = json.load(jfile)
+        now = datetime.datetime.now()
+        data['date_update'] = now.strftime('%d %b %Y')
+      with open(args.name+'/proj.json','w') as jsonfile:
+        json.dump(data, jsonfile, indent=4, sort_keys=True, separators=(',', ':'))
+ 
     else:
       print "This project is missing a proj.json file. Leaving program."
       exit()
