@@ -1,0 +1,22 @@
+Drill report for throwie-layers.kicad_pcb
+Created on Sat Apr  1 19:42:10 2017
+
+Copper Layer Stackup:
+    =============================================================
+    L1 :  F.Cu                      front
+    L2 :  B.Cu                      back
+
+
+Drill file 'throwie-layers.drl' contains
+    plated through holes:
+    =============================================================
+    T1  1.00mm  0.039"  (2 holes)
+
+    Total plated holes count 2
+
+
+Not plated through holes are merged with plated holes
+    unplated through holes:
+    =============================================================
+
+    Total unplated holes count 0
