@@ -113,6 +113,11 @@ D CAP CER 0.022UF 50V X7R 0603
 F http://www.samsungsem.com/kr/support/product-search/mlcc/CL10B223KB8SFNC.jsp
 $ENDCMP
 #
+$CMP CAP-CER-0.022UF-50V-X7R-RADIAL
+D CAP CER 0.022UF 50V X7R 0603
+F http://www.samsungsem.com/kr/support/product-search/mlcc/CL10B223KB8SFNC.jsp
+$ENDCMP
+#
 $CMP CAP-CER-0.033UF-50V-C0G-RADIAL
 D CAP CER 0.033UF 50V C0G RADIAL
 F https://product.tdk.com/info/en/documents/catalog/leadmlcc_conventional_fk_en.pdf
@@ -454,6 +459,10 @@ $ENDCMP
 $CMP DIODE-GEN-PURP-50V-1A-1N4001-DO41
 D DIODE GEN PURP 50V 1A 1N4001 DO41
 F http://www.mccsemi.com/up_pdf/1N4001-1N4007(DO-41).pdf
+$ENDCMP
+#
+$CMP DIODE-GEN-PURP-75V-250MA-1N4148WTR-SOD123
+D DIODE GEN PURP 75V 250MA 1N4148WTR SOD123
 $ENDCMP
 #
 $CMP DIODE-GEN-PURP-75V-250MA-BAS16-SOD323
@@ -1407,6 +1416,10 @@ D MOSFET P-CH 60V 0.9A SOT23-3
 F http://www.diodes.com/_files/datasheets/ZXMP6A13F.pdf
 $ENDCMP
 #
+$CMP RES-0.0-JUMPER-1/10W-0603
+D RES SMD 0.0 OHM JUMPER 1/10W 0603
+$ENDCMP
+#
 $CMP RES-0.0-JUMPER-1/8W-0603
 D RES SMD 0.0 OHM JUMPER 1/8W 0603
 F http://www.vishay.com/docs/28705/mcx0x0xpro.pdf
@@ -1510,6 +1523,10 @@ $ENDCMP
 $CMP RES-1K-1%-1/10W-0603
 D RES SMD 1K OHM 1% 1/10W 0603
 F http://media.digikey.com/pdf/Data%20Sheets/Samsung%20PDFs/RC_Series_ds.pdf
+$ENDCMP
+#
+$CMP RES-1K-1%-1/8W-0805
+D RES SMD 1K OHM 1% 1/8W 0805
 $ENDCMP
 #
 $CMP RES-1K-5%-1/4W-TH-CFMINI
@@ -1781,6 +1798,10 @@ K POWER, PWR
 $ENDCMP
 #
 $CMP VBAT
+K POWER, PWR
+$ENDCMP
+#
+$CMP VCC
 K POWER, PWR
 $ENDCMP
 #
