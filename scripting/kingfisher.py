@@ -319,6 +319,9 @@ def create_readme(filename,data):
     o.write('<!--- bom start --->\n')
     o.write('### Bill of Materials\n\n')
     o.write('<!--- bom end --->\n')
+    o.write('<!--- assy start --->\n')
+    o.write('### Assembly Info for Quoting\n\n')
+    o.write('<!--- assy end --->\n')
     o.write('![Assembly Diagram](assembly.png)\n\n')
     o.write('![Gerber Preview](preview.png)\n\n')
 
@@ -1177,35 +1180,74 @@ def update_readme(data):
     create_readme(readme,data)
 
   # now update the README
+  ## if the bom flag was passed in, update the bom info
 
-  newbomlinefile = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-readme.md'
+  if args.bom:
+    newlinefile = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-readme.md'
+    tempfile = []
+    newlines = []
 
-  tempfile = []
-  newbomlines = []
+    with open(newlinefile,'r') as f:
+      for line in f:
+        newlines.append(line)
 
-  with open(newbomlinefile,'r') as f:
-    for line in f:
-      newbomlines.append(line)
+      write_bom = False
 
-  write_bom = False
+      with open(readme,'r') as f:
+        for line in f:
+          if 'Updated: ' in line:
+            tempfile.append('Updated: '+data['date_update']+'\n')
+          else:
+            if write_bom is False:
+              tempfile.append(line)
+              if '<!--- bom start' in line:
+                write_bom = True
+                tempfile.append("### Bill of Materials\n\n")
+                for bomline in newlines:
+                  tempfile.append(bomline)
+            else:
+              if '<!--- bom end' in line:
+                tempfile.append(line)
+                write_bom = False
 
-  with open(readme,'r') as f:
-    for line in f:
-      if write_bom is False:
-        tempfile.append(line)
-        if '<!--- bom start' in line:
-          write_bom = True
-          tempfile.append("### Bill of Materials\n\n")
-          for bomline in newbomlines:
-            tempfile.append(bomline)
-      else:
-        if '<!--- bom end' in line:
-          tempfile.append(line)
-          write_bom = False
+      with open(readme,'w') as f:
+        for line in tempfile:
+          f.write(line)
 
-  with open(readme,'w') as f:
-    for line in tempfile:
-      f.write(line)
+  ## if the assembly flag was passed in, update the assembly info
+
+  elif args.assy:
+    newlinefile = data['assy_dir']+'/'+data['projname']+'-v'+data['version']+'-assy-readme.md'
+
+    tempfile = []
+    newlines = []
+
+    with open(newlinefile,'r') as f:
+      for line in f:
+        newlines.append(line)
+
+      write_assy = False
+
+      with open(readme,'r') as f:
+        for line in f:
+          if 'Updated: ' in line:
+            tempfile.append('Updated: '+data['date_update']+'\n')
+          else:
+            if write_assy is False:
+              tempfile.append(line)
+              if '<!--- assy start' in line:
+                write_assy = True
+                tempfile.append("### Assembly Info for Quoting\n\n")
+                for assyline in newlines:
+                  tempfile.append(assyline)
+            else:
+              if '<!--- assy end' in line:
+                tempfile.append(line)
+                write_assy = False
+
+      with open(readme,'w') as f:
+        for line in tempfile:
+          f.write(line)
 
 ###########################################################
 #
@@ -1355,6 +1397,7 @@ if __name__ == '__main__':
   parser.add_argument('-m','--mfr',action='store_true',default=False,dest='mfr',help='create manufacturing output files')
   parser.add_argument('-b','--bom',action='store_true',default=False,dest='bom',help='create bill of materials output files')
   parser.add_argument('-p','--pdf',action='store_true',default=False,dest='pdf',help='create output PDF file')
+  parser.add_argument('-a','--assy',action='store_true',default=False,dest='assy',help='print assembly info')
   parser.add_argument('-v',action='store',dest='version',help='update existing version in proj.json')
   parser.add_argument('-wa',action='store',dest='width_assembly_png',help='integer value (1-100) of pdf assembly.png percent width.')
   parser.add_argument('-wp',action='store',dest='width_preview_png',help='integer value (1-100) of pdf preview.png percent width.')
@@ -1395,7 +1438,7 @@ if __name__ == '__main__':
           update_version(args.name,args.version)
         data = json.load(jfile)
         now = datetime.datetime.now()
-        data['date_update'] = now.strftime('%d %b %Y')
+        data['date_update'] = now.strftime('%-d %b %Y')
       with open(args.name+'/proj.json','w') as jsonfile:
         json.dump(data, jsonfile, indent=4, sort_keys=True, separators=(',', ':'))
  
@@ -1433,6 +1476,11 @@ if __name__ == '__main__':
       print "Creating the bill of materials, which will update the README."
       create_bill_of_materials(data)
       create_pos_file()
+      update_readme(data)
+
+    if args.assy:
+      print "Preparing files for assembly quotes. Currently supports:\n"
+      print "  -- MacroFab\n  -- Seeed/Fusion\n  -- Tempo Automation\n  -- Small Batch Assembly\n"
       update_readme(data)
 
     if args.pdf: 
