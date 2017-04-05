@@ -580,7 +580,6 @@ def get_board_size(projname,plot_dir):
 
   fp = os.path.join(plot_dir,projname+'-Edge.Cuts.gko')
   
-  print fp 
   xmin = None
   xmax = None
   ymin = None
@@ -1182,6 +1181,54 @@ def create_pos_file():
 
 ###########################################################
 #
+#             create_assembly_files
+# 
+# inputs: 
+# - data object
+#
+# what it does:
+# - removes all existing assembly files in that directory
+#
+# - create a components list organized by refdes
+# - figures out which vendors are necessary
+# - create the master BOM object made up of BOM lines
+# - create a master CSV file with all possible info 
+# - create a CSV file in the Seeed format
+# - create CSV files for each vendor
+# - create one Markdown file with tables
+# 
+###########################################################
+
+def create_assembly_files(data):
+
+  print "Creating assembly files for PCB+Assembly"
+
+  if not os.path.exists(data['assy_dir']):
+    os.makedirs(data['assy_dir'])
+
+  # remove all files in the output dir
+  cwd = os.getcwd()
+  os.chdir(data['assy_dir'])
+  filelist = glob.glob('*')
+  for f in filelist:
+    os.remove(f)
+  os.chdir('..')
+
+  assy_outfile_md = data['assy_dir']+'/'+data['projname']+'-v'+data['version']+'-assy-readme.md'
+  outassy_list = []
+
+  # get the board size string
+  board_dims = get_board_size(data['projname'],data['gerbers_dir'])
+  outassy_list.append(get_board_size_string(board_dims)+'\n')
+
+  # write to the readable markdown file that will end up 
+  # appended in the github repo README.md
+  with open(assy_outfile_md,'w') as oassy:
+    for line in outassy_list:
+      oassy.write(line+'\n')
+ 
+###########################################################
+#
 #                     update_readme
 #
 # inputs:
@@ -1246,9 +1293,6 @@ def update_readme(data):
 
     tempfile = []
     newlines = []
-
-    board_dims = get_board_size(data['projname'],data['gerbers_dir'])
-    newlines.append(get_board_size_string(board_dims)+'\n\n')
 
     with open(newlinefile,'r') as f:
       for line in f:
@@ -1500,7 +1544,7 @@ if __name__ == '__main__':
     if args.assy:
       print "Preparing files for assembly quotes. Currently supports:\n"
       print "  -- MacroFab\n  -- Seeed/Fusion\n  -- Tempo Automation\n  -- Small Batch Assembly\n"
-
+      create_assembly_files(data)
       update_readme(data)
 
     if args.pdf: 
