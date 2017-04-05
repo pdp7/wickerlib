@@ -623,6 +623,33 @@ def get_board_size(projname,plot_dir):
 
   return ret_list
 
+##########################################################
+#
+#          get_board_size_string
+#
+# inputs:
+#  - board_dims list
+#
+# what it does:
+# - builds a string out of the board_dims list
+#
+# returns:
+# - a string
+#   
+###########################################################
+
+def get_board_size_string(board_dims):
+  width_in = board_dims[0]
+  height_in = board_dims[1]
+  width_mm = board_dims[2]
+  height_mm = board_dims[3]
+  width_pixels = board_dims[4]
+  height_pixels = board_dims[5]
+
+  boardsize = '\nBoard size is '+width_in+' x '+height_in+' inches (' \
+        +width_mm+' x '+height_mm+' mm)'
+  return boardsize
+
 ###########################################################
 #
 #            create_assembly_diagrams                      
@@ -1040,13 +1067,10 @@ def create_bill_of_materials(data):
   with open(outfile,'w') as obom:
     obom.write('Location,MPN/Seeed SKU,Quantity\n')
     for b in bom:
-      obom.write(b.refs+',')
-
       for bf in b.fields:
         if bf[0] == 'MF_PN':
-          obom.write(bf[1]+',')
+          obom.write(b.refs+','+bf[1]+','+str(b.qty)+'\n')
 
-      obom.write(str(b.qty)+'\n')
 
   # Create a markdown file for github with each vendor
   # given its own table for easy reading
@@ -1187,6 +1211,7 @@ def update_readme(data):
     tempfile = []
     newlines = []
 
+
     with open(newlinefile,'r') as f:
       for line in f:
         newlines.append(line)
@@ -1221,6 +1246,9 @@ def update_readme(data):
 
     tempfile = []
     newlines = []
+
+    board_dims = get_board_size(data['projname'],data['gerbers_dir'])
+    newlines.append(get_board_size_string(board_dims)+'\n\n')
 
     with open(newlinefile,'r') as f:
       for line in f:
@@ -1457,16 +1485,7 @@ if __name__ == '__main__':
       print "Creating the manufacturing file outputs."
       plot_gerbers_and_drills(data['projname'],data['gerbers_dir'])
       board_dims = get_board_size(data['projname'],data['gerbers_dir'])
-      
-      width_in = board_dims[0]
-      height_in = board_dims[1]
-      width_mm = board_dims[2]
-      height_mm = board_dims[3]
-      width_pixels = board_dims[4]
-      height_pixels = board_dims[5]
-
-      print '\nThis board is '+width_in+' x '+height_in+' inches (' \
-            +width_mm+' x '+height_mm+' mm)'
+      print get_board_size_string(board_dims)
 
       create_assembly_diagrams(data['projname'],data['gerbers_dir'],width_pixels, height_pixels) 
       create_image_previews(data['projname'],data['gerbers_dir'],width_pixels, height_pixels) 
@@ -1481,6 +1500,7 @@ if __name__ == '__main__':
     if args.assy:
       print "Preparing files for assembly quotes. Currently supports:\n"
       print "  -- MacroFab\n  -- Seeed/Fusion\n  -- Tempo Automation\n  -- Small Batch Assembly\n"
+
       update_readme(data)
 
     if args.pdf: 
