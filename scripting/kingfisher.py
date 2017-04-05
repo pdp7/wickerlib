@@ -138,14 +138,14 @@ def create_new_project(projname,which_template,version):
 
   if which_template is None:
     which_template = raw_input("what is the absolute path to the json template file? ")
-  else:
-    which_template = kfconfig.templates_dir+which_template+'.json'
+#  else:
+#    which_template = kfconfig.templates_dir+which_template+'.json'
 
   print which_template
   call(['cp',which_template,projname+'/proj.json'])
 
-  # load the proj.json file and make updates if necessary
-
+  # if it exists, load the proj.json file and make updates if necessary
+  
   with open(projname+'/proj.json','r') as jsonfile:
     data = json.load(jsonfile)
 
@@ -272,11 +272,11 @@ def update_sch_title_block(data):
           
           f_temp.append('Title "'+data['title']+'"\n')
           f_temp.append('Date "'+data['date_create']+'"\n')
-          f_temp.append('Rev"'+data['version']+'"\n')
-          f_temp.append('Comp "'+data['license']+'")\n')
-          f_temp.append('Comment1 "'+data['email']+'")\n')
-          f_temp.append('Comment2 "'+data['website']+'")\n')
-          f_temp.append('Comment3 "'+data['company']+'")\n')
+          f_temp.append('Rev "'+data['version']+'"\n')
+          f_temp.append('Comp "'+data['license']+'"\n')
+          f_temp.append('Comment1 "'+data['email']+'"\n')
+          f_temp.append('Comment2 "'+data['website']+'"\n')
+          f_temp.append('Comment3 "'+data['company']+'"\n')
           f_temp.append('Comment4 ""\n')
           f_temp.append('$EndDescr\n')
       else:
@@ -316,8 +316,8 @@ def create_readme(filename,data):
     o.write('- License: '+data['license']+'\n')
     o.write('<!--- end title --->\n\n')
     o.write('Description.\n\n')
-    o.write('### Bill of Materials\n\n')
     o.write('<!--- bom start --->\n')
+    o.write('### Bill of Materials\n\n')
     o.write('<!--- bom end --->\n')
     o.write('![Assembly Diagram](assembly.png)\n\n')
     o.write('![Gerber Preview](preview.png)\n\n')
@@ -540,12 +540,10 @@ def plot_gerbers_and_drills(projname, plot_dir):
   # rename the drill and outline files
 
   path = os.path.join(plot_dir,projname)
-  call(['gerbv','-x','rs274x',path+'-drl_map.gbr',path+'-Dwgs.User.gbr','-o',path+'-FabNotes.gbr'])
+  call(['gerbv','-x','rs274x',path+'-drl_map.gbr',path+'-Dwgs.User.gbr',path+'-Edge.Cuts.gm1','-o',path+'-FabNotes.gbr'])
   call(['rm',path+'-Dwgs.User.gbr',path+'-drl_map.gbr'])
   call(['mv',path+'-Edge.Cuts.gm1',path+'-Edge.Cuts.gko'])
   call(['mv',path+'.drl',path+'.xln'])
-  call(['mv',path+'-F.Fab.gbr',path+'-F.Assembly.gba'])
-  call(['mv',path+'-B.Fab.gbr',path+'-B.Assembly.gba'])
 
 ##########################################################
 #
@@ -653,8 +651,11 @@ def create_assembly_diagrams(projname,plotdir,width,height):
   width = str(width)
   height = str(height)
 
-  call(['gerbv','-x','png',plotdir+'/'+projname+'-F.Assembly.gba','-b#ffffff','-f#000000','-w',width+'x'+height,'-o','assembly-top.png'])
-  call(['gerbv','-x','png',plotdir+'/'+projname+'-B.Assembly.gba','-b#ffffff','-f#000000','-w',width+'x'+height,'-o','assembly-bottom.png'])
+  # test if there are any non-outline assembly markings on the Fab layers
+  # delete the empty layers
+
+  call(['gerbv','-x','png',plotdir+'/'+projname+'-F.Fab.gbr','-b#ffffff','-f#000000','-w',width+'x'+height,'-o','assembly-top.png'])
+  call(['gerbv','-x','png',plotdir+'/'+projname+'-B.Fab.gbr','-b#ffffff','-f#000000','-w',width+'x'+height,'-o','assembly-bottom.png'])
 
   img = Image.open('assembly-top.png')
   extrema = img.convert("L").getextrema()
@@ -664,6 +665,21 @@ def create_assembly_diagrams(projname,plotdir,width,height):
   extrema = img.convert("L").getextrema()
   if extrema[0] == extrema[1]:
     call(['rm','assembly-bottom.png'])
+
+  if os.path.isfile('assembly-top.png'):
+    call(['gerbv','-x','rs274x',plotdir+'/'+projname+'-F.Fab.gbr',plotdir+'/'+projname+'-Edge.Cuts.gko','-o',plotdir+'/'+projname+'-F.Assembly.gba'])
+    call(['gerbv','-x','png',plotdir+'/'+projname+'-F.Assembly.gba','-b#ffffff','-f#000000','-w',width+'x'+height,'-o','assembly-top.png'])
+#    call(['convert','assembly-top.png','-background','White','label:'+data['title']+' v'+data['version']+' Assembly Diagram Top View','+swap','-gravity','Center','-append','assembly-top.png'])
+    call(['convert','assembly-top.png','-bordercolor','White','-border','1x10','assembly-top.png'])
+
+  if os.path.isfile('assembly-bottom.png'):
+    call(['gerbv','-x','rs274x',plotdir+'/'+projname+'-B.Fab.gbr',plotdir+'/'+projname+'-Edge.Cuts.gko','-o',plotdir+'/'+projname+'-B.Assembly.gba'])
+    call(['gerbv','-x','png',plotdir+'/'+projname+'-B.Assembly.gba','-b#ffffff','-f#000000','-w',width+'x'+height,'-o','assembly-bottom.png'])
+    call(['convert','assembly-bottom.png','-flop','assembly-bottom.png'])
+#    call(['convert','assembly-bottom.png','-background','White','label:'+data['title']+' v'+data['version']+' Assembly Diagram Bottom View','-gravity','Center','-append','assembly-bottom.png'])
+    call(['convert','assembly-bottom.png','-bordercolor','White','-border','1x10','assembly-bottom.png'])
+
+  call(['rm',plotdir+'/'+projname+'-F.Fab.gbr',plotdir+'/'+projname+'-B.Fab.gbr'])
 
   # create preview.png file from one or both 
   f1 = os.path.isfile('assembly-top.png')
@@ -851,9 +867,10 @@ def create_component_list_from_netlist(data):
           comp.fields = []
         if fields_flag is True:
           if 'fields' not in line:
-            line = line.replace('(field (name ','').replace(')\n','').replace('"','').lstrip(' ')
-            line = line.rstrip(')').split(') ')
-            comp.fields.append((line[0],line[1]))
+            if 'field' in line:
+              line = line.replace('(field (name ','').replace(')\n','').replace('"','').lstrip(' ')
+              line = line.rstrip(')').split(') ')
+              comp.fields.append((line[0],line[1]))
 
   return components
 
@@ -990,6 +1007,12 @@ def create_bill_of_materials(data):
   with open(outfile,'w') as obom:
     obom.write('Ref,Qty,Description,MF,MF PN,S1,S1_PN\n')
     for b in bom:
+      bf_desc = ''
+      bf_mf_name = ''
+      bf_mf_pn = ''
+      bf_s1_name = ''
+      bf_s1_pn = ''
+
       obom.write(b.refs+',')
       obom.write(str(b.qty)+',')
 
@@ -1044,7 +1067,7 @@ def create_bill_of_materials(data):
         which_line = 1
 
       for f in line.fields:
-        if f[1].split(' ')[0] == v.capitalize().split(' ')[0]:
+        if f[1].capitalize().split(' ')[0] == v.capitalize().split(' ')[0]:
           if f[0] == 'S1_Name':
             md_line_string = '|'+line.refs+'|'+str(line.qty)+'|'
             csv_line_string = line.refs+','+str(line.qty)+','
@@ -1109,7 +1132,7 @@ def create_mfr_zip_files(data):
 
   files = []
 
-  for ext in ('*.gko','*.gtp','*.gbp'):
+  for ext in ('*.gko','*.gtp'):
     files.extend(glob.glob(os.path.join(data['gerbers_dir'], ext)))
 
   os.chdir(data['gerbers_dir'])
