@@ -838,7 +838,6 @@ def create_image_previews(projname,plotdir,width_pixels,height_pixels):
 #
 # what it does:
 # - opens the netlist file
-# - TODO: handle error if netlist is not present
 # - for every line in the netlist, create a component line
 #   there is no handling of duplicate entries; this is a 
 #   raw list right from the netlist.
@@ -857,6 +856,11 @@ def create_component_list_from_netlist(data):
   comp_flag = False
   comp_count = 0
   fields_flag = False
+
+  if not os.path.exists(netfile_name): 
+    print "\nERROR! Netfile doesn't exist. Did you export it from the schematic?"
+    print "--> Leaving the program without creating bill of materials.\n"
+    exit()
 
   with open(netfile_name,'r') as netfile:
     for line in netfile:
@@ -934,7 +938,6 @@ def create_bill_of_materials(data):
   for f in filelist:
     os.remove(f)
   os.chdir('..')
-  print os.getcwd()
 
   components = create_component_list_from_netlist(data)
 
