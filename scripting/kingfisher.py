@@ -860,7 +860,7 @@ def create_image_previews(projname,plotdir,width_pixels,height_pixels):
 #   raw list right from the netlist.
 #
 # returns:
-# - list of components
+# - json object of every part on the board listed by refdes
 # 
 ###########################################################
 
@@ -897,7 +897,7 @@ def create_component_list_from_netlist(data):
           first_flag = False
           line = line.replace(')','').replace('\n','').replace('(comp (ref ','').lstrip(' ')
           #net_json.append('     "'+line+'": [\n        {')
-          line = '     {\n     "ref":"'+line+'",'
+          line = '     {\n        "ref":"'+line+'",'
           net_json.append(line)
         if '(value ' in line:
           line = line.replace(')','').replace('\n','').replace('"','')
@@ -906,9 +906,8 @@ def create_component_list_from_netlist(data):
           net_json.append(line)
         if '(footprint ' in line:
           line = line.replace(')','').replace('\n','').replace('(footprint ','').lstrip(' ')
-          line = 'footprint:'+line+'"'
           splitline = line.split(':')
-          net_json.append('        "lib":"'+splitline[0]+'",')
+          net_json.append('        "footprint_lib":"'+splitline[0]+'",')
           net_json.append('        "footprint":"'+splitline[1]+'",')
         if '(datasheet ' in line:
           line = line.replace(')','').replace('\n','').replace('(datasheet ','').lstrip(' ')
@@ -922,7 +921,8 @@ def create_component_list_from_netlist(data):
           line = line.replace(') ',':').replace('\n','').replace('(libsource (lib ','').lstrip('  ')
           line = line.replace('(part ','').strip('))')
           splitline = line.split(':')
-          net_json.append('        "name":"'+splitline[1]+'"')
+          net_json.append('        "symbol_lib":"'+splitline[0]+'",')
+          net_json.append('        "symbol":"'+splitline[1]+'"')
           net_json.append('      }')
 
   net_json.append('\n]')
@@ -941,11 +941,7 @@ def create_component_list_from_netlist(data):
     print "Something went wrong when converting the netlist to a json file."
     exit()
 
-  os.remove(net_json_path)
-
-  for c in components:
-    print c['ref']
-  exit()
+  #os.remove(net_json_path)
 
   return components
 
@@ -985,26 +981,33 @@ def create_bill_of_materials(data):
     os.remove(f)
   os.chdir('..')
 
+  # get the json object of components
+
   components = create_component_list_from_netlist(data)
 
   bom_outfile_csv = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-master.csv'
   bom_outfile_seeed_csv = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-seeed.csv'
   bom_outfile_readable_csv = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-readable.csv'
   bom_outfile_md = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-readme.md'
-  vendors = []
   optional_fields = []
   bom = []
 
   # get the list of field names
   # and figure out what vendors are necessary
 
-  for c in components:
-    for f in c.fields:
-      if f[0] not in optional_fields: 
-        optional_fields.append(f[0])
-      if 'S1_Name' in f[0]:
-        vendors.append(f[1])
+  vendors = []
 
+  for c in components:
+    for key, value in c.iteritems():
+      if key == 's1_name':
+        vendors.append(value)
+
+#  for f in c.fields:
+#    if f[0] not in optional_fields: 
+#      optional_fields.append(f[0])
+#    if 'S1_Name' in f[0]:
+#      vendors.append(f[1])
+#
   vtemp = []
   vendors = set(vendors)
   for v in vendors:
@@ -1020,28 +1023,31 @@ def create_bill_of_materials(data):
 
     exists_flag = False
 
-    if bom:
-      for line in bom:
-        if line.symbol in c.symbol:
-          line.qty = line.qty + 1
-          line.refs = line.refs+' '+c.ref
-          exists_flag = True
-          break
-          
+#    if bom:
+#      for line in bom:
+#        print line.symbol
+#        if line.symbol in c.symbol:
+#          line.qty = line.qty + 1
+#          line.refs = line.refs+' '+c.ref
+#          exists_flag = True
+#          break
+#          
+#
+#    if not exists_flag:
+    bomline = BOMline()
+    bomline.refs = c['ref']
+#    bomline.qty = 1
+#    bomline.value = c.value
+#    bomline.footprint = c.footprint
+#    bomline.fp_library = c.fp_library
+#    bomline.symbol = c.symbol
+#    bomline.sym_library = c.sym_library
+#    bomline.datasheet = c.datasheet
+#    bomline.fields = c.fields
+    bom.append(bomline)
 
-    if not exists_flag:
-      bomline = BOMline()
-      bomline.refs = c.ref
-      bomline.qty = 1
-      bomline.value = c.value
-      bomline.footprint = c.footprint
-      bomline.fp_library = c.fp_library
-      bomline.symbol = c.symbol
-      bomline.sym_library = c.sym_library
-      bomline.datasheet = c.datasheet
-      bomline.fields = c.fields
-      bom.append(bomline)
 
+  exit()
   # sort bom ref entries by alphabet
   # ex: C1 C2 C5 instead of C2 C5 C1
 
