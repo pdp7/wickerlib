@@ -880,90 +880,72 @@ def create_component_list_from_netlist(data):
     exit()
 
   net_json = []
-  net_json.append('{\n  "components": {\n')
+  net_json.append('[\n  ')
+  first_flag = True
 
   with open(netfile_name,'r') as netfile:
     for line in netfile:
-      if 'components' in line:
+      if '(components' in line:
         comp_flag = True
-      if 'libparts' in line:
+      if '(libparts' in line:
         comp_flag = False
 
       if comp_flag is True:
         if '(ref ' in line:
-          net_json.append('     "part": [\n        {')
+          if not first_flag:
+            net_json.append(',\n')
+          first_flag = False
           line = line.replace(')','').replace('\n','').replace('(comp (ref ','').lstrip(' ')
-          line = '        "ref":"'+line+'"'
+          #net_json.append('     "'+line+'": [\n        {')
+          line = '     {\n     "ref":"'+line+'",'
           net_json.append(line)
         if '(value ' in line:
-          line = line.replace(')','').replace('\n','').replace('(value ','').lstrip(' ')
-          line = '        "value":"'+line+'"'
+          line = line.replace(')','').replace('\n','').replace('"','')
+          line = line.replace('(value ','').lstrip(' ')
+          line = '        "value":"'+line+'",'
           net_json.append(line)
         if '(footprint ' in line:
           line = line.replace(')','').replace('\n','').replace('(footprint ','').lstrip(' ')
           line = 'footprint:'+line+'"'
           splitline = line.split(':')
-          net_json.append('        "lib":"'+splitline[0]+'"')
-          net_json.append('        "footprint":"'+splitline[1]+'"')
+          net_json.append('        "lib":"'+splitline[0]+'",')
+          net_json.append('        "footprint":"'+splitline[1]+'",')
         if '(datasheet ' in line:
           line = line.replace(')','').replace('\n','').replace('(datasheet ','').lstrip(' ')
-          net_json.append('        "datasheet":"'+line+'"')
+          net_json.append('        "datasheet":"'+line+'",')
         if '(field (name ' in line:
           line = line.replace(') ',':').replace('\n','').replace('(field (name ','').lstrip('  ')
           line = line.replace('"','').strip('))')
           splitline = line.split(':')
-          net_json.append('        "'+splitline[0].lower()+'":"'+splitline[1]+'"')
+          net_json.append('        "'+splitline[0].lower()+'":"'+splitline[1]+'",')
         if '(libsource (lib ' in line:
           line = line.replace(') ',':').replace('\n','').replace('(libsource (lib ','').lstrip('  ')
           line = line.replace('(part ','').strip('))')
           splitline = line.split(':')
           net_json.append('        "name":"'+splitline[1]+'"')
-          net_json.append('        }]')
-        
-  net_json.append('}')
+          net_json.append('      }')
 
-  for line in net_json:
-    print line
+  net_json.append('\n]')
+  
+  net_json_path = data['projname']+'-parts.json'
+      
+  with open(net_json_path,'w') as parts_json:
+    for line in net_json:
+      parts_json.write(line+'\n')
+  
+  if os.path.isfile(net_json_path):
+    with open(net_json_path) as jfile:
+      components = json.load(jfile)
 
-#  
-#      if comp_flag is True:
-#        if 'comp' in line and 'components' not in line:
-#          comp = Comp()
-#          comp_count = comp_count + 1
-#          comp.ref = line.replace(')','').replace('\n','').replace('(comp (ref ','').lstrip(' ')
-#        if 'value' in line: 
-#          comp.value = line
-#          comp.value = line.replace(')','').replace('\n','').strip('(value ').lstrip(' ')
-#        if 'footprint' in line: 
-#          if ':' not in line:
-#            comp.footprint = line.replace('(footprint ','').replace(')\n','').lstrip(' ')
-#            comp.fp_library = 'None'
-#          else:
-#            line = line.replace('(footprint','').replace(')\n','').lstrip(' ').split(':')
-#            comp.footprint = line[1]
-#            comp.fp_library = line[0]
-#        if 'datasheet' in line: 
-#          comp.datasheet = line.replace('(datasheet ','').lstrip(' ').replace(')\n','')
-#        if 'libsource' in line:
-#          fields_flag = False
-#          line = line.replace('(libsource (lib ','').replace('))','').lstrip(' \n').split(') (')
-#          comp.sym_library = line[0]
-#          comp.symbol = line[1].lstrip('part ').replace('\n','')
-#          components.append(comp)
-#
-#        if 'fields' in line:
-#          fields_flag = True
-#          del comp.fields[:]
-#          comp.fields = []
-#        if fields_flag is True:
-#          if 'fields' not in line:
-#            if 'field' in line:
-#              line = line.replace('(field (name ','').replace(')\n','').replace('"','').lstrip(' ')
-#              line = line.rstrip(')').split(') ')
-#              comp.fields.append((line[0],line[1]))
-#
-#  for c in components:
-#    c.print_component()
+  else:
+    print "Something went wrong when converting the netlist to a json file."
+    exit()
+
+  os.remove(net_json_path)
+
+  for c in components:
+    print c['ref']
+  exit()
 
   return components
 
