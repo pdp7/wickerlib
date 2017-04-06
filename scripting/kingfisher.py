@@ -27,6 +27,23 @@ from shutil import copyfile
 from subprocess import call
 from pcbnew import *
 
+# see MacroFab XYRS formatting here:
+# https://macrofab.com/help/creating-managing-ordering-pcbs/required-design-files/
+
+class XYRSPart():
+  ref = ''       # ex: C1
+  xloc = ''      # mils from bottom left, ex: 270.00
+  yloc = ''      # mils from bottom left, ex: 900.00
+  rot = ''       # rotation in degrees, ex: 270
+  side = ''      # layer part is on, 'top' or 'bottom'
+  thsmt = ''     # part type, '1' for SMD, '2' for PTH
+  xsize = ''     # size of package on x-axis
+  ysize = ''     # size of package on y-axis
+  value = ''     # value of part (part value in wickerlib, no spaces)
+  footprint = '' # footprint name (footprint value in wickerlib, no spaces)
+  pop = ''       # 1 for place (default), 0 for do not place
+  mpn = ''       # manufacturers part number
+
 class Comp():
   ref = ''
   value = ''
@@ -862,48 +879,91 @@ def create_component_list_from_netlist(data):
     print "--> Leaving the program without creating bill of materials.\n"
     exit()
 
+  net_json = []
+  net_json.append('{\n  "components": {\n')
+
   with open(netfile_name,'r') as netfile:
     for line in netfile:
       if 'components' in line:
-          comp_flag = True
+        comp_flag = True
       if 'libparts' in line:
         comp_flag = False
 
       if comp_flag is True:
-        if 'comp' in line and 'components' not in line:
-          comp = Comp()
-          comp_count = comp_count + 1
-          comp.ref = line.replace(')','').replace('\n','').replace('(comp (ref ','').lstrip(' ')
-        if 'value' in line: 
-          comp.value = line
-          comp.value = line.replace(')','').replace('\n','').strip('(value ').lstrip(' ')
-        if 'footprint' in line: 
-          if ':' not in line:
-            comp.footprint = line.replace('(footprint ','').replace(')\n','').lstrip(' ')
-            comp.fp_library = 'None'
-          else:
-            line = line.replace('(footprint','').replace(')\n','').lstrip(' ').split(':')
-            comp.footprint = line[1]
-            comp.fp_library = line[0]
-        if 'datasheet' in line: 
-          comp.datasheet = line.replace('(datasheet ','').lstrip(' ').replace(')\n','')
-        if 'libsource' in line:
-          fields_flag = False
-          line = line.replace('(libsource (lib ','').replace('))','').lstrip(' \n').split(') (')
-          comp.sym_library = line[0]
-          comp.symbol = line[1].lstrip('part ').replace('\n','')
-          components.append(comp)
+        if '(ref ' in line:
+          net_json.append('     "part": [\n        {')
+          line = line.replace(')','').replace('\n','').replace('(comp (ref ','').lstrip(' ')
+          line = '        "ref":"'+line+'"'
+          net_json.append(line)
+        if '(value ' in line:
+          line = line.replace(')','').replace('\n','').replace('(value ','').lstrip(' ')
+          line = '        "value":"'+line+'"'
+          net_json.append(line)
+        if '(footprint ' in line:
+          line = line.replace(')','').replace('\n','').replace('(footprint ','').lstrip(' ')
+          line = 'footprint:'+line+'"'
+          splitline = line.split(':')
+          net_json.append('        "lib":"'+splitline[0]+'"')
+          net_json.append('        "footprint":"'+splitline[1]+'"')
+        if '(datasheet ' in line:
+          line = line.replace(')','').replace('\n','').replace('(datasheet ','').lstrip(' ')
+          net_json.append('        "datasheet":"'+line+'"')
+        if '(field (name ' in line:
+          line = line.replace(') ',':').replace('\n','').replace('(field (name ','').lstrip('  ')
+          line = line.replace('"','').strip('))')
+          splitline = line.split(':')
+          net_json.append('        "'+splitline[0].lower()+'":"'+splitline[1]+'"')
+        if '(libsource (lib ' in line:
+          line = line.replace(') ',':').replace('\n','').replace('(libsource (lib ','').lstrip('  ')
+          line = line.replace('(part ','').strip('))')
+          splitline = line.split(':')
+          net_json.append('        "name":"'+splitline[1]+'"')
+          net_json.append('        }]')
+        
+  net_json.append('}')
 
-        if 'fields' in line:
-          fields_flag = True
-          del comp.fields[:]
-          comp.fields = []
-        if fields_flag is True:
-          if 'fields' not in line:
-            if 'field' in line:
-              line = line.replace('(field (name ','').replace(')\n','').replace('"','').lstrip(' ')
-              line = line.rstrip(')').split(') ')
-              comp.fields.append((line[0],line[1]))
+  for line in net_json:
+    print line
+
+#  
+#      if comp_flag is True:
+#        if 'comp' in line and 'components' not in line:
+#          comp = Comp()
+#          comp_count = comp_count + 1
+#          comp.ref = line.replace(')','').replace('\n','').replace('(comp (ref ','').lstrip(' ')
+#        if 'value' in line: 
+#          comp.value = line
+#          comp.value = line.replace(')','').replace('\n','').strip('(value ').lstrip(' ')
+#        if 'footprint' in line: 
+#          if ':' not in line:
+#            comp.footprint = line.replace('(footprint ','').replace(')\n','').lstrip(' ')
+#            comp.fp_library = 'None'
+#          else:
+#            line = line.replace('(footprint','').replace(')\n','').lstrip(' ').split(':')
+#            comp.footprint = line[1]
+#            comp.fp_library = line[0]
+#        if 'datasheet' in line: 
+#          comp.datasheet = line.replace('(datasheet ','').lstrip(' ').replace(')\n','')
+#        if 'libsource' in line:
+#          fields_flag = False
+#          line = line.replace('(libsource (lib ','').replace('))','').lstrip(' \n').split(') (')
+#          comp.sym_library = line[0]
+#          comp.symbol = line[1].lstrip('part ').replace('\n','')
+#          components.append(comp)
+#
+#        if 'fields' in line:
+#          fields_flag = True
+#          del comp.fields[:]
+#          comp.fields = []
+#        if fields_flag is True:
+#          if 'fields' not in line:
+#            if 'field' in line:
+#              line = line.replace('(field (name ','').replace(')\n','').replace('"','').lstrip(' ')
+#              line = line.rstrip(')').split(') ')
+#              comp.fields.append((line[0],line[1]))
+#
+#  for c in components:
+#    c.print_component()
 
   return components
 
@@ -1130,6 +1190,9 @@ def create_bill_of_materials(data):
     for line in outbom_list:
       obom.write(line+'\n')
 
+  for c in components:
+    c.print_component()
+
   return components
 
 ###########################################################
@@ -1196,7 +1259,7 @@ def create_mfr_zip_files(data):
 # 
 ###########################################################
 
-def create_assembly_files(data,parts_list):
+def create_assembly_files(data,components):
 
   print "Creating assembly files for PCB+Assembly"
 
@@ -1213,11 +1276,69 @@ def create_assembly_files(data,parts_list):
 
   # make a tuple of the .pos files
   posfiles = (data['projname']+'-top.pos',data['projname']+'-bottom.pos')
+  xyrs_parts_master = []
 
-  # add columns to each parts_list based on if 
-  # component is found in top or bottom posfile
+  # create xyrs_parts_master from the position files
+  
+  for pf in posfiles:
+    with open(pf) as p:
+      for line in p:
+        if '#' not in line:
+          line = line.strip('\n').split('  ')
+          line = [x for x in line if x]
+          print line
+          xyrs_part = XYRSPart()
+          xyrs_part.ref = line[0]
+          xyrs_part.value = line[1]
+          xyrs_part.footprint = line[2]
+          xyrs_part.xloc = line[3]
+          xyrs_part.yloc = line[4]
+          xyrs_part.rot = line[5]
+          xyrs_part.side = line[6]
+          xyrs_part.xsize = ''
+          xyrs_part.ysize = ''
+          xyrs_part.type = ''
+          xyrs_part.value = ''
+          xyrs_part.populate = '1'
+          xyrs_part.mpn = ''
+          xyrs_parts_master.append(xyrs_part)
+
+  # look for that particular refdes in a line in the components list
+  # fill in missing fields in XYRS component object in xyrs_parts_master
+  # print and verify that list
 
   
+#  for p in xyrs_parts_master:
+#    print p.ref,p.xloc
+#    for c in components:
+#      if p.ref == 'BAT1':
+#        print p.ref,c.fields
+#        for f in c.fields:
+#          print f[0],f[1]
+#          if f[0] == 'MF_PN':
+#            p.mpn = f[1]
+#          if f[0] == 'Populate':
+#            p.pop = f[1]
+#          if f[0] == 'XSizeMils':
+#            p.xsize = f[1]
+#          if f[0] == 'YSizeMils':
+#            p.ysize = f[1]
+#          if f[0] == 'Type':
+#            if f[1] == 'SMT':
+#              p.type = '1'
+#            elif f[1] == 'TH':
+#              p.type = '2'
+#            else:
+#              print 'Warning! '+p.ref+' missing SMT or TH for TYPE.'
+              
+#  print 'Part\tX\tY\tRotation\tSide\tType\tXSize\tYSize\tValue\tFootprint\tPopulate\tMPN\n'
+#  for p in xyrs_parts_master:
+#    print p.ref+'\t'+p.xloc+'\t'+p.yloc+'\t'+p.rot+'\t'+p.side+'\t'+ \
+#          p.type+'\t'+p.xsize+'\t'+p.ysize+'\t'+p.value+'\t'+p.footprint+'\t'+ \
+#          p.populate+'\t'+p.mpn
+
+  # create macrofab's xyrs file
+  # create small batch's bom file
 
   assy_outfile_md = data['assy_dir']+'/'+data['projname']+'-v'+data['version']+'-assy-readme.md'
   outassy_list = []
@@ -1548,9 +1669,12 @@ if __name__ == '__main__':
       print "Preparing files for assembly quotes. Currently supports:\n"
       print "  -- MacroFab\n  -- Seeed/Fusion\n  -- Tempo Automation\n  -- Small Batch Assembly\n"
 
-      # assy should fail if top .pos doesn't exist
+      # assy should fail if top or bottom .pos doesn't exist
       if not os.path.exists(data['projname']+'-top.pos'):
         print "Missing top .pos file. Unable to create assembly information."
+        exit()
+      if not os.path.exists(data['projname']+'-bottom.pos'):
+        print "Missing bottom .pos file. Unable to create assembly information."
         exit()
       
       # the components_raw list contains each refdes (part) on a separate row
