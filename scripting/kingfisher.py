@@ -915,14 +915,18 @@ def create_component_list_from_netlist(data):
 # - data object
 #
 # what it does:
-# - removes all existing bom files in that directory
+# - remove all existing bom files in that directory
 # - create a components list organized by refdes
-# - figures out which vendors are necessary
+# - figure out which vendors are necessary
 # - create the master BOM object made up of BOM lines
 # - create a master CSV file with all possible info 
 # - create a CSV file in the Seeed format
 # - create CSV files for each vendor
 # - create one Markdown file with tables
+#
+# returns:
+# - the list of components directly from netlist
+#   with no handling of duplicate part types
 # 
 ###########################################################
 
@@ -1126,6 +1130,8 @@ def create_bill_of_materials(data):
     for line in outbom_list:
       obom.write(line+'\n')
 
+  return components
+
 ###########################################################
 #
 #                   create_mfr_zip_files 
@@ -1172,28 +1178,16 @@ def create_mfr_zip_files(data):
 
 ###########################################################
 #
-#                    create_pos_file    
-#
-# TODO: figure out how to get the pos file by 
-#       command line out of pcbnew module
-#
-###########################################################
-
-def create_pos_file():
-  print "unable to create pos file at this time"
-
-###########################################################
-#
 #             create_assembly_files
 # 
 # inputs: 
 # - data object
+# - unsanitized components list directly from netlist
 #
 # what it does:
 # - removes all existing assembly files in that directory
+# - 
 #
-# - create a components list organized by refdes
-# - figures out which vendors are necessary
 # - create the master BOM object made up of BOM lines
 # - create a master CSV file with all possible info 
 # - create a CSV file in the Seeed format
@@ -1202,7 +1196,7 @@ def create_pos_file():
 # 
 ###########################################################
 
-def create_assembly_files(data):
+def create_assembly_files(data,parts_list):
 
   print "Creating assembly files for PCB+Assembly"
 
@@ -1217,6 +1211,14 @@ def create_assembly_files(data):
     os.remove(f)
   os.chdir('..')
 
+  # make a tuple of the .pos files
+  posfiles = (data['projname']+'-top.pos',data['projname']+'-bottom.pos')
+
+  # add columns to each parts_list based on if 
+  # component is found in top or bottom posfile
+
+  
+
   assy_outfile_md = data['assy_dir']+'/'+data['projname']+'-v'+data['version']+'-assy-readme.md'
   outassy_list = []
 
@@ -1229,7 +1231,7 @@ def create_assembly_files(data):
   with open(assy_outfile_md,'w') as oassy:
     for line in outassy_list:
       oassy.write(line+'\n')
- 
+
 ###########################################################
 #
 #                     update_readme
@@ -1528,27 +1530,35 @@ if __name__ == '__main__':
     cwd = os.getcwd()
     os.chdir(data['projname'])
 
-    if args.mfr:
+    if args.mfr or args.assy:
       print "Creating the manufacturing file outputs."
       plot_gerbers_and_drills(data['projname'],data['gerbers_dir'])
       board_dims = get_board_size(data['projname'],data['gerbers_dir'])
       print get_board_size_string(board_dims)
 
-      create_assembly_diagrams(data['projname'],data['gerbers_dir'],width_pixels, height_pixels) 
-      create_image_previews(data['projname'],data['gerbers_dir'],width_pixels, height_pixels) 
+      create_assembly_diagrams(data['projname'],data['gerbers_dir'],board_dims[4], board_dims[5])
+      create_image_previews(data['projname'],data['gerbers_dir'],board_dims[4], board_dims[5]) 
       create_mfr_zip_files(data)
       
-    if args.bom:
+    if args.bom or args.assy:
       print "Creating the bill of materials, which will update the README."
-      create_bill_of_materials(data)
-      create_pos_file()
-      update_readme(data)
+      components_raw = create_bill_of_materials(data)
 
     if args.assy:
       print "Preparing files for assembly quotes. Currently supports:\n"
       print "  -- MacroFab\n  -- Seeed/Fusion\n  -- Tempo Automation\n  -- Small Batch Assembly\n"
-      create_assembly_files(data)
-      update_readme(data)
+
+      # assy should fail if top .pos doesn't exist
+      if not os.path.exists(data['projname']+'-top.pos'):
+        print "Missing top .pos file. Unable to create assembly information."
+        exit()
+      
+      # the components_raw list contains each refdes (part) on a separate row
+      # it needs to be sanitized for non-populated parts
+      # then merged with .pos file values
+      create_assembly_files(data, components_raw)
+
+    update_readme(data)
 
     if args.pdf: 
       print "Creating or updating the PDF."
