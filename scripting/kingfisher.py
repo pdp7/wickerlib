@@ -68,17 +68,19 @@ class BOMline():
   qty = ''
   value = ''
   footprint = ''
-  fp_library = ''
+  footprint_lib = ''
   symbol = ''
-  sym_library = ''
+  symbol_lib = ''
   datasheet = ''
+  description = ''
   mf_pn = ''
   mf_name = ''
   s1_pn = ''
   s1_name = ''
+  thsmt = ''
 
   def print_line(self):
-    print self.refs,self.qty,self.value,self.footprint,self.fp_library,self.symbol,self.sym_library,self.datasheet,self.mf_name,self.mf_pn,self.s1_name,self.s1_pn
+    print self.refs,self.qty,self.value,self.footprint,self.footprint_lib,self.symbol,self.symbol_lib,self.datasheet,self.description,self.mf_name,self.mf_pn,self.s1_name,self.s1_pn,self.thsmt
 
 ###########################################################
 #
@@ -985,35 +987,24 @@ def create_bill_of_materials(data):
 
   components = create_component_list_from_netlist(data)
 
-  bom_outfile_csv = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-master.csv'
-  bom_outfile_seeed_csv = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-seeed.csv'
-  bom_outfile_readable_csv = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-readable.csv'
-  bom_outfile_md = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-readme.md'
+  bom_dir_base_path = data['bom_dir']+'/'+data['projname']+'-v'+data['version']
+
+  bom_outfile_csv          = bom_dir_base_path+'-bom-master.csv'
+  bom_outfile_seeed_csv    = bom_dir_base_path+'-bom-seeed.csv'
+  bom_outfile_readable_csv = bom_dir_base_path+'-bom-readable.csv'
+  bom_outfile_md           = bom_dir_base_path+'-bom-readme.md'
+
   optional_fields = []
   bom = []
 
-  # get the list of field names
-  # and figure out what vendors are necessary
+  # figure out what vendors are necessary
 
   vendors = []
-
   for c in components:
     for key, value in c.iteritems():
       if key == 's1_name':
         vendors.append(value)
-
-#  for f in c.fields:
-#    if f[0] not in optional_fields: 
-#      optional_fields.append(f[0])
-#    if 'S1_Name' in f[0]:
-#      vendors.append(f[1])
-#
-  vtemp = []
   vendors = set(vendors)
-  for v in vendors:
-    vtemp.append(v)
-
-  vendors = vtemp
 
   # create the master BOM object
    
@@ -1021,7 +1012,8 @@ def create_bill_of_materials(data):
 
   for c in components:
 
-    exists_flag = False
+    print c
+#    exists_flag = False
 
 #    if bom:
 #      for line in bom:
@@ -1034,8 +1026,8 @@ def create_bill_of_materials(data):
 #          
 #
 #    if not exists_flag:
-    bomline = BOMline()
-    bomline.refs = c['ref']
+#    bomline = BOMline()
+#    bomline.refs = c['ref']
 #    bomline.qty = 1
 #    bomline.value = c.value
 #    bomline.footprint = c.footprint
@@ -1044,7 +1036,7 @@ def create_bill_of_materials(data):
 #    bomline.sym_library = c.sym_library
 #    bomline.datasheet = c.datasheet
 #    bomline.fields = c.fields
-    bom.append(bomline)
+#    bom.append(bomline)
 
 
   exit()
