@@ -1070,8 +1070,6 @@ def create_bill_of_materials(data):
   for line in bom:
     if 'No' in line.populate:
       line.qty = 0
-    #line.print_line()
-    #print ''
 
   # sort bom ref entries by alphabet
   # ex: C1 C2 C5 instead of C2 C5 C1
@@ -1080,8 +1078,10 @@ def create_bill_of_materials(data):
     refs.sort(key=lambda x: x)
     b.refs = ''
     for r in refs:
-      b.refs = b.refs + r + ' '
-    print b.refs
+      if b.refs: 
+        b.refs = b.refs + ' ' + r
+      else:
+        b.refs = r
 
   # sort bom list by ref
   # ex: C1 C2 ~~~~
@@ -1147,8 +1147,6 @@ def create_bill_of_materials(data):
       if b.qty > 0:
         obom.write(b.refs+','+b.mf_pn+','+str(b.qty)+'\n')
 
-  exit()
-
   # Create a markdown file for github with each vendor
   # given its own table for easy reading
   # Also create the vendor-specific csv files
@@ -1158,52 +1156,37 @@ def create_bill_of_materials(data):
   outfile_md = bom_outfile_md
 
   for v in vendors:
-
     outcsv_list = []
-    outfile_csv = data['bom_dir']+'/'+data['projname']+'-v'+data['version']+'-bom-'+v.lower()+'.csv'
+    outfile_csv = bom_dir_base_path+'-bom-'+v.lower()+'.csv'
     which_line = 0
 
     for line in bom:
       if which_line is 0:
         outcsv_list.append('Ref,Qty,Description,'+v+' PN')
-        outbom_list.append('|Ref|Qty|Description|'+v.capitalize()+' PN|')
+        outbom_list.append('|Ref|Qty|Description|'+v+' PN|')
         outbom_list.append('|---|---|-----------|------|')
         which_line = 1
 
-      for f in line.fields:
-        if f[1].capitalize().split(' ')[0] == v.capitalize().split(' ')[0]:
-          if f[0] == 'S1_Name':
-            md_line_string = '|'+line.refs+'|'+str(line.qty)+'|'
-            csv_line_string = line.refs+','+str(line.qty)+','
-            for i in line.fields:
-              if i[0] == 'Description':
-                md_line_string = md_line_string + i[1]+'|'
-                csv_line_string = csv_line_string + i[1]+','
-            for i in line.fields:
-              if i[0] == 'S1_PN':
-                md_line_string = md_line_string+i[1]+'|'
-                csv_line_string = csv_line_string+i[1] 
-            outbom_list.append(md_line_string)
-            outcsv_list.append(csv_line_string)
+      if line.qty > 0 and line.s1_name == v:
+        outcsv_list.append(line.refs+','+str(line.qty)+','+line.description+','+line.s1_pn)
+        outbom_list.append('|'+line.refs+'|'+str(line.qty)+'|'+line.description+'|'+line.s1_pn+'|')
 
-    outbom_list.append('')
+    outbom_list.append('\n')
 
+    # write out this particular vendor into its own csv file
     with open(outfile_csv,'w') as ocsv:
       for line in outcsv_list:
         ocsv.write(line+'\n')
 
+    # empty the output csv list to start fresh for the next file 
     outcsv_list = []
 
-    if v == vendors[-1]:
-      outbom_list.append('')
-    
+  # write out all the vendors in one readable markdown file
   with open(outfile_md,'w') as obom:
     for line in outbom_list:
       obom.write(line+'\n')
 
-  for c in components:
-    c.print_component()
-
+  # return the json components data object
   return components
 
 ###########################################################
