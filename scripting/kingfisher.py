@@ -1199,6 +1199,31 @@ def create_bill_of_materials(data):
     for line in outbom_list:
       obom.write(line+'\n')
 
+  # collect the preliminary assembly information for quoting
+  # board size, number of different parts, number of total placements
+
+  assy_outfile_md = data['assy_dir']+'/'+data['projname']+'-v'+data['version']+'-assy-readme.md'
+  outassy_list = []
+
+  place_count = 0
+  part_count = 0
+  for b in bom:
+    if b.qty > 0:
+      place_count = place_count + b.qty
+      part_count = part_count + 1
+
+  outassy_list.append('Individual Placements per board: '+str(part_count)+'\n')
+  outassy_list.append('Number of Parts: '+str(place_count)+'\n')
+
+  board_dims = get_board_size(data['projname'],data['gerbers_dir'])
+  outassy_list.append(get_board_size_string(board_dims)+'\n')
+
+  # write to the readable markdown file that will end up 
+  # appended in the github repo README.md
+  with open(assy_outfile_md,'w') as oassy:
+    for line in outassy_list:
+      oassy.write(line+'\n')
+
   # return the json components data object
   return components
 
@@ -1273,14 +1298,6 @@ def create_assembly_files(data,components):
   if not os.path.exists(data['assy_dir']):
     os.makedirs(data['assy_dir'])
 
-  # remove all files in the output dir
-  cwd = os.getcwd()
-  os.chdir(data['assy_dir'])
-  filelist = glob.glob('*')
-  for f in filelist:
-    os.remove(f)
-  os.chdir('..')
-
   # make a tuple of the .pos files
   posfiles = (data['projname']+'-top.pos',data['projname']+'-bottom.pos')
   xyrs_parts_master = []
@@ -1328,15 +1345,6 @@ def create_assembly_files(data,components):
     if x.thsmt == 'SMT' or x.thsmt == 'SMD':
       x.thsmt = '1'
 
-#  for p in xyrs_parts_master:
-#    print p.print_part()
-#
-#  print 'Part\tX\tY\tRotation\tSide\tType\tXSize\tYSize\tValue\tFootprint\tPopulate\tMPN\n'
-#  for p in xyrs_parts_master:
-#    print p.ref+'\t'+p.xloc+'\t'+p.yloc+'\t'+p.rot+'\t'+p.side+'\t'+ \
-#          p.thsmt+'\t'+p.xsize+'\t'+p.ysize+'\t'+p.value+'\t'+p.footprint+'\t'+ \
-#          p.pop+'\t'+p.mpn
-
   # create macrofab's xyrs file
   # only parts to be populated will be included
 
@@ -1362,20 +1370,6 @@ def create_assembly_files(data,components):
         oxyrs.write('\t'+x.mpn) if x.mpn else oxyrs.write('\t\t')
         oxyrs.write('\n')
 
-  # create small batch's bom file
-
-  assy_outfile_md = data['assy_dir']+'/'+data['projname']+'-v'+data['version']+'-assy-readme.md'
-  outassy_list = []
-
-  # get the board size string
-  board_dims = get_board_size(data['projname'],data['gerbers_dir'])
-  outassy_list.append(get_board_size_string(board_dims)+'\n')
-
-  # write to the readable markdown file that will end up 
-  # appended in the github repo README.md
-  with open(assy_outfile_md,'w') as oassy:
-    for line in outassy_list:
-      oassy.write(line+'\n')
 
 ###########################################################
 #
@@ -1676,6 +1670,15 @@ if __name__ == '__main__':
     os.chdir(data['projname'])
 
     if args.mfr or args.assy:
+
+      # remove all files in the assembly output dir
+      cwd = os.getcwd()
+      os.chdir(data['assy_dir'])
+      filelist = glob.glob('*')
+      for f in filelist:
+        os.remove(f)
+      os.chdir('..')
+
       print "Creating the manufacturing file outputs."
       plot_gerbers_and_drills(data['projname'],data['gerbers_dir'])
       board_dims = get_board_size(data['projname'],data['gerbers_dir'])
