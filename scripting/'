@@ -78,7 +78,7 @@ class BOMline():
   s1_pn = ''
   s1_name = ''
   thsmt = ''
-  populate = 'Yes'
+  populate = ''
 
   def print_line(self):
     print self.refs,self.qty,self.value,self.footprint,self.footprint_lib,self.symbol,self.symbol_lib,self.datasheet,self.description,self.mf_name,self.mf_pn,self.s1_name,self.s1_pn,self.thsmt,self.populate
@@ -1065,23 +1065,14 @@ def create_bill_of_materials(data):
           bomline.ysizemils = c['ysizemils']
 
       bom.append(bomline)
-
-  # update quantities to account for whether to populate
+    
   for line in bom:
-    if 'No' in line.populate:
-      line.qty = 0
-    #line.print_line()
-    #print ''
+    line.print_line()
+    print ''
 
   # sort bom ref entries by alphabet
   # ex: C1 C2 C5 instead of C2 C5 C1
-  for b in bom:
-    refs = b.refs.split(' ')
-    refs.sort(key=lambda x: x)
-    b.refs = ''
-    for r in refs:
-      b.refs = b.refs + r + ' '
-    print b.refs
+  # not implemented yet
 
   # sort bom list by ref
   # ex: C1 C2 ~~~~
@@ -1095,7 +1086,7 @@ def create_bill_of_materials(data):
   # this is brute force for now 
 
   title_string = 'Ref,Qty,Footprint,Footprint Library,Symbol,Symbol Library,Datasheet'
-  title_string += ',MF_Name,MF_PN,S1_Name,S1_PN,Type\n'
+  title_string += ',MF_Name,MF_PN,S1_Name,S1_PN,Type,Populate\n'
 
   # write to the master output file
 
@@ -1112,6 +1103,7 @@ def create_bill_of_materials(data):
       obom.write(','+b.s1_name) if b.s1_name else obom.write(',')
       obom.write(','+b.s1_pn) if b.s1_pn else obom.write(',')
       obom.write(','+b.thsmt) if b.thsmt else obom.write(',')
+      obom.write(','+b.populate) if b.populate else obom.write(',')
       obom.write('\n')
 
   # Create the master readable output
@@ -1141,13 +1133,14 @@ def create_bill_of_materials(data):
 
   outfile = bom_outfile_seeed_csv
   
+  exit()
   with open(outfile,'w') as obom:
     obom.write('Location,MPN/Seeed SKU,Quantity\n')
     for b in bom:
-      if b.qty > 0:
-        obom.write(b.refs+','+b.mf_pn+','+str(b.qty)+'\n')
+      for bf in b.fields:
+        if bf[0] == 'MF_PN':
+          obom.write(b.refs+','+bf[1]+','+str(b.qty)+'\n')
 
-  exit()
 
   # Create a markdown file for github with each vendor
   # given its own table for easy reading
