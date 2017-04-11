@@ -44,6 +44,9 @@ class XYRSPart():
   pop = ''       # 1 for place (default), 0 for do not place
   mpn = ''       # manufacturers part number
 
+  def print_part(self):
+    print 'Ref: '+self.ref+'\n'+'Xloc: '+self.xloc+'\n'+'Yloc: '+self.yloc+'\n'+'Rot: '+self.rot+'\n'+'Side: '+self.side+'\n'+'Type: '+self.thsmt+'\n'+'XSize: '+self.xsize+'\n'+'YSize'+self.ysize+'\n'+'Value: '+self.value+'\n'+'Footprint: '+self.footprint+'\n'+'Pop: '+self.pop+'\n'+'MPN: '+self.mpn+'\n'
+
 class Comp():
   ref = ''
   value = ''
@@ -935,7 +938,7 @@ def create_component_list_from_netlist(data):
   with open(net_json_path,'w') as parts_json:
     for line in net_json:
       parts_json.write(line+'\n')
-  
+
   if os.path.isfile(net_json_path):
     with open(net_json_path) as jfile:
       components = json.load(jfile)
@@ -944,7 +947,17 @@ def create_component_list_from_netlist(data):
     print "Something went wrong when converting the netlist to a json file."
     exit()
 
-  #os.remove(net_json_path)
+  os.remove(net_json_path)
+
+  # if the 'populate' key already exists, leave it in unchanged
+  # if it doesn't exist, create it and default to 'yes' or 1
+  for c in components:
+    populate_flag = False
+    for key, value in c.iteritems():
+      if key == 'populate': 
+        populate_flag = True
+    if populate_flag is False:
+      c['populate'] = 'Yes'
 
   return components
 
@@ -1280,20 +1293,19 @@ def create_assembly_files(data,components):
         if '#' not in line:
           line = line.strip('\n').split('  ')
           line = [x for x in line if x]
-          print line
+          #print line
           xyrs_part = XYRSPart()
-          xyrs_part.ref = line[0]
-          xyrs_part.value = line[1]
-          xyrs_part.footprint = line[2]
-          xyrs_part.xloc = line[3]
-          xyrs_part.yloc = line[4]
-          xyrs_part.rot = line[5]
-          xyrs_part.side = line[6]
+          xyrs_part.ref = line[0].lstrip(' ')
+          xyrs_part.value = line[1].lstrip(' ')
+          xyrs_part.footprint = line[2].lstrip(' ')
+          xyrs_part.xloc = line[3].lstrip(' ')
+          xyrs_part.yloc = line[4].lstrip(' ')
+          xyrs_part.rot = line[5].lstrip(' ')
+          xyrs_part.side = line[6].lstrip(' ')
           xyrs_part.xsize = ''
           xyrs_part.ysize = ''
-          xyrs_part.type = ''
-          xyrs_part.value = ''
-          xyrs_part.populate = '1'
+          xyrs_part.thsmt = ''
+          xyrs_part.pop = '1'
           xyrs_part.mpn = ''
           xyrs_parts_master.append(xyrs_part)
 
@@ -1301,37 +1313,27 @@ def create_assembly_files(data,components):
   # fill in missing fields in XYRS component object in xyrs_parts_master
   # print and verify that list
 
-  
-#  for p in xyrs_parts_master:
-#    print p.ref,p.xloc
-#    for c in components:
-#      if p.ref == 'BAT1':
-#        print p.ref,c.fields
-#        for f in c.fields:
-#          print f[0],f[1]
-#          if f[0] == 'MF_PN':
-#            p.mpn = f[1]
-#          if f[0] == 'Populate':
-#            p.pop = f[1]
-#          if f[0] == 'XSizeMils':
-#            p.xsize = f[1]
-#          if f[0] == 'YSizeMils':
-#            p.ysize = f[1]
-#          if f[0] == 'Type':
-#            if f[1] == 'SMT':
-#              p.type = '1'
-#            elif f[1] == 'TH':
-#              p.type = '2'
-#            else:
-#              print 'Warning! '+p.ref+' missing SMT or TH for TYPE.'
-              
-#  print 'Part\tX\tY\tRotation\tSide\tType\tXSize\tYSize\tValue\tFootprint\tPopulate\tMPN\n'
-#  for p in xyrs_parts_master:
-#    print p.ref+'\t'+p.xloc+'\t'+p.yloc+'\t'+p.rot+'\t'+p.side+'\t'+ \
-#          p.type+'\t'+p.xsize+'\t'+p.ysize+'\t'+p.value+'\t'+p.footprint+'\t'+ \
-#          p.populate+'\t'+p.mpn
+  for x in xyrs_parts_master:
+    for c in components:
+      if c['ref'] == x.ref and c['populate'] == 'Yes':
+        x.xsize = c['xsizemils']
+        x.ysize = c['ysizemils']
+        x.thsmt = c['type']
+        x.value = c['value']
+        x.mpn = c['mf_pn']
+    
+  for p in xyrs_parts_master:
+    print p.print_part()
+
+  print 'Part\tX\tY\tRotation\tSide\tType\tXSize\tYSize\tValue\tFootprint\tPopulate\tMPN\n'
+  for p in xyrs_parts_master:
+    print p.ref+'\t'+p.xloc+'\t'+p.yloc+'\t'+p.rot+'\t'+p.side+'\t'+ \
+          p.thsmt+'\t'+p.xsize+'\t'+p.ysize+'\t'+p.value+'\t'+p.footprint+'\t'+ \
+          p.pop+'\t'+p.mpn
 
   # create macrofab's xyrs file
+
+
   # create small batch's bom file
 
   assy_outfile_md = data['assy_dir']+'/'+data['projname']+'-v'+data['version']+'-assy-readme.md'
