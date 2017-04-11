@@ -1321,6 +1321,7 @@ def create_assembly_files(data,components):
         x.thsmt = c['type']
         x.value = c['description']
         x.mpn = c['mf_pn']
+        x.pop = 'Yes'
     
     if x.thsmt == 'TH':
       x.thsmt = '2'
@@ -1342,22 +1343,24 @@ def create_assembly_files(data,components):
   assy_outfile_xyrs = data['assy_dir']+'/'+data['projname']+'-v'+data['version']+'-assy.xyrs'
 
   with open(assy_outfile_xyrs,'w') as oxyrs:
-    oxyrs.write('Designator\tX-Loc\tY-Loc\tRotation\tSide\tType\tX-Size\tY-Size\
+    oxyrs.write('#Designator\tX-Loc\tY-Loc\tRotation\tSide\tType\tX-Size\tY-Size\
                 \tValue\tFootprint\tMPN\n')
 
     for x in xyrs_parts_master:
-      oxyrs.write(x.ref)
-      oxyrs.write('\t'+x.xloc) if x.xloc else oxyrs.write('\t')
-      oxyrs.write('\t'+x.yloc) if x.yloc else oxyrs.write('\t')
-      oxyrs.write('\t'+x.rot) if x.rot else oxyrs.write('\t')
-      oxyrs.write('\t'+x.side) if x.side else oxyrs.write('\t')
-      oxyrs.write('\t'+x.thsmt) if x.thsmt else oxyrs.write('\t')
-      oxyrs.write('\t'+x.xsize) if x.xsize else oxyrs.write('\t')
-      oxyrs.write('\t'+x.ysize) if x.ysize else oxyrs.write('\t')
-      oxyrs.write('\t'+x.value) if x.value else oxyrs.write('\t')
-      oxyrs.write('\t'+x.footprint) if x.footprint else oxyrs.write('\t')
-      oxyrs.write('\t'+x.mpn) if x.mpn else oxyrs.write('\t')
-      oxyrs.write('\n')
+      if x.pop == 'Yes':
+        oxyrs.write(x.ref)
+        oxyrs.write('\t'+x.xloc) if x.xloc else oxyrs.write('\t')
+        oxyrs.write('\t'+x.yloc) if x.yloc else oxyrs.write('\t')
+        oxyrs.write('\t'+x.rot) if x.rot else oxyrs.write('\t')
+        oxyrs.write('\t'+x.side) if x.side else oxyrs.write('\t')
+        oxyrs.write('\t'+x.thsmt) if x.thsmt else oxyrs.write('\t')
+        oxyrs.write('\t'+x.xsize) if x.xsize else oxyrs.write('\t')
+        oxyrs.write('\t'+x.ysize) if x.ysize else oxyrs.write('\t')
+        oxyrs.write('\t'+x.value) if x.value else oxyrs.write('\t')
+        oxyrs.write('\t'+x.footprint) if x.footprint else oxyrs.write('\t')
+        oxyrs.write('\t1')
+        oxyrs.write('\t'+x.mpn) if x.mpn else oxyrs.write('\t\t')
+        oxyrs.write('\n')
 
   # create small batch's bom file
 
