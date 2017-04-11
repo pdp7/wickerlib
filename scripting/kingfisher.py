@@ -1006,6 +1006,7 @@ def create_bill_of_materials(data):
   bom_outfile_csv          = bom_dir_base_path+'-bom-master.csv'
   bom_outfile_seeed_csv    = bom_dir_base_path+'-bom-seeed.csv'
   bom_outfile_readable_csv = bom_dir_base_path+'-bom-readable.csv'
+  bom_outfile_tempo_csv    = bom_dir_base_path+'-bom-tempo.csv'
   bom_outfile_md           = bom_dir_base_path+'-bom-readme.md'
 
   optional_fields = []
@@ -1149,6 +1150,25 @@ def create_bill_of_materials(data):
       obom.write(','+b.s1_pn) if b.s1_pn else obom.write(',')
       obom.write(','+b.thsmt) if b.thsmt else obom.write(',')
       obom.write('\n')
+
+  # Create the tempo automation output
+
+  outfile = bom_outfile_tempo_csv
+  
+  with open(outfile,'w') as obom:
+    obom.write('Refdes,Quantity,Description,Manufacturer,MPN\n')
+    for b in bom:
+      if b.qty > 0:
+        bf_desc = ''
+        bf_mf_name = ''
+        bf_mf_pn = ''
+
+        obom.write(b.refs+',')
+        obom.write(str(b.qty)+','+b.description)
+
+        obom.write(','+b.mf_name) if b.mf_name else obom.write(',')
+        obom.write(','+b.mf_pn) if b.mf_pn else obom.write(',')
+        obom.write('\n')
 
   # Create the master Seeed output
 
